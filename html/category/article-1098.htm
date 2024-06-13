@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1098.htm" />
+    <title>Java8中List转Map(Collectors.toMap())的使用 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Java8中List转Map(Collectors.toMap())的使用</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atelier-sulphurpool-light"> <p><strong>1.引入：</strong><br /> 在之前的项目中如果出现List转Map的操作，我们一般都是通过遍历List中的每个元素，再将遍历到的元素设置到Map中去，如下所示：</p> <pre><code>import java.util.*;  @Data class User{     public String id;     public String name; }  public class Main {     public static void main(String[] args) {         List&lt;User&gt; users = new ArrayList&lt;&gt;();         User user1 = new User();         user1.setId("1");         user1.setName("张三");         User user2 = new User();         user2.setId("2");         user2.setName("李四");         users.add(user1);         users.add(user2);         Map&lt;String, String&gt; map = new HashMap&lt;&gt;();         for(User u : users){             map.put(u.id, u.name);         }         System.out.println(map);     } }</code></pre> <p>运行结果：<img decoding="async" src="http://img.555519.xyz/uploads3/20220722/091e33e8bd5c8cf07ebbfb682dfb707d.jpg" alt="Java8中List转Map(Collectors.toMap())的使用"></p> <p><strong>2.使用Java8的新特性</strong><br /> 上述例子可以改变为这样一句话的代码：</p> <pre><code>Map&lt;String, String&gt; map = users.stream().collect(Collectors.toMap(User::getId, User::getName)); System.out.println(map);</code></pre> <p>运行结果依然是正确的：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/c51af02d1fefe82d88d0d3d8565e384a.jpg" alt="Java8中List转Map(Collectors.toMap())的使用"></p> <p><strong>.stream():</strong> 把一个数据源，可以是集合、数组等，转化成流。<br /><strong>.collect():</strong> 对流的元素执行可变的归约操作。可变归约操作处理流元素，然后将其累积到可变结果容器中，处理完元素后，合并功能将合并所有结果容器以创建结果。</p> <p><strong>3.Collectors.toMap 方法</strong><br /> Collectors.toMap()方法有两个重载方法：</p> <pre><code>toMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper); toMap(Function&lt;? super T, ? extends K&gt; keyMapper, Function&lt;? super T, ? extends U&gt; valueMapper,         BinaryOperator&lt;U&gt; mergeFunction);</code></pre> <p>参数含义分别是：</p> <ul> <li>keyMapper：Key 的映射函数</li> <li>valueMapper：Value 的映射函数</li> <li>mergeFunction：当 Key 冲突时，调用的合并方法</li> </ul> <p>如上边的例子，如果我们存在重复的key的话就会报错，代码如下：</p> <pre><code>List&lt;User&gt; users = Arrays.asList(        	new User().setId("1").setName("张三"),       	new User().setId("1").setName("李四") ); Map&lt;String, String&gt; map = users.stream().collect(Collectors.toMap(User::getId, User::getName));</code></pre> <p>会报错：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/046d6d83d89056923d995a99c567aaf7.jpg" alt="Java8中List转Map(Collectors.toMap())的使用"><br /> 此时我们就需要加上第三个参数(mergeFunction)作为合并的方法，使用Lambda表达式进行value的合并，如下将两个value的值进行拼接：</p> <pre><code>Map&lt;String, String&gt; map = users.stream().collect(Collectors.toMap(User::getId, User::getName, (a, b) -&gt; a + b));</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220722/560c40c334b9dbf942fcde7b7de10ffb.jpg" alt="Java8中List转Map(Collectors.toMap())的使用"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1097.htm">Python——if语句</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1099.htm">C++ 标准输入、输出流</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1304.htm" title="网络协议之:socket协议详解之Socket和Stream Socket">网络协议之:socket协议详解之Socket和Stream Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

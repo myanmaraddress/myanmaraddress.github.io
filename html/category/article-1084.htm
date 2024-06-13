@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1084.htm" />
+    <title>linux 硬盘满了如何处理 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>linux 硬盘满了如何处理</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>事件源于在服务器运行一个脚本程序…</p> <p>好好的脚本突然报错,还以为脚本出现问题了。细看报错原因(具体报错信息已经忘记了)，是没有可用空间。从没遇见过这个情况，怎么办呢？</p> <p>一、确定是不是真的是磁盘空间不足</p> <p>输入命令：df –lh 查看磁盘信息</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/5c4fc8a4606c09f3ebb51d321e13245f.jpg" alt="linux 硬盘满了如何处理"></p> <p>很明显：Filesystem下的挂载点 /dev/xvda1 下的40G容量已经耗尽。</p> <p>既然问题已经确定了，接下来就是处理了。</p> <p>处理方法也很简单，就是删文件。</p> <p>问：删除什么文件？</p> <p>答：删除占用磁盘空间大，但又无用的文件。</p> <p>问：什么是无用的文件？</p> <p>答：如果对系统不熟悉的话，日志可能是你第一的下手目标。</p> <p>二、如何定位最大文件目录</p> <p>输入命令： cd / 进入根目录。</p> <p>输入命令：du -h max-depth=1 寻找当前目录，哪个文件夹占用空间最大</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/a5f112d7b6d8855c72579935c77f1a12.jpg" alt="linux 硬盘满了如何处理"></p> <p>以上两个命令之后，可以看到 /usr 此路径占用较大磁盘空间，占用了21G。眼尖的同学可能看到了最后一项显示24G，它表示当前目录所有文件占用磁盘空间总和容量是24G。</p> <p>如法炮制，几番判断后，定位到tomcat的日志文件。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/7c6acfd28ab698088320f7be08371538.jpg" alt="linux 硬盘满了如何处理"></p> <p>由上图可以判断，17G文件在当前目录(tomcat日志目录)文件中。</p> <p>三、如何定位最大文件</p> <p>输入命令：ls –lhS 将文件以从大到小顺序展现</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/22357c94998ca066cde67719f26899b1.jpg" alt="linux 硬盘满了如何处理"></p> <p>最终定位文件为：catalina.out 这个日志文件。</p> <p>四、确认文件未被占用</p> <p>删除文件谁都会：rm –f catalina.out 但是，最好确认下是否要下载下来让开发人员分析日志。</p> <p>辛苦一阵找到文件，删除了很开心，输入命令：df –lh 发现磁盘空间仍是满的状态。跟图一完全没有区别。难道说是需要重启系统吗？linux会这么不友好么？</p> <p>谷歌一下，发现了这么一段话：</p> <p>在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink).然而如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。</p> <p>输入命令：/usr/sbin/lsof|grep deleted 确认删除文件是否被占用</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/4f3dd48105bb145ab6083bf22b80301f.jpg" alt="linux 硬盘满了如何处理"></p> <p>确实被占用。根据第二列提供的pid，输入命令：kill -9 13117 杀掉进程。</p> <p>再次输入命令：df –lh</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/62caaab8e60257ae00be35da3857c0ea.jpg" alt="linux 硬盘满了如何处理"></p> <p>如图，磁盘空间被释放了。问题顺利处理了。</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1083.htm">Python数据结构-列表</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1085.htm">@ResponseBody详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1278.htm" title="ASP.NET WebAPI导出CSV_实用技巧">ASP.NET WebAPI导出CSV_实用技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1273.htm" />
+    <title>OpenCV笔记 距离变换 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>OpenCV笔记 距离变换</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <h1>一、距离图像</h1> <p>距离变换于被广泛应用于图像分析、计算机视觉、模式识别等领域，人们利用它来实现目标细化、骨架提取、形状插值及匹配、粘连物体的分离等。<span style="color:#fe2c24;"><strong>距离变换的图像是二值图像针</strong></span>。二值图像可以做事两个部分组成的前景目标和背景，前景目标的像素值为1，背景的像素值为0；距离变换的结果是一幅灰度级图像，即<strong>距离图像</strong>，图像中<span style="color:#fe2c24;"><strong>每个像素的灰度值为该像素与距其最近的背景像素间的距离。</strong></span><br /> 距离变换算法主要采用两类距离测度：非欧式距离和欧式距离。</p> <p><img fetchpriority="high" decoding="async" alt="" height="278" src="http://img.555519.xyz/uploads3/20220722/b8dbfcc7e8513900f4619b1b0f014239.jpg"></p> <p>1. 欧式距离:其物理意义表示<strong>距离小于等于某一个值得像素中心（x,y）且半径为R的圆平面,r</strong></p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220722/3b68608cea408a420344120c8f0dfb6f.jpg"></p> <p>如上图所示，p1h和p2 ,dist=1.4.14</p> <p>2. 棋盘距离:是指<strong>数字栅格上像素按照对角线方向移动形成的距离</strong>。</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220722/fbe54f0b6b122b53fb2c61b3ead696a1.jpg"></p> <p>如上图所示，p1h和p2 ,dist=2</p> <p>3. 曼哈顿距离：<strong>从起点到终点所需要的最小步数，只允许横向移动和纵向移动</strong>。</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220722/e7658724e34410b317ba92a8b8d0ef01.jpg"></p> <p>如上图所示，p1h和p2 ,dist=1</p> <p><img decoding="async" alt="" height="627" src="http://img.555519.xyz/uploads3/20220722/106f0099a16ff515244db32f5306f420.jpg"></p> <p>&nbsp;例如：如下1表示前景目标，0表示背景，则曼哈顿（城市街区）距离：</p> <p><img decoding="async" alt="" height="491" src="http://img.555519.xyz/uploads3/20220722/aa2ab443fdda1f4b6d253d53dbeee36a.jpg"></p> <h3>&nbsp;算子解释</h3> <pre><code class="language-cpp"> void cv::distanceTransform(   InputArray  src,  // cv_8U的单通道的图像   OutputArray  dst, // 输出图像， cv_8U或者CV_32F   OutputArray  labels,// 二维的标签数组（离散Voronoi图），与输入图像具有相同的尺寸，数据类型为CV_32S的单通道数据   int  distanceType, // 计算距离的方法  DIST_USER   -1 ，表示用户自定义距离                                           CV_DIST_L1,  1， 曼哈顿距离（城市街区距离）  距离的计算是精确的                                           CV_DIST_L2,  2，  欧式距离 计算有某些相对误差 (5×5 mask 给出更精确的结果)                                            CV_DIST_C    3，  棋盘距离  距离的计算是精确的    int  maskSize,// 掩码大小  ：DIST_MASK_3（3×3）和DIST_MASK_5（5×5）   int  labelType = DIST_LABEL_CCOMP  //labelType == DIST_LABEL_CCOMP时，该函数会自动在输入图像中找到0像素的连通分量，并用不同的标签标记它们。当labelType == DIST_LABEL_CCOMP时，该函数扫描输入图像并用不同的标签标记所有0像素。   )</code></pre> <p><img loading="lazy" decoding="async" alt="" height="878" src="http://img.555519.xyz/uploads3/20220722/6897f98f08e91b3a39e50f6d63e37840.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="891" src="http://img.555519.xyz/uploads3/20220722/d3d3d12644abbb9612a70ce7816e83b3.jpg"><img loading="lazy" decoding="async" alt="" height="460" src="http://img.555519.xyz/uploads3/20220722/88d85f1b29417520ef4a465a1c0fe862.jpg"></p> <h2 id="article-header-4">距离变换算法步骤：</h2> <h3 id="article-header-5">1.将图像进行二值化，<span style="color:#fe2c24;">子图像值为0，背景为255；</span></h3> <h3 id="article-header-6">2.利用Mask 1从左向右，从上到下扫描，p点是当前像素点，q点是Mask 1中AL邻域中的点，D为距离计算，包括棋盘距离、城市距离和欧式距离。Fpp为p点的像素值，计算</h3> <pre><code>F(p) = min( F(p),  F(q)+D(p,q) ), 其中，q属于AL.</code></pre> <h3 id="article-header-7">3.再利用Mask 2从右向左，从下向上扫描</h3> <p>Fpp&nbsp;= minF(pF(p, Fqq+Dp,qp,q&nbsp;), 其中，q属于BR</p> <h3 id="article-header-8">4.Fpp&nbsp;则为距离变换后的图像。</h3> <p>代码详情请看：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://mangoroom.cn/opencv/distance-transfer.html"  title="距离变换 - 芒果的博客 - 芒果的个人博客" rel="nofollow">距离变换 - 芒果的博客 - 芒果的个人博客</a></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1272.htm">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1274.htm">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

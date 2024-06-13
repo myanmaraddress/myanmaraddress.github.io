@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1163.htm" />
+    <title>Java中时间类使用方法总结 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Java中时间类使用方法总结</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.Date; Date类用法</span><br /><span style="white-space:pre"></span>Date date = new Date();<br /><span style="white-space:pre"></span>System.out.println(date);<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.Calendar; Calendar类用法</span><br /><span style="white-space:pre"></span>Calendar calendar = Calendar.getInstance();<br /><span style="white-space:pre"></span>calendar.setTime(new Date());<br /><span style="white-space:pre"></span>System.out.println(calendar.get(Calendar.YEAR) + "年" + calendar.get(Calendar.MONTH) + "月" + calendar.get(Calendar.DAY_OF_MONTH) + "日");<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.GregorianCalendar; GregorianCalendar类用法</span><br /><span style="white-space:pre"></span>GregorianCalendar gcall1 = new GregorianCalendar(2011,5,1);<br /><span style="white-space:pre"></span>GregorianCalendar gcall2 = new GregorianCalendar(Locale.CHINESE);<span style="white-space:pre"></span><br /><span style="white-space:pre"></span>System.out.println("gcall1:" + gcall1.get(Calendar.YEAR) + " " + gcall1.get(Calendar.MONTH) + " " + gcall1.get(Calendar.DAY_OF_MONTH));<br /><span style="white-space:pre"></span>System.out.println("gcall12:" + gcall2.get(Calendar.YEAR) + " " + gcall2.get(Calendar.MONTH) + " " + gcall2.get(Calendar.DAY_OF_MONTH));<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.text.DateFormat; DateFormat类的用法<span style="white-space:pre"></span></span><br /><span style="white-space:pre"></span>DateFormat format = DateFormat.getInstance();<br /><span style="white-space:pre"></span>System.out.println(format.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println("=============================");<span style="white-space:pre"></span><br /><span style="white-space:pre"></span>//DateFormat中还定义了多个getDateInstance方法，用来格式化日期信息，如getDateInstance(int style, Locale alocale),可以指定格式化的风格以及Local信息<br /><span style="white-space:pre"></span>DateFormat format2 = DateFormat.getDateInstance(DateFormat.SHORT,Locale.US);<br /><span style="white-space:pre"></span>DateFormat format3 =DateFormat.getDateInstance(DateFormat.LONG,Locale.CHINESE);<br /><span style="white-space:pre"></span>DateFormat format4 = DateFormat.getDateInstance(DateFormat.FULL,Locale.FRANCE);<br /><span style="white-space:pre"></span>DateFormat format5 = DateFormat.getDateInstance(DateFormat.MEDIUM,Locale.JAPAN);<br /><span style="white-space:pre"></span>System.out.println(format2.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format3.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format4.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format5.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//SimpleDateFormat类是DateFormat类的子类，可是使用任何用户定义的日期时间格式的模式进行格式化。</span><br /><span style="white-space:pre"></span>SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日<span style="white-space:pre"></span>hh时mm分ss秒EE",Locale.CHINA);<br /><span style="white-space:pre"></span>System.out.println(sdf1.format(new Date()));</div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1162.htm">Python实用技法第11篇：找出序列中出现次数最多的元素</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1164.htm">Unity制作一个小星球</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

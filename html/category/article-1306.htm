@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1306.htm" />
+    <title>MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p>MeteoInfo-Java解析与绘图教程(八)_java解析卫星一级产品文件(HDF举例)</p> <p>最近解析卫星数据遇到了一级产品,它的解析方式与之前文章说的有些不同,特此补充一下</p> <p>卫星的一级产品,里面是没有经纬度的,并且里面只有通道数据,同时一级产品也分500KM,1000KM,2000KM,4000KM,解析思路是一样的,我就直接用4000KM举例了</p> <p>首先我们要确定文件里面都有那些数据</p> <div class="cnblogs_code"> <pre>        String path = "D:\\解析数据\\卫星\\Z_SATE_C_BAWX_20220416084552_P_FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20220416083836_20220416084253_4000M_V0001.HDF"<span style="color: rgba(0, 0, 0, 1)">;         MeteoDataInfo meteo</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> MeteoDataInfo();         meteo.openNetCDFData(path);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">查询文件存放参数名称</span>         List&lt;String&gt; list = meteo.getDataInfo().getVariableNames();</pre> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/292928380ec1783199eb78551a0d67f1.jpg" alt="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具"></p> <p>&nbsp;打印出来,发现参数有NOMObsColumn(行列号表),NOMChannel(通道数据,共计14个)以及对应的CALChannel(定标数据,对应通道数据也有14个)</p> <p>这样就确定了文件里有14个通道的数据了</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/06e6547a449d046b49ca89a7eec03b90.jpg" alt="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具"></p> <p>我这里就拿01通道要数据渲染</p> <div class="cnblogs_code"> <pre>        String path = "D:\\解析数据\\卫星\\Z_SATE_C_BAWX_20220416084552_P_FY4A-_AGRI--_N_REGC_1047E_L1-_FDI-_MULT_NOM_20220416083836_20220416084253_4000M_V0001.HDF"<span style="color: rgba(0, 0, 0, 1)">;         MeteoDataInfo meteo</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> MeteoDataInfo();         meteo.openNetCDFData(path);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">行列位置读取</span>         Array column = meteo.read("NOMObsColumn"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">数据</span>         Array array = meteo.read("NOMChannel01"<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取x,y下标数</span><span style="color: rgba(0, 0, 255, 1)">int</span>[] shape =<span style="color: rgba(0, 0, 0, 1)"> array.getShape();</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">获取x起点,y起点</span>         Index index =<span style="color: rgba(0, 0, 0, 1)"> array.getIndex();         GridData grid</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> GridData(0, 0.1, shape[1], 0, 0.1, shape[0<span style="color: rgba(0, 0, 0, 1)">]);         grid.missingValue</span>= -1<span style="color: rgba(0, 0, 0, 1)">;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">第一有效值,最后有效值,平分除二</span><span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> i=0; i&lt;column.getSize()/2; i++<span style="color: rgba(0, 0, 0, 1)">){</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">2字节,第一个值</span><span style="color: rgba(0, 0, 255, 1)">int</span> x = column.getShort(i * 2<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">2字节,最后一个值</span><span style="color: rgba(0, 0, 255, 1)">int</span> y = column.getShort(i * 2 + 1<span style="color: rgba(0, 0, 0, 1)">);</span><span style="color: rgba(0, 0, 255, 1)">if</span>(x != -1 &amp;&amp; y != -1<span style="color: rgba(0, 0, 0, 1)">){</span><span style="color: rgba(0, 0, 255, 1)">for</span>(<span style="color: rgba(0, 0, 255, 1)">int</span> j=x; j&lt;=y; j++<span style="color: rgba(0, 0, 0, 1)">){                     index.set(i, j);                     grid.data[shape[</span>0] - i - 1][j] =<span style="color: rgba(0, 0, 0, 1)"> array.getShort(index);                 }             }         }         RasterLayer layer</span>= DrawMeteoData.createRasterLayer(grid, ""<span style="color: rgba(0, 0, 0, 1)">);         MapView view</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> MapView();         view.addLayer(layer);         MeteoinfoUtil.drawImage(view, grid.getXNum(),</span>"D:/Data/1.png");</pre> </div> <p>卫星一级产品绘图核心部分就是NOMObsColumn的应用,我们首先要确定这个的用处</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f6dc1dc8943cf4b562214e9ce3ab612d.jpg" alt="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具"></p> <p>&nbsp;数据是网格数据,但有效的数据每一行都是有限的,第一有效值就是开头,最后有效值就是结尾,所以行列号有2列,行和网络数据的y相同</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e413f52ce5eba0f7717f23a8d8749b33.jpg" alt="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具"></p> <p>以上就是没有确定色阶的第一通道的绘制</p> <p>对比卫星一级产品来说,最难的就是经纬度的问题,虽然官方给了对应的算法,但java的计算速度确实慢,导致出图不快(1分钟之内),目前还没有很好的方法,还需要思考</p> <p>如果大家对经纬度这里有很好的想法,可以私聊我讨论一下,一起进步</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1305.htm">Kafka delivery保证(kafka消息投递保证)</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1307.htm">在JavaScript中实现优先级排序</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

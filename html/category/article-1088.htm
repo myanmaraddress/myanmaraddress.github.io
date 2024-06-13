@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1088.htm" />
+    <title>MySQL NOW()和SYSDATE()有什么区别？ - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>MySQL NOW()和SYSDATE()有什么区别？</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p>MySQL<code>NOW()</code>和<code>SYSDATE()</code>函数返回当前时间戳值。但是它们两者的输出都取决于执行时间。这在它们之间造成了很大的差异。</p> <p>NOW()函数返回一个稳定时间，该时间指示特定语句开始执行的时间。相反，<code>SYSDATE()</code>函数返回执行语句的准确时间。以下示例将显示这些功能之间的区别-</p> <pre>mysql&gt;&nbsp;Select&nbsp;NOW(),&nbsp;SLEEP(5),&nbsp;NOW(); +---------------------+----------+---------------------+ |&nbsp;NOW()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;SLEEP(5)&nbsp;|&nbsp;NOW()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------+----------+---------------------+ |&nbsp;2017-10-31&nbsp;09:57:36&nbsp;|&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2017-10-31&nbsp;09:57:36&nbsp;| +---------------------+----------+---------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(5.11&nbsp;sec)</pre> <p>上面的查询显示该<code>NOW()</code>函数返回它开始执行的时间，因为即使在系统睡眠5秒钟后，它也会返回相同的值。</p> <pre>mysql&gt;&nbsp;Select&nbsp;SYSDATE(),&nbsp;SLEEP(5),&nbsp;SYSDATE();  +---------------------+----------+---------------------+ |&nbsp;SYSDATE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;SLEEP(5)&nbsp;|&nbsp;SYSDATE()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------------+----------+---------------------+ |&nbsp;2017-10-31&nbsp;09:58:13&nbsp;|&nbsp;0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;2017-10-31&nbsp;09:58:18&nbsp;| +---------------------+----------+---------------------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(5.00&nbsp;sec)</pre> <p>上述查询表明该<code>SYSDATE()</code>函数返回执行时间，因为在系统睡眠5秒钟后，该函数返回的值实际上增加了5秒钟。</p> <div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1087.htm">企业实战之阿里druid统一监控方案，你了解吗？</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1089.htm">6个pandas初学者容易犯的错误</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

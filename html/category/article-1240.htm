@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1240.htm" />
+    <title>Vue3.0入门 + Vant3.0移动端实践（二）轮播图模块封装及首页完善 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Vue3.0入门 + Vant3.0移动端实践（二）轮播图模块封装及首页完善</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>接着上一篇的来，上一篇介绍了环境搭建及做好了底部的导航栏模块，接下来继续完善首页。</p> <p>先来张最终效果图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="515" src="http://img.555519.xyz/uploads/20230108/d0c18057a05a93dfd532baaa72a95cf1.jpg"></p> <p>记录下之前遇到的问题，Vue中img图像src变成"[object Module]"无法正确加载的问题。</p> <p>我在vue项目的js代码中，使用了"imgUrl"=<code>require('../asserts/image.png')这种形式。</code>网上查了很多资料，说是因为file-loader默认采用ES模块语法，即<code>import '../image.png'</code>；然而Vue生成的是CommonJS模块语法，即<code>require('../image.png')</code>；二者不一致。要么让file-loader或url-loader采用CommonJS语法，要么让Vue采用ES语法。</p> <p>但是我找了下项目中的各个文件，没找到在哪能改esModule: false的选项，于是暂时作罢。</p> <p>最终我找到的折中的办法，本地图片和css资源都放在public目录下，这样就可以了。</p> <p><img decoding="async" alt="" height="248" src="http://img.555519.xyz/uploads/20230108/240955c2b4097b1b7634e54f93c234cc.jpg"></p> <p>本地的css文件在index.html文件里加载，如：</p> <p>&nbsp;&lt;link  href="&lt;%= BASE_URL %&gt;favicon.ico"&gt;<br /> &nbsp;&lt;link  href="&lt;%= BASE_URL %&gt;css/font_nbicon.css"&gt;</p> <pre><code class="language-html">&lt;!DOCTYPE html&gt; &lt;html lang="en"&gt;   &lt;head&gt;     &lt;meta charset="utf-8"&gt;     &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;     &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;     &lt;link  href="&lt;%= BASE_URL %&gt;favicon.ico"&gt; 	&lt;link  href="&lt;%= BASE_URL %&gt;css/font_nbicon.css"&gt;     &lt;title&gt;物联网报警系统&lt;/title&gt;   &lt;/head&gt;   &lt;body&gt;     &lt;noscript&gt;       &lt;strong&gt;We're sorry but &lt;%= htmlWebpackPlugin.options.title %&gt; doesn't work properly without JavaScript enabled. Please enable it to continue.&lt;/strong&gt;     &lt;/noscript&gt;     &lt;div id="app"&gt;&lt;/div&gt;     &lt;!-- built files will be auto injected --&gt;   &lt;/body&gt; &lt;/html&gt; </code></pre> <p>以下是轮播图模块封装，本地的图片放在public目录里,使用时直接引入路径即可：</p> <p>在components目录下新建Swiper.vue组件：</p> <pre><code class="language-html">&lt;template&gt;   &lt;van-swipe class="my-swipe" :autoplay="3000" indicator-color="#1baeae"&gt;     &lt;van-swipe-item v-for="(item, index) in list" :key="index"&gt;       &lt;img :src="item.imgUrl" alt="暂无图片"&gt;     &lt;/van-swipe-item&gt;   &lt;/van-swipe&gt; &lt;/template&gt;  &lt;script&gt; export default {   props: {     list: Array   },   methods: {       } } &lt;/script&gt;  &lt;style lang='less' scoped&gt;   .my-swipe { 	  display: flex; 	  flex-shrink: 0; 	  flex-wrap: wrap; 	  width: 100%; 	  padding-top: 45px;     img {       width: 100%;       height: 100%;     }   } &lt;/style&gt; </code></pre> <p>style调整界面的less写法，</p> <p>&nbsp;display: flex;含义为使用flex布局。</p> <p>&nbsp;padding-top: 45px;为轮播图最上面的titile留出45px的位置。</p> <p>js的props属性里增加了个list,类型为Array,作为子组件接收属性。</p> <p>接下来看看首页Home.vue里如何用：</p> <p>import swiper from '@/components/Swiper'</p> <p>先import引入进来，export default的components里注册组件。</p> <p>template模板标签里这么使用：&nbsp;&lt;swiper :list="swiperList"&gt;&lt;/swiper&gt;</p> <p>注意setup(),ref，torefs,reactive都为vue3的新用法，setup是Vue3 的一大特性函数 。</p> <p>setup函数是处于 生命周期函数 beforeCreate 和 Created 两个钩子函数之间的函数。</p> <p>setup函数是 Composition API（组合API）的入口。</p> <p>在setup函数中定义的变量和方法最后都是需要 return 出去的 不然无法再模板中使用。</p> <p>在执行 setup函数的时候，还没有执行 Created 生命周期方法，所以在 setup 函数中，无法使用 data 和 methods 的变量和方法。</p> <p>setup函数只能是同步的不能是异步的。</p> <p><strong>旧的Vue2.0 Options API 和 新的Vue3.0 Composition API 区别</strong></p> <p>Vue2.0 Options API 约定：</p> <p>我们需要在 props 里面设置接收参数</p> <p>我们需要在 data 里面设置变量</p> <p>我们需要在 computed 里面设置计算属性</p> <p>我们需要在 watch 里面设置监听属性</p> <p>我们需要在 methods 里面设置事件方法</p> <p>你会发现 Options APi 都约定了我们该在哪个位置做什么事，这反倒在一定程度上也强制我们进行了代码分割。</p> <p>现在用 Composition API，不再这么约定了，于是乎，代码组织非常灵活，我们的控制代码写在 setup 里面即可。</p> <p>setup函数提供了两个参数 props和context,重要的是在setup函数里没有了this,在&nbsp;vue3.0&nbsp;中，访问他们变成以下形式： this.xxx=》context.xxx</p> <p>我们没有了 this 上下文，没有了 Options API 的强制代码分离，Composition API 给了我们更加广阔的天地。</p> <p>接下来说下ref和reactive。vue3在9月18号晚上发布了，在vue3中对响应式数据的声明官方给出了ref()和reactive()这两种方式。</p> <p>双向数据绑定，vue一共提供了两种数据响应式监听，有点React Hooks的味道。ref 函数传入一个值作为参数，返回一个基于该值的响应式Ref对象，该对象中的值一旦被改变和访问，都会被跟踪到，就像我们改写后的示例代码一样，通过修改 count.value 的值，可以触发模板的重新渲染，显示最新的值。<br /> 其实，除了 ref 函数，Vue3.0中还提供了另外一个可以创建响应式对象的函数，那就是 reactive 函数。下面就来说说为什么要提供两种API</p> <p>ref写法简单，但也有弊端，经过尝试发现他只能监听一些如数字、字符串、布尔之类的简单数据。</p> <p>ref修改数据需要使用这样<strong>count.value=xxx</strong>的形式，而reactive只需要<strong>state.reactiveField=值这样来使用。</strong></p> <p>reactive在return时候需要toRefs来转换成响应式对象。</p> <p>toRefs函数能将reactive创建的响应式对象，转化成为普通的对象，并且这个对象上的每个节点，都是ref()类型的响应式数据。</p> <p>在Vue中使用可以直接使用ref (template中),Vue会自动添加.value。在Js中使用ref需要.value。</p> <p>setup函数必须有返回值，必须返回个对象。</p> <p>setup函数有一个props参数，用于接收props，也就是定义在组件上的属性（同vue2),但是接收的props必须先在props属性中定义，否则是不会被接收到。</p> <p>vue2的所有生命周期写法与vue3兼容，而在vue3中，生命周期添加了on前缀，需要导入并写在setup()函数中。</p> <pre><code class="language-html">&lt;template&gt; 	&lt;div&gt; 		&lt;header class="home-header wrap" :class="{'active' : headerScroll}"&gt; 		  &lt;div class="header-search"&gt; 		    &lt;span class="app-name"&gt;物联网报警系统&lt;/span&gt; 		  &lt;/div&gt; 		&lt;/header&gt; 		 &lt;nav-bar /&gt; 		 &lt;swiper :list="swiperList"&gt;&lt;/swiper&gt; 		 &lt;div class="category-list"&gt; 		   &lt;div v-for="item in categoryList" v-bind:key="item.categoryId" @click="tips"&gt; 		     &lt;img :src="item.imgUrl"&gt; 		     &lt;span&gt;{<!-- -->{item.name}}&lt;/span&gt; 		   &lt;/div&gt; 		 &lt;/div&gt; 	&lt;/div&gt; &lt;/template&gt;  &lt;script&gt; import navBar from '@/components/NavBar' import swiper from '@/components/Swiper' import { getHome } from '@/service/home' import { Toast } from 'vant' import { reactive, onMounted , toRefs} from 'vue' export default { 	name: 'home', 	components: { 	  navBar, 	  swiper 	}, 	setup() { 		const state = reactive({ 		  swiperList: [] ,// 轮播图列表 		  categoryList: [ 		   { 		      name: '查看设备', 		      imgUrl: '/image/kj1.png', 		      categoryId: 100001 		    }, { 		      name: '用户信息', 		      imgUrl: '/image/kj2.png', 		      categoryId: 100002 		    }, { 		      name: '充值中心', 		      imgUrl: '/image/kj3.png', 		      categoryId: 100003 		    },{ 		      name: '功能预留', 		      imgUrl: '/image/kj4.png', 		      categoryId: 100004 		    }, { 		      name: '全部', 		      imgUrl: '/image/kj5.png', 		      categoryId: 100005 		    } 		  ], 		  }) 		   		onMounted(async () =&gt; { 			Toast.loading({ 			  message: '加载中...', 			  forbidClick: true 			}); 			const { data } = await getHome() 			console.log(data) 			state.swiperList = data.swiperLists 			Toast.clear() 		}) 		 		const tips = () =&gt; { 		  Toast('敬请期待'); 		} 		 		return { 		  ...toRefs(state), 		   tips 		} 	} } &lt;/script&gt;  &lt;style lang="less" scoped &gt;   @import '../common/style/mixin';  .home-header { 	 position: fixed; 	 left: 0; 	 top: 0; 	 .wh(100%, 45px); 	 .fj(center); 	 line-height: 45px; 	 padding: 0 15px; 	 .boxSizing(); 	 font-size: 15px; 	 color: #fff; 	 background: #39A2FD; 	 z-index: 10000; 	  	 .app-name { 		 padding: 0 5px; 		 color: #ffffff; 		 font-size: 18px; 	}   }   .category-list {     display: flex;     flex-shrink: 0;     flex-wrap: wrap;     width: 100%;     padding-bottom: 13px;     div {       display: flex;       flex-direction: column;       width: 20%;       text-align: center;       img {         .wh(36px, 36px);         margin: 13px auto 8px auto;       }     }   } &lt;/style&gt;</code></pre> <p>至此，首页基本设计完成，接下来会继续介绍个人中心页面的详细设计过程。先来张截图吧：</p> <p><img decoding="async" alt="" height="513" src="http://img.555519.xyz/uploads/20230108/51f5abfe024dcedf008fc60e86dd5654.jpg"></p> <p>&nbsp;</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1239.htm">IntelliJ IDEA 使用Tomcat配置和项目部署详细教程</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1241.htm">Fork/Join分支合并框架</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

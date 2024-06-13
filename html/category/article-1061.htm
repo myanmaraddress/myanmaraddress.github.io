@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1061.htm" />
+    <title>Python格式化字符串方法——以%占位操作符为例 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Python格式化字符串方法——以%占位操作符为例</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code class="prism language-python"><span class="token comment">#Python格式化字符串方法——以%占位操作符为例</span>  <span class="token triple-quoted-string string">''' 在python的使用过程中，有时需要将输出的字符串做统一规定，因此需要提前编写一个字符串的模板。 模板中有格式符，这些格式符为最后输的字符串预先占据位置， 并规定其应该呈现的格式，包括字符的位置、对齐方式、空位补充方式等。 Python中内置的%操作符可用于格式化字符串操作，控制字符串的呈现格式。 Python中还有其他的格式化字符串的方式，但%操作符的使用是最方便的。  %格式符的语法：%[(name)][flags][width].[precision]typecode。  (name)参数：当使用字典作为真实值的存放容器，name在此对应输出值关联的字典的键名，必须使用小括号将键名括起来, 如果字典中不存在该键,则引发异常，否则输出该键对应的值； flags可以有+,-,' '或0。 +表示应该包含数字的正负号。-表示左对齐，没有则表示右对齐。 ' '为一个空格，表示在正数的左侧填充一个空格，从而与负数对齐。0表示使用0填充； width表示该输出值占用的宽度； precision表示小数点后精度； typecode表示输出值的类型，  具体含义如下： %s             字符串 (采用str()的显示) %r             字符串 (采用repr()的显示) #repr() 函数将对象转化为供解释器读取的形式,输出的字符加引号。 %c             单个字符 %b             二进制整数 %d,%i          十进制整数 %o             八进制整数 %x,%X          十六进制整数 %e,%E          指数 (基底写为e,E) %f,%F          浮点数 %g,%G          指数或浮点数 (根据显示长度) %u             无符号数（没有细查文档，经测试可以输出负数） %%             字符"%" '''</span>   <span class="token comment"># 例1：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> example_1 <span class="token operator">=</span> <span class="token string">"I'm %s, I'm %d years old."</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token string">'wrh'</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>example_1<span class="token punctuation">)</span> <span class="token triple-quoted-string string">''' 输出结果： I'm wrh, I'm 29 years old. '''</span>  <span class="token comment">#例2：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> example_2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"I'm %(name)s, I'm %(age)d years old."</span> <span class="token operator">%</span> <span class="token punctuation">{<!-- --></span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'wrh'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">29</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>example_2<span class="token punctuation">)</span> <span class="token triple-quoted-string string">''' 输出结果： I'm wrh, I'm 29 years old. '''</span>  <span class="token comment">#例3：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%+10x"</span> <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">#+表示应该包含数字的正负号，10表示宽度，表示十六进制（10的十六进制是a）</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%04d"</span> <span class="token operator">%</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">#0表示用0填充，4表示宽度，d表示十进制整数</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%6.3f"</span> <span class="token operator">%</span> <span class="token number">2.3</span><span class="token punctuation">)</span> <span class="token comment">#6表示宽度，3表示精确到小数点后三位，f表示浮点数</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%.*f"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#width, precision为两个整数。我们可以利用*，来动态代入这两个量。4表示精确到小数点后四位。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%*.f"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#width, precision为两个整数。我们可以利用*，来动态代入这两个量。4表示宽度为4。</span> <span class="token triple-quoted-string string">''' 输出结果：         +a 0005  2.300 1.2000    1 '''</span>  <span class="token comment">#例4</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> a <span class="token operator">=</span> <span class="token string">'30c'</span> F <span class="token operator">=</span> <span class="token number">1.8</span><span class="token operator">*</span><span class="token builtin">float</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">32</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%.1fF"</span> <span class="token operator">%</span> F<span class="token punctuation">)</span> <span class="token comment">#精确到小数点后1位，浮点数，第一个F为固定字符，第二个F是所要格式化的字符变量。</span>  <span class="token triple-quoted-string string">''' 输出结果： 86.0F '''</span>  <span class="token comment">#练习题：</span>  <span class="token comment">#假设：学生信息存放在一个字典数据中，格式如下：</span> student<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'小明'</span><span class="token punctuation">,</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token number">20190301</span><span class="token punctuation">,</span><span class="token string">'score'</span><span class="token punctuation">:</span><span class="token number">597.5</span><span class="token punctuation">}</span> <span class="token comment">#1.输出学生姓名，右对齐，直接使用真实值</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s同学'</span> <span class="token operator">%</span> student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#2.左对齐，名字占用4个长度，班级10个长度，分数7个长度的浮点数，真实值使用元组存储</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#3.#右对齐其他格式与上例同，只是格式化字符串和真实值存放在变量中，输出时格式化处理</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> value<span class="token operator">=</span><span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">format</span> <span class="token operator">%</span> value<span class="token punctuation">)</span> <span class="token comment">#4.右对齐其他格式与上例同，只是格式化字符串和真实值存放在变量中，将格式化处理结果存放到变量再输出</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> value<span class="token operator">=</span><span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> output<span class="token operator">=</span><span class="token builtin">format</span> <span class="token operator">%</span> value <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span> <span class="token comment">#5.使用字典存放真实值,直接格式化输出</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%(class)10s班 %(name)-4s同学，总分:%(score)7.2f'</span> <span class="token operator">%</span> student<span class="token punctuation">)</span> <span class="token comment">#6.使字典存放真实值，用变量方式存放格式化字符串</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%(class)10s班 %(name)-4s同学，总分:%(score)7.2f'</span> output<span class="token operator">=</span> <span class="token builtin">format</span> <span class="token operator">%</span> student <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span>  <span class="token triple-quoted-string string">''' 输出结果：   小明同学   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50  '''</span> </code></pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>下一个：<a href="/html/category/article-1062.htm">Django实现excel导入导出</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1278.htm" title="ASP.NET WebAPI导出CSV_实用技巧">ASP.NET WebAPI导出CSV_实用技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

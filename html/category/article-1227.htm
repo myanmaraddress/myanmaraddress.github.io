@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1227.htm" />
+    <title>Spring Cloud 集成 Sleuth+Zipkin+Mysql - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Spring Cloud 集成 Sleuth+Zipkin+Mysql</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>1 配置 Zipkin-Server 现在的版本（2.23.16）已经可以直接运行官方提供的jar，不需要单独去写这个服务了，下载地址</p> <p><a class="link-info" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://zipkin.io/"  title="a.官网提供了两种运行方案：1 直接下载可执行jar 2 下载源代码自己打包运行" rel="nofollow">a.官网提供了两种运行方案：1 直接下载可执行jar 2 下载源代码自己打包运行</a></p> <p>b.从源代码中找到mysql初始化脚本</p> <p>c.执行jar：</p> <p>STORAGE_TYPE=mysql MYSQL_HOST=127.0.0.1 MYSQL_TCP_PORT=3306 MYSQL_DB=db_zipkin_log MYSQL_USER=root MYSQL_PASS=root nohup java -jar -Xms512m -Xmx1024m zipkin-server-2.23.16-exec.jar&gt;&gt; zipkin.log &amp;</p> <p>2 需要收集日志的服务增加依赖和Zipkin服务地址配置</p> <p> 依赖：</p> <p>compile 'org.springframework.cloud:spring-cloud-starter-sleuth'</p> <p>compile 'org.springframework.cloud:spring-cloud-starter-zipkin'</p> <p>配置：</p> <pre>zipkin:   base-url: http://127.0.0.1:9411 sleuth:   sampler:     percentage: 0.1 （样本采集比例 10%）</pre> <p>Zipkin 简单介绍：</p> <p>Zipkin Server主要包括四个模块：<br /> （1）Collector 接收或收集各应用传输的数据<br /> （2）Storage 存储接受或收集过来的数据，当前支持Memory，MySQL，Cassandra，ElasticSearch等，默认存储在内存中。<br /> （3）API（Query） 负责查询Storage中存储的数据，提供简单的JSON API获取数据，主要提供给web UI使用</p> <p>（4）Web 提供简单的web界面</p> <p>流程图：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221201/dc316ce25577f1b3c4d48bb5833f4b66.jpg"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1226.htm">Git基础配置Git用户签名的方式详解</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1228.htm">什么是TypeScript，为什么我会用它代替JavaScript？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

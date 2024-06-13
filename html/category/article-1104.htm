@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1104.htm" />
+    <title>浅谈Spring @Order注解的使用 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>浅谈Spring @Order注解的使用</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>注解@Order或者接口Ordered的作用是定义Spring IOC容器中Bean的执行顺序的优先级，而不是定义Bean的加载顺序，Bean的加载顺序不受@Order或Ordered接口的影响；</p> <h4><a id="1Order_3" rel="nofollow"></a>1.@Order的注解源码解读</h4> <pre><code>@Retention(RetentionPolicy.RUNTIME) @Target({ElementType.TYPE, ElementType.METHOD, ElementType.FIELD}) @Documented public @interface Order {  	/** 	 * 默认是最低优先级,值越小优先级越高 	 */ 	int value() default Ordered.LOWEST_PRECEDENCE;  }</code></pre> <ul> <li>注解可以作用在类(接口、枚举)、方法、字段声明（包括枚举常量）；</li> <li>注解有一个int类型的参数，可以不传，默认是最低优先级；</li> <li>通过常量类的值我们可以推测参数值越小优先级越高；</li> </ul> <h4><a id="2Ordered_21" rel="nofollow"></a>2.Ordered接口类</h4> <pre><code>package org.springframework.core;  public interface Ordered {     int HIGHEST_PRECEDENCE = -2147483648;     int LOWEST_PRECEDENCE = 2147483647;      int getOrder(); }</code></pre> <h4><a id="3BlackPersionYellowPersionCommandLineRunner_33" rel="nofollow"></a>3.创建BlackPersion、YellowPersion类，这两个类都实现CommandLineRunner</h4> <blockquote> <p>实现CommandLineRunner接口的类会在Spring IOC容器加载完毕后执行，适合预加载类及其它资源；也可以使用ApplicationRunner,使用方法及效果是一样的</p> </blockquote> <pre><code>package com.yaomy.common.order;  import org.springframework.boot.CommandLineRunner; import org.springframework.core.annotation.Order; import org.springframework.stereotype.Component;  /**  * @Description: Description  * @ProjectName: spring-parent  * @Version: 1.0  */ @Component @Order(1) public class BlackPersion implements CommandLineRunner {     @Override     public void run(String... args) throws Exception {         System.out.println("----BlackPersion----");     } }</code></pre> <pre><code>package com.yaomy.common.order;  import org.springframework.boot.CommandLineRunner; import org.springframework.core.annotation.Order; import org.springframework.stereotype.Component;  /**  * @Description: Description  * @ProjectName: spring-parent  * @Version: 1.0  */ @Component @Order(0) public class YellowPersion implements CommandLineRunner {     @Override     public void run(String... args) throws Exception {         System.out.println("----YellowPersion----");     } }</code></pre> <h4><a id="4_80" rel="nofollow"></a>4.启动应用程序打印出结果</h4> <pre><code>----YellowPersion---- ----BlackPersion----</code></pre> <blockquote> <p>我们可以通过调整@Order的值来调整类执行顺序的优先级，即执行的先后；当然也可以将@Order注解更换为Ordered接口，效果是一样的</p> </blockquote> <h4><a id="5IOCcomponent_88" rel="nofollow"></a>5.到这里可能会疑惑IOC容器是如何根据优先级值来先后执行程序的，那接下来看容器是如何加载component的</h4> <ul> <li>看如下的启动main方法</li> </ul> <pre><code>@SpringBootApplication public class CommonBootStrap {     public static void main(String[] args) {         SpringApplication.run(CommonBootStrap.class, args);     } }</code></pre> <blockquote> <p>这个不用过多的解释，进入run方法…</p> </blockquote> <pre><code>     public ConfigurableApplicationContext run(String... args) {         StopWatch stopWatch = new StopWatch();         stopWatch.start();         ConfigurableApplicationContext context = null;         Collection&lt;SpringBootExceptionReporter&gt; exceptionReporters = new ArrayList();         this.configureHeadlessProperty();         SpringApplicationRunListeners listeners = this.getRunListeners(args);         listeners.starting();          Collection exceptionReporters;         try {             ApplicationArguments applicationArguments = new DefaultApplicationArguments(args);             ConfigurableEnvironment environment = this.prepareEnvironment(listeners, applicationArguments);             this.configureIgnoreBeanInfo(environment);             Banner printedBanner = this.printBanner(environment);             context = this.createApplicationContext();             exceptionReporters = this.getSpringFactoriesInstances(SpringBootExceptionReporter.class, new Class[]{ConfigurableApplicationContext.class}, context);             this.prepareContext(context, environment, listeners, applicationArguments, printedBanner);             this.refreshContext(context);             this.afterRefresh(context, applicationArguments);             stopWatch.stop();             if (this.logStartupInfo) {                 (new StartupInfoLogger(this.mainApplicationClass)).logStarted(this.getApplicationLog(), stopWatch);             }              listeners.started(context);             //这里是重点，调用具体的执行方法             this.callRunners(context, applicationArguments);         } catch (Throwable var10) {             this.handleRunFailure(context, var10, exceptionReporters, listeners);             throw new IllegalStateException(var10);         }          try {             listeners.running(context);             return context;         } catch (Throwable var9) {             this.handleRunFailure(context, var9, exceptionReporters, (SpringApplicationRunListeners)null);             throw new IllegalStateException(var9);         }     }    private void callRunners(ApplicationContext context, ApplicationArguments args) {         List&lt;Object&gt; runners = new ArrayList();         runners.addAll(context.getBeansOfType(ApplicationRunner.class).values());         runners.addAll(context.getBeansOfType(CommandLineRunner.class).values());         //重点来了，按照定义的优先级顺序排序         AnnotationAwareOrderComparator.sort(runners);         Iterator var4 = (new LinkedHashSet(runners)).iterator();         //循环调用具体方法         while(var4.hasNext()) {             Object runner = var4.next();             if (runner instanceof ApplicationRunner) {                 this.callRunner((ApplicationRunner)runner, args);             }              if (runner instanceof CommandLineRunner) {                 this.callRunner((CommandLineRunner)runner, args);             }         }      }      private void callRunner(ApplicationRunner runner, ApplicationArguments args) {         try {             //执行方法             runner.run(args);         } catch (Exception var4) {             throw new IllegalStateException("Failed to execute ApplicationRunner", var4);         }     }      private void callRunner(CommandLineRunner runner, ApplicationArguments args) {         try {             //执行方法             runner.run(args.getSourceArgs());         } catch (Exception var4) {             throw new IllegalStateException("Failed to execute CommandLineRunner", var4);         }     }</code></pre> <blockquote> <p>到这里优先级类的示例及其执行原理都分析完毕；不过还是要强调下@Order、Ordered不影响类的加载顺序而是影响Bean加载如IOC容器之后执行的顺序（优先级）；</p> </blockquote> <p>个人理解是加载代码的底层要支持优先级执行程序，否则即使配置上Ordered、@Order也是不起任何作用的，<br /> 个人的力量总是很微小的，欢迎大家来讨论，一起努力成长！！</p> <p>GitHub源码：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/mingyang66/spring-parent"  rel="nofollow">https://github.com/mingyang66/spring-parent</a></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1103.htm">Envoy熔断限流实践基于Rainbond插件实现熔断</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1105.htm">SpringCloud 之 Config服务配置 详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1283.htm" />
+    <title>Python 的math 模块 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Python 的math 模块</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <hr/> <pre>一、math库简介 math库是python提供的内置数学类函数库 math库不支持复数类型，仅支持整数和浮点数运算 math库一共提供了4个数字常数和44个函数,其中44个函数共分为4类，包括16个数值表示函数，8个幂对数函数，16个三角对数函数和4个高等特殊函数 二、数字常数 import math print(math.pi) # 圆周率，值为3.141592653589793 print(math.e) # 自然对数，值为2.718281828459045 print(math.inf) # 正无穷大，负无穷大为-math.inf print(math.nan) # 非浮点数标记，NAN（Not a Number）</pre> <pre> 三、数值表示函数 import math print(math.fmod(5,2))           # 返回x与y的模 math.fmod(x,y) print(math.fsum([5,2,2,2.3]))   # 浮点数精确求和 math.fsum([x,y,...]) print(math.fabs(-999))          # 返回x的绝对值 math.fabs(x) print(math.ceil(2.3) )          # 向上取整,返回不小于x的最小整 math.ceil(x) print(math.floor(2.3))          #向下取整,返回不大于x的最大整数 math.floor(x) print(math.factorial(5))        # 返回x的阶乘,如果x是小数或负数,返回ValueError math.factorial(x) print(math.gcd(9, 3))           # 返回a与b的最大公约数 math.gcd(a, b) print(math.frexp(40))            # 返回(m,e),当x=0时,返回(0.0,0) math.frexp(x) print(math.ldexp(5, 3))         # 返回x*(2的i次方)运算值,math.frexp(x)函数的反运算 math.ldexp(x, i) print(math.modf(5.5))            # 返回x的小数和整数部分  math.modf(x) print(math.trunc(-90.3))         # 返回x的整数部分 math.trunc(x) print(math.copysign(90,-6))      # 用数值y的正负号替换数值x的正负号 默认返回小数点后一位 math.copysign(x,y) print(math.isclose(20, 20))      # 比较a和b的相似性,返回True或False math.isclose(a, b) print(math.isfinite(math.inf))   #如果 number 是 NaN（非数字），或者是正、负无穷大的数，则返回 false,否则返回True math.isfinite(x) print(math.isinf(math.inf))             # 当x为正数或者负数无穷大, 返回True, 否则返回False math.isinf(x) print(math.isnan(math.nan))# 当x是NaN, 返回True, 否则返回False math.isnan(x)   四、幂对数函数 import math print(math.pow(2, 3)) # 返回x的y次幂math.pow(x, y)  print(math.exp(2)) # 返回e的x次幂, e是自然对数 math.exp(x)  print('we',math.expm1(2)) # 返回e的x次幂减1 math.expm1(x)  print(math.sqrt(2)) # 返回x的平方根 math.sqrt(x)  print(math.log(10,10)) # 返回x的对数值,只输入x时,返回自然对数,即lnx  print(math.log1p(math.e-1)) # 返回1+x的自然对数值 math.log1p(x)  print(math.log2(4)) # 返回x的2的对数值 math.log2(x)  print(math.log10(100)) # 返回x的10的对数值 math.log10(x)  五、三角运算函数 import math print(math.degrees(1)) # 角度x的弧度值转角度值 math.degrees(x)  print(math.radians(math.pi)) # 角度x的角度值转弧度值 math.radians(x)  print(math.hypot(1,1)) # 返回(x,y)坐标点到原点(0,0)的距离 math.hypot(x,y)  print(math.sin(0)) # 返回x的正弦函数值,x是弧度值 math.sin(x)  print(math.cos(math.pi)) # 返回x的余弦函数值,x是弧度值 math.cos(x)  print(math.tan(math.pi)) # 返回x的正切函数值,x是弧度值 math.tan(x)  print(math.asin(1)) # 返回x的反正弦函数值,x是弧度值 math.asin(x)  print(math.acos(1)) # 返回x的反余弦函数值,x是弧度值 math.acos(x)  print(math.atan(1)) # 返回x的反正切函数值,x是弧度值 math.atan(x)  print(math.atan2(1,2)) # 返回y/x的反正切函数值,x是弧度值 math.atan2(y, x)  print(math.sinh(math.pi)) # 返回x的双曲正弦函数值,x是弧度值 math.sinh(x)  print(math.cosh(math.pi)) # 返回x的双曲余弦函数值,x是弧度值 math.cosh(x)  print(math.tanh(math.pi)) # 返回x的双曲正切函数值,x是弧度值 math.tanh(x)  print(math.atanh(0.999)) # 返回x的反双曲正切函数值,x是弧度值 math.atanh(x)  print(math.asinh(0.99)) # 返回x的反双曲正弦函数值,x是弧度值 math.asinh(x)  print(math.acosh(1)) # 返回x的反双曲余弦函数值,x是弧度值 math.acosh(x) x -- 必需，一个数字，大于等于 1   六、高等特殊函数 import math print(math.erf(2)) # 高斯误差函数,应用于概率论,统计学领域 print(math.erfc(2)) # 余数高斯误差函数,math.erfc(x) = 1-math.erf(x) print(math.gamma(2)) # 伽玛函数,也叫欧拉第二积分函数 print(math.lgamma(2)) # 伽玛函数的自然对数</pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1282.htm">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1284.htm">Linux下 tomcat整体目录迁移</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

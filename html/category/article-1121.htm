@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1121.htm" />
+    <title>Go通过cobra快速构建命令行应用 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Go通过cobra快速构建命令行应用</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p>来自jetbrains<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.jetbrains.com/zh-hans/go/2021/02/19/the-state-of-go/"  target="_blank" rel="nofollow">Go 语言现状调查报告</a> 显示：在go开发者中使用go开发实用小程序的比例为31%仅次于web，go得益于跨平台、无依赖的特性，用来编写命令行或系统管理这类小程序非常不错。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8b86ef58f4fbe6d6ea43d2939f27f631.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>本文主要介绍Steve Francia(spf13)大神写的用于快速构建命令行程序的golang包<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/spf13/cobra"  target="_blank" rel="nofollow">cobra</a>，基于cobra写命令行的著名项目一只手数不过来：Docker CLI、Helm、istio、etcd、Git、Github CLI ...</p> <p>下面进入正题</p> <h3 id="cobra能帮我们做啥">cobra能帮我们做啥？</h3> <hr/> <p>cobra包提供以下功能：</p> <ul> <li>轻松创建基于子命令的 CLI：如<code>app server</code>、<code>app fetch</code>等。</li> <li>自动添加<code>-h</code>,<code>--help</code>等帮助性Flag</li> <li>自动生成命令和Flag的帮助信息</li> <li>创建完全符合 POSIX 的Flag(标志)（包括长、短版本）</li> <li>支持嵌套子命令</li> <li>支持全局、本地和级联Flag</li> <li>智能建议（<code>app srver</code>... did you mean<code>app server</code>?）</li> <li>为应用程序自动生成 shell 自动完成功能（bash、zsh、fish、powershell）</li> <li>为应用程序自动生成man page</li> <li>命令别名，可以在不破坏原有名称的情况下进行更改</li> <li>支持灵活自定义help、usege等。</li> <li>无缝集成<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://github.com/spf13/viper"  target="_blank" rel="nofollow">viper</a>构建12-factor应用</li> </ul> <p>cobra遵循<code>commands</code>,<code>arguments</code> &amp;<code>flags</code>结构。</p> <p>举例来说</p> <pre><code class="language-bash">#appname command  arguments docker pull alpine:latest #appname command flag docker ps -a #appname command flag argument git commit -m "msg"</code></pre> <p>开发者可根据情况进行自组织。</p> <h3 id="cobra基础使用">cobra基础使用</h3> <hr/> <p>安装cobra包和二进制工具cobra-cli，cobra-cli可以帮助我们快速创建出一个cobra基础代码结构。</p> <pre><code class="language-bash">go get -u github.com/spf13/cobra@latest go install github.com/spf13/cobra-cli@latest</code></pre> <p>启用<code>GO111MODULE=on</code>，我们初始化一个xpower</p> <pre><code class="language-bash"># go mod init  xpower go: creating new go.mod: module xpower</code></pre> <p>使用cobra-cli初始化基础代码结构</p> <pre><code class="language-bash"># cobra-cli  init Your Cobra application is ready at /root/demo/xpower  #查看目录结构 # tree xpower xpower ├── cmd │&nbsp;&nbsp; └── root.go ├── go.mod ├── go.sum ├── LICENSE └── main.go  1 directory, 5 files</code></pre> <p>运行demo可以看到cobra包本身的一些提示信息。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/91965048b8b019d2e102824f38043dc4.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>查看<code>main.go</code>，cobra-cli为我们创建了一个cmd的包并且调用了包里面的<code>Execute()</code>函数</p> <pre><code class="language-go">/* Copyright © 2022 NAME HERE &lt;EMAIL ADDRESS&gt;  */ package main  import "xpower/cmd"  func main() {         cmd.Execute() }</code></pre> <p>从上面的目录结构中可以看到cmd包目前只有一个<code>root.go</code>，我们可以在这里操作根命令相关的内容。</p> <p>大多数时候CLI可能会包含多个子命令比如<code>git clone</code>、<code>git add</code>，cobra-cli可通过add 添加子命令。</p> <p>现在我们添加wget和ping子命令，即接下来我们将通过xpower来重写wget和ping的部分功能。</p> <pre><code class="language-bash">cobra-cli add wget cobra-cli add ping</code></pre> <p>现在的目录结构如下：</p> <pre><code># tree xpower xpower ├── cmd │&nbsp;&nbsp; ├── ping.go │&nbsp;&nbsp; ├── root.go │&nbsp;&nbsp; └── wget.go ├── go.mod ├── go.sum ├── LICENSE └── main.go</code></pre> <p><code>ping</code>和<code>wget</code>已经被集成到root.go中</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/af997edd61429c4ccaca0e43a39d1aed.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p><code>wget.go</code></p> <pre><code class="language-go">package cmd  import (     "fmt"      "github.com/spf13/cobra" )  // wgetCmd represents the wget command var wgetCmd = &amp;cobra.Command{     Use:     "wget",     Example: "xpower wget iqsing.github.io/download.tar -o /tmp",     Short:   "wget is a download cli.",     Long:    `use wget to download everything you want from net.`,     Run: func(cmd *cobra.Command, args []string) {         fmt.Println("wget called")       }, }  func init() {     rootCmd.AddCommand(wgetCmd)      // Here you will define your flags and configuration settings. }</code></pre> <p>在wget.go 中定义了一个wgetCmd结构体指针，可通过查看Command结构体原型添加或移除成员变量。这里我们添加了一个<code>Example</code>用于指示示例，Short和Long为命令简介，Run为wget命令的真正实现。</p> <p>我们知道在go中包的init()函数会在import时执行，通过<code>AddCommand(wgetCmd)</code>将wegetCmd添加到结构体<code>Command</code> 成员变量commands中，包括后面我们编写的Flag也是如此。</p> <p>接下来我们在结构体中添加Args用于验证（限制）参数数量，在init()函数中添加Flag<code>-o</code>用于保存下载的文件地址，并通过<code>MarkFlagRequired</code>约束flag的参数必须输入，最后在Run中调用Download即可。</p> <pre><code class="language-go">package cmd  import (     "fmt"     "io"     "log"     "net/http"     "os"      "github.com/spf13/cobra" )  var (     output string )  // wgetCmd represents the wget command var wgetCmd = &amp;cobra.Command{     Use:     "wget",     Example: "xpower wget iqsing.github.io/download.tar.gz -o /tmp/download.tar.gz",     Args:    cobra.ExactArgs(1),     Short:   "wget is a download cli.",     Long:    `use wget to download everything you want from net.`,     Run: func(cmd *cobra.Command, args []string) {         fmt.Println("---wget running---")         Download(args[0], output)     }, }  func init() {     rootCmd.AddCommand(wgetCmd)     // Here you will define your flags and configuration settings.      wgetCmd.Flags().StringVarP(&amp;output, "output", "o", "", "output file")     wgetCmd.MarkFlagRequired("output") } func Download(url string, path string) {     out, err := os.Create(path)     check(err)     defer out.Close()      res, err := http.Get(url)     check(err)     defer res.Body.Close()      _, err = io.Copy(out, res.Body)     check(err)     fmt.Println("save as" + path) } func check(err error) {     if err != nil {         log.Fatal(err)     } }</code></pre> <h5 id="args">args</h5> <pre><code class="language-go">Args:    cobra.ExactArgs(1)</code></pre> <p>cobra内置的参数验证也是比较多，NoArgs、OnlyValidArgs、MinimumNArgs、MaximumNArgs等等可翻阅源码<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/spf13/cobra/blob/master/args.go"  target="_blank" rel="nofollow">args.go</a>，可以满足基本使用，如果有自己的特殊要求可以通过解析arg来实现。</p> <h5 id="flags">flags</h5> <pre><code class="language-go">wgetCmd.Flags().StringVarP(&amp;output, "output", "o", "", "output file(required)")</code></pre> <p>flag包含局部和全局两种，全局flag在父命令定义后子命令也会生效，而局部flag则在哪定义就在哪生效。</p> <p>如上面的局部flag，我们在wgetCmd中定义的flag只有wget这个子命令能用。</p> <p>全局flag</p> <pre><code class="language-go">rootCmd.PersistentFlags().BoolVarP(&amp;Verbose, "verbose", "v", false, "verbose output")</code></pre> <p><code>StringVarp</code>、<code>BoolVarP</code> 用于flag数据类型限制。</p> <p>简单的应用从命令行直接写入参数是很常见的，但是如果比较复杂的命令行应用参数需要非常多，再这样操作不太合理，cobra作者还写了另一个在go中很流行的包viper用于解析配置文件，比如kubectl 的yml，以及各种json</p> <p>前面也说过可以无缝衔接，只需Bind一下即可。</p> <pre><code class="language-go">var author string  func init() {   rootCmd.PersistentFlags().StringVar(&amp;author, "author", "YOUR NAME", "Author name for copyright attribution")   viper.BindPFlag("author", rootCmd.PersistentFlags().Lookup("author")) }</code></pre> <p>flag还可以做依赖，比如下面username和password必须同时接收到参数。</p> <pre><code class="language-go">rootCmd.Flags().StringVarP(&amp;u, "username", "u", "", "Username (required if password is set)") rootCmd.Flags().StringVarP(&amp;pw, "password", "p", "", "Password (required if username is set)") rootCmd.MarkFlagsRequiredTogether("username", "password")</code></pre> <p>添加子命令可参考包<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/go-ping/ping"  target="_blank" rel="nofollow">go-ping/ping</a>，这里不再赘述。</p> <p>我们来看编译后使用如何？</p> <p>通过<code>-h</code>查看帮助：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cabca4c0e283b782fe712b833817b169.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>参数个数错误：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c46451b151b6dbd8f316949a6d0340e4.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>需要flag<code>-o</code>：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/06cf881924f431ac4ddb4c6cc8122194.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>正确使用：</p> <p>xpower 子命令ping：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3a603d4c70a75d6e25d32a45d52e3b17.jpg" alt="Go通过cobra快速构建命令行应用"></p> <p>xpower 子命令wget：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/fca67d6e42040e63de5e2bf8db3a72ae.jpg" alt="Go通过cobra快速构建命令行应用"></p> <hr/> <p>以上我们通过go中cobra包实现xpower命令，包含重写了简单功能的ping和wget两子命令，甚至我们还可以以此来实现自己的跨平台、无依赖的工具集。本文涉及代码已提交至仓库<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/iqsing/code/tree/main/xpower"  target="_blank" rel="nofollow">code/xpower</a></p> <p>cobra包含很多开箱即用的功能，经过大量项目验证和完善，已满足大部分命令行应用构建需求。本文只介绍了一部分内容，更多内容可查看仓库<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/spf13/cobra"  target="_blank" rel="nofollow">spf13/cobra</a></p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1120.htm">VScode中使用Cmake遇到的问题及其解决方法for Windows OS</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1122.htm">MySQL如何使用YEAR数据类型在表中存储年值？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

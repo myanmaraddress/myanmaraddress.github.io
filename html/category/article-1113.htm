@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1113.htm" />
+    <title>[ Shell ] 通过 Shell 脚本导出 CDL 网表 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>[ Shell ] 通过 Shell 脚本导出 CDL 网表</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/yeungchie/"  title="https://www.cnblogs.com/yeungchie/" target="_blank" rel="nofollow">https://www.cnblogs.com/yeungchie/</a></p> <p>通过<code>si</code> 导出电路网表，实际上在 Virtuoso 中通过菜单 File - Export - CDL 和 Calibre LVS 中 Export from schematic viewer 也是通过<code>si</code> 来导出电路网表的，下面讲下如何使用。</p> <h2 id="如何运行-si">如何运行 si</h2> <p>下面是 si 的运行命令，<code>$cdslibFile</code> 为 cds.lib 文件。</p> <pre><code class="language-bash">si -batch -command netlist -cdslib $cdslibFile</code></pre> <h3 id="sienv-文件">si.env 文件</h3> <p>在 si 的运行路径下需要提前准备好一个 si.env 文件，si 通过读取这个文件的内容来配置导出 cdl 所需要的信息。</p> <p>文件的如何编写可以参考 help 文档：</p> <ul> <li>Virtuoso Shared Tools <ul> <li>Design Data Translators Reference <ul> <li>Design Translation Using CDL Out <ul> <li>Using CDL Out <ul> <li>Preparing the si.env File</li> </ul> </li> </ul> </li> </ul> </li> </ul> </li> </ul> <p>简单看看就行，我一般是直接通过 GUI 界面尝试导出一份 cdl，然后在运行路径下会有一份 si.env 文件，下面是一个例子：</p> <pre><code class="language-lisp">simLibName = "stdcel" simCellName = "TOP" simViewName = "schematic" simSimulator = "auCdl" simNotIncremental = 't simReNetlistAll = nil simViewList = '("auCdl" "cdl" "schematic" "cmos_sch" "gate_sch" "cmos.sch" "gate.sch" "symbol") simStopList = '("auCdl" "cdl") hnlNetlistFileName = "TOP.cdl" resistorModel = "" shortRES = 2000.0 preserveRES = 't checkRESVAL = 't checkRESSIZE = 'nil preserveCAP = 't checkCAPVAL = 't checkCAPAREA = 'nil preserveDIO = 't checkDIOAREA = 't checkDIOPERI = 't checkCAPPERI = 'nil simPrintInhConnAttributes = 'nil checkScale = "meter" checkLDD = 'nil pinMAP = 'nil preserveBangInNetlist = 'nil shrinkFACTOR = 0.0 globalPowerSig = "" globalGndSig = "" displayPININFO = 't preserveALL = 't setEQUIV = "" incFILE = "./Subcircuit/3t_device.cdl" auCdlDefNetlistProc = "ansCdlHnlPrintInst"</code></pre> <p>这个例子中导出的顶层电路单元是<code>stdcel/TOP/schematic</code>，我们只关心其中几个常用的变量：</p> <ul> <li>simLibName ( Library Name )<code>stdcel</code></li> <li>simCellName ( Top Cell Name )<code>TOP</code></li> <li>simViewName ( View Name )<code>schematic</code></li> <li>hnlNetlistFileName ( Output CDL Netlist File )</li> <li>incFILE ( Include File )</li> <li>auCdlDefNetlistProc ( Analog Netlisting Type )<code>这个变量决定 pin 的连接方式</code> <ul> <li>ansCdlSubcktCall ( Connection By Order )<code>顺序连接</code></li> <li>ansCdlHnlPrintInst ( Connection By Name )<code>命名端口连接，一般选择这个来保证 IP/Digital 网表的连接</code></li> </ul> </li> </ul> <blockquote> <p>Run Directory 直接由 si 的运行路径来决定。</p> </blockquote> <h2 id="编写脚本-export_cdl">编写脚本 export_cdl</h2> <p>明白了 si 的使用方法，现在可以写一个 shell 脚本，在 Terminal 操作，实现便捷地导出指定电路单元的 cdl 文件。</p> <details> <summary>点击查看完整代码</summary> <pre><code class="language-bash">#!/bin/bash #-------------------------- # Program  : export_cdl.sh # Language : Bash # Author   : YEUNGCHIE # Version  : 2022.04.03 #-------------------------- HelpInfo(){     cat &lt;&lt;EOF ------------------------------------------------- Export CDL ( Circuit Description Language ) File ------------------------------------------------- Usage: export_cdl -cdslib cdslibFile -lib libName -cell cellName [ OPTIONS ]      -cdslib     Path of cds.lib file     -lib        Schematic top cell libName     -cell       Schematic top cell cellName     -view       Schematic top cell viewName ( Default: schematic )     -file       Output netlist file name    ( Default: ./&lt;cellName&gt;.cdl )     -include    Include subckt file name     -order      Netlisting Type Connection By Order ( The default is By Name )     -h, -help   Display this help  Examples:   export_cdl  -cdslib ./cds.lib  -lib Xeon  -cell X999  -include ./subckt.cdl  Output:     Netlist file: X999.cdl EOF }  viewName='schematic' connType='ansCdlHnlPrintInst'  # 命令行参数分析 while [[ -n $1 ]]; do     if [[ -n $opt ]]; then         case $opt in             lib_opt)        libName=$1      ;;             cell_opt)       cellName=$1     ;;             view_opt)       viewName=$1     ;;             file_opt)       netlistFile=$1  ;;             cdslib_opt)     cdslibFile=$1   ;;             include_opt)    includeFile=$1  ;;         esac         unset opt     else         case $1 in             -lib)       opt='lib_opt'       ;;             -cell)      opt='cell_opt'      ;;             -view)      opt='view_opt'      ;;             -file)      opt='file_opt'      ;;             -cdslib)    opt='cdslib_opt'    ;;             -include)   opt='include_opt'   ;;             -order)                 connType='ansCdlSubcktCall'             ;;             -h|-help)                 HelpDoc &gt;&amp;2                 exit 1             ;;             *)                 echo "Invalid option - '$1'" &gt;&amp;2                 echo "Try -h or -help for more infomation." &gt;&amp;2                 exit 1             ;;         esac     fi     shift done  # 参数检查 if [[ ! ( $cdslibFile &amp;&amp; $libName &amp;&amp; $cellName ) ]]; then     ## 缺少必要参数时，打印 help 并退出     HelpInfo &gt;&amp;2     exit 1 elif [[ -f $cdslibFile ]]; then     ## 将相对路径改为绝对路径     cdslibDir=$(cd $(dirname $cdslibFile); pwd -P)     fileName=$(basename $cdslibFile)     cdslibFile="$cdslibDir/$fileName" else     ## 找不到 cds.lib 文件，打印报错     echo "No such file - $cdslibFile" &gt;&amp;2     echo "Try -h or -help for more infomation." &gt;&amp;2     exit 1 fi  ## 当网表文件名未定义时，设置默认文件名 if [[ ! $netlistFile ]]; then netlistFile="${cellName}.cdl" ; fi  # si.env 文件生成 cat &gt; si.env &lt;&lt;EOF simLibName = "$libName" simCellName = "$cellName" simViewName = "$viewName" simSimulator = "auCdl" simNotIncremental = 't simReNetlistAll = nil simViewList = '("auCdl" "cdl" "schematic" "cmos_sch" "gate_sch" "cmos.sch" "gate.sch" "symbol") simStopList = '("auCdl" "cdl") simNetlistHier = t hnlNetlistFileName = "$netlistFile" resistorModel = "" shortRES = 2000.0 preserveRES = 't checkRESVAL = 't checkRESSIZE = 'nil preserveCAP = 't checkCAPVAL = 't checkCAPAREA = 'nil preserveDIO = 't checkDIOAREA = 't checkDIOPERI = 't checkCAPPERI = 'nil simPrintInhConnAttributes = 'nil checkScale = "meter" checkLDD = 'nil pinMAP = 'nil preserveBangInNetlist = 'nil shrinkFACTOR = 0.0 globalPowerSig = "" globalGndSig = "" displayPININFO = 't preserveALL = 't setEQUIV = "" incFILE = "" auCdlDefNetlistProc = "$connType" EOF  # 运行 si si -batch -command netlist -cdslib $cdslibFile  status=$?  # 删除中间文件 if [[ -f .stimulusFile.auCdl ]]; then rm -rf .stimulusFile.auCdl ; fi if [[ -f si.env              ]]; then rm -rf si.env              ; fi if [[ -f netlist             ]]; then rm -rf netlist             ; fi if [[ -d ihnl                ]]; then rm -rf ihnl                ; fi if [[ -d map                 ]]; then rm -rf map                 ; fi  exit $status</code></pre> </details> <h3 id="运行实例">运行实例</h3> <p>例：cdslib 文件为<code>./cds.lib</code></p> <ol> <li> <p>导出<code>verify</code> 库中的<code>ad01d0</code> 单元的电路网表。</p> <pre><code class="language-bash">export_cdl -cdslib cds.lib -lib verify -cell ad01d0</code></pre> <p>导出的 cdl 文件名为<code>ad01d0.cdl</code></p> </li> <li> <p>导出<code>verify</code> 库中的<code>inv0d0</code> 单元的电路网表，同时包含 subckt 网表文件<code>./netlist</code>，并指定 cdl 文件名为<code>inv.cdl</code> 。</p> <pre><code class="language-bash">export_cdl -cdslib ./cds.lib -lib verify -cell inv0d0 -include ./netlist</code></pre> <p>导出的 cdl 文件名为<code>inv.cdl</code></p> </li> </ol> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1112.htm">mysql查看第二页_MySql实现分页查询的SQL</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1114.htm">SpringBoot中Starter的作用是什么</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

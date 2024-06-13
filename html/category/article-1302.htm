@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1302.htm" />
+    <title>java高级用法之:在JNA中使用类型映射 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>java高级用法之:在JNA中使用类型映射</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#%E7%AE%80%E4%BB%8B" rel="nofollow">简介</a></li> <li><a href="#%E7%B1%BB%E5%9E%8B%E6%98%A0%E5%B0%84%E7%9A%84%E6%9C%AC%E8%B4%A8" rel="nofollow">类型映射的本质</a></li> <li><a href="#typemapper" rel="nofollow">TypeMapper</a></li> <li><a href="#nativemapped" rel="nofollow">NativeMapped</a></li> <li><a href="#%E6%80%BB%E7%BB%93" rel="nofollow">总结</a></li> </ul> </div> <h1 id="简介">简介</h1> <p>JNA中有很多种映射，library的映射，函数的映射还有函数参数和返回值的映射，libary和函数的映射比较简单，我们在之前的文章中已经讲解过了，对于类型映射来说，因为JAVA中的类型种类比较多，所以这里我们将JNA的类型映射提取出来单独讲解。</p> <h1 id="类型映射的本质">类型映射的本质</h1> <p>我们之前提到在JNA中有两种方法来映射JAVA中的方法和native libary中的方法，一种方法叫做interface mapping，一种方式叫做direct mapping。</p> <p>但是我们有没有考虑过这两种映射的本质是什么呢？</p> <p>比如native有一个方法，我们是如何将JAVA代码中的方法参数传递给native方法，并且将native方法的返回值转换成JAVA中函数的返回类型呢？</p> <p>答案就是序列化。</p> <p>因为本质上一切的交互都是二进制的交互。JAVA类型和native类型进行转换，最简单的情况就是JAVA类型和native类型底层的数据长度保持一致，这样在进行数据转换的时候就会更加简单。</p> <p>我们看下JAVA类型和native类型的映射和长度关系：</p> <table> <thead> <tr> <th>C Type</th> <th>Native类型的含义</th> <th>Java Type</th> </tr> </thead> <tbody> <tr> <td>char</td> <td>8-bit整型</td> <td>byte</td> </tr> <tr> <td>wchar_t</td> <td>和平台相关</td> <td>char</td> </tr> <tr> <td>short</td> <td>16-bit整型</td> <td>short</td> </tr> <tr> <td>int</td> <td>32-bit整型</td> <td>int</td> </tr> <tr> <td>int</td> <td>boolean flag</td> <td>boolean</td> </tr> <tr> <td>enum</td> <td>枚举类型</td> <td>int (usually)</td> </tr> <tr> <td>long long, __int64</td> <td>64-bit整型</td> <td>long</td> </tr> <tr> <td>float</td> <td>32-bit浮点数</td> <td>float</td> </tr> <tr> <td>double</td> <td>64-bit浮点数</td> <td>double</td> </tr> <tr> <td>pointer (e.g. void*)</td> <td>平台相关</td> <td>Buffer Pointer</td> </tr> <tr> <td>pointer (e.g. void*), array</td> <td>平台相关</td> <td> <p>[] (原始类型数组)</p> </td> </tr> </tbody> </table> <p>上面的JAVA类型都是JDK自带的类型（Pointer除外）。</p> <p>除了JAVA自带的类型映射，JNA内部也定义了一些数据类型，可以跟native的类型进行映射：</p> <table> <thead> <tr> <th>C Type</th> <th>Native类型的含义</th> <th>Java Type</th> </tr> </thead> <tbody> <tr> <td>long</td> <td>和平台相关(32- or 64-bit integer)</td> <td>NativeLong</td> </tr> <tr> <td>const char*</td> <td>字符串 (native encoding or jna.encoding)</td> <td>String</td> </tr> <tr> <td>const wchar_t*</td> <td>字符串 (unicode)</td> <td>WString</td> </tr> <tr> <td>char**</td> <td>字符串数组</td> <td>String[]</td> </tr> <tr> <td>wchar_t**</td> <td>字符串数组(unicode)</td> <td>WString[]</td> </tr> <tr> <td>void**</td> <td>pointers数组</td> <td>Pointer[]</td> </tr> <tr> <td>struct* struct</td> <td>结构体指针和结构体</td> <td>Structure</td> </tr> <tr> <td>union</td> <td>结构体</td> <td>Union</td> </tr> <tr> <td>struct[]</td> <td>结构体数组</td> <td>Structure[]</td> </tr> <tr> <td>void (*FP)()</td> <td>函数指针 (Java or native)</td> <td>Callback</td> </tr> <tr> <td>pointer (<t> *)</t></td> <td>指针</td> <td>PointerType</td> </tr> <tr> <td>other</td> <td>整数类型</td> <td>IntegerType</td> </tr> <tr> <td>other</td> <td>自定义映射类型</td> <td>NativeMapped</td> </tr> </tbody> </table> <h1 id="typemapper">TypeMapper</h1> <p>除了定义好的映射关系之外，大家也可以使用TypeMapper来对参数类型进行自定义转换，先来看下TypeMapper的定义：</p> <pre><code>public interface TypeMapper {      FromNativeConverter getFromNativeConverter(Class&lt;?&gt; javaType);      ToNativeConverter getToNativeConverter(Class&lt;?&gt; javaType); }</code></pre> <p>TypeMapper是一个interface，它定义了两个converter方法，分别是getFromNativeConverter和getToNativeConverter。</p> <p>如果要使用TypeMapper则需要实现它而这两个方法即可。我们看一下官方的W32APITypeMapper是怎么实现的：</p> <pre><code> TypeConverter stringConverter = new TypeConverter() {                 @Override                 public Object toNative(Object value, ToNativeContext context) {                     if (value == null)                         return null;                     if (value instanceof String[]) {                         return new StringArray((String[])value, true);                     }                     return new WString(value.toString());                 }                 @Override                 public Object fromNative(Object value, FromNativeContext context) {                     if (value == null)                         return null;                     return value.toString();                 }                 @Override                 public Class&lt;?&gt; nativeType() {                     return WString.class;                 }             };             addTypeConverter(String.class, stringConverter);             addToNativeConverter(String[].class, stringConverter);</code></pre> <p>首先定义一个TypeConverter，在TypeConverter中实现了toNative，fromNative和nativeType三个方法。在这个例子中，native type是WString，而JAVA type是String。而这个TypeConverter就是最终要使用的FromNativeConverter和ToNativeConverter。</p> <p>有了typeMapper，应该怎么使用呢？最简单的方法就是将其添加到Native.load的第三个参数中，如下所示：</p> <pre><code> TestLibrary lib = Native.load("testlib", TestLibrary.class, Collections.singletonMap(Library.OPTION_TYPE_MAPPER, mapper));</code></pre> <h1 id="nativemapped">NativeMapped</h1> <p>TypeMapper需要在调用Native.load方法的时候传入，从而提供JAVA类型和native类型的转换关系。TypeMapper可以看做是类型转换关系的外部维护者。</p> <p>可能很多朋友已经想到了，既然能在JAVA类型外部维护转换关系，那么可不可以在JAVA类型本身对这个转换关系进行维护呢？答案是肯定的，我们只需要在要实现转换类型关系的JAVA类型实现NativeMapped接口即可。</p> <p>先来看下NativeMapped接口的定义：</p> <pre><code>public interface NativeMapped {      Object fromNative(Object nativeValue, FromNativeContext context);      Object toNative();      Class&lt;?&gt; nativeType(); }</code></pre> <p>可以看到NativeMapped中定义要实现的方法基本上和FromNativeConverter、ToNativeConverter中定义的方法一致。</p> <p>下面举一个具体的例子来说明一下NativeMapped到底应该怎么使用。首先我们定义一个enum类实现NativeMapped接口：</p> <pre><code>    public enum TestEnum implements NativeMapped {         VALUE1, VALUE2;          @Override         public Object fromNative(Object nativeValue, FromNativeContext context) {             return values()[(Integer) nativeValue];         }          @Override         public Object toNative() {             return ordinal();         }          @Override         public Class&lt;?&gt; nativeType() {             return Integer.class;         }     }</code></pre> <p>这个类实现了从Integer到TestEnum枚举的转换。</p> <p>要想使用该TestEnum类的话，需要定义一个interface：</p> <pre><code>     public static interface EnumerationTestLibrary extends Library {         TestEnum returnInt32Argument(TestEnum arg);     }</code></pre> <p>具体调用逻辑如下：</p> <pre><code>EnumerationTestLibrary lib = Native.load("testlib", EnumerationTestLibrary.class); assertEquals("Enumeration improperly converted", TestEnum.VALUE1, lib.returnInt32Argument(TestEnum.VALUE1)); assertEquals("Enumeration improperly converted", TestEnum.VALUE2, lib.returnInt32Argument(TestEnum.VALUE2));</code></pre> <p>可以看到，因为NativeMapped中已经包含了类型转换的信息，所以不需要再指定TypeMapper了。</p> <blockquote> <p>注意，这里用到了testlib，这个testlib是从JNA的native模块中编译出来的，如果你是MAC环境的话可以拷贝JNA代码，运行ant native即可得到，编译完成之后，将这个libtestlib.dylib拷贝到你项目中的resources目录下面darwin-aarch64或者darwin-x86即可。</p> </blockquote> <p>有不会的同学，可以联系我。</p> <h1 id="总结">总结</h1> <p>本文讲解了JNA中的类型映射规则和自定义类型映射的方法。</p> <p>本文的代码：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/ddean2009/learn-java-base-9-to-20.git"  target="_blank" rel="nofollow">https://github.com/ddean2009/learn-java-base-9-to-20.git</a></p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1301.htm">Uniapp-远离回调callback请使用await、async</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1303.htm">通过make生成执行文件的过程详解_在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

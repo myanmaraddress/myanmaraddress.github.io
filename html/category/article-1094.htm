@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1094.htm" />
+    <title>Echarts在vue中的基本使用以及常用配置 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Echarts在vue中的基本使用以及常用配置</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p id="main-toc"><strong>目录</strong></p> <p id="1%E3%80%81%E5%AE%89%E8%A3%85Echarts-toc" style="margin-left:40px;"><a href="#1%E3%80%81%E5%AE%89%E8%A3%85Echarts" rel="nofollow">1、安装Echarts</a></p> <p id="2%E3%80%81%E5%9C%A8main.js%E4%B8%AD%E5%BC%95%E5%85%A5-toc" style="margin-left:40px;"><a href="#2%E3%80%81%E5%9C%A8main.js%E4%B8%AD%E5%BC%95%E5%85%A5" rel="nofollow">2、在main.js中引入</a></p> <p id="3%E3%80%81%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8-toc" style="margin-left:40px;"><a href="#3%E3%80%81%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8" rel="nofollow">3、在组件中使用</a></p> <p id="%C2%A04%E3%80%81%E5%90%84%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E7%BB%93-toc" style="margin-left:40px;"><a href="#%C2%A04%E3%80%81%E5%90%84%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E7%BB%93" rel="nofollow">&nbsp;4、各个配置项总结</a></p> <p style="margin-left:40px;"> <h2 id="1%E3%80%81%E5%AE%89%E8%A3%85Echarts">1、安装Echarts</h2> <pre><code>npm install echarts --save</code></pre> <h2 id="2%E3%80%81%E5%9C%A8main.js%E4%B8%AD%E5%BC%95%E5%85%A5">2、在main.js中引入</h2> <pre><code>//全局引入echarts import * as echarts from 'echarts' Vue.prototype.$echarts=echarts</code></pre> <h2 id="3%E3%80%81%E5%9C%A8%E7%BB%84%E4%BB%B6%E4%B8%AD%E4%BD%BF%E7%94%A8">3、在组件中使用</h2> <p>准备一个盒子，确定盒子宽高</p> <pre><code>&lt;div&gt;      &lt;!-- 基本的折线图 --&gt;     &lt;div id="line" style="width: 400px; height: 300px"&gt;&lt;/div&gt; &lt;/div&gt;</code></pre> <p>js代码块</p> <pre><code>&lt;script&gt; export default {   data() {     return {};   },   methods: {     myEcharts() {       var line = this.$echarts.init(document.getElementById("line"));       //配置图表       var option = {           //x轴           xAxis: {             type: 'category',  //坐标轴类型             data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']           },           //y轴           yAxis: {             type: 'value'           },           //系列           series: [             {               data: [150, 230, 224, 218, 135, 147, 260],               type: 'line'             }           ]        };        line.setOption(option);     }        },   mounted() {     this.myEcharts();   }, } &lt;/script&gt;</code></pre> <p>&nbsp;一个最简单的折线图就做好啦！</p> <p class="img-center"><img fetchpriority="high" decoding="async" alt="" height="306" src="http://img.555519.xyz/uploads3/20220608/76dbe4540e5b6c545ca8549d973fb0c7.jpg"></p> <h2 id="%C2%A04%E3%80%81%E5%90%84%E4%B8%AA%E9%85%8D%E7%BD%AE%E9%A1%B9%E6%80%BB%E7%BB%93">&nbsp;4、各个配置项总结</h2> <ul> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;series-系列</li> <li>&nbsp; &nbsp; &nbsp; &nbsp; title-图表标题</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xAxis-直角坐标系x轴，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;yAxis-直角坐标系y轴，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataRange-值域</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;legend-图例</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tooltip-提示框，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;toolbox-工具栏，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grid- 网格 直角坐标系底板，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;categoryAxis-类目轴</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;valueAxis-数值型坐标轴默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;angleAxis-极坐标轴角度轴，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;radiusAxis-极坐标系半径轴，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;polar-极坐标系底板，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;geo-地理坐标系，</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataZoom-数据区缩放组件</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scatter-散点图默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;radar-雷达图默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;visualMap-视觉映射组件</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bar-柱形图默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-折线图默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pie-饼图默认参数</li> <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;k-K线图默认参数</li> </ul> <h3>4.1&nbsp;series-系列</h3> <h3>4.2&nbsp;title-图表标题</h3> <pre><code>title: {         text:'图表标题',         subtext:'图表副标题',         x: 'left',                 // 水平安放位置，默认为左对齐，可选为：                                    // 'center' ¦ 'left' ¦ 'right'                                    // ¦ {number}（x坐标，单位px） 例如 x:10         y: 'top',                  // 垂直安放位置，默认为全图顶端，可选为：                                    // 'top' ¦ 'bottom' ¦ 'center'                                    // ¦ {number}（y坐标，单位px）         //textAlign: null          // 水平对齐方式，默认根据x设置自动调整         backgroundColor: 'rgba(0,0,0,0)',  //标题背景颜色         borderColor: '#ccc',       // 标题边框颜色         borderWidth: 0,            // 标题边框线宽，单位px，默认为0（无边框）         padding: 5,                // 标题内边距，单位px，默认各方向内边距为5，                                    // 接受数组分别设定上右下左边距，同css         itemGap: 10,               // 主副标题纵向间隔，单位px，默认为10，         textStyle: {             fontSize: 18,          //主标题字号             fontWeight: 'bolder',             color: '#333'          // 主标题文字颜色         },         subtextStyle: {             color: '#aaa'          // 副标题文字颜色         }     },</code></pre> <h3>4.3 legend-图例</h3> <p class="img-center"><img decoding="async" alt="" height="53" src="http://img.555519.xyz/uploads3/20220608/b2c4a7ecc12c39fb3031b218605f296b.jpg"></p> <pre><code>legend: {         orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：                                    // 'horizontal' ¦ 'vertical'         x: 'center',               // 水平安放位置，默认为全图居中，可选为：                                    // 'center' ¦ 'left' ¦ 'right'                                    // ¦ {number}（x坐标，单位px）         y: 'top',                  // 垂直安放位置，默认为全图顶端，可选为：                                    // 'top' ¦ 'bottom' ¦ 'center'                                    // ¦ {number}（y坐标，单位px）         backgroundColor: 'rgba(0,0,0,0)',         borderColor: '#ccc',       // 图例边框颜色         borderWidth: 0,            // 图例边框线宽，单位px，默认为0（无边框）         padding: 5,                // 图例内边距，单位px，默认各方向内边距为5，                                    // 接受数组分别设定上右下左边距，同css         itemGap: 10,               // 各个item之间的间隔，单位px，默认为10，                                    // 横向布局时为水平间隔，纵向布局时为纵向间隔         itemWidth: 20,             // 图例图形宽度         itemHeight: 14,            // 图例图形高度         textStyle: {             color: '#333'          // 图例文字颜色         }     },</code></pre> <h3>4.4&nbsp;tooltip-提示框组件</h3> <p><img decoding="async" alt="" height="172" src="http://img.555519.xyz/uploads3/20220608/3ace73847ad81f6c005eeabc91e3e488.jpg"></p> <pre><code>tooltip: {         trigger: 'item',           // 触发类型，默认数据触发，可选为：'item' ¦ 'axis'         showDelay: 20,             // 显示延迟，添加显示延迟可以避免频繁切换，单位ms         hideDelay: 100,            // 隐藏延迟，单位ms         transitionDuration : 0.4,  // 动画变换时间，单位s         backgroundColor: 'rgba(0,0,0,0.7)',     // 提示背景颜色，默认为透明度为0.7的                                                                    黑色         borderColor: '#333',       // 提示边框颜色         borderRadius: 4,           // 提示边框圆角，单位px，默认为4         borderWidth: 0,            // 提示边框线宽，单位px，默认为0（无边框）         padding: 5,                // 提示内边距，单位px，默认各方向内边距为5，                                    // 接受数组分别设定上右下左边距，同css         axisPointer : {            // 坐标轴指示器，坐标轴触发有效             type : 'line',         // 默认为直线，可选为：'line' | 'shadow'             lineStyle : {          // 直线指示器样式设置                 color: '#48b',                 width: 2,                 type: 'solid'             },             shadowStyle : {                       // 阴影指示器样式设置                 width: 'auto',                   // 阴影大小                 color: 'rgba(150,150,150,0.3)'  // 阴影颜色             }         },         textStyle: {             color: '#fff'         }     },</code></pre> <h3>&nbsp;4.5&nbsp;toolbox-工具栏</h3> <p>这是ECharts中的工具栏。内置有导出图片、数据视图、动态类型切换、数据区域缩放、重置五个工具。</p> <p class="img-center"><img loading="lazy" decoding="async" alt="" height="59" src="http://img.555519.xyz/uploads3/20220608/dc4c38ff78e0cdd5d7e26005b27e0888.jpg"></p> <ol> <li>saveAsImage：把图表保存为图片 <ol> <li>type：保存图片的格式</li> <li>name：保存文件的名字</li> <li>backgroundColor：保存图片的背景色</li> <li>show：是否显示该工具</li> </ol> </li> <li>restore：配置项还原 <ol> <li>&nbsp;&nbsp;show：是否显示该工具</li> </ol> </li> <li>dataView：数据视图工具 <ol> <li>show：是否显示该工具</li> <li>readOnly：是否不可编辑</li> <li>optionToContent：自定义</li> <li>dataView ：展现函数</li> </ol> </li> <li>dataZoom：数据区域缩放 <ol> <li>show：是否显示该工具</li> </ol> </li> <li>magicType：动态类型切换 <ol> <li>show：是否显示该工具</li> <li>type：'line'(切换为折线图),&nbsp;'bar'(切换为柱状图),&nbsp;'stack'(切换为堆叠模式),&nbsp;'tiled'(切换为&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;平铺模式)</li> </ol> </li> </ol> <pre><code>toolbox：{     show: true,     feature: {     dataView: { //数据视图         show: true     },     restore: { //重置          show: true     },     dataZoom: { //数据缩放视图         show: true     },     saveAsImage: {//保存图片         show: true     },     magicType: {//动态类型切换         type: ['bar', 'line']     }     }</code></pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1093.htm">C++数据结构之堆详解_C 语言_</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1095.htm">SpringMVC获取请求参数笔记整理_java_</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

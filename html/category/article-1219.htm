@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1219.htm" />
+    <title>springboot启动注解 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>springboot启动注解</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>为什么springboot不需要配置文件就可以启动成功。</p> <p>springboot入口SpringBootApplication是一个启动类，主要的注解是以下的三个：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/3fface671e8fa43c73b98e3c3e8b006d.jpg" alt="springboot启动注解"></p> <p>1、SpringBootConfiguration是一个配置类，点进去里面是一个@Configration注解，表明该类是一个配置文件类，@Configration本身也是一个@Component</p> <p>2、@EnableAutoConfiguration，开启自动配置功能。</p> <p>@Import注解的作用，是为了自动导入相关的配置，比如redis、mq、aqs等配置信息。</p> <p>是如何进行导入的呢？AutoConfigurationImportSelector类中loadSpringFactories方法会进行资源的扫描，扫描的路径为Meta-Inf/spring.factories这个文件，这个文件在spring-boot-autoconfigure包下面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/e05723d33a059b2ec20f1c785bfc864d.jpg" alt="springboot启动注解"><img decoding="async" src="http://img.555519.xyz/uploads/20230203/904bf78063deaf65795542b266264976.jpg" alt="springboot启动注解"></p> <p>@AutoConfigurationPackage的注解见下图的注解，会扫描主类所在的包路径所有的configuration注解的类，配合import导入到spring容器中去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/9ba9d362829593de1752d270910c1073.jpg" alt="springboot启动注解"></p> <p>@ComponetScan注解的作用是为了进行组件的扫描，主要作用扫描当前包及其子包下被@Component，@Controller，@Service，@Repository注解标记的类并纳入到spring容器中进行管理。</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1218.htm">解决：is not eligible for getting processed by all BeanPostProcessors</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1220.htm">request和response——请求响应对象</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

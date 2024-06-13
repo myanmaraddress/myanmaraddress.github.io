@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1215.htm" />
+    <title>Java String.equals()与==。 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Java String.equals()与==。</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p><strong>equals()</strong>方法将此字符串与指定的对象进行比较。当且仅当参数不为null并且是一个String对象，表示与此对象相同的字符序列时，结果为true。</p> <h2>示例</h2> <pre>public&nbsp;class&nbsp;Sample&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String&nbsp;[]args)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s1&nbsp;=&nbsp;"nhooo"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s2&nbsp;=&nbsp;"nhooo"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s3&nbsp;=&nbsp;new&nbsp;String&nbsp;(""); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(s1.equals(s2)); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(s2.equals(s3)); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>true false</pre> <p>您还可以使用==运算符比较两个字符串。但是，它比较给定变量而不是值的引用。</p> <h2>示例</h2> <pre>public&nbsp;class&nbsp;Sample&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String&nbsp;[]args)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s1&nbsp;=&nbsp;"nhooo"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s2&nbsp;=&nbsp;"nhooo"; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;s3&nbsp;=&nbsp;new&nbsp;String&nbsp;(""); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(s1&nbsp;==&nbsp;s2); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(s2&nbsp;==&nbsp;s3); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>true false</pre> <div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1214.htm">Go 语言入门之net/url 包_Golang</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1216.htm">数据建模软件Chiner，颜值与实用性并存</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1288.htm" />
+    <title>【EF框架】DbContext的使用 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>【EF框架】DbContext的使用</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <h1>前言</h1> <p>&nbsp; DbContext类是EntityFramework （简称 EF）中的一个类，可以理解为一个数据库对象的实例。在 EF中，无需手动的拼接 SQL 语句对数据库进行增删改查，而是通过 DbContext 来进行相应操作。</p> <h1>叙述</h1> <h2><span style="color:#009900;">DbContext类</span></h2> <p>&nbsp; DbContext类是实体框架的重要组成部分。它是您的域或实体类与数据库之间的桥梁。</p> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221230/d75aca4eef76e92d15e30017ddd61841.jpg"></p> <p>DbContext是负责与数据交互作为对象的主要类。DbContext负责以下活动：<br /> （1）EntitySet： DbContext包含映射到数据库表的所有实体的实体集（DbSet &lt;TEntity&gt;）。<br /> （2）查询（<span style="color:#333333;">Querying</span>）： DbContext将LINQ-to-Entities查询转换为SQL查询并将其发送到数据库。<br /> （3）更改跟踪（Change Tracking）：跟踪实体在从数据库查询后发生的更改。<br /> （4）持久数据（Persisting Data）：它还根据实体的状态对数据库执行插入，更新和删除操作。<br /> （5）缓存（Caching）： DbContext默认进行一级缓存。它存储在上下文类生命周期中已经被检索的实体。<br /> （6）管理关系（Manage Relationship）： DbContext还使用DB-First或Model-First方法使用CSDL，MSL和SSDL或者使用Code-First方法使用流利的API来管理关系。<br /> （7）对象实现（Object Materialization）： DbContext将原始表数据转换为实体对象。</p> <p>以下是小编生成的excellentmcoinEntities类（派生DbContext的上下文类）的示例。</p> <pre class="has"><code class="language-csharp">//------------------------------------------------------------------------------ // &lt;auto-generated&gt; //    此代码是根据模板生成的。 // //    手动更改此文件可能会导致应用程序中发生异常行为。 //    如果重新生成代码，则将覆盖对此文件的手动更改。 // &lt;/auto-generated&gt; //------------------------------------------------------------------------------  namespace Model {     using System;     using System.Data.Entity;     using System.Data.Entity.Infrastructure;          public partial class excellentmcoinEntities : DbContext     {         public excellentmcoinEntities()             : base("name=excellentmcoinEntities")         {         }              protected override void OnModelCreating(DbModelBuilder modelBuilder)         {             throw new UnintentionalCodeFirstException();         }              public DbSet&lt;t_accumulate&gt; t_accumulate { get; set; }         public DbSet&lt;t_addmcoinrecord&gt; t_addmcoinrecord { get; set; }         public DbSet&lt;t_announce&gt; t_announce { get; set; }         public DbSet&lt;t_attribute&gt; t_attribute { get; set; }         public DbSet&lt;t_attriuser&gt; t_attriuser { get; set; }         public DbSet&lt;t_character&gt; t_character { get; set; }         public DbSet&lt;t_controller&gt; t_controller { get; set; }         public DbSet&lt;t_dayget&gt; t_dayget { get; set; }         public DbSet&lt;t_department&gt; t_department { get; set; }         public DbSet&lt;t_departmentgrade&gt; t_departmentgrade { get; set; }         public DbSet&lt;t_departquestype&gt; t_departquestype { get; set; }         public DbSet&lt;t_grade&gt; t_grade { get; set; }         public DbSet&lt;t_healthytips&gt; t_healthytips { get; set; }         public DbSet&lt;t_mcoin&gt; t_mcoin { get; set; }         public DbSet&lt;t_mcoindb&gt; t_mcoindb { get; set; }         public DbSet&lt;t_mcoindetail&gt; t_mcoindetail { get; set; }         public DbSet&lt;t_pageset&gt; t_pageset { get; set; }         public DbSet&lt;t_quesfamily&gt; t_quesfamily { get; set; }         public DbSet&lt;t_quesfamilymemeber&gt; t_quesfamilymemeber { get; set; }         public DbSet&lt;t_question&gt; t_question { get; set; }         public DbSet&lt;t_questype&gt; t_questype { get; set; }         public DbSet&lt;t_stageconfluence&gt; t_stageconfluence { get; set; }         public DbSet&lt;t_states&gt; t_states { get; set; }         public DbSet&lt;t_suggesstion&gt; t_suggesstion { get; set; }         public DbSet&lt;t_type&gt; t_type { get; set; }         public DbSet&lt;t_user&gt; t_user { get; set; }         public DbSet&lt;t_attributerecord&gt; t_attributerecord { get; set; }         public DbSet&lt;t_notice&gt; t_notice { get; set; }     } } </code>excellentmcoinEntities : DbContext     {         public excellentmcoinEntities()             : base("name=excellentmcoinEntities")         {         }              protected override void OnModelCreating(DbModelBuilder modelBuilder)         {             throw new UnintentionalCodeFirstException();         }              public DbSet&lt;t_accumulate&gt; t_accumulate { get; set; }         public DbSet&lt;t_addmcoinrecord&gt; t_addmcoinrecord { get; set; }         public DbSet&lt;t_announce&gt; t_announce { get; set; }         public DbSet&lt;t_attribute&gt; t_attribute { get; set; }         public DbSet&lt;t_attriuser&gt; t_attriuser { get; set; }         public DbSet&lt;t_character&gt; t_character { get; set; }         public DbSet&lt;t_controller&gt; t_controller { get; set; }         public DbSet&lt;t_dayget&gt; t_dayget { get; set; }         public DbSet&lt;t_department&gt; t_department { get; set; }         public DbSet&lt;t_departmentgrade&gt; t_departmentgrade { get; set; }         public DbSet&lt;t_departquestype&gt; t_departquestype { get; set; }         public DbSet&lt;t_grade&gt; t_grade { get; set; }         public DbSet&lt;t_healthytips&gt; t_healthytips { get; set; }         public DbSet&lt;t_mcoin&gt; t_mcoin { get; set; }         public DbSet&lt;t_mcoindb&gt; t_mcoindb { get; set; }         public DbSet&lt;t_mcoindetail&gt; t_mcoindetail { get; set; }         public DbSet&lt;t_pageset&gt; t_pageset { get; set; }         public DbSet&lt;t_quesfamily&gt; t_quesfamily { get; set; }         public DbSet&lt;t_quesfamilymemeber&gt; t_quesfamilymemeber { get; set; }         public DbSet&lt;t_question&gt; t_question { get; set; }         public DbSet&lt;t_questype&gt; t_questype { get; set; }         public DbSet&lt;t_stageconfluence&gt; t_stageconfluence { get; set; }         public DbSet&lt;t_states&gt; t_states { get; set; }         public DbSet&lt;t_suggesstion&gt; t_suggesstion { get; set; }         public DbSet&lt;t_type&gt; t_type { get; set; }         public DbSet&lt;t_user&gt; t_user { get; set; }         public DbSet&lt;t_attributerecord&gt; t_attributerecord { get; set; }         public DbSet&lt;t_notice&gt; t_notice { get; set; }     } } </pre> <p>上下文类（excellentmcoinEntities）包含所有实体的DbSet &lt;TEntity&gt;类型的实体集。</p> <h2><span style="color:#009900;">DbContext具体使用</span></h2> <h3><span style="color:#990000;">增</span></h3> <pre class="has"><code class="language-csharp">excellentmcoinEntities db = new excellentmcoinEntities(); //创建对象实体，注意，这里需要对所有属性进行赋值（除了自动增长主键外），如果不赋值，则会数据库中会被设置为NULL（注意是否可空） var user = new User             {                 Name = "bomo",                 Age = 21,                 Gender = "male"             }; db.User.Add(user); db.SaveChanges();</code></pre> <h3><span style="color:#990000;">删</span></h3> <pre class="has"><code class="language-csharp"> public bool deleteUser(string UserID)         {          excellentmcoinEntities dbcontext = new excellentmcoinEntities();             try             {                 string[] testUserID = UserID.Split(',');                                  for (int i = 0; i &lt; testUserID.Length; i++)                 {                     t_user usermodel = dbcontext.t_user.Find(testUserID[i]);                     dbcontext.t_user.Remove(usermodel);                     int flag = dbcontext.SaveChanges();                     if (flag &gt; 0)                     {                         continue;                     }                     else                     {                         return false;                     }                 }                 return true;             }             catch (Exception)             {                  throw new Exception("删除失败");             }         }</code></pre> <h3><span style="color:#990000;">改</span></h3> <pre class="has"><code class="language-csharp">public bool EditUser(t_user usermodel)         {             excellentmcoinEntities dbcontext = new excellentmcoinEntities();             try             {                 t_user user = dbcontext.t_user.Find(usermodel.userID);                 if (user == null)                 {                     return false;                 }                 user.userName = usermodel.userName;                 user.levelID = usermodel.levelID;                 user.state = usermodel.state;                 user.passWord = usermodel.passWord;                  //修改多个字段值                 dbcontext.Entry&lt;t_user&gt;(user).State = System.Data.EntityState.Modified;                 dbcontext.SaveChanges();                 return true;             }             catch (Exception)             {                  throw new Exception("用户修改失败");             }          }</code></pre> <h3><span style="color:#990000;">查</span></h3> <pre class="has"><code class="language-csharp">   public List&lt;userModel&gt; QueryAUser()         {             //定义了上下文实体             excellentmcoinEntities dbcontext = new excellentmcoinEntities();             var allUser = (from u in dbcontext.t_user                            join g in dbcontext.t_grade on u.gradeID equals g.gradeID                            orderby u.totalMcoin descending                            select new userModel()                            {                                userID = u.userID,                                userName = u.userName,                                userGrade = g.userGrade,                                totalMcoin = u.totalMcoin,                                gradeID = g.gradeID,                            }).ToList();             return allUser;         }</code></pre> <h1>小结</h1> <p>&nbsp; &nbsp; DbContext通常与包含模型的根实体的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://msdn.microsoft.com/en-us/library/gg696460%28v=vs.113%29.aspx"  title="DbSet&nbsp;<TEntity>" rel="nofollow">DbSet&nbsp;&lt;TEntity&gt;</a>属性的派生类型一起使用。当派生类的实例被创建时，这些集合会自动初始化。</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1287.htm">Spingboot Resttemplate连接池配置</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1289.htm">关于MySQL支持的所有字符集的查询是什么？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

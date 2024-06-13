@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1081.htm" />
+    <title>SpringBoot提供接口实现Excel导入数据并存储到数据库中 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>SpringBoot提供接口实现Excel导入数据并存储到数据库中</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-kimbie-light"> <h2> <a id="SpringBootExcel_0" rel="nofollow"></a>SpringBoot提供接口实现Excel导入数据并存储到数据库中</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://download.csdn.net/download/m0_51197424/85232275"  rel="nofollow">完整项目文件</a></p> <h2> <a id="1__2" rel="nofollow"></a>1 效果展示</h2> <h2> <a id="11_Excel_3" rel="nofollow"></a>1.1 Excel数据</h2> <p><code>zxy.xlsx</code><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/c0aa4e093d6e5760774194c1b4442501.jpg" alt="SpringBoot提供接口实现Excel导入数据并存储到数据库中"></p> <h2> <a id="12__6" rel="nofollow"></a>1.2 导入后数据库中数据</h2> <pre><code>CREATE TABLE `user` (   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键',   `name` varchar(255) DEFAULT NULL COMMENT '姓名',   `phone` varchar(255) DEFAULT NULL COMMENT '联系方式',   `address` varchar(255) DEFAULT NULL COMMENT '联系地址',   `birthday` datetime DEFAULT NULL COMMENT '出生日期',   `des` varchar(255) DEFAULT NULL COMMENT '自我描述',   PRIMARY KEY (`id`) ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;  </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/571d7feacda96694acf535d55d60de07.jpg" alt="SpringBoot提供接口实现Excel导入数据并存储到数据库中"></p> <h2> <a id="2__21" rel="nofollow"></a>2 代码开发</h2> <h3> <a id="21_Pojo_22" rel="nofollow"></a>2.1 Pojo</h3> <p><code>根据excel数据需求，设计数据库表结构，并开发实体类代码</code></p> <pre><code>public class User implements Serializable {     private Integer id;      private String name;      private String phone;      private String address;      private Date birthday;      private String des;      private static final long serialVersionUID = 1L;      public User(Integer id, String name, String phone, String address, Date birthday, String des) {         this.id = id;         this.name = name;         this.phone = phone;         this.address = address;         this.birthday = birthday;         this.des = des;     }      public User() {         super();     }      public Integer getId() {         return id;     }      public void setId(Integer id) {         this.id = id;     }      public String getName() {         return name;     }      public void setName(String name) {         this.name = name == null ? null : name.trim();     }      public String getPhone() {         return phone;     }      public void setPhone(String phone) {         this.phone = phone == null ? null : phone.trim();     }      public String getAddress() {         return address;     }      public void setAddress(String address) {         this.address = address == null ? null : address.trim();     }      public Date getBirthday() {         return birthday;     }      public void setBirthday(Date birthday) {         this.birthday = birthday;     }      public String getDes() {         return des;     }      public void setDes(String des) {         this.des = des == null ? null : des.trim();     }      @Override     public boolean equals(Object that) {         if (this == that) {             return true;         }         if (that == null) {             return false;         }         if (getClass() != that.getClass()) {             return false;         }         User other = (User) that;         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))             &amp;&amp; (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))             &amp;&amp; (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))             &amp;&amp; (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))             &amp;&amp; (this.getBirthday() == null ? other.getBirthday() == null : this.getBirthday().equals(other.getBirthday()))             &amp;&amp; (this.getDes() == null ? other.getDes() == null : this.getDes().equals(other.getDes()));     }      @Override     public int hashCode() {         final int prime = 31;         int result = 1;         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());         result = prime * result + ((getPhone() == null) ? 0 : getPhone().hashCode());         result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());         result = prime * result + ((getBirthday() == null) ? 0 : getBirthday().hashCode());         result = prime * result + ((getDes() == null) ? 0 : getDes().hashCode());         return result;     } } </code></pre> <h3> <a id="22_Controller_135" rel="nofollow"></a>2.2 Controller</h3> <p><code>首先看controller层，这里是为外部提供一个访问接口，通过/excel/import路径访问。因为使用的POST请求方式，所以在请求的时候需要将file文件一同传入。然后获取file文件的文件名，用于后续判断他是不是一个excel文件。继续就是哟个了Service的batchImport方法进行业务逻辑处理。</code></p> <pre><code>@RestController @RequestMapping("/excel/") public class TestController {      @Autowired     private ImportExcelService importExcelService;      @PostMapping("/import")     public boolean addUser(@RequestParam("file") MultipartFile file) {         boolean a = false;         String fileName = file.getOriginalFilename();         try {              a = importExcelService.batchImport(fileName, file);         } catch (Exception e) {             e.printStackTrace();         }         return  a;     }  } </code></pre> <h3> <a id="23_Service_159" rel="nofollow"></a>2.3 Service</h3> <p><code>在Service层，首先设计一个interface接口，然后定义一个方法</code></p> <pre><code>public interface ImportExcelService {      boolean batchImport(String fileName, MultipartFile file) throws Exception;      } </code></pre> <p><code>ImportExcelServiceImpl 主要是对整个需求的逻辑进行开发，从controller处获得文件名称和文件。那么拿到这些信息后，我们首先要判断，这是不是一个excel文件，按照excel的扩展名来说有xls和xlsx两种，要使用不同的函数处理。其次，一个excel是可以有很多的sheet页的，需要使用getSheetAt获取你需要的sheet页或者依次获得sheet页。最后就是获取每个sheet页中的行数据和单元格ceil数据。使用mapper层定义的三个方法，使用selectByName()方法判断对应的姓名是否存在，存在即更新，不存在即删除。</code></p> <pre><code> @Service @Transactional(readOnly = true) public class ImportExcelServiceImpl implements ImportExcelService {      @Autowired     private UserMapper userMapper;      /**      * 首先判断文件扩展名      * 其次获取不同sheet页的内容      * 然后获取行数据      * 最后获取单元格数据      */     @Transactional(readOnly = false,rollbackFor = Exception.class)     @Override     public boolean batchImport(String fileName, MultipartFile file) throws Exception {          boolean notNull = false;         List&lt;User&gt; userList = new ArrayList&lt;User&gt;();         if (!fileName.matches("^.+\\.(?i)(xls)$") &amp;&amp; !fileName.matches("^.+\\.(?i)(xlsx)$")) {             throw new MyException("上传文件格式不正确");         }         boolean isExcel2003 = true;         if (fileName.matches("^.+\\.(?i)(xlsx)$")) {             isExcel2003 = false;         }         InputStream is = file.getInputStream();         Workbook wb = null;         /**          * Excel2003以前的版本，扩展名是.xls,使用HSSFWorkbook()          * Excel2007之后的版本，扩展名是.xlsx,使用XSSFWorkbook()          */         if (isExcel2003) {             wb = new HSSFWorkbook(is);         } else {             wb = new XSSFWorkbook(is);         }         // 获取excel的第一个sheet页         Sheet sheet = wb.getSheetAt(0);         if(sheet!=null){             notNull = true;         }         User user;         // 循环行数         for (int r = 1; r &lt;= sheet.getLastRowNum(); r++) {             // 获取sheet的第r行的数据             Row row = sheet.getRow(r);             if (row == null){                 continue;             }              user = new User();              /**              * int CELL_TYPE_NUMERIC = 0;              * int CELL_TYPE_STRING = 1;              * int CELL_TYPE_FORMULA = 2;              * int CELL_TYPE_BLANK = 3;              * int CELL_TYPE_BOOLEAN = 4;              * int CELL_TYPE_ERROR = 5;              */             if( row.getCell(0).getCellType() !=1){                 throw new MyException("导入失败(第"+(r+1)+"行,姓名请设为文本格式)");             }             String name = row.getCell(0).getStringCellValue();              if(name == null || name.isEmpty()){                 throw new MyException("导入失败(第"+(r+1)+"行,姓名未填写)");             }              row.getCell(1).setCellType(Cell.CELL_TYPE_STRING);             String phone = row.getCell(1).getStringCellValue();             if(phone==null || phone.isEmpty()){                 throw new MyException("导入失败(第"+(r+1)+"行,电话未填写)");             }             String add = row.getCell(2).getStringCellValue();             if(add==null){                 throw new MyException("导入失败(第"+(r+1)+"行,不存在此单位或单位未填写)");             }              Date date;             if(row.getCell(3).getCellType() !=0){                 throw new MyException("导入失败(第"+(r+1)+"行,入职日期格式不正确或未填写)");             }else{                 date = row.getCell(3).getDateCellValue();             }              String des = row.getCell(4).getStringCellValue();              user.setName(name);             user.setPhone(phone);             user.setAddress(add);             user.setBirthday(date);             user.setDes(des);              userList.add(user);         }         for (User userResord : userList) {             //首先判断该姓名是否已经存在             String name = userResord.getName();             int cnt = userMapper.selectByName(name);             if (cnt == 0) {                 //不存在即插入                 userMapper.addUser(userResord);                 System.out.println(" 插入 "+userResord);             } else {                 //存在即更新                 userMapper.updateUserByName(userResord);                 System.out.println(" 更新 "+userResord);             }         }         return notNull;     } } </code></pre> <h3> <a id="24_Mapper_287" rel="nofollow"></a>2.4 Mapper</h3> <p><code>定义三个函数，用于判断用户是否存在，进行更新和插入</code></p> <pre><code>@Mapper public interface UserMapper {     // 当查到数据库中没有对应姓名记录时，插入     void addUser(User sysUser);     // 当数据库中有对应姓名记录时，更新     int updateUserByName(User sysUser);     // 判断是都存在对应的姓名记录     int selectByName(String name); } </code></pre> <p><code>根据mapper定义的函数，在UserMapper.xml文件中写SQL</code></p> <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt; &lt;mapper namespace="com.zxy.ImportExcelProject.mapper.UserMapper"&gt;   &lt;resultMap id="BaseResultMap" type="com.zxy.ImportExcelProject.pojo.User"&gt;     &lt;constructor&gt;       &lt;idArg column="t_id" javaType="java.lang.Integer" jdbcType="INTEGER" /&gt;       &lt;arg column="t_name" javaType="java.lang.String" jdbcType="VARCHAR" /&gt;       &lt;arg column="t_phone" javaType="java.lang.String" jdbcType="VARCHAR" /&gt;       &lt;arg column="t_address" javaType="java.lang.String" jdbcType="VARCHAR" /&gt;       &lt;arg column="t_birthday" javaType="java.util.Date" jdbcType="TIMESTAMP" /&gt;       &lt;arg column="t_des" javaType="java.lang.String" jdbcType="VARCHAR" /&gt;     &lt;/constructor&gt;   &lt;/resultMap&gt;    &lt;insert id="addUser" parameterType="com.zxy.ImportExcelProject.pojo.User"&gt;     insert into user     (name,phone,address,birthday,des)     values     (     #{name},     #{phone},     #{address},     #{birthday},     #{des}     )   &lt;/insert&gt;    &lt;update id="updateUserByName" parameterType="com.zxy.ImportExcelProject.pojo.User"&gt;     update user     set     phone=#{phone},     address=#{address},     birthday=#{birthday},     des=#{des}     where name = #{name}   &lt;/update&gt;    &lt;select id="selectByName" resultType="java.lang.Integer"&gt;     SELECT     count(*)     FROM user     WHERE name=#{name}   &lt;/select&gt; &lt;/mapper&gt; </code></pre> <h2> <a id="3__351" rel="nofollow"></a>3 接口测试</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/2a5276fc4ec49aadee0f97bfa09f114c.jpg" alt="SpringBoot提供接口实现Excel导入数据并存储到数据库中"></p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1080.htm">Redis：内存淘汰机制</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1082.htm">Linux 下清空或删除大文件/大量文件的几种方法</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1278.htm" />
+    <title>ASP.NET WebAPI导出CSV_实用技巧 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>ASP.NET WebAPI导出CSV_实用技巧</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h2>一、JS脚本</h2> <div class="ay1code"> <pre class="brush:js;">window.open("../Ticket/ExportTicket");</pre> </div> <h2>二、后台实现代码</h2> <div class="ay1code"> <pre class="brush:csharp;">[HttpGet]  public ActionResult ExportTicket(TicketSearch search)  {  　　if (search != null)  　　{  　　　　search.CurrentPage = 1;  　　　　search.PageSize = 0;  　　}  　　string[] lstTitles = new string[] { "编号", "标题"};      　　int TotalCount = 0;  　　List&lt;TicketData&gt; lstTicketData = ListTicketEntityToData(search, out TotalCount);  　　List&lt;string[]&gt; lstData = new List&lt;string[]&gt;();  　　foreach (TicketData itemData in lstTicketData)  　　{  　　　　string[] data = new string[]  　　{  　　itemData.Barcode,  　　itemData.Label,  　　itemData.SiteId.ToString(),  　　Helper.Htmlhelper.GetSiteInfo(itemData.SiteId),  　　itemData.Owner,  　　string.IsNullOrEmpty(itemData.CardId) ? "" : itemData.CardId,  　　itemData.StartDate == null ? "" : itemData.StartDate.Value.ToString("yyyy-MM-dd HH:mm"),  　　itemData.EndDate == null ? "" : itemData.EndDate.Value.ToString("yyyy-MM-dd HH:mm"),  　　itemData.IsValid.ToString(),  　　itemData.IsUsed.ToString(),  　　itemData.CreateTime.ToString("yyyy-MM-dd HH:mm")  　　};  　　lstData.Add(data);  　　}  　　string ExportFileName = Helper.ImportExport.ExportData(lstTitles, lstData);  　　return File(new System.IO.FileStream(ExportFileName, System.IO.FileMode.Open), "application/octet-stream", "Ticket" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".csv");  }    public static string ExportData(string[] lstTitles, List&lt;string[]&gt; lstData)  {  　　try  　　{  　　　　lock (RunningExport)  　　　　{  　　　　　　string TemplatePath = AppDomain.CurrentDomain.BaseDirectory + "Export";  　　　　　　string FullFileName = AppDomain.CurrentDomain.BaseDirectory + "Export\\template.csv";  　　　　　　if (Directory.Exists(TemplatePath))  　　　　　　{  　　　　　　　　if (File.Exists(FullFileName))  　　　　　　　　File.Delete(FullFileName);  　　　　　　}  　　　　　　else  　　　　　　{  　　　　　　　　Directory.CreateDirectory(TemplatePath);  　　　　　　}    　　　　　　if (lstTitles.Length &lt;= 0)  　　　　　　{  　　　　　　　　return null;  　　　　　　}    　　　　　　FileStream fs = new FileStream(FullFileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);  　　　　　　StreamWriter sw = new StreamWriter(fs, Encoding.UTF8);  　　　　　　string data = "";    　　　　　　foreach (string itemTitle in lstTitles)  　　　　　　{  　　　　　　　　data += itemTitle + ",";  　　　　　　}  　　　　　　sw.WriteLine(data.TrimEnd(','));    　　　　　　foreach (string[] itemData in lstData)  　　　　　　{  　　　　　　　　data = "";  　　　　　　　　foreach (string itemChildData in itemData)  　　　　　　　　{  　　　　　　　　　　data += itemChildData + ",";  　　　　　　　　}  　　　　　　　　sw.WriteLine(data.TrimEnd(','));  　　　　　　}  　　　　　　sw.Close();  　　　　　　fs.Close();  　　　　　　return FullFileName;  　　　　}  　　}  　　catch (Exception)  　　{  　　　　return null;  　　}  }</pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1277.htm">服务器安全加固 &#8211; Linux_在线工具</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1279.htm">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

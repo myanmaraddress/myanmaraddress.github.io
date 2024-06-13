@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1134.htm" />
+    <title>RPC及Dubbo和ZooKeeper的安装 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>RPC及Dubbo和ZooKeeper的安装</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h1 id="rpc及dubbo和zookeeper的安装">RPC及Dubbo和ZooKeeper的安装</h1> <h2 id="rpc">RPC</h2> <ul> <li> <p>通信有两种方式：HTTP（无状态协议，通信协议），RPC（远程过程调用）</p> <p>它两的本质没有区别，只是功能有点不一样</p> </li> <li> <p><strong>官方解释：</strong></p> </li> </ul> <p>RPC是指远程过程调用，是一种进程间通信方式，他是一种技术的思想，而不是规范，它允许程序调用另一个地址空间的过程和函数，而不是程序员显式编码这个远程调用的细节。即程序员无论是调用本地的还是远程的函数，本质上编写的调用代码基本相同。</p> <p>RPC两个核心模块：通讯（为了传输），序列化（方便我们的数据传输，数据传输需要转换）。</p> <h2 id="dubbo和zookeeper的安装">Dubbo和ZooKeeper的安装</h2> <ul> <li>Dubbo是一个高可用的RPC框架，就是通信框架（非常牛）</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a714cce44d62f79758d0da7b08242928.jpg" alt="RPC及Dubbo和ZooKeeper的安装"></p> <p><strong>安装ZooKeeper步骤：</strong></p> <ol> <li> <p>在ZooKeeper官网下载</p> </li> <li> <p>减压压缩包</p> </li> <li> <p>打开zkServer.cmd，此时我们发现它闪退了</p> </li> <li> <p>在zkServer.cmd中加入pause，查看报了什么错</p> </li> <li> <p>打开config文件，复制zoo_sample.cfg，改名为zoo.cfg，如图：</p> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0c93d9550d6c9c32e8aa5acde0868b2d.jpg" alt="RPC及Dubbo和ZooKeeper的安装"></p> <ol start="6"> <li> <p>再次打开zkServer.cmd就成功了</p> </li> <li> <p>然后打开zkCli.cmd，客户端就连接上了服务端，这里zkServer.cmd要处于打开的状态，不然这里就会报错</p> </li> <li> <p>然后在zkCli.cmd中输入ls /，就会显示我们的节点</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1153823ca7ee76ef9cb9538f1a64aec9.jpg" alt="RPC及Dubbo和ZooKeeper的安装"></p> </li> <li> <p>这个ZooKeeper就是节点，我们可以创建节点</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/76931db921bd32429fc4aae263d014c4.jpg" alt="RPC及Dubbo和ZooKeeper的安装"></p> </li> <li> <p>我们可以get节点的值</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9cdbf78cc6cea8eef3d72ddc5491c00a.jpg" alt="RPC及Dubbo和ZooKeeper的安装"></p> </li> </ol> <p>我们可以通过ZooKeeper来存值取值，到这里ZooKeeper就安装完成了。</p> <p><strong>Dubbo的安装步骤：</strong></p> <ol> <li> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/dubbo-admin/tree/master"  target="_blank" rel="nofollow">GitHub - apache/dubbo-admin at master</a>，去这里下载</p> </li> <li> <p>减压压缩包</p> </li> <li> <p>在项目目录下打包dubbo-admin-master</p> <ul> <li> <p>cmd 进入dubbo-admin-master目录</p> </li> <li> <p>输入mvn clean package -Dmaven.test.skip=true</p> </li> </ul> <p><strong>第一次打包非常慢，请耐心等待！</strong></p> </li> <li> <p>执行dubbo-admin\target下的dubbo-admin-0.0.1-SNAPSHOT.jar</p> </li> <li> <p>执行完毕，我们去访问一下<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:7001/"  target="_blank" rel="nofollow">http://localhost:7001/</a> ， 这时候我们需要输入登录账户和密码，我们都是默认的root-root；</p> </li> </ol> <p>Dubbo admin安装完成！</p> <hr/> <p>dubbo-admin是一个监控管理后台，查看我们注册了哪些服务，哪些服务被消费了（可以不要，因为它只是监控功能）</p> <p>zookeeper：注册中心（必须要）</p> <p>Dubbo：jar包（必须要）</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1133.htm">将eclipse里的springboot项目打包成jar包部署到服务器上</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1135.htm">解决UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode character</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

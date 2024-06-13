@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1095.htm" />
+    <title>SpringMVC获取请求参数笔记整理_java_ - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>SpringMVC获取请求参数笔记整理_java_</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">一、使用ServletAPI获取参数</a></li> <li><a href="#_label2" rel="nofollow">二、通过控制器方法的形参获取请求参数</a></li> <li><a href="#_label3" rel="nofollow">三、@RequestParam</a></li> <li><a href="#_label4" rel="nofollow">四、@RequestHeader</a></li> <li><a href="#_label5" rel="nofollow">五、@CookieValue</a></li> <li><a href="#_label6" rel="nofollow">六、通过实体类的形参获取参数</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>本篇文章目的是为了<code>学习、记录和分享</code>博主在学习 <code>Spring MVC</code>过程中的笔记。同时也希望本篇文章能够帮助屏幕前的你！</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>一、使用ServletAPI获取参数</h2> <p>通过 <strong>HttpServletRequest</strong> 当作形参，此时 <strong>HttpServletRequest</strong> 类型的参数表示封装了当前请求的请求报文的对象。</p> <p>测试案例：</p> <div class="ay1code"> <pre class="brush:java;"> @RequestMapping("/testParam")      public String testParam(HttpServletRequest request){          String username = request.getParameter("username");          String password = request.getParameter("password");          System.out.println("username:"+username+",password:"+password);          return "success";      }</pre> </div> <div class="ay1code"> <pre class="brush:java;">&lt;form method="get" action="/SpringMVC/testParam"&gt;      username: &lt;input  type="text"   name="username"/&gt;      password: &lt;input  type="password"   name="password"/&gt;      &lt;input type="submit" value="Submit" /&gt;  &lt;/form&gt;  </pre> </div> <p>运行结果：</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220413/8820f3cdb01f9f5ebeb4f4ccb8128306.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>二、通过控制器方法的形参获取请求参数</h2> <p>在控制器方法的形参位置，设置和请求参数同名的形参，当浏览器发送请求，匹配到请求映射时，在 <strong>DispatcherServlet</strong> 中就会将请求参数赋值给相应的形参。</p> <p>测试用例：</p> <div class="ay1code"> <pre class="brush:java;">    @RequestMapping("/testParam")      public String testParam(String username,String password){          System.out.println("username:"+username+",password:"+password);          return "success";      }</pre> </div> <div class="ay1code"> <pre class="brush:java;">&lt;form method="get" action="/SpringMVC/testParam"&gt;      username: &lt;input  type="text"   name="username"/&gt;      password: &lt;input  type="password"   name="password"/&gt;      &lt;input type="submit" value="Submit" /&gt;  &lt;/form&gt;  </pre> </div> <p>运行结果：</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220413/4fee52281a0c677acab2b6399d536b3b.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>三、@RequestParam</h2> <p>@RequestParam是将<code>请求参数</code>和<code>控制器方法的形参</code>创建映射关系！</p> <p>OK，我们可以来看一下 @<strong>RequestParam</strong> 的源码部分：</p> <div class="ay1code"> <pre class="brush:java;">@Target({ElementType.PARAMETER})  @Retention(RetentionPolicy.RUNTIME)  @Documented  public @interface RequestParam {      //别名name，一般默认为空      @AliasFor("name")      String value() default "";  	//指定为形参赋值的请求参数的参数名      @AliasFor("value")      String name() default "";  	//设置是否必须传输此请求参数，默认值为true      boolean required() default true;  	//用来定义默认值      String defaultValue() default "\n\t\t\n\t\t\n\ue000\ue001\ue002\n\t\t\t\t\n";  }  </pre> </div> <p>注：</p> <p>若<code>required</code>设置为<code>true</code>时，则当前请求必须传输<code>value</code>所指定的请求参数，若没有传输该请求参数，且没有设置<code>defaultValue</code>属性，则页面报错 <strong>400：Required String parameter ‘xxx’ is not present；</strong> 若设置为<code>false</code>，则当前请求不是必须传输<code>value</code>所指定的请求参数，若没有传输，则注解所标识的形参的值为<code>null</code>。</p> <div class="ay1code"> <pre class="brush:java;">    @RequestMapping(value = "/testParam", method = RequestMethod.POST)      public String testParam(@RequestParam(value = "user_name",required = false,defaultValue = "gg") String name,                              @RequestParam(value = "password",required = true,defaultValue = "hh") String pwd,                              String[] hobby) {            System.out.println(name + pwd + Arrays.toString(hobby));          return "success";      }  </pre> </div> <div class="ay1code"> <pre class="brush:java;">&lt;form th:action="@{/testParam}" method="post"&gt;      用户名：&lt;input type="name" name = "user_name"&gt;&lt;br&gt;      密码：&lt;input type="password" name = "password"&gt;&lt;br&gt;      爱好：&lt;input type="checkbox" name = "hobby" value="a"&gt;a      &lt;input type="checkbox" name = "hobby" value="b"&gt;b      &lt;input type="checkbox" name = "hobby" value="c"&gt;c&lt;br&gt;      &lt;input type="submit" value="测试"&gt;  &lt;/form&gt;  </pre> </div> <p><strong>运行结果：</strong></p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220413/acb85e472a3e01b5a05637db4699a9cd.jpg"></p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>四、@RequestHeader</h2> <p><code>@RequestHeader</code>是将请求头信息和控制器方法的形参创建映射关系。</p> <p><code>@RequestHeader</code>注解一共有三个属性：value、required、defaultValue，用法同<code>@RequestParam</code>。</p> <div class="ay1code"> <pre class="brush:java;">@RequestMapping(value = "/testParam2",method = RequestMethod.POST)  //形参位置的request表示当前请求  public String testParam2(@RequestParam("username") String name,                           @RequestParam("password") String pwd,                           String[] hobby,                           @RequestHeader("Host") String host){      System.out.println(name+pwd+ Arrays.toString(hobby));      System.out.println("Host:"+host);//输出结果Host:localhost:8080      return "success";  }</pre> </div> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>五、@CookieValue</h2> <p><code>@CookieValue</code>是将<code>cookie</code>数据和控制器方法的形参创建映射关系</p> <p><code>@CookieValue</code>注解一共有三个属性：value、required、defaultValue，用法同<code>@RequestParam</code></p> <div class="ay1code"> <pre class="brush:java;">@CookieValue("JSESSIONID") String JSESSIONID  </pre> </div> <div class="ay1code"> <pre class="brush:java;">@Controller  @RequestMapping("hello")  public class HelloController2 {      @RequestMapping("show25")      public String test25(Model model, @CookieValue("JSESSIONID")String jsessionid){          model.addAttribute("msg", "获取cookie,jsessionid:" + jsessionid);          return "hello2";      }  }</pre> </div> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>六、通过实体类的形参获取参数</h2> <p>首先需要创建一个实体类 <strong>User</strong></p> <div class="ay1code"> <pre class="brush:java;">package xiaobao.mvc.bean;  public class User {      private Integer id;      private String username;      private String password;      private Integer age;      private String sex;      private String email;      public Integer getId() {          return id;      }      public void setId(Integer id) {          this.id = id;      public String getUsername() {          return username;      public void setUsername(String username) {          this.username = username;      public String getPassword() {          return password;      public void setPassword(String password) {          this.password = password;      public Integer getAge() {          return age;      public void setAge(Integer age) {          this.age = age;      public String getSex() {          return sex;      public void setSex(String sex) {          this.sex = sex;      public String getEmail() {          return email;      public void setEmail(String email) {          this.email = email;      @Override      public String toString() {          return "User{" +                  "id=" + id +                  ", username='" + username + '\'' +                  ", password='" + password + '\'' +                  ", age=" + age +                  ", sex='" + sex + '\'' +                  ", email='" + email + '\'' +                  '}';  }  </pre> </div> <p>然后前端：</p> <div class="ay1code"> <pre class="brush:js;">&lt;form th:action="@{/testpojo}" method="post"&gt;      用户名：&lt;input type="text" name="username"&gt;&lt;br&gt;      密码：&lt;input type="password" name="password"&gt;&lt;br&gt;      性别：&lt;input type="radio" name="sex" value="男"&gt;男&lt;input type="radio" name="sex" value="女"&gt;女&lt;br&gt;      年龄：&lt;input type="text" name="age"&gt;&lt;br&gt;      邮箱：&lt;input type="text" name="email"&gt;&lt;br&gt;      &lt;input type="submit"&gt;  &lt;/form&gt;  </pre> </div> <p>后端：</p> <div class="ay1code"> <pre class="brush:java;">@RequestMapping("/testpojo")  public String testPOJO(User user){      System.out.println(user);      return "success";  }  </pre> </div> <p>运行结果：</p> <p style="text-align:center"><img decoding="async" alt="在这里插入图片描述" src="http://img.555519.xyz/uploads3/20220413/78c0fa6899105bef1603df908c2ac84c.jpg"></p> <p>因为我还没没有解决乱码，所以这个就一直乱码问题，等到后面我专门出一期这个文章来解决乱码的问题！</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1094.htm">Echarts在vue中的基本使用以及常用配置</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1096.htm">kafka消费者执行异常重复消费_4.Kafka消费者详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

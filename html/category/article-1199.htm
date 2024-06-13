@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1199.htm" />
+    <title>vue3新增特性setup()用法＜与vue2对比＞ - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>vue3新增特性setup()用法＜与vue2对比＞</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li> <ul> <li><a href="#setup_1" rel="nofollow">setup()</a></li> <li> <ul> <li><a href="#_5" rel="nofollow">执行时机</a></li> <li><a href="#setupprops_9" rel="nofollow">setup()的第一个形参props</a></li> <li><a href="#setupcontext_46" rel="nofollow">setup()的第二个形参context</a></li> <li><a href="#reactive_69" rel="nofollow">reactive()</a></li> <li> <ul> <li><a href="#_73" rel="nofollow">基本语法</a></li> <li><a href="#_template__84" rel="nofollow">定义响应式数据供 template 使用</a></li> </ul> </li> <li><a href="#ref_117" rel="nofollow">ref()</a></li> <li> <ul> <li><a href="#_119" rel="nofollow">基本语法</a></li> <li><a href="#_template__ref__137" rel="nofollow">在 template 中访问 ref 创建的响应式数据</a></li> <li><a href="#_reactive__ref__162" rel="nofollow">在 reactive 对象中访问 ref 创建的响应式数据</a></li> </ul> </li> <li><a href="#isRef_201" rel="nofollow">isRef()</a></li> <li><a href="#toRefs_214" rel="nofollow">toRefs()</a></li> </ul> </li> </ul> </li> </ul> </div> <h2><a id="setup_1" rel="nofollow"></a>setup()</h2> <p><code>setup()</code> 函数是 vue3 中，专门为组件提供的新属性。它为我们使用 vue3 的<code>Composition API</code> 新特性提供了统一的入口。</p> <h3><a id="_5" rel="nofollow"></a>执行时机</h3> <p><strong>setup</strong> 函数会在<strong>beforeCreate</strong> 之后、<strong>created</strong> 之前执行</p> <h3><a id="setupprops_9" rel="nofollow"></a>setup()的第一个形参props</h3> <p>父组件</p> <pre><code>&lt;set-up p1="aaaa"&gt;&lt;/set-up&gt;</code></pre> <p>子组件set-up</p> <pre><code class="prism language-js"><span class="token comment">// 在props中定义当前组件允许外界传递过来的参数名称：</span><span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">p1</span><span class="token operator">:</span> String<span class="token punctuation">}</span>，<span class="token comment">// 通过setup函数的第一个形参，接收props数据：</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>p1<span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <p>在vue2中子组件是这样写</p> <pre><code class="prism language-javascript"><span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">p1</span><span class="token operator">:</span> String<span class="token punctuation">}</span><span class="token comment">// 为了让p1不仅可读，还可写，赋值给data</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">p1</span><span class="token operator">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>p1<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>区别就是vue3将data和props的数据都写在了一起</p> <h3><a id="setupcontext_46" rel="nofollow"></a>setup()的第二个形参context</h3> <p><code>setup</code> 函数的第二个形参是一个<strong>上下文对象</strong>，这个上下文对象中包含了一些有用的属性，这些属性在<code>vue 2.x</code> 中需要通过<code>this</code> 才能访问到，在<code>vue 3.x</code> 中，它们的访问方式如下：</p> <pre><code class="prism language-js"><span class="token keyword">const</span> MyComponent<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token parameter">props<span class="token punctuation">,</span> context</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>     context<span class="token punctuation">.</span>attrs     context<span class="token punctuation">.</span>slots     context<span class="token punctuation">.</span>parent     context<span class="token punctuation">.</span>root     context<span class="token punctuation">.</span>emit     context<span class="token punctuation">.</span>refs<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <blockquote> <p>注意：在<code>setup()</code> 函数中无法访问到<code>this</code></p> </blockquote> <h3><a id="reactive_69" rel="nofollow"></a>reactive()</h3> <p><code>reactive()</code> 函数接收一个普通对象，返回一个响应式的数据对象。</p> <h4><a id="_73" rel="nofollow"></a>基本语法</h4> <p>等价于<code>vue 2.x</code> 中的<code>Vue.observable()</code> 函数，<code>vue 3.x</code> 中提供了<code>reactive()</code> 函数，用来创建响应式的数据对象，基本代码示例如下：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> reactive<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'@vue/composition-api'</span><span class="token comment">// 创建响应式数据对象，得到的 state 类似于 vue 2.x 中 data() 返回的响应式对象</span><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">count</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <h4><a id="_template__84" rel="nofollow"></a>定义响应式数据供 template 使用</h4> <ol> <li> <p>按需导入<code>reactive</code> 函数：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> reactive<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span></code></pre> </li> <li> <p>在<code>setup()</code> 函数中调用<code>reactive()</code> 函数，创建响应式<mark>数据对象</mark>：</p> <pre><code class="prism language-js"><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 创建响应式数据对象</span><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">count</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// setup 函数中将响应式数据对象 return 出去，供 template 使用</span><span class="token keyword">return</span> state<span class="token punctuation">}</span></code></pre> <p><mark>注意：必须return才能在界面上用，reactive()里面必须是对象</mark></p> </li> <li> <p>在<code>template</code> 中访问响应式数据：</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>当前的 count 值为：{<!-- -->{count}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span></code></pre> </li> </ol> <p>vue2的响应式则相对简单，直接在data中定义即可</p> <h3><a id="ref_117" rel="nofollow"></a>ref()</h3> <h4><a id="_119" rel="nofollow"></a>基本语法</h4> <p><code>ref()</code> 函数用来根据给定的值创建一个<strong>响应式</strong>的<strong>数据对象</strong>，<code>ref()</code> 函数调用的<mark>返回值是一个对象</mark>，这个对象上只包含一个<code>.value</code> 属性：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> ref<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token comment">// 创建响应式数据对象 count，初始值为 0</span><span class="token keyword">const</span> count<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token comment">// 如果要访问 ref() 创建出来的响应式数据对象的值，必须通过 .value 属性才可以</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token comment">// 输出 0</span><span class="token comment">// 让 count 的值 +1</span> count<span class="token punctuation">.</span>value<span class="token operator">++</span><span class="token comment">// 再次打印 count 的值</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token comment">// 输出 1</span></code></pre> <h4><a id="_template__ref__137" rel="nofollow"></a>在 template 中访问 ref 创建的响应式数据</h4> <ol> <li> <p>在<code>setup()</code> 中创建响应式数据：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> ref<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span> count<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>          count<span class="token punctuation">,</span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token string">'zs'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </li> <li> <p>在<code>template</code> 中访问响应式数据：</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>{<!-- -->{count}} --- {<!-- -->{name}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> </li> </ol> <h4><a id="_reactive__ref__162" rel="nofollow"></a>在 reactive 对象中访问 ref 创建的响应式数据</h4> <p>当把<code>ref()</code> 创建出来的响应式数据对象，挂载到<code>reactive()</code> 上时，会自动把响应式数据对象<strong>展开为原始的值</strong>，不需通过<code>.value</code> 就可以直接被访问，例如：</p> <pre><code class="prism language-js"><span class="token keyword">const</span> count<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   count<span class="token punctuation">}</span><span class="token punctuation">)</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>count<span class="token punctuation">)</span><span class="token comment">// 输出 0</span> state<span class="token punctuation">.</span>count<span class="token operator">++</span><span class="token comment">// 此处不需要通过 .value 就能直接访问原始值</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token comment">// 输出 1</span></code></pre> <blockquote> <p><strong>注意：新的 ref 会覆盖旧的 ref</strong>，示例代码如下：</p> </blockquote> <pre><code class="prism language-js"><span class="token comment">// 创建 ref 并挂载到 reactive 中</span><span class="token keyword">const</span> c1<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   c1<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// 再次创建 ref，命名为 c2</span><span class="token keyword">const</span> c2<span class="token operator">=</span><span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token comment">// 将 旧 ref c1 替换为 新 ref c2</span> state<span class="token punctuation">.</span>c1<span class="token operator">=</span> c2 state<span class="token punctuation">.</span>c1<span class="token operator">++</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>c1<span class="token punctuation">)</span><span class="token comment">// 输出 10</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c2<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token comment">// 输出 10</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>c1<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token comment">// 输出 0</span></code></pre> <h3><a id="isRef_201" rel="nofollow"></a>isRef()</h3> <p><code>isRef()</code> 用来判断某个值是否为<code>ref()</code> 创建出来的对象；应用场景：当需要展开某个可能为<code>ref()</code> 创建出来的值的时候，例如：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> isRef<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'@vue/composition-api'</span><span class="token keyword">const</span> unwrapped<span class="token operator">=</span><span class="token function">isRef</span><span class="token punctuation">(</span>foo<span class="token punctuation">)</span><span class="token operator">?</span> foo<span class="token punctuation">.</span>value<span class="token operator">:</span> foo</code></pre> <h3><a id="toRefs_214" rel="nofollow"></a>toRefs()</h3> <p><code>toRefs()</code> 函数可以将<code>reactive()</code> 创建出来的响应式对象，转换为普通的对象，只不过，这个对象上的每个属性节点，都是<code>ref()</code> 类型的响应式数据，最常见的应用场景如下：</p> <pre><code class="prism language-js"><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> toRefs<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 定义响应式数据对象</span><span class="token keyword">const</span> state<span class="token operator">=</span><span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">count</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment">// 定义页面上可用的事件处理函数</span><span class="token keyword">const</span><span class="token function-variable function">increment</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>       state<span class="token punctuation">.</span>count<span class="token operator">++</span><span class="token punctuation">}</span><span class="token comment">// 在 setup 中返回一个对象供页面使用</span><span class="token comment">// 这个对象中可以包含响应式的数据，也可以包含事件处理函数</span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将state上的每个属性，都转化为ref形式的响应式数据</span><span class="token comment">// ...是展开运算符</span><span class="token operator">...</span><span class="token function">toRefs</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token comment">// 自增的事件处理函数</span>       increment<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>页面上可以直接访问<code>setup()</code> 中 return 出来的响应式数据：</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">&gt;</span></span>当前的count值为：{<!-- -->{count}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span><span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>increment<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>+1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> <p>总结：</p> <ul> <li>setup(props,context)，props用来接收组件传来的内容，context用来代替setup()里的this</li> <li>reactive()用来接收一个<strong>对象</strong>，用于创建响应式数据对象，必须要return出去；（不建议使用） <ul> <li>使用的是接收对象里的属性</li> </ul> </li> <li>ref()用来接收一个<strong>值</strong>，用于创建响应式数据对象，返回的是一个对象，必须要return出去。 <ul> <li>在setup()内需通过<code>.value</code> 就可以直接被访问；</li> <li>但是在template中会自动解析，不需要<code>.value</code> ;</li> <li>reactive对象中访问ref创建的响应式数据，也不需要<code>.value</code>；ref的对象会直接变成reactive的属性</li> <li>新的 ref 会覆盖旧的 ref</li> </ul> </li> </ul> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1198.htm">MySQL 存储过程和函数</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1200.htm">Android中Handler的使用方法</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1278.htm" title="ASP.NET WebAPI导出CSV_实用技巧">ASP.NET WebAPI导出CSV_实用技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

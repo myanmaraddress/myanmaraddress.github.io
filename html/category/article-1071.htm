@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1071.htm" />
+    <title>前端发送复杂JSON数据，后端使用@RequestBody接收 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>前端发送复杂JSON数据，后端使用@RequestBody接收</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <pre class="has"><code class="language-html"> * JSON属性如下  * loginName: "jay"  * password : "3333"  * roles    : { id : 4 }  * user     : { name:"username" , officeName : "java"}  * ---------------------------------------------------------  * Java实体如下  * MyEntity   * String loginName  * String password  * RoleEntity roles   RoleEntity中有一个id属性接收  * UserEntity user    UserEntity中有name 、 officeName 属性接收  *  */</code></pre> <p>什么意思呢？</p> <p>前端发送的JSON数据，除了普通的键值对，还有<span style="color: #f33b45;">键--对象</span>， 比如 roles : { id : 4}。</p> <p>那么，对应的后台Java实体，其属性应该持有一个，叫roles的对象引用，比如 private RoleEntity roles ;</p> <p>这个RoleEntity对象，应该有id属性，从而接收 id:4这组键值对。</p> <p>同理，后台Java实体，也应该有一个 UserEntity 来 接收 JSON数据中&nbsp;{ name:"username" , officeName : "java"}。</p> <p>伪代码如下</p> <pre class="has"><code class="language-java">   //后台Java实体类名 &nbsp; &nbsp;class MyEntity {  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private String loginName;  //映射Json的loginName属性  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private String password;   //映射Json的password属性  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private RoleEntity roles;  //映射Json的roles对象 , 引用要与JSON属性一致！   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private UserEntity user;   //映射Json的user对象  ，引用要与JSON属性一致！  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;class&nbsp; RoleEntity{  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; private Long id;    &nbsp; &nbsp; &nbsp; &nbsp;  }   &nbsp; &nbsp; &nbsp; &nbsp; class UserEntity{  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;private String name;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  private String officeName;  &nbsp; &nbsp; &nbsp; &nbsp; }&nbsp; &nbsp;  &nbsp; }     Controller中      @RequestMapping(value="url")   public JsonResponse  handerSomething(@RequestBody MyEntity ref)</code></pre> <h1><strong>你看我都这么努力的分享知识给你了，鼓励一下又何妨O(∩_∩)O</strong></h1> <h1><a rel="nofollow" name="t5"></a><a rel="nofollow" name="t10"></a><a rel="nofollow" name="t6"></a><strong>大宇期待与你们共同进步！同时也非常感谢最近兄弟们的支持！</strong></h1> <p><img fetchpriority="high" decoding="async" src="http://img.555519.xyz/uploads3/20220905/4f40afd7521a78c9664e1a5357af81f4.jpg" alt="前端发送复杂JSON数据，后端使用@RequestBody接收"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1070.htm">vue实现下拉效果</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1072.htm">Java中线程休眠的方法有几种？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

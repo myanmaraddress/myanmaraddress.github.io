@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1136.htm" />
+    <title>axios安装，配置及配合vue脚手架 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>axios安装，配置及配合vue脚手架</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="1axios_0" rel="nofollow"></a>1.安装axios</h2> <pre><code class="prism language-css">npm install axios</code></pre> <h2><a id="2axios_5" rel="nofollow"></a>2.脚手架中使用axios</h2> <pre><code class="prism language-css">main.js中导入axios import axios from<span class="token string">'axios'</span><span class="token punctuation">;</span>  //在main.js中可全局配置默认 axios.defaults.baseURL =<span class="token string">'https://api.example.com'</span><span class="token punctuation">;</span> //基础URL axios.defaults.headers.common[<span class="token string">'Authorization'</span>] = AUTH_TOKEN<span class="token punctuation">;</span>  //作者 axios.defaults.headers.post[<span class="token string">'Content-Type'</span>] =<span class="token string">'application/x-www-form-urlencoded'</span><span class="token punctuation">;</span> //默认请求头</code></pre> <h2><a id="3axios_17" rel="nofollow"></a>3.组件中使用axios</h2> <pre><code class="prism language-css">&lt;script&gt; import axios from<span class="token string">'axios'</span><span class="token punctuation">;</span><span class="token selector">;//引入axios实例  // 配置发起一个post请求 //axios 的post请求要注意有的是通过req.body发送数据，有的是通过req.params发送数据 axios(</span><span class="token punctuation">{<!-- --></span><span class="token selector">method: 'post',   url: '/user/12345',   //axios 的post请求需要设置请求头   headers:</span><span class="token punctuation">{<!-- --></span><span class="token string">'Content-Type'</span><span class="token punctuation">:</span><span class="token string">'application/json'</span>,<span class="token punctuation">}</span><span class="token selector">,   data:</span><span class="token punctuation">{<!-- --></span>   //data 中的数据要根据接口请求数据类型看是否使用JSON.<span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">)</span>方法转成字符串<span class="token property">firstName</span><span class="token punctuation">:</span><span class="token string">'Fred'</span>,<span class="token property">lastName</span><span class="token punctuation">:</span><span class="token string">'Flintstone'</span><span class="token punctuation">}</span><span class="token selector">// data: JSON.stringify(</span><span class="token punctuation">{<!-- --></span>    //<span class="token property">phone</span><span class="token punctuation">:</span> this.user,   //<span class="token property">pwd</span><span class="token punctuation">:</span> this.psd,  //<span class="token punctuation">}</span><span class="token punctuation">)</span>,<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token selector">; // 在 node.js 用GET请求获取远程图片 axios(</span><span class="token punctuation">{<!-- --></span><span class="token property">method</span><span class="token punctuation">:</span><span class="token string">'get'</span>,<span class="token property">url</span><span class="token punctuation">:</span><span class="token string">'http://bit.ly/2mTM3nY'</span>,<span class="token property">responseType</span><span class="token punctuation">:</span><span class="token string">'stream'</span><span class="token punctuation">}</span><span class="token selector">)   .then(function (response)</span><span class="token punctuation">{<!-- --></span>     response.data.<span class="token function">pipe</span><span class="token punctuation">(</span>fs.<span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'ada_lovelace.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  &lt;/script&gt;</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://axios-http.com/zh/docs/config_defaults"  rel="nofollow">axios-http</a></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1135.htm">解决UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode character</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1137.htm">springboot项目中Timestamp的使用方法</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

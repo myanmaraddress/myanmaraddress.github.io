@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1260.htm" />
+    <title>HCNP Routing&amp;Switching之组播技术PIM-SM RP - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>HCNP Routing&amp;Switching之组播技术PIM-SM RP</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p>　　前文我们了解了组播技术中，组播路由协议PIM的稀疏模式相关话题，回顾请参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/qiuhom-1874/p/16142795.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/qiuhom-1874/p/16142795.html</a>；今天我们来聊一聊组播路由协议PIM稀疏模式中RP相关话题；</p> <p>　　我们知道在RPT里，所有组播数据流都会通过RP转发到接收者；对于一个RP来说，它可以同时服务于多个组播组，但一个组播组只能对应一个唯一的RP；所谓RP就是RPT（Rendezvous Point Tree）里的RP（Rendezvous Point），即汇合点；所有的组播源和接收者都是以该点为树根所形成的数据转发路径（RPT）来转发报文，组播源先向树根发送数据报文，之后的报文再向下转发到达所有接收者；</p> <p>　　RP发现</p> <p>　　RP发现有两种方式，一种是静态RP，即通过人工手动指定静态RP的ip地址，在所有PIM路由器上配置；另一种就是动态RP，所谓动态RP就是通过几台PIM路由器配置C-RP（Candidate-RP，候选RP），最后从C-RP中竞选产生RP；在竞选RP之前，首先要配置C-BSR（Candidate-BootStrap Router，候选自举RP），从C-BSR中先选出BSR；BSR负责收集C-RP的通告信息，并发布到整个PIM-SM网络，让所有路由器知道RP的位置；简单讲动态RP是在众多C-BSR中先选举BSR，然后有选举的BSR收集C-RP的通告信息，然后再从多个C-RP中竞选出RP，然后再由BSR通告给PIM-SM整个网络路由器让其知道RP的位置；静态和动态是可以同时配置的，默认情况下静态比动态优先级更低，但是静态可以配置更高；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e814b5c349eeabf79719252aad6b816e.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：首先在PIM-SM网络中通过多个C-BSR中竞选出BSR，然后由BSR收集C-RP发出的通告信息，再从多个C-RP中竞选出RP；然后再由BSR将其竞选出RP的结果通告给整个PIM-SM网络中的所有路由器，让所有路由器知道RP的位置；</p> <p>　　BSR选举规则</p> <p>　　1、在多个C-BSR中先比较其优先级，优先级数字越大，优先级越高，即优先级越大越有限成为BSR；</p> <p>　　2、如果优先级一样，则比较接口ip地址，ip地址大者成为BSR；</p> <p>　　RP选举规则</p> <p>　　1、如果只有一个C-RP，那么该节点就是域里的RP；如果有多个C-RP，首先比较C-RP的优先级，优先级较高（数字越小）者称为RP；</p> <p>　　2、如果优先级相同，者使用哈希（hash）函数计算哈希值，该值较大者称为RP；</p> <p>　　3、如果优先级和哈希值都相同，则比较C-RP接口ip地址，ip地址大者成为RP；</p> <p>　　实验：如下拓扑，配置PIM-SM</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/06bfb9d462a144fe351a8d50dbb378c6.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　pc1、pc2、msc1的配置</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b3c368c0941cf9095a97b17802300fc4.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0174cf11c4ed5a7ac7fd28074133dae2.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/36c408e449d8b3002d297b56f4129785.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/5ac3915c7aa718a969083ec9bb219c99.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　各路由器配置</p> <p>　　R1的配置</p> <div class="cnblogs_code"><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_closed_671da009-1da9-454f-8817-af94490ed81b" class="code_img_closed"/><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_opened_671da009-1da9-454f-8817-af94490ed81b" class="code_img_opened" style="display: none"/></p> <div id="cnblogs_code_open_671da009-1da9-454f-8817-af94490ed81b" class="cnblogs_code_hide"> <pre><span style="color: rgba(0, 0, 0, 1)">sys sys R1</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">21.1</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">11.1</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 0, 1)"> q  ospf</span><span style="color: rgba(128, 0, 128, 1)">1234</span> router-<span style="color: rgba(0, 0, 255, 1)">id</span><span style="color: rgba(128, 0, 128, 1)">1.1</span>.<span style="color: rgba(128, 0, 128, 1)">1.1</span><span style="color: rgba(0, 0, 0, 1)"> area</span><span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">21.1</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">11.1</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> q q  multicast routing</span>-<span style="color: rgba(0, 0, 0, 1)">enable</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span></pre> </div> <p><span class="cnblogs_code_collapse">View Code</span></div> <p>　　R2的配置</p> <div class="cnblogs_code"><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_closed_392c5b2e-2291-4b9a-b8f3-2893b8092d26" class="code_img_closed"/><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_opened_392c5b2e-2291-4b9a-b8f3-2893b8092d26" class="code_img_opened" style="display: none"/></p> <div id="cnblogs_code_open_392c5b2e-2291-4b9a-b8f3-2893b8092d26" class="cnblogs_code_hide"> <pre><span style="color: rgba(0, 0, 0, 1)">sys sys R2</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">32.2</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">42.2</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">21.2</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 0, 1)"> q  ospf</span><span style="color: rgba(128, 0, 128, 1)">1234</span> router-<span style="color: rgba(0, 0, 255, 1)">id</span><span style="color: rgba(128, 0, 128, 1)">2.2</span>.<span style="color: rgba(128, 0, 128, 1)">2.2</span><span style="color: rgba(0, 0, 0, 1)"> area</span><span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">32.2</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">42.2</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">21.2</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> q q  multicast routing</span>-<span style="color: rgba(0, 0, 0, 1)">enable</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">2</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span></pre> </div> <p><span class="cnblogs_code_collapse">View Code</span></div> <p>　　R3的配置</p> <div class="cnblogs_code"><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_closed_4d0e5ce2-f673-4f54-b51f-3bb95526139c" class="code_img_closed"/><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_opened_4d0e5ce2-f673-4f54-b51f-3bb95526139c" class="code_img_opened" style="display: none"/></p> <div id="cnblogs_code_open_4d0e5ce2-f673-4f54-b51f-3bb95526139c" class="cnblogs_code_hide"> <pre><span style="color: rgba(0, 0, 0, 1)">sys sys R3</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">13.254</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">32.3</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 0, 1)"> q  ospf</span><span style="color: rgba(128, 0, 128, 1)">1234</span> router-<span style="color: rgba(0, 0, 255, 1)">id</span><span style="color: rgba(128, 0, 128, 1)">3.3</span>.<span style="color: rgba(128, 0, 128, 1)">3.3</span><span style="color: rgba(0, 0, 0, 1)"> area</span><span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">13.254</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">32.3</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> q q  multicast routing</span>-<span style="color: rgba(0, 0, 0, 1)">enable</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> pim sm igmp en</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span></pre> </div> <p><span class="cnblogs_code_collapse">View Code</span></div> <p>　　R4的配置</p> <div class="cnblogs_code"><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_closed_6522ef29-bb39-4b0f-8e7b-300784842730" class="code_img_closed"/><img decoding="async" src="https://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP " id="code_img_opened_6522ef29-bb39-4b0f-8e7b-300784842730" class="code_img_opened" style="display: none"/></p> <div id="cnblogs_code_open_6522ef29-bb39-4b0f-8e7b-300784842730" class="cnblogs_code_hide"> <pre><span style="color: rgba(0, 0, 0, 1)">sys sys R4</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">24.254</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> ip add</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">42.4</span><span style="color: rgba(128, 0, 128, 1)">24</span><span style="color: rgba(0, 0, 0, 1)"> q  ospf</span><span style="color: rgba(128, 0, 128, 1)">1234</span> router-<span style="color: rgba(0, 0, 255, 1)">id</span><span style="color: rgba(128, 0, 128, 1)">4.4</span>.<span style="color: rgba(128, 0, 128, 1)">4.4</span><span style="color: rgba(0, 0, 0, 1)"> area</span><span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">24.254</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> net</span><span style="color: rgba(128, 0, 128, 1)">192.168</span>.<span style="color: rgba(128, 0, 128, 1)">42.4</span><span style="color: rgba(128, 0, 128, 1)">0.0</span>.<span style="color: rgba(128, 0, 128, 1)">0.0</span><span style="color: rgba(0, 0, 0, 1)"> q q  multicast routing</span>-<span style="color: rgba(0, 0, 0, 1)">enable</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">0</span><span style="color: rgba(0, 0, 0, 1)"> pim sm igmp en</span><span style="color: rgba(0, 0, 255, 1)">int</span> g0/<span style="color: rgba(128, 0, 128, 1)">0</span>/<span style="color: rgba(128, 0, 128, 1)">1</span><span style="color: rgba(0, 0, 0, 1)"> pim sm</span></pre> </div> <p><span class="cnblogs_code_collapse">View Code</span></div> <p>　　在R2上验证pim邻居</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/695427a23d857bfe8d15487cf18ae296.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到R2有三个邻居，分别是R1、R3和R4；和我们的拓扑是符合的；</p> <p>　　在R2的g0/0/2口抓包，让组播源发送数据，看看对应是否会生成组播路由？会不会像dm那样先扩散呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/02f3a0287e4ab5b79e3560bb18660d39.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：通过抓包，并没有发现有组播udp，只有pim的hello包；</p> <p>　　验证，看看R2上是否有组播路由产生呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/65913c263f09d65e58daf369da4c49bd.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到R2上并没有组播路由产生；</p> <p>　　在R1上验证是否有组播路由产生呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a3a12cef06c62f3aa7cf9a08b89ad36f.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到R1上有组播路由产生，并且是（s,g）的形式；但是该路由信息只有上游接口，并没有下游接口；这是因为该路由器直连组播源，对应并没有接收者，所以只会有上游接口；通过上述截图我们也可以看到对应RP也是空；</p> <p>　　手动配置静态RP为2.2.2.2</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/37469c6a6b89d9de439f4fac0fab98d5.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：在其他路由器上也需要配置同样的RP；同时其他路由器单播网络必须能够到达对应RP；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c8bb857c9ab57818ed20433b4cc1b375.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4b5d7e216d3bcfc2cda5816d667192cd.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6cf42f685483feec58f0e0736c537c8f.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：我们这里选择R2为RP，所以在R2上必须有一个接口的ip地址为RP的ip地址，并且该ip需要在ospf中宣告，便于其他路由器学习到到达RP的路由；</p> <p>　　在任意路由器上验证RP信息</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7d7f87cb81bd32e8f013de2979b3958d.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：验证RP信息，后面需要更对应组播地址，表示查看对应组播组里RP信息；默认情况下我们配置的静态RP信息是匹配所有组播组；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/56b183cc7d869a9162854cddfb3840ca.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：当然我们需要给某个组播组配置一个单独的RP，我们可以对应RP地址后面加ACL，表示ACL匹配到的地址都是对应的RP；prefered这个参数是配置静态RP信息优于动态RP，即当同时配置静态RP和动态RP后，静态RP上加上prefered这个参数后，对应静态RP的优先级就高于动态RP；</p> <p>　　在pc2上加入对应组播组，在R4上抓包看看对应过程</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d35108ae9d27b233b3fdcb9befcc90f1.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c5868048b953f82f1e4bca30119c403c.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到PC2 点加入对应组播组的时候，首先R4会发送igmp 查询，pc2报告有成员加入；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/69bdf97cb268450ec8868423ba1e3297.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到随后R4会发送加入消息给整个pim网络；</p> <p>　　查看R4的路由表，看看对应路由是否生成？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/202759450c18369fac48549f28def8d0.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到对应组播路由已经产生，并且是以（*,G）的形式，并不是（S，G）；对应路由的下游接口也产生了；</p> <p>　　在R1上抓包，然后组播源发送数据</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/ae0fa10ff7ae3dc620bf186dd0bd8384.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到在R1上抓包能够抓到组播源向RP的注册包，这个包是通过在udp里封装了一个Pim包头来携带组播源的注册信息；</p> <p>　　在RP上查看对应组播路由</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d72942f6ace97ddecea99e13e8ee588b.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到RP上的路由有源树和共享树两种形式，这是因为RP到组播源走SPT，RP到接收者走RPT；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/622d82f67c2ac8a606b7be03d009be14.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：同时我们在R2上也能抓到R4向R2发送到加入消息，对应是发送给RP所配置的地址；</p> <p>　　配置动态RP</p> <p>　　在R1和R2上新建lo接口，并配置c-bsr ，看看对应bsr的竞选过程</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/0319294deb1c2f9c4918ed0b48d7fa86.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　将lo1接口宣告在ospf里</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1701652dfaba7cfe4d555793e25c3f9b.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：将lo1接口宣告在ospf里，是让其他路由器学习到相应接口的路由；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/727405fdf7b56e7514e59416edea6f8f.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：对应接口注意要先开启pim sm 然后才能配置对应角色；</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/3a9a56e755ad3464c3d9bff59e299768.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到在默认优先级的情况下，在R1配置成C-bsr以后，对应抓包会看到R1会周期性的发送bootstrap消息告诉其他路由自己是bsr;当R2配置c-bsr以后，对应R1看自己和R2的优先级一样，且R2的ip地址比自己大，此后R1就被抑制，取而代之的是R2成为BSR周期性的发送bootstrap消息告诉其他路由器自己是bsr;当然我们可以修改R1的优先级来来影响竞选结果；</p> <p>　　修改R1c-bsr的优先级为5</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/52fcf268fef1d9d241069baf42724d8a.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　再次查看bsr,看看谁是bsr?</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4978100a10fce10e2d33c4bac35b2c2e.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/39916b24853b0c57bb89fb172d5af3c2.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到当R1更改优先级以后，对应bsr就成为了R1；这是因为R1的优先级大于R2；</p> <p>　　配置R1和R2对应lo接口为c-rp接口</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/9aa073e47740ca959a20b1bbe4fe57dd.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/43bc90ba07b778cb8fd0c69251412d23.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　抓包查看交互过程</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d3ca5f9300f3af7226f9d09af7401f86.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：从抓包的信息可以看到R2在向R1通告，R1向其他路由器发送bootstrap消息，说明BSR是R1；但RP是谁还不知道；</p> <p>　　验证：查看RP信息，看看谁竞选为RP了？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/27b1c6ec22acb13d01fbd8a1a1640fcd.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a6b06ff990c06cb1098c039480fd35d3.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到R2成为了RP；</p> <p>　　修改R2的C-RP的优先级为10，看看对应RP会不会被R1竞选？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/338e9e23d8b5822ac8516515a0e4b135.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　查看RP信息</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a79d5db4f809085cd5a43ba81f81d262.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到把R2的c-RP的优先级加大以后，对应RP就变成了R1，这是因为RP选举首先看优先级，优先级数字越小则成为RP ；</p> <p>　　播放组播源，然后查看R4的路由表，看看对应是否发生了RPT向SPT切换了呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/53db4ef492a03ce6ead0859ca2c71293.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到R4上也有了SPT，说明发生了RPT向SPT切换；</p> <p>　　在R4上修改永不向SPT切换</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/655fcccbab351935d00fb054f4ae64e3.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　再次查看R4的路由表，看看对应是否还会有SPT呢？</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7f41d67500ccecc0dac15f7741aee065.jpg" alt="HCNP Routing&amp;Switching之组播技术PIM-SM RP "></p> <p>　　提示：可以看到此时R4的路由表中就只有RPT，并没有SPT；说明RPT没有向SPT切换；</p> <p>　　PIM-DM和PIM-SM比较</p> <p>　　PIM-DM适用于规模较小、组成员相对比较密集的网络中，工作机制是通过周期性“扩散-剪枝”维护一棵连接组播源和组播成员的单向无环SPT；</p> <p>　　PIM-SM适用于组成员相对比较稀疏，分布广泛的大型网络中；工作机制采用接收者主动加入的方式建立组播分发树，需要维护RP、构建RPT、注册组播源；</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1259.htm">记一次MySQL数据迁移到SQLServer全过程</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1261.htm">vue实现评论列表</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

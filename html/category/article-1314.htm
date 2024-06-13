@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1314.htm" />
+    <title>vue&#8211;vuex 中 Modules 详解 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>vue&#8211;vuex 中 Modules 详解</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h1><span style="font-size: 18pt;">前言</span><br /></h1> <p><span style="font-size: 16px">　　在Vue中State使用是单一状态树结构，应该的所有的状态都放在state里面，如果项目比较复杂，那state是一个很大的对象，store对象也将对变得非常大，难于管理。于是Vuex中就存在了另外一个核心概念 modules。本文就来总结 modules 相关知识点。</span></p> <h1><span style="font-size: 18pt">正文</span></h1> <h2><span style="font-size: 16px">&nbsp; &nbsp; 1 、什么是模块Modules</span></h2> <p><span style="font-size: 16px">&nbsp; &nbsp; 　　Vuex允许我们将store分割成模块(Module), 而每个模块拥有自己的state、getters、mutation、action等,甚至是嵌套子模块——从上至下进行同样方式的分割。</span></p> <div> <div class="cnblogs_code"> <pre>    const moduleA =<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({ ... }),         mutations: { ... },         actions: { ... },         getters: { ... }     }     const moduleB</span>=<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({ ... }),         mutations: { ... },         actions: { ... }     }     const store</span>=<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vuex.Store({         modules: {             a: moduleA,             b: moduleB         }     })</span><span style="color: rgba(0, 0, 255, 1)">this</span>.store.state.a<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 获得moduleA 的状态</span><span style="color: rgba(0, 0, 255, 1)">this</span>.store.state.b<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 获得moduleB 的状态</span></pre> </div> <div> <p><span style="font-size: 16px">　　内部state，模块内部的state是局部的，也就是模块私有的，</span></p> <p><span style="font-size: 16px">　　内部getter,mutation,action 仍然注册在全局命名空间内，这样使得多个模块能够对同一 mutation 或 action 作出响应。</span></p> <div> <div> <h2><span style="font-size: 16px">　　2、模块内部参数问题</span></h2> <p><span style="font-size: 16px">　　对于模块内部的 mutation 和 getter，接收的第一个参数是模块的局部状态对象 state。</span></p> <p><span style="font-size: 16px">　　对于模块内部的 action，局部状态通过 context.state 暴露出来，根节点状态则为 context.rootState：</span></p> <p><span style="font-size: 16px">　　对于模块内部的 getter，根节点状态会作为第三个参数暴露出来：</span></p> <div> <div class="cnblogs_code"> <pre>    const moduleA =<span style="color: rgba(0, 0, 0, 1)"> {         state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({             count:</span>""<span style="color: rgba(0, 0, 0, 1)">,         }),         actions: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">这里的state为局部状态，rootState为根节点状态</span><span style="color: rgba(0, 0, 0, 1)">            incrementIfOddOnRootSum ({ state, commit, rootState }) {</span><span style="color: rgba(0, 0, 255, 1)">if</span> ((state.count + rootState.count) % 2 === 1<span style="color: rgba(0, 0, 0, 1)">) {                     commit(</span>'increment'<span style="color: rgba(0, 0, 0, 1)">)                 }             }         }         mutations: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 这里的 `state` 对象是模块的局部状态</span><span style="color: rgba(0, 0, 0, 1)">            increment (state) {                 state.count</span>++<span style="color: rgba(0, 0, 0, 1)">             }         },         getters: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">这里的state为局部状态，rootState为根节点状态</span><span style="color: rgba(0, 0, 0, 1)">            doubleCount (state) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> state.count * 2<span style="color: rgba(0, 0, 0, 1)">             },             sumWithRootCount (state, getters, rootState) {</span><span style="color: rgba(0, 0, 255, 1)">return</span> state.count +<span style="color: rgba(0, 0, 0, 1)"> rootState.count             }         }     }</span></pre> </div> <div> <h2><span style="font-size: 16px">　　3、模块命名空间问题</span></h2> <h3><span style="font-size: 16px">　　（1）namespaced: true 使模块成为带命名空间的模块</span></h3> <p><span style="font-size: 16px">　　当模块被注册后，它的所有 getter、action 及 mutation 都会自动根据模块注册的路径调整命名。</span></p> </div> <div class="cnblogs_code"> <pre>const store =<span style="color: rgba(0, 0, 255, 1)">new</span><span style="color: rgba(0, 0, 0, 1)"> Vuex.Store({   modules: {     account: {       namespaced:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 模块内容（module assets） 在使用模块内容（module assets）时不需要在同一模块内额外添加空间名前缀。</span>       state: () =&gt; ({}),<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 模块内的状态已经是嵌套的了，使用 `namespaced` 属性不会对其产生影响</span><span style="color: rgba(0, 0, 0, 1)">      getters: {         isAdmin() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: getters['account/isAdmin'],</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 你可以使用 getter 的第四个参数来调用</span><span style="color: rgba(0, 0, 0, 1)">        someGetter(state, getters, rootState, rootGetters) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> getters.isAdmin</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> rootGetters.someOtherGetter</span><span style="color: rgba(0, 0, 0, 1)">        },       },       actions: {         login() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: dispatch('account/login')</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 你可以使用 action 的第四个参数来调用</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">若需要在全局命名空间内分发 action 或提交 mutation，将 { root: true } 作为第三参数传给 dispatch 或 commit 即可</span><span style="color: rgba(0, 0, 0, 1)">        someAction({ dispatch, commit, getters, rootGetters }) {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> getters.isAdmin;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> rootGetters.someGetter;</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> dispatch("someOtherAction");</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> dispatch("someOtherAction", null, { root: true });</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> commit("someMutation");</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> commit("someMutation", null, { root: true });</span><span style="color: rgba(0, 0, 0, 1)">        },         someOtherAction(ctx, payload) {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 若需要在带命名空间的模块注册全局 action，你可添加 root: true，并将这个 action 的定义放在函数 handler 中。</span><span style="color: rgba(0, 0, 0, 1)">        otherAction: {           root:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,           handler(namespacedContext, payload) {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 'someAction'</span><span style="color: rgba(0, 0, 0, 1)">        },       },       mutations: {         login() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt;使用: commit('account/login')</span><span style="color: rgba(0, 0, 0, 1)">      },</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 嵌套模块</span><span style="color: rgba(0, 0, 0, 1)">      modules: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 继承父模块的命名空间</span><span style="color: rgba(0, 0, 0, 1)">        myPage: {           state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({}),           getters: {             profile() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 使用:getters['account/profile']</span><span style="color: rgba(0, 0, 0, 1)">          },         },</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 进一步嵌套命名空间</span><span style="color: rgba(0, 0, 0, 1)">        posts: {           namespaced:</span><span style="color: rgba(0, 0, 255, 1)">true</span><span style="color: rgba(0, 0, 0, 1)">,            state: ()</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> ({}),           getters: {             popular() {},</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; 使用:getters['account/posts/popular']</span><span style="color: rgba(0, 0, 0, 1)">          },         },       },     },   }, });</span></pre> </div> <div> <h3><span style="font-size: 16px">　　（2）带命名空间的绑定函数的使用</span></h3> <p><span style="font-size: 16px">　　当使用 mapState, mapGetters, mapActions 和 mapMutations 这些函数来绑定带命名空间的模块时，写起来可能比较繁琐</span>：</p> <div> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">     computed: {             ...mapState({                 a: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.some.nested.module.a,                 b: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.some.nested.module.b             })         },         methods: {             ...mapActions([</span>'some/nested/module/foo',<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; this['some/nested/module/foo']()</span>                 'some/nested/module/bar'<span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> -&gt; this['some/nested/module/bar']()</span><span style="color: rgba(0, 0, 0, 1)">            ])         }</span></pre> </div> <p><span style="font-size: 16px">　　createNamespacedHelpers 创建基于某个命名空间辅助函数,它返回一个对象，对象里有新的绑定在给定命名空间值上的组件绑定辅助函数。</span></p> <div> <div class="cnblogs_code"> <pre>        import { createNamespacedHelpers } from 'vuex'<span style="color: rgba(0, 0, 0, 1)">         const { mapState, mapActions }</span>= createNamespacedHelpers('some/nested/module'<span style="color: rgba(0, 0, 0, 1)">)         export</span><span style="color: rgba(0, 0, 255, 1)">default</span><span style="color: rgba(0, 0, 0, 1)"> {             computed: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 在 `some/nested/module` 中查找</span><span style="color: rgba(0, 0, 0, 1)">                ...mapState({                 a: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.a,                 b: state</span>=&gt;<span style="color: rgba(0, 0, 0, 1)"> state.b                 })             },             methods: {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 在 `some/nested/module` 中查找</span><span style="color: rgba(0, 0, 0, 1)">                ...mapActions([</span>'foo'<span style="color: rgba(0, 0, 0, 1)">,</span>'bar'<span style="color: rgba(0, 0, 0, 1)">                 ])             }         }</span></pre> </div> <div> <h2><span style="font-size: 16px">　　4、模块动态注册</span></h2> <p><span style="font-size: 16px">　　在 store 创建之后，你可以使用 store.registerModule 方法注册模块</span></p> <div> <div class="cnblogs_code"> <pre>        import Vuex from 'vuex'<span style="color: rgba(0, 0, 0, 1)">         const store</span>=<span style="color: rgba(0, 0, 255, 1)">new</span> Vuex.Store({<span style="color: rgba(0, 128, 0, 1)">/*</span><span style="color: rgba(0, 128, 0, 1)"> 选项</span><span style="color: rgba(0, 128, 0, 1)">*/</span><span style="color: rgba(0, 0, 0, 1)"> })</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 注册模块 `myModule`</span>         store.registerModule('myModule'<span style="color: rgba(0, 0, 0, 1)">, {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> ...</span><span style="color: rgba(0, 0, 0, 1)">        })</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> 注册嵌套模块 `nested/myModule`</span>         store.registerModule(['nested', 'myModule'<span style="color: rgba(0, 0, 0, 1)">], {</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)"> ...</span>         })</pre> </div> <div> <p><span style="font-size: 16px">　　之后就可以通过 store.state.myModule 和 store.state.nested.myModule 访问模块的状态。</span></p> <p><span style="font-size: 16px">　　也可以使用 store.unregisterModule(moduleName) 来动态卸载模块。注意，你不能使用此方法卸载静态模块（即创建 store 时声明的模块）。</span></p> <p><span style="font-size: 16px">　　可以通过 store.hasModule(moduleName) 方法检查该模块是否已经被注册到 store。</span></p> <h1><span style="font-size: 18pt">写在最后</span></h1> <p><span style="font-size: 16px">　　以上就是本文的全部内容，希望给读者带来些许的帮助和进步，方便的话点个关注，小白的成长之路会持续更新一些工作中常见的问题和技术点。</span></p> <div></div> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1313.htm">二叉树与堆</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1315.htm">关于对称算法中数据的填充模式</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

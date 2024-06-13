@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1124.htm" />
+    <title>在CentOS安装CMake - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>在CentOS安装CMake</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>你或许听过好几种 Make 工具，例如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/wiki/tools-makefile.html"  rel="nofollow">GNU Make</a>&nbsp;，QT 的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://qt-project.org/doc/qt-4.8/qmake-manual.html"  rel="nofollow">qmake</a>&nbsp;，微软的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://msdn.microsoft.com/en-us/library/ms930369.aspx"  rel="nofollow">MS nmake</a>，BSD Make（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.freebsd.org/doc/en/books/pmake/"  rel="nofollow">pmake</a>），<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://makepp.sourceforge.net/"  rel="nofollow">Makepp</a>，等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。这样就带来了一个严峻的问题：如果软件想跨平台，必须要保证能够在不同平台编译。而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile ，这将是一件让人抓狂的工作。<a id="more" rel="nofollow"></a></p> <p>CMake就是针对上面问题所设计的工具：它首先允许开发者编写一种平台无关的 CMakeLists.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。显然，CMake 是一个比上述几种 make 更高级的编译配置工具。一些使用 CMake 作为项目架构系统的知名开源项目有<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.vtk.org/"  rel="nofollow">VTK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.itk.org/"  rel="nofollow">ITK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://kde.org/"  rel="nofollow">KDE</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.opencv.org.cn/opencvdoc/2.3.2/html/modules/core/doc/intro.html"  rel="nofollow">OpenCV</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.openscenegraph.org/"  rel="nofollow">OSG</a>&nbsp;等<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/codes/cmake/#fn1"  id="fnref1" rel="nofollow">[1]</a>。</p> <p>CMake是一个跨平台的安装(编译)工具，cmake命令生成相应的makefile（在Unix like系统下）或者 project文件（指定用window下的相应编程工具编译时）。</p> <p>&nbsp;CMake 是一个比 automake 更加容易使用的工具，能够使程序员从复杂的编译连接过程中解脱出来</p> <p>CMake 提供了比 autoconfig 更简洁的语法。在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://linux.chinaitlab.com/"  rel="nofollow">linux</a>&nbsp;平台下使用 CMake 生成 Makefile 并编译的流程如下:</p> <p>&nbsp;&nbsp;&nbsp; 1.编写 CMakeLists.txt。<br /> &nbsp;&nbsp;&nbsp; 2.执行命令 “cmake PATH” 或者 “ccmake PATH” 生成 Makefile ( PATH 是 CMakeLists.txt 所在的目录 )。<br /> &nbsp;&nbsp;&nbsp; 3.使用 make 命令进行编译。</p> <p>&nbsp;ccmake 与命令 cmake 的不同之处在于 ccmake 提供了一个图形化的操作界面</p> <p><strong>一、环境描述</strong></p> <p>1、系统：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=14"  rel="nofollow">CentOS</a>&nbsp;6.4 i386 (min)</p> <p>2、登录用户：root</p> <p>3、版本：CMake 2.8.10.2</p> <p>4、虚拟机：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=12"  rel="nofollow">Oracle</a>&nbsp;VM VirtualBox</p> <p><strong>二、安装步骤</strong></p> <p>步骤一、安装gcc等必备程序包（已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y gcc gcc-c++ make automake</code></pre> <p>步骤二、安装wget （已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y wget</code></pre> <p>步骤三、获取CMake源码包</p> <pre class="has"><code class="language-html">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</code></pre> <p>步骤四、解压CMake源码包</p> <pre class="has"><code class="language-html">tar -zxvf cmake-2.8.10.2.tar.gz</code></pre> <p>步骤五、进入目录</p> <pre class="has"><code class="language-html">cd cmake-2.8.10.2</code></pre> <p>步骤六</p> <pre class="has"><code class="language-html">./bootstrap</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/194aa040d10f206dac8134123313dc55.jpg"></p> <p>步骤七</p> <pre class="has"><code class="language-html">gmake</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/097cb4f5bfdbf13b8feef735c2ad9a0e.jpg"></p> <p>步骤八</p> <pre class="has"><code class="language-html">gmake install</code></pre> <p>安装完成，可阅读install_manifest.txt查看具体都安装了什么。</p> <p><strong>三、异常情况</strong></p> <p>如果步骤六报错，可能原因是关联的程序包未安装。解决方法：安装所需的程序包后，将cmake-2.8.10.2/目录下的CMakeCache.txt删掉，再从步骤六开始。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/430213a17f1b01bf5371ee32e912dd4a.jpg"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1123.htm">Java中Scanner的方法</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1125.htm">ResponseBody 和 RequestBody的区别</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1304.htm" title="网络协议之:socket协议详解之Socket和Stream Socket">网络协议之:socket协议详解之Socket和Stream Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

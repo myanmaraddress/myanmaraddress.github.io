@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1194.htm" />
+    <title>feign接口调用使用header - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>feign接口调用使用header</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>场景：</p> <p>在做运营平台调用AIID项目接口，需要将header里面的语言传递给AIID项目。但是AIID里面取不到header里面的数据</p> <p>解决：</p> <p><span style="color:#f33b45;"><em><strong>1、修改hytrix配置，配置hytrix的&nbsp;strategy为&nbsp;SEMAPHORE。</strong></em></span></p> <p>Hystrix 提供两种执行隔离策略( ExecutionIsolationStrategy ) ：<code>SEMAPHORE</code>&nbsp;、<code>THREAD</code></p> <ul> <li><code>SEMAPHORE</code>&nbsp;：信号量，命令在调用线程执行。</li> <li><code>THREAD</code>&nbsp;：线程池，命令在线程池执行</li> </ul> <p>如果不修改配置，默认配置的为THREAD，因为不在同一个线程中，无法获得请求的上下文对象，无法执行第二步操作</p> <pre><code class="language-java">feign:   httpclient:     enabled: false   okhttp:     enabled: true   hystrix:     enabled: true hystrix:   command:     default:       execution:         timeout:           enabled: true         isolation:           strategy: SEMAPHORE           thread:             timeoutInMilliseconds: 30000</code></pre> <p><span style="color:#f33b45;"><em><strong>2、增加拦截器</strong></em></span></p> <p>feign提供的&nbsp;RequestInterceptor 接口会默认拦截feign发出去所有请求，所以在这里拦截运营平台的服务operation发送给AIID服务的请求，然后再请求头中添加language</p> <p>如果再第一步没有修改&nbsp;hystrix 的 strategy，则这一步中&nbsp;RequestContextHolder.getRequestAttributes()的结果无法获取到，结果为null</p> <p>拦截器写在operation项目中</p> <pre><code class="language-java">@Slf4j @Component public class FeignTokenInterceptor implements RequestInterceptor {       @Override     public void apply(RequestTemplate template) {         HttpServletRequest request = getServletRequest();         if (null == request){             return;         }         template.header("language", getHeaders(request));     }       private HttpServletRequest getServletRequest() {         RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();         return ((ServletRequestAttributes) requestAttributes).getRequest();     }       private String getHeaders(HttpServletRequest request){         String lang = request.getHeader("lang");         if("cn".equals(lang)){             lang="zh";         }         log.info("lang:{}",lang);         return lang;     } }</code></pre> <pre>这样 在运营平台operation项目里面添加了拦截器并且更改Hystrix策略，这样B项目里面就可以直接取到header里面的参数了。</pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1193.htm">Vert.X CompositeFuture 用法_在线工具</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1195.htm">react-router@6 版本初体验</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1090.htm" />
+    <title>Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了</h3> <ul> <li> <ul> <li><a href="#1_Hbase_4" rel="nofollow">1. Hbase特点</a></li> <li><a href="#2_Hbase_VS_RDBMS_9" rel="nofollow">2. Hbase VS RDBMS</a></li> <li><a href="#3_Hbase_13" rel="nofollow">3. Hbase架构及版本选择</a></li> <li><a href="#4_Hbase_27" rel="nofollow">4. Hbase应用场景</a></li> <li><a href="#5_Ntp_35" rel="nofollow">5. Ntp（多个主机时间同步）</a></li> <li><a href="#6_Hadoop_72" rel="nofollow">6. Hadoop分布式集群搭建</a></li> <li><a href="#7_Zookeeper_147" rel="nofollow">7. Zookeeper分布式集群搭建（数量奇数个）</a></li> <li><a href="#8__HbaseHA_218" rel="nofollow">8. HbaseHA方案设计</a></li> </ul> </li> </ul> </div> <p>这篇博客将由简入繁，入门HBase，将介绍Hbase的特点、架构、应用场景、集群搭建、HA设计等。</p> <h2><a id="1_Hbase_4" rel="nofollow"></a>1. Hbase特点</h2> <p>海量、稀疏（存储，查询有优势）、高并发、面向列、数据多版本、实时处理（spark、storm、stream）</p> <p>系型数据库都是行存储，而Hbase是列存储，同一种数据在同一个块上</p> <h2><a id="2_Hbase_VS_RDBMS_9" rel="nofollow"></a>2. Hbase VS RDBMS</h2> <ul> <li>RDBMS：关系型数据库 各种类型数据 行式存储增 删改查、函数运算，可有联结操作 可更新替换数据 必须借助中间件才可以伸缩</li> <li>Hbase： String 列式 增加清空数据 维护也是插入 可伸缩性（灵活加节点）</li> </ul> <h2><a id="3_Hbase_13" rel="nofollow"></a>3. Hbase架构及版本选择</h2> <p>集群类型：</p> <ul> <li> <p>&lt;20 小型集群<br /> 无HA，一个zookeeper，Hbase hadoop</p> </li> <li> <p>20~50 中型集群<br /> hadoopHA、HbaseHA、3个zookeeper 3个Hmaster</p> </li> <li> <p>大于50 大型集群<br /> 5个zookeeper（奇数个节点），Hbase多个HA节点</p> </li> </ul> <p>版本：<br /> apache、<strong>cloudera（CDH清晰、更安全性、兼容性、稳定性，支持Kerbos安全认证）</strong></p> <h2><a id="4_Hbase_27" rel="nofollow"></a>4. Hbase应用场景</h2> <ul> <li>用户画像（推荐系统底层的存储支持）</li> <li>消息/订单存储（<strong>低延时、高并发的访问</strong>）</li> <li>对象存储（<strong>小文件的存储</strong>）</li> <li>时序数据（随着时间而变化的数据Open TSDB整合）</li> <li>Cube分析（存储数据供其他应用实时查询展示~）</li> <li>Feeds流（抖音等，内容聚合器，持续的获取最新的订阅列表）</li> </ul> <h2><a id="5_Ntp_35" rel="nofollow"></a>5. Ntp（多个主机时间同步）</h2> <p>Ntp: Network Time Protocol<br /> 一个server，多个slave进行时间同步</p> <ul> <li>关闭防火墙</li> <li>yum安装ntp</li> </ul> <pre><code class="prism language-bash">yum<span class="token function">install</span> -y ntp</code></pre> <ul> <li>配置/etc/ntp.conf<br /> 192.168.3.0网段下的所有主机都生效<br /> 日志位置<br /> 配置时间同步服务器<br /> 时间服务器不可用时，把本机当作时间同步服务器</li> </ul> <pre><code class="prism language-bash">restrict 192.168.3.0 mask 255.255.255.0 nomodify notrap  logfile /var/log/ntpd.log   server ntp1.aliyun.com server ntp2.aliyun.com server ntp3.aliyun.com  server 127.0.0.1 fudge 127.0.0.1 stratum 10</code></pre> <p>同步时间（5~10分钟）<br /> ntpdate -u ntp2.aliyun.com</p> <p>开启时间服务器、查看时间、开机自启动<br /> systemctl start ntpd<br /> systemctl status ntpd<br /> systemctl enable ntpd</p> <p>slave配置：/etc/ntp.conf 配置master的ip地址<br /> server 192.168.3.1</p> <h2><a id="6_Hadoop_72" rel="nofollow"></a>6. Hadoop分布式集群搭建</h2> <p><strong>1个master，4个slave</strong></p> <p>前置条件：5台机器创建好hadoop用户，免密登录</p> <pre><code class="prism language-bash"><span class="token function">mkdir</span> /opt/software<span class="token operator">&amp;&amp;</span><span class="token function">chown</span> -R hadoop:hadoop /opt</code></pre> <ol> <li>上传jdk、hadoop的安装包并解压缩</li> </ol> <p>分发包并解压缩</p> <pre><code class="prism language-bash"><span class="token function">scp</span> jdk-8u144-linux-x64.tar.gz slave1:/opt/software<span class="token function">su</span> hadoop<span class="token function">tar</span> -zxvf jdk-8u144-linux-x64.tar.gz<span class="token function">tar</span> -zxvf hadoop-2.6.0-cdh5.14.2.tar.gz</code></pre> <ol start="2"> <li>配置.bashrc<br /> vi .bashrc<br /> 重命名hadoop包<br /> mv hadoop-2.6.0-cdh5.14.2 hadoop</li> </ol> <pre><code class="prism language-bash"><span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/opt/software/jdk1.8.0_144<span class="token function">export</span> HADOOP_HOME<span class="token operator">=</span>/opt/software/hadoop<span class="token function">export</span> CLASSPATH<span class="token operator">=</span><span class="token variable">$CLASSPATH</span><span class="token keyword">:</span><span class="token variable">$JAVA_HOME</span>/lib:<span class="token variable">$HADOOP_HOME</span>/lib<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span><span class="token keyword">:</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token variable">$HADOOP_HOME</span>/bin:<span class="token variable">$HADOOP_HOME</span>/sbin</code></pre> <p>生效配置</p> <pre><code class="prism language-bash"><span class="token keyword">.</span> .bashrc</code></pre> <ol start="3"> <li>配置hadoop-env.sh（修改hadoopheapsize）</li> <li>配置mapred-env.sh（修改javahome）</li> <li>配置yarn-env.sh（修改java、yarn堆内存大小）</li> <li>配置core-site.xml（修改、创建临时目录）</li> <li>配置yarn-site.xml（多个配置核数、内存等）</li> <li>配置hdfs-site.xml</li> <li>配置mapred-site.xml</li> <li>分发配置好hadoop包、配置.bashrc到其他机器</li> </ol> <pre><code class="prism language-bash"><span class="token function">scp</span> -r hadoop slave1:/opt/software/<span class="token function">scp</span> .bashrc slave1:~</code></pre> <ol start="11"> <li>并生效 . .bashrc</li> <li>hadoop机器格式化</li> </ol> <pre><code class="prism language-bash">hadoop namenode -format</code></pre> <ol start="13"> <li>启动hadoop</li> </ol> <p>启动hdfs，查看集群状态</p> <pre><code class="prism language-bash">start-dfs.sh  jps</code></pre> <p>jps master有 Jps NameNode SecondNameNode<br /> jps slave有jsp Datanode</p> <p>启动yarn，查看集群状态</p> <pre><code class="prism language-bash">start-yarn.sh</code></pre> <p>jps master看到多了 ResourceManager<br /> jps slave多了NodeManager<br /> 表示搭建完成</p> <h2><a id="7_Zookeeper_147" rel="nofollow"></a>7. Zookeeper分布式集群搭建（数量奇数个）</h2> <p>可用于：高可用、注册中心、分布式锁实现；</p> <ol> <li>上传zookeeper安装包兵解压缩，重命名</li> </ol> <pre><code class="prism language-bash"><span class="token function">tar</span> -zxvf zookeeper-3.4.5-cdh5.14.2.tar.gz<span class="token function">mv</span> zookeeper-3.4.5-cdh5.14.2 zookeeper</code></pre> <ol start="2"> <li>配置zoo.cfg（数据、日志目录、集群的其他配置）<br /> /opt/software/zookeeper/conf/</li> </ol> <pre><code class="prism language-bash"><span class="token function">cp</span> zoo_sample.cfg zoo.cfg dataDir<span class="token operator">=</span>/opt/zookeeper/data dataLogDir<span class="token operator">=</span>/opt/zookeeper/logs  server.1<span class="token operator">=</span>slave2:2888:3888 server.2<span class="token operator">=</span>slave3:2888:3888 server.3<span class="token operator">=</span>slave4:2888:3888</code></pre> <ol start="3"> <li>创建数据、日志目录(3台机器）</li> </ol> <pre><code class="prism language-bash"><span class="token function">mkdir</span> -p /opt/zookeeper/data<span class="token function">mkdir</span> -p /opt/zookeeper/logs</code></pre> <ol start="4"> <li>为每台机器配置myid（3台机器需不同）</li> </ol> <pre><code class="prism language-bash"><span class="token function">cd</span> /opt/software/data vim myid  1 :wq</code></pre> <ol start="5"> <li>分发zookeeper包到其他俩台机器</li> </ol> <pre><code class="prism language-bash"><span class="token function">scp</span> -r zookeeper slave3:/opt/software/</code></pre> <ol start="6"> <li>配置环境变量 .bashrc(JAVA_HOME下边）</li> </ol> <pre><code class="prism language-bash"><span class="token function">vi</span> .bashrc<span class="token function">export</span> JAVA_HOME<span class="token operator">=</span>/opt/software/jdk1.8.0_144<span class="token function">export</span> ZOO_HOME<span class="token operator">=</span>/opt/software/zookeeper<span class="token function">export</span> HADOOP_HOME<span class="token operator">=</span>/opt/software/hadoop<span class="token function">export</span> CLASSPATH<span class="token operator">=</span><span class="token variable">$CLASSPATH</span><span class="token keyword">:</span><span class="token variable">$JAVA_HOME</span>/lib:<span class="token variable">$HADOOP_HOME</span>/lib:<span class="token variable">$ZOO_HOME</span>/lib<span class="token function">export</span> PATH<span class="token operator">=</span><span class="token variable">$PATH</span><span class="token keyword">:</span><span class="token variable">$JAVA_HOME</span>/bin:<span class="token variable">$HADOOP_HOME</span>/bin:<span class="token variable">$HADOOP_HOME</span>/sbin:<span class="token variable">$ZOO_HOME</span>/bin</code></pre> <ol start="7"> <li>发送环境变量到另外俩台机器，并生效</li> </ol> <pre><code class="prism language-bash"><span class="token function">scp</span> .bashrc slave3:~<span class="token keyword">.</span> .bashrc</code></pre> <ol start="8"> <li>启动zookeeper服务</li> </ol> <pre><code class="prism language-bash">zkServer.sh start</code></pre> <ol start="9"> <li>查看zookeeper状态（俩个Follower，一个Leader）</li> </ol> <pre><code class="prism language-bash">zkServer.sh status</code></pre> <h2><a id="8__HbaseHA_218" rel="nofollow"></a>8. HbaseHA方案设计</h2> <p><strong>俩个HMaster，4个RegionServer，一个zookeeper。保证一个HMaster挂了，另一个补上，还能进行RegionServer故障节点的数据平衡等；</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220902/8b1ff645b8b6ecfefa67c2971a706b11.jpg" alt="Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1089.htm">6个pandas初学者容易犯的错误</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1091.htm">java8 List&lt;Object&gt;去掉重复对象的几种方法_java</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

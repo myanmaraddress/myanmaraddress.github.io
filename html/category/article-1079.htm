@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1079.htm" />
+    <title>PHP类抽象 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>PHP类抽象</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h2>介绍</h2> <p>在面向对象的程序设计中，抽象类是可以实例化的类，即不可能声明此类的对象。自版本5.0起PHP支持abstarct类的概念</p> <p>用abstract关键字定义的类将成为抽象类。此外，包含至少一个抽象方法的任何类也被视为抽象。</p> <h2>语法</h2> <pre>&lt;?php class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;// } ?&gt;</pre> <p>如果我们尝试创建此类的对象，PHP解析器将引发如下错误：</p> <pre>$a=new&nbsp;testclass(); PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Cannot&nbsp;instantiate&nbsp;abstract&nbsp;class&nbsp;testclass</pre> <h2>抽象方法</h2> <p>抽象方法仅声明其签名，即其可见性，参数和带有类型提示的返回类型，并且不具有任何功能。继承此类抽象类的类必须重写（提供定义）所有抽象方法。子类中的对应方法必须带有与父类中相同的签名。如果子类不满足此条件，则PHP解析器将引发异常。现在可以实例化扩展抽象类的类，因此称为具体类</p> <p>在下面的示例中，父类具有两个抽象方法，其中只有一个在子类中被重新定义。这导致错误如下-</p> <h2>示例</h2> <pre>&lt;?php abstract&nbsp;class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;abstract&nbsp;function&nbsp;test1(); &nbsp;&nbsp;&nbsp;abstract&nbsp;function&nbsp;hello(); } class&nbsp;myclass&nbsp;extends&nbsp;testclass{ &nbsp;&nbsp;&nbsp;function&nbsp;test1(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Overrides&nbsp;parent&nbsp;test&nbsp;method"; &nbsp;&nbsp;&nbsp;} } $a=new&nbsp;myclass(); ?&gt;</pre> <p>输出结果</p> <p>以下是错误消息</p> <pre>PHP&nbsp;Fatal&nbsp;error:&nbsp;Class&nbsp;myclass&nbsp;contains&nbsp;1&nbsp;abstract&nbsp;method&nbsp;and&nbsp;must&nbsp;therefore&nbsp;be&nbsp;declared&nbsp;abstract&nbsp;or&nbsp;implement&nbsp;the&nbsp;remaining&nbsp;methods&nbsp;(testclass::hello)</pre> <h2>带参数的抽象方法</h2> <p>用参数定义抽象方法时，必须在子类中使用相同数量的参数覆盖抽象方法</p> <p>在下面的示例中，父类中的抽象方法具有两个参数。子类也使用两个参数定义相同的功能</p> <h2>示例</h2> <pre>&lt;?php abstract&nbsp;class&nbsp;testclass{ &nbsp;&nbsp;&nbsp;abstract&nbsp;function&nbsp;hello($name,&nbsp;$age); } class&nbsp;myclass&nbsp;extends&nbsp;testclass{ &nbsp;&nbsp;&nbsp;function&nbsp;hello($name,&nbsp;$age){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"My&nbsp;name&nbsp;is&nbsp;$name&nbsp;and&nbsp;my&nbsp;age&nbsp;is&nbsp;$age"; &nbsp;&nbsp;&nbsp;} } $a=new&nbsp;myclass(); $a-&gt;hello("Ravi",20); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下输出-</p> <pre>My&nbsp;name&nbsp;is&nbsp;Ravi&nbsp;and&nbsp;my&nbsp;age&nbsp;is&nbsp;20</pre> <div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1078.htm">vue动态设置样式</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1080.htm">Redis：内存淘汰机制</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1306.htm" title="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具">MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

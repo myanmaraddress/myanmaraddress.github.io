@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1091.htm" />
+    <title>java8 List&lt;Object&gt;去掉重复对象的几种方法_java - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>java8 List&lt;Object&gt;去掉重复对象的几种方法_java</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">一、去除List中重复的String</a></li> <li><a href="#_label1" rel="nofollow">二、List中对象去重</a></li> <li><a href="#_label2" rel="nofollow">三、根据对象的属性去重</a></li> <li><a href="#_label3" rel="nofollow">参考:</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>一、去除List中重复的String</h2> <div class="ay1code"> <pre class="brush:java;">public List&lt;String&gt; removeStringListDupli(List&lt;String&gt; stringList) {      Set&lt;String&gt; set = new LinkedHashSet&lt;&gt;();      set.addAll(stringList);        stringList.clear();        stringList.addAll(set);      return stringList;  }</pre> </div> <p>或使用Java8的写法：</p> <div class="ay1code"> <pre class="brush:java;">List&lt;String&gt; unique = list.stream().distinct().collect(Collectors.toList());  </pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>二、List中对象去重</h2> <p>比如现在有一个 Person类:</p> <div class="ay1code"> <pre class="brush:java;">public class Person {      private Long id;        private String name;        public Person(Long id, String name) {          this.id = id;          this.name = name;      }        public Long getId() {          return id;      }        public void setId(Long id) {          this.id = id;      }        public String getName() {          return name;      }        public void setName(String name) {          this.name = name;      }        @Override      public String toString() {          return "Person{" +                  "id=" + id +                  ", name='" + name + '\'' +                  '}';      }  }</pre> </div> <p>重写Person对象的equals()方法和hashCode()方法:</p> <div class="ay1code"> <pre class="brush:java;"> @Override      public boolean equals(Object o) {          if (this == o) return true;          if (o == null || getClass() != o.getClass()) return false;            Person person = (Person) o;            if (!id.equals(person.id)) return false;          return name.equals(person.name);        }        @Override      public int hashCode() {          int result = id.hashCode();          result = 31 * result + name.hashCode();          return result;      }</pre> </div> <p>下面对象去重的代码：</p> <div class="ay1code"> <pre class="brush:java;"> Person p1 = new Person(1l, "jack");          Person p2 = new Person(3l, "jack chou");          Person p3 = new Person(2l, "tom");          Person p4 = new Person(4l, "hanson");          Person p5 = new Person(5l, "胶布虫");            List&lt;Person&gt; persons = Arrays.asList(p1, p2, p3, p4, p5, p5, p1, p2, p2);            List&lt;Person&gt; personList = new ArrayList&lt;&gt;();          // 去重          persons.stream().forEach(                  p -&gt; {                      if (!personList.contains(p)) {                          personList.add(p);                      }                  }          );          System.out.println(personList);</pre> </div> <p>List 的contains()方法底层实现使用对象的equals方法去比较的，其实重写equals()就好，但重写了equals最好将hashCode也重写了。</p> <p>可以参见:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://stackoverflow.com/questions/30745048/how-to-remove-duplicate-objects-from-java-arraylist"   target="_blank" rel="nofollow">http://stackoverflow.com/questions/30745048/how-to-remove-duplicate-objects-from-java-arraylist</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243751.htm"  target="_blank" rel="nofollow">https://www.jb51.net/article/243751.htm</a></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>三、根据对象的属性去重</h2> <p>下面要根据Person对象的id去重，那该怎么做呢？</p> <p>写一个方法吧:</p> <div class="ay1code"> <pre class="brush:java;">  public static List&lt;Person&gt; removeDupliById(List&lt;Person&gt; persons) {          Set&lt;Person&gt; personSet = new TreeSet&lt;&gt;((o1, o2) -&gt; o1.getId().compareTo(o2.getId()));          personSet.addAll(persons);            return new ArrayList&lt;&gt;(personSet);      }</pre> </div> <p>通过Comparator比较器，比较对象属性，相同就返回0，达到过滤的目的。</p> <p>再来看比较炫酷的Java8写法:</p> <div class="ay1code"> <pre class="brush:java;">import static java.util.Comparator.comparingLong;  import static java.util.stream.Collectors.collectingAndThen;  import static java.util.stream.Collectors.toCollection;    // 根据id去重       List&lt;Person&gt; unique = persons.stream().collect(                  collectingAndThen(                          toCollection(() -&gt; new TreeSet&lt;&gt;(comparingLong(Person::getId))), ArrayList::new)          );</pre> </div> <p>这段炫酷的代码是google的，还不明白是怎么个原理，等我好好研究一下，再专门写篇文章好好阐述一下。</p> <p>还有一种写法:</p> <div class="ay1code"> <pre class="brush:java;">  public static &lt;T&gt; Predicate&lt;T&gt; distinctByKey(Function&lt;? super T, Object&gt; keyExtractor) {          Map&lt;Object, Boolean&gt; map = new ConcurrentHashMap&lt;&gt;();          return t -&gt; map.putIfAbsent(keyExtractor.apply(t), Boolean.TRUE) == null;      }    // remove duplicate          persons.stream().filter(distinctByKey(p -&gt; p.getId())).forEach(p -&gt; System.out.println(p));</pre> </div> <p>java8 确实简化了很多冗长的操作，精简了代码，小伙，研究java8去吧！</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>参考:</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243751.htm"  target="_blank" rel="nofollow">https://www.jb51.net/article/243751.htm</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://stackoverflow.com/questions/29670116/remove-duplicates-from-a-list-of-objects-based-on-property-in-java-8"   target="_blank" rel="nofollow">http://stackoverflow.com/questions/29670116/remove-duplicates-from-a-list-of-objects-based-on-property-in-java-8</a></p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1090.htm">Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1092.htm">PHP从HTML转义详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

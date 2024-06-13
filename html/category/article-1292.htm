@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1292.htm" />
+    <title>Flutter实现心动的动画特效_Android - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Flutter实现心动的动画特效_Android</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">实现动画</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">混入 SingleTickerProviderStateMixin</a></li> <li><a href="#_lab2_0_1" rel="nofollow">创建动画</a></li> </ul> <li><a href="#_label1" rel="nofollow">抽离成小组件</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label2" rel="nofollow">完整代码</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p>为了追求更好的用户体验，有时候我们需要一个类似心跳一样跳动着的控件来吸引用户的注意力，这是一个小小的优化需求，但是在 Flutter 里动画两件套就像裹脚布一样臭长，所以需要像封装一个 AnimatedWidget，解放生产力。</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>实现动画</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>混入 SingleTickerProviderStateMixin</h3> <p>当创建一个 AnimationController 时，需要传递一个<code>vsync</code>参数，存在<code>vsync</code>时会防止动画的UI不在当前屏幕时消耗不必要的资源。 通过混入 SingleTickerProviderStateMixin 。</p> <div class="ay1code"> <pre class="brush:java;">class _MyHomePageState extends State&lt;MyHomePage&gt;  with SingleTickerProviderStateMixin{}</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>创建动画</h3> <p>创建一个间隔将近一秒钟的动画控制器：</p> <div class="ay1code"> <pre class="brush:java;">  late final AnimationController animController;      @override    void initState() {      super.initState();      animController = AnimationController(        duration: const Duration(milliseconds: 800),        vsync: this,      );      }</pre> </div> <p>心跳动画是从小变大，再变小，所以需要一个值大小变化的动画：</p> <div class="ay1code"> <pre class="brush:java;">  late final Animation&lt;double&gt; animation;      @override    void initState() {      super.initState();      animController = AnimationController(        duration: const Duration(milliseconds: 800),        vsync: this,      );       animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      );      }</pre> </div> <p>心跳是不间断的，所以需要监听动画完成时恢复动画，再继续开始动画：</p> <div class="ay1code"> <pre class="brush:java;">    animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      ).animate(animController)        ..addListener(() {          setState(() {});        })        ..addStatusListener((status) {          if (status == AnimationStatus.completed) {            animController.reverse();          } else if (status == AnimationStatus.dismissed) {            animController.forward();          }        });</pre> </div> <p>使用缩放控件：</p> <div class="ay1code"> <pre class="brush:java;">Transform.scale(                  scale: animation.value,                  child: const FlutterLogo(                    size: 80,                  ),                ),</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/9716bcbd9721fdd223eec8edba916681.jpg"></p> <p>为了跳动效果，突出跳动动画，把缩回去的时间改短：</p> <div class="ay1code"> <pre class="brush:java;">   animController = AnimationController(        reverseDuration: const Duration(milliseconds: 700),        duration: const Duration(milliseconds: 800),        vsync: this,      );</pre> </div> <p>最后别忘了释放资源：</p> <div class="ay1code"> <pre class="brush:java;">  @override    void dispose() {      animController.dispose();      super.dispose();    }</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>抽离成小组件</h2> <p>为了每次用到类似的动画只需引入即可，需要分离动画和显示的组件。新建一个<code>BounceWidget</code>，包含动画，然后可以传入UI组件：</p> <div class="ay1code"> <pre class="brush:java;">class BounceWidget extends StatefulWidget {    final Widget child;      const BounceWidget({      Key? key,      required this.child,    }) : super(key: key);      @override    State&lt;BounceWidget&gt; createState() =&gt; _BounceWidgetState();  }</pre> </div> <p>继续实现动画：</p> <div class="ay1code"> <pre class="brush:java;">class _BounceWidgetState extends State&lt;BounceWidget&gt;      with SingleTickerProviderStateMixin {    late Animation&lt;double&gt; animation;    late AnimationController animController;      @override    void initState() {      super.initState();      animController = AnimationController(        reverseDuration: const Duration(milliseconds: 700),        duration: const Duration(milliseconds: 800),        vsync: this,      );      animation = Tween&lt;double&gt;(        begin: 0.9,        end: 1.05,      ).animate(animController)        ..addListener(() {          setState(() {});        })        ..addStatusListener((status) {          if (status == AnimationStatus.completed) {            animController.reverse();          } else if (status == AnimationStatus.dismissed) {            animController.forward();          }        });      animController.forward();    }      @override    Widget build(BuildContext context) {      return Transform.scale(        scale: animation.value,        child: widget.child,      );    }      @override    void dispose() {      animController.dispose();      super.dispose();    }  }</pre> </div> <p>去引入动画：</p> <div class="ay1code"> <pre class="brush:java;">  Center(                child: BounceWidget(                  child: FlutterLogo(                    size: 80,                  ),                ),</pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>完整代码</h2> <div class="ay1code"> <pre class="brush:java;">void main() {    runApp(const MyApp());  }    class MyApp extends StatelessWidget {    const MyApp({Key? key}) : super(key: key);      @override    Widget build(BuildContext context) {      return MaterialApp(        title: 'Flutter Demo',        theme: ThemeData(          primarySwatch: Colors.blue,        ),        home: const MyHomePage(title: 'Flutter Demo Home Page'),      );    }  }    class MyHomePage extends StatefulWidget {    const MyHomePage({Key? key, required this.title}) : super(key: key);      final String title;      @override    State&lt;MyHomePage&gt; createState() =&gt; _MyHomePageState();  }    class _MyHomePageState extends State&lt;MyHomePage&gt; {    @override    Widget build(BuildContext context) {      return Scaffold(        appBar: AppBar(          title: Text(widget.title),        ),        body: Padding(          padding: const EdgeInsets.only(top: 80, left: 16),          child: Column(            crossAxisAlignment: CrossAxisAlignment.start,            children: const &lt;Widget&gt;[              Text(                "心动的",                style: TextStyle(                  fontSize: 28,                  color: Colors.black,                ),              ),              Text(                "感觉",                style: TextStyle(                  fontSize: 48,                  color: Colors.black,                ),              ),              Center(                child: BounceWidget(                  child: FlutterLogo(                    size: 80,                  ),                ),              ),            ],          ),        ),      );    }  }  </pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1291.htm">Springcloud通过maven打包包含公共common模块的项目</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1293.htm">基于Spring接口，集成Caffeine+Redis两级缓存</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1306.htm" title="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具">MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

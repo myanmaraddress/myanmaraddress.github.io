@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1102.htm" />
+    <title>IDEA中web项目maven项目打war包的方式 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>IDEA中web项目maven项目打war包的方式</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>手动打包</h2> <p>1、打开idea，如图<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0360d37c74c6b53daa88cf35c03f24b5.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 2、如图1.2.3步<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/88aefb7d5854e15ad0f55fcdcd63cf10.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 3、就出现一个新的，接下来配置一下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/955173de6115765504f5392d7d00d09f.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 4、点加号，选D… C…<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/732c4b2c3af96704d17bb2743a11d485.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 5、选择你项目得到webapp，点OK<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/9e1306d2a729585803f5db751a3ec906.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 6、创建文件夹WEB-INF<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/69e94a887ddb71f0d9ec6a86d0e98ccc.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 7、在WEB-INF里建classes<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/509b37541c9660a3335aad3f7e64ab76.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 8、选中classes，点加号，选M… O…<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/d82da298be5fce7c1570e4e5298bfc97.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 9、选你的项目，点OK<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/88fee26f06381555e891a115fc3ae996.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 这时候的结构是这样的<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1bdaea3f75f465b9681a99340bc6048b.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 11、在WEB-INF下创建lib，放jar包<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/820c54751f9f8c08e551db56fda5c27b.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 12、选择L… F…<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/1b04b6417609fc9086ec43cf83375850.jpg" alt="IDEA中web项目maven项目打war包的方式">13、选择你要一同发布出去的jar，点OK<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0b3288310570749237a5305e3f58ea60.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 14、基本配置完了，这时候结构如下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/bb56a9b4f8a60bfa38698b39fcb8bb0a.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 15、Build-Build Art…<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f567b3cfd936b2b0fdc6f0d9de3ac547.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 16、选中你的，Build，过一会儿就会在刚才那个war包输出路径下有个war包了<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/abaee013dbee409fa44216d252635444.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 每次做了改动，重新打包只需只需16步就行。</p> <p>把war放在服务器的web容器，启动就OK了。</p> <h2><a id="maven_35" rel="nofollow"></a>使用maven工具</h2> <p>相对简单<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/6d07e7c08f6626d5fcf209b4e6058993.jpg" alt="IDEA中web项目maven项目打war包的方式"><br /> 等待就OK了，这样打的包名称是pom.xml文件里artifictId和version的组合，如XXX-1.0-SNAPSHOT.war<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ef5bc352f04cad532e1b568234068b92.jpg" alt="IDEA中web项目maven项目打war包的方式"></p> <p>欢迎关注我的微信公众号：BiggerBoy，更多技术文章不定时推送</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1101.htm">win11系统文件夹打不开如何解决</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1103.htm">Envoy熔断限流实践基于Rainbond插件实现熔断</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1301.htm" />
+    <title>Uniapp-远离回调callback请使用await、async - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Uniapp-远离回调callback请使用await、async</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>今天要实现一个功能，在搜索完课程及句子之后判断是否有结果，因为需要对课程和句子的结果统一判断，所以要使用async, await来将两种搜索的异步方法可以顺序调用。</p> <h1><a id="async_await_2" rel="nofollow"></a>如何使用async, await</h1> <p>来看下如何得到课程：</p> <pre><code class="prism language-javascript"><span class="token function">searchLessonsFromServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>no_more_lessons<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">}</span><span class="token keyword">let</span> self<span class="token operator">=</span><span class="token keyword">this</span><span class="token keyword">let</span> page<span class="token operator">=</span> self<span class="token punctuation">.</span>searchMeResult<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>page<span class="token comment">//</span><span class="token keyword">let</span> per_page<span class="token operator">=</span><span class="token number">10</span><span class="token comment">//每页5个记录</span><span class="token keyword">let</span> toServerUrl<span class="token operator">=</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$backHost<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/api/v1/users/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$user<span class="token punctuation">.</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/lessons/search_me/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>self<span class="token punctuation">.</span>latestSearchValue<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>per_page<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>page<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token keyword">return</span><span class="token keyword">new</span><span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$request</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>             url<span class="token punctuation">:</span> toServerUrl<span class="token punctuation">,</span>             success<span class="token punctuation">:</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span>                 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'lessons#searchLessonsFromServer in Promise():'</span><span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span>res<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>length<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                     self<span class="token punctuation">.</span>searchMeResult<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>data<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">...</span>self<span class="token punctuation">.</span>searchMeResult<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>data<span class="token punctuation">,</span><span class="token operator">...</span>res<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>                     self<span class="token punctuation">.</span>no_more_lessons<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token function">resolve</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>异步方法最后返回一个Promise，这样就可以在其它函数中将其用同步的办法来调用searchLessonsFromServer函数。</p> <p>这里实现的课程搜索是有翻页功能的，得到服务器返回的数据res之后，用三点扩展符将其添加到前端的数据中，</p> <pre><code class="prism language-javascript">self<span class="token punctuation">.</span>searchMeResult<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>data<span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">...</span>self<span class="token punctuation">.</span>searchMeResult<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">.</span>data<span class="token punctuation">,</span><span class="token operator">...</span>res<span class="token punctuation">.</span>pth_lessons<span class="token punctuation">]</span></code></pre> <p>搜索句子也是类似的将异步方法放到new Promise之中， 然后在其它函数中这样调用：</p> <pre><code class="prism language-javascript"><span class="token comment">//服务器搜索课程名称</span><span class="token keyword">async</span><span class="token function">search_me</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token operator">...</span><span class="token keyword">await</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchLessonsFromServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">await</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">searchSentencesFromServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">haveSearchResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">let</span> errMsg<span class="token operator">=</span><span class="token string">"搜索不到:"</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>latestSearchValue         uni<span class="token punctuation">.</span><span class="token function">showModal</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>             title<span class="token punctuation">:</span><span class="token string">'提示'</span><span class="token punctuation">,</span>             content<span class="token punctuation">:</span> errMsg<span class="token punctuation">,</span>             showCancel<span class="token punctuation">:</span><span class="token boolean">false</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>search_focus<span class="token operator">=</span><span class="token boolean">true</span><span class="token keyword">return</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>searchValue<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>latestSearchValue<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>即在调用函数search_me前面加上async, 使用异步方法时，前面加上await即可！这样，后续的haveSearchResult就肯定是在前面两个异步的搜索函数完成之后才会执行！</p> <p>[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-QzDYdHGz-1646640234157)(https://dw.gsenglish.cn:5543/uploads/2022/03/clipboard-202203011734-0lebb.png)]</p> <h1><a id="asyncawait_74" rel="nofollow"></a>async和await:让异步编程更简单</h1> <p>更多async,await 相关知识可以参考：https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Asynchronous/Async_await</p> <blockquote> <p>我是@爱玩的安哥，关注我获取更多有用知识</p> </blockquote> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1300.htm">Git基础Git对象的总结</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1302.htm">java高级用法之:在JNA中使用类型映射</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

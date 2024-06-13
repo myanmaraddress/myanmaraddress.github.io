@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1276.htm" />
+    <title>maven项目打包成war包并部署到tomcat上 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>maven项目打包成war包并部署到tomcat上</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <h2><a id="_0" rel="nofollow"></a>一、前言</h2> <p>一直通过idea软件去部署项目到tomcat上，却忘了最基本的打包成war包部署到tomcat今天就来通过笔记的方式来提醒下自己，同时也帮助下有同样想法的兄弟们。</p> <h2><a id="_3" rel="nofollow"></a>二、直奔主题</h2> <p>1、首先，我们通过idea软件打开项目找到，maven项目中的pom.xml文件，这里简单介绍下pom.xml(即Project Object Model，项目对象模型，应用于maven项目中，主要用以管理项目配置文件，开发者信息，项目依赖等)，找到如下图所示的pom.xml文件。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/141a9491010a1f5bfb2396fd69feaa99.jpg" alt="maven项目打包成war包并部署到tomcat上"></p> <p>2、找到标签该标签的作用，就是对项目的打包方式进行指定的，一般创建一个新的项目打包方式都是pom形式的，多用于微服务项目，这里我们将打包方式进行改正位war包即可。然后我们找到idea右侧的Maven图标点击一下会弹出如下窗口。点击下clean先清除下缓存，然后点击package进行项目的打包。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/b37c376346f30aa900ab273c0187f9b9.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 3、我们返回到project的菜单中，发现这时出现了一个名为target的文件夹，这个文件夹就是我们打包之后才会出现的文件夹，我们打开这个文件夹复制，如下图的xxx.war文件就是我们打包好的war包。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/fa242003bb30d1659dde78d074acea1d.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 4、我们直接在这里右键直接copy即可，复制好后就找到tomcat的安装文件夹（没有tomcat的去官网下载<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://tomcat.apache.org/"  rel="nofollow">https://tomcat.apache.org/</a>）打开文件会发现如下列表的，我们点击webapps，这里我们解释一下这个文件夹的作用：主要的作用就是用来存放应用程序的，tomcat启动时会自动加载webapps下的项目，可以以文件夹，jar包，war包的形式进行发布项目。我们只需要将复制好的文件粘贴到该目录下即可。如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7bf737b626bc41baa2dab56e80add48a.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 5、返回上一级目录点击bin文件夹找到下面的startup.bat文件双击运行即可，启动当前版本的tomcat服务器，这里注意：如果在环境变量中配置了tomcat则只会运行环境变量下的版本。如下图<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/d899d8ce5b4928e85563afd5ae7f7e5f.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 当出现如下图所示情况时就是运行成功了，切记不要关闭。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/c56294dd3228fcfbc999c67687ac631a.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 6、打开任意浏览器输入http://localhost:8080/ssm/ 即可访问到你部署的war包项目了。这里的ssm就是你war包的名称，8080就是该应用占用的端口号，可以在tomcat文件夹下的conf文件夹的server.xml文件夹中进行配置，这里的localhost代表本地，也可以用127.0.0.1进行代替。</p> <p>下面介绍下通过server.xml修改默认端口号：<br /> 我们打开tomcat文件夹下的conf文件夹找到server.xml文件，右键打开方式通过记事本打开，找到 标签 如下图。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0ab2f54f91921a26243d5f2bae8fa415.jpg" alt="maven项目打包成war包并部署到tomcat上"><br /> 这个标签的作用是在Tomcat中请求接收和响应返回的端口，Tomcat中支持HTTP、AJP等协议。这里我们一般会看见俩个这个标签，我们选择标签中带有属性protocol="HTTP/1.1"的这个进行端口号的修改，这个属性的作用就是连接器使用的协议。然后我们修改port的属性即可。</p> <h2><a id="_25" rel="nofollow"></a>三、快速总结</h2> <p>可能上面比较啰嗦，但是对比较模糊的兄弟们应该比较友好，下面对上面的步骤进行简化总结，方便，快速部署。<br /> 1、idea打开maven项目，找到pom.xml文件修改打包方式位war<br /> 2、清除项目缓存点右侧Maven下clean后点击package打包。<br /> 3、找到右侧target目录下的xxx.war<br /> 4、复制到tomcat的webapps文件夹下<br /> 5、找到tomcat的bin文件下的startup.bat双击启动<br /> 6、浏览器输入localhost:8080/xxx</p> <h2><a id="_35" rel="nofollow"></a>四、完结撒花</h2> <p>首先，谢谢各位大佬的观看也请大佬们勿喷，同时以上写的文字偶有借鉴，如有侵权可联系我立刻删除，无冒犯之意，下篇文章见兄弟们。</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1275.htm">feign实现远程调用</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1277.htm">服务器安全加固 &#8211; Linux_在线工具</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

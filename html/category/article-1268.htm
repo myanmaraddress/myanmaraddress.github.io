@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1268.htm" />
+    <title>c++堆内存默认大小_线上内存暴涨问题定位和解决 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>c++堆内存默认大小_线上内存暴涨问题定位和解决</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p><strong>前因：</strong></p> <p>因为REST规范，定义资源获取接口使用GET请求，参数拼接在url上。</p> <p>如果按上述定义，当参数过长，超过tomcat默认配置 max-http-header-size ：8kb</p> <p>会报一下错误信息：</p> <p>Request header is too large</p> <p>可以修改springboot配置，调整请求头大小</p> <pre class="has"><code>server:     max-http-header-size: xxx  复制代码</code></pre> <p><strong>后果：</strong></p> <p>**如果max-http-header-size设置过大，会导致接口吞吐下降，jvm <strong>oom</strong>，内存泄漏。<br />**</p> <p>因为tomcat 会用HeapByteBuffer 预分配请求头内存大小，在堆上分配。</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/c289779e914a6609e4d9a1b1cb354aa1.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>请求和响应都是一样的配置，每次请求处理预先分配，2倍配置值内存大小在 jvm 堆中</p> <p>请求过多，导致线上内存暴涨，老年代有3GB多。使用jmap dump线上内存数据，使用 JProfiler 分析。</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/65bda0aa64460658efd792986d186621.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/c70723c97272afb1bf717fbe632940f9.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>符合配置大小和源码对象</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/833889e9111a90e182c95dea14af016e.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>数组有3GB，和老年代和eden区总和大小相近。</p> <p>-XX:PretenureSizeThreshold jvm参数用来设置默认值，当<strong>数组</strong>或对象大小超过这个设定值，直接在 Old Gen 老年代分配；默认值0，当超过eden区的大小的时候，直接分配到old区。</p> <p>使用 java -XX:+PrintCommandLineFlags -version</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/f37f14b46a0f74d691eba55660927b69.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>发现并没有使用-XX:PretenureSizeThreshold参数，所以是</p> <p>max-http-header-size设置过大，eden区分配不够，直接分配到old区，堆区内存不够，自动扩容，导致old区数据越来越多，频繁触发FullGC。</p> <p>JVM初始分配的内存由-Xms指定，默认是物理内存的1/64；JVM最大分配的内存由-Xmx指定，默认是物理内存的1/4。默认空余堆内存小 于40%时，JVM就会增大堆直到-Xmx的最大限制；空余堆内存大于70%时，JVM会减少堆直到-Xms的最小限制。因此服务器一般设置-Xms、 -Xmx相等以避免在每次GC后调整堆的大小。</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/33377e8ff9ea9aed12fe8a78cb155653.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/16c990ec856ee20877731496133babac.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/53e0d2c4933e307386e84eb9a2bd2272.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>其中http-nio-9005-exec-线程有146个，和前面配置需要分配的20M内存请求，相乘的数据与3000MB相近。</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/a1f134e1aa69e9b14a16c2e89bae5517.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>tomcat任务线程池 最大线程数200，存活时间60s</p> <div class="pgc-img">   <img decoding="async" src="http://img.555519.xyz/uploads/20230108/bd55836da88b06320fd3d482cc41ef53.jpg" alt="c++堆内存默认大小_线上内存暴涨问题定位和解决"> </div> <p>因为TaskQueue 重写了offer方法，在线程池大小小于最大线程数时，任务不会放入任务队列，只会交给现有线程执行；存活时间60s，只有当线程空闲60s才会被回收，也就是**60秒内请求要小于当前线程数，**才会有空闲线程。这就导致了线程不能及时被回收。请求数下降，但是内存还是居高不下。</p> <p><strong>解决方案：</strong></p> <p>max-http-header-size修改为默认值，接口请求方式修改为POST，请求参数放置于body</p> </div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1267.htm">docker-compose 配置kafka_Docker Compose 引用环境变量</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1269.htm">ruby 版本管理RVM （ruby version manager）</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

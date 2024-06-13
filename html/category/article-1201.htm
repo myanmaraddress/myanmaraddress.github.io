@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1201.htm" />
+    <title>Vue项目如何设置反向代理和cookie设置问题_vue.js - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Vue项目如何设置反向代理和cookie设置问题_vue.js</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">Vue设置反向代理和cookie设置</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">项目场景</a></li> <li><a href="#_lab2_0_1" rel="nofollow">问题描述</a></li> <li><a href="#_lab2_0_2" rel="nofollow">原因分析</a></li> <li><a href="#_lab2_0_3" rel="nofollow">解决方案</a></li> </ul> <li><a href="#_label1" rel="nofollow">Vue项目使用js-cookie细则</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_4" rel="nofollow">什么是js-cookie</a></li> <li><a href="#_lab2_1_5" rel="nofollow">在项目中进行安装</a></li> <li><a href="#_lab2_1_6" rel="nofollow">在项目中的入口文件（main.js）全局引入</a></li> <li><a href="#_lab2_1_7" rel="nofollow">在项目中使用</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>Vue设置反向代理和cookie设置</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>项目场景</h3> <p>最近使用Vue开发一个新的项目，因为服务器还没到，调取后端本地接口，因为请求接口的时候没有跨域，就没开反向代理。后面就被一个很基础的东西踩了坑，就是 cookie的一些知识，记录一下，加深一下印象。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>问题描述</h3> <p>联调过程中，发现调用登录接口之后，再去调其他接口，就会报登录状态失效，之前做了好久小程序的项目，突然遇到这种有点懵逼。</p> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>原因分析</h3> <p>首先，出现这个问题，问了下后端，后端说是Cookie没有传给他。然后我们来确认下Cookie的定义和作用是什么？</p> <p>HTTP 协议中的 Cookie 它包括 Web Cookie 和浏览器 Cookie，它是服务器发送到 Web 浏览器的一小块数据。服务器发送到浏览器的 Cookie，浏览器会进行存储，并与下一个请求一起发送到服务器。通常，它用于判断两个请求是否来自于同一个浏览器，例如用户保持登录状态。</p> <p>当接收到客户端发出的 HTTP 请求时，服务器可以发送带有响应的 Set-Cookie 标头，Cookie 通常由浏览器存储，然后将 Cookie 与 HTTP 标头一同向服务器发出请求。</p> <p>看到这里，我就去看了下，当我调用登录接口成功的时候，后端是返回了Set-Cookie 的，但是发现浏览器没有去设置。看到这里，就知道Set-Cookie 浏览器没有生效。Cookie 基于安全方面的考虑，在浏览器中无法获取跨域的 Cookie 。</p> <p class="maodian"><a name="_lab2_0_3" rel="nofollow"></a></p> <h3>解决方案</h3> <p>在Vue项目里根目录vue.config.js设置一下反向代理</p> <div class="ay1code"> <pre class="brush:js;">module.exports = {   devServer: {    // 设置代理    proxy: {     "/api": {      target: "http://127.0.0.1:8081/", // 域名      ws: true, // 是否启用websockets      changOrigin: true, //开启代理：在本地会创建一个虚拟服务端，然后发送请求的数据，并同时接收请求的数据，                         //这样服务端和服务端进行数据的交互就不会有跨域问题      pathRequiresRewrite: {       "^/api": "/"      }     }    }   }  }</pre> </div> <p>请求的时候</p> <div class="ay1code"> <pre class="brush:js;">// '/api'等于'http://127.0.0.1:8081/api'  // 此时请求地址为'http://127.0.0.1:8081/api/picture?method=upload'  get('/api/picture?method=upload')</pre> </div> <p>解决完成！开心。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>Vue项目使用js-cookie细则</h2> <p>背景：最近的vue项目中由于项目的token是需要设置过期时间的，当然，以前这种过期的行为逻辑一直是后端来控制，但这次要求前端也进行token时间的一个监控，由于懒得封装cookie，所以就用了js-cookie的一个cookie封装库</p> <p class="maodian"><a name="_lab2_1_4" rel="nofollow"></a></p> <h3>什么是js-cookie</h3> <p>看名字我们就知道这是关于cookie存储的一个js的API，根据官网描述其优点有：适用所有浏览器、接受任何字符、经过任何测试没什么bug、支持CMD和CommonJS、压缩之后非常小，仅900个字节</p> <p class="maodian"><a name="_lab2_1_5" rel="nofollow"></a></p> <h3>在项目中进行安装</h3> <div class="ay1code"> <pre class="brush:js;">npm install js-cookie 'js-cookie' --save</pre> </div> <p class="maodian"><a name="_lab2_1_6" rel="nofollow"></a></p> <h3>在项目中的入口文件（main.js）全局引入</h3> <div class="ay1code"> <pre class="brush:js;">import Cookies from 'js-cookie'</pre> </div> <p class="maodian"><a name="_lab2_1_7" rel="nofollow"></a></p> <h3>在项目中使用</h3> <p>1、存cookie  set方法支持的属性有 ：  expires-&gt;过期时间    path-&gt;设置为指定页面创建cookie   domain-》设置对指定域名及指定域名的子域名可见  secure-&gt;值有false和true ,表示设置是否只支持https,默认是false</p> <div class="ay1code"> <pre class="brush:js;">Cookies.set('key', 'value');  //创建简单的cookie  Cookies.set('key', 'value', { expires: 27 });//创建有效期为27天的cookie  Cookies.set('key', 'value', { expires: 17, path: ''  }); //可以通过配置path,为当前页创建有效期7天的cookie</pre> </div> <p>2、取cookie</p> <div class="ay1code"> <pre class="brush:js;">Cookies.get('key'); // 获取指定key 对应的value  Cookies.get(); //获取所有value</pre> </div> <p>3、删除cookie</p> <div class="ay1code"> <pre class="brush:js;">Cookies.remove('key');//删除普通的cookie  Cookies.remove('name', { path: '' }); // 删除存了指定页面path的cookie</pre> </div> <p>注意：如果存的是对象，如：</p> <div class="ay1code"> <pre class="brush:js;">userInfo = {age:111,score:90};  Cookie.set('userInfo',userInfo)</pre> </div> <p>取出来的userInfo需要进行JSON的解析,解析为对象：</p> <div class="ay1code"> <pre class="brush:js;">let res = JSON.parse( Cookie.get('userInfo') );</pre> </div> <p>当然你也可以使用：</p> <div class="ay1code"> <pre class="brush:js;">Cookie.getJSON('userInfo');</pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1200.htm">Android中Handler的使用方法</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1202.htm">前后端分离跨域问题解决</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

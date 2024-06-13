@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1248.htm" />
+    <title>PHP对象继承 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>PHP对象继承</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h2>介绍</h2> <p>继承是面向对象编程方法的重要原理。使用此原理，可以定义两个类之间的关系。PHP在其对象模型中支持继承。</p> <p>PHP使用<strong>extends</strong>关键字在两个类之间建立关系。</p> <h2>语法</h2> <pre>class&nbsp;B&nbsp;extends&nbsp;A</pre> <p>其中A是基类（也称为父类），B是子类或子类。子类继承父类的公共方法和受保护的方法。子类可以重新定义或覆盖任何继承的方法。如果不是这样，当与子类的对象一起使用时，继承的方法将保留其父类中定义的功能。</p> <p>父类的定义必须在子类的定义之前。在这种情况下，脚本中的类B的定义应出现在类A的定义之前。</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;A{ &nbsp;&nbsp;&nbsp;//A类的属性，常量和方法 } class&nbsp;B&nbsp;extends&nbsp;A{ &nbsp;&nbsp;&nbsp;//继承公共和受保护的方法 } ?&gt;</pre> <p>如果启用了自动加载，则通过加载类脚本来获取父类的定义。</p> <h2>继承实例</h2> <p>以下代码显示子类继承父类的公共成员和受保护成员</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;protected&nbsp;function&nbsp;protectedmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;private&nbsp;function&nbsp;privatemethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;private&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} } class&nbsp;childclass&nbsp;extends&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;childmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$this-&gt;protectedmethod(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//$this-&gt;privatemethod();&nbsp;//this&nbsp;will&nbsp;produce&nbsp;error &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;childclass(); $obj-&gt;publicmethod(); $obj-&gt;childmethod(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class PHP&nbsp;Fatal&nbsp;error:&nbsp;Uncaught&nbsp;Error:&nbsp;Call&nbsp;to&nbsp;private&nbsp;method&nbsp;parentclass::privatemethod()&nbsp;from&nbsp;context&nbsp;'childclass'</pre> <h2>方法覆盖示例</h2> <p>如果在子类中重新定义了从父类继承的方法，则新定义将覆盖以前的功能。在下面的示例中，在子类中再次定义了publicmethod</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;parentclass{ public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } protected&nbsp;function&nbsp;protectedmethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;protected&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } private&nbsp;function&nbsp;privatemethod(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"This&nbsp;is&nbsp;private&nbsp;method&nbsp;of&nbsp;parent&nbsp;class\n"&nbsp;; } } class&nbsp;childclass&nbsp;extends&nbsp;parentclass{ &nbsp;&nbsp;&nbsp;public&nbsp;function&nbsp;publicmethod(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class&nbsp;is&nbsp;overridden&nbsp;in&nbsp;child&nbsp;class\n"&nbsp;; &nbsp;&nbsp;&nbsp;} } $obj=new&nbsp;childclass(); $obj-&gt;publicmethod(); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果。-</p> <pre>public&nbsp;method&nbsp;of&nbsp;parent&nbsp;class&nbsp;is&nbsp;overridden&nbsp;in&nbsp;child&nbsp;class</pre> <h2>继承继承</h2> <p>PHP不支持多重继承。因此，一个类不能扩展两个或多个类。但是，它支持分层继承，如下所示：</p> <h2>示例</h2> <pre>&lt;?php class&nbsp;A{ &nbsp;&nbsp;&nbsp;function&nbsp;test(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"method&nbsp;in&nbsp;A&nbsp;class"; &nbsp;&nbsp;&nbsp;} } class&nbsp;B&nbsp;extends&nbsp;A{ &nbsp;&nbsp;&nbsp;// } class&nbsp;C&nbsp;extends&nbsp;B{ &nbsp;&nbsp;&nbsp;// } $obj=new&nbsp;C(); $obj-&gt;test(); ?&gt;</pre> <p>输出结果</p> <p>这将显示以下结果</p> <pre>method&nbsp;in&nbsp;A&nbsp;class</pre> <div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1247.htm">使用 vscode 插件可视化制作和管理脚手架及原理解析</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1249.htm">Java修饰符abstract与static及final的精华总结_java</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

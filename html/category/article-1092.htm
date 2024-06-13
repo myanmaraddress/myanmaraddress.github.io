@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1092.htm" />
+    <title>PHP从HTML转义详解 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>PHP从HTML转义详解</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h2>定义和用法</h2> <p>PHP文件可以将内容与代码混合在一起，而代码嵌入HTML文档中。解析器将忽略标记外部的代码，以供客户端浏览器解释。一个HTML文档可以有多个PHP块，每个块都在&lt;？php和？&gt;标记内。</p> <h2>语法</h2> <pre>&lt;p&gt; HTML&nbsp;block &lt;/p&gt; &lt;?php //PHP块 .. .. ?&gt; &lt;p&gt; HTML&nbsp;block &lt;/p&gt; &lt;?php //PHP块 .. .. ?&gt; &lt;p&gt; HTML&nbsp;block &lt;/p&gt;</pre> <p>每次遇到打开PHP标记时，解析器都会开始将输出呈现给客户端，直到到达关闭标记为止。如果代码使用条件语句，则解析器确定要跳过的块。</p> <p>再次直到另一个开始标记出现，所有内容都被视为HTML，而使浏览器进行处理。</p> <h2>PHP版本</h2> <p>此描述适用于所有版本的PHP。</p> <p>以下示例显示了嵌入HTML的PHP代码</p> <h2>示例</h2> <pre>&lt;html&gt; &lt;body&gt; &lt;!..HTML&nbsp;code--!&gt; &lt;h3&gt;Hello&nbsp;World&lt;/h3&gt; &lt;!--&nbsp;PHP&nbsp;code&nbsp;--!&gt; &lt;?php echo&nbsp;"Hello&nbsp;World&nbsp;in&nbsp;PHP"; ?&gt; &lt;!--&nbsp;This&nbsp;is&nbsp;HTML&nbsp;code&nbsp;--!&gt; &lt;p&gt;Hello&nbsp;world&nbsp;again&lt;/p&gt; &lt;?php echo&nbsp;"Hello&nbsp;World&nbsp;again&nbsp;in&nbsp;PHP"; ?&gt; &lt;/body&gt; &lt;/html&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>Hello&nbsp;WorldHello&nbsp;World&nbsp;in&nbsp;PHP Hello&nbsp;world&nbsp;again Hello&nbsp;World&nbsp;again&nbsp;in&nbsp;PHP</pre> <p>使用HTML和PHP混合代码的示例</p> <h2>示例</h2> <pre>&lt;?php&nbsp;$marks=10;&nbsp;?&gt; &lt;h1&gt;Using&nbsp;conditional&nbsp;statement&lt;/h1&gt; &lt;?php&nbsp;if&nbsp;($marks&nbsp;&gt;=50):&nbsp;?&gt; &lt;h2&nbsp;style="color:blue;"&gt;Result:pass&lt;/p&gt; &lt;?php&nbsp;else:&nbsp;?&gt; &lt;h2&nbsp;style="color:red;"&gt;&nbsp;Result:Fail&lt;/p&gt; &lt;?php&nbsp;endif;&nbsp;?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>Using&nbsp;conditional&nbsp;statement Result:Failchange&nbsp;marks&nbsp;to&nbsp;60&nbsp;and&nbsp;run&nbsp;again Using&nbsp;conditional&nbsp;statement Result:pass</pre> <div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1091.htm">java8 List&lt;Object&gt;去掉重复对象的几种方法_java</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1093.htm">C++数据结构之堆详解_C 语言_</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1262.htm" title="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1184.htm" />
+    <title>记一次线上websocket返回400问题排查 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>记一次线上websocket返回400问题排查</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h2 id="id-记一次线上websocket返回400问题排查-现象">现象</h2> <p>生产环境websocket无法正常连接，服务端返回400 bad request，开发及测试环境均正常。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/51e1b068659587f5aa807f71e2ea698b.jpg" alt="记一次线上websocket返回400问题排查"></p> <h2 id="id-记一次线上websocket返回400问题排查-抓包排查">抓包排查</h2> <p>src：nginx服务器 172.16.177.193<br />dst：imp应用服务器 172.16.177.218</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5de0f2e17b72891668a3d3c7d0610ff8.jpg" alt="记一次线上websocket返回400问题排查"></p> <h2 id="id-记一次线上websocket返回400问题排查-问题定位">问题定位</h2> <p>观察到header中的host值带有下划线，在一些中间件（如kafka、hadoop）中，对host中的特殊字符也有限制。由此猜测是header问题。<br />经排查，此header来自nginx的upstream</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/42d75b266ce74c5ad5901c9c9213be0d.jpg" alt="记一次线上websocket返回400问题排查"></p> <h2 id="id-记一次线上websocket返回400问题排查-解决方案1">解决方案1</h2> <p>修改nginx的upstream配置，去除下划线</p> <h2 id="id-记一次线上websocket返回400问题排查-解决方案2">解决方案2</h2> <p>既然upstream中用了下划线，为何普通的http请求正常，而websocket则返回400呢？</p> <p>再看正常的http请求的抓包</p> <p>src: nginx服务器 172.31.47.151<br />dst: imp应用服务器 172.31.47.153</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/171581cf70588612a6a597a9445d3238.jpg" alt="记一次线上websocket返回400问题排查"></p> <p>可见，header中的host，被转发到了目标服务器，而此host并没有下划线，正常请求。<br />所以，如果不修改nginx中的upstream下划线的配置，其实还可以在server中的websocket 对应的location中，添加参数，以便转发原始请求的host</p> <div class="code panel pdl conf-macro output-block" data-hasbody="true" data-macro-name="code"> <div class="codeContent panelContent pdl"> <div> <div id="highlighter_40277" class="syntaxhighlighter sh-confluence nogutter  bash"> <table border="0" cellspacing="0" cellpadding="0"> <tbody> <tr> <td class="code"> <div class="container" title="Hint: double-click to select code"> <div class="line number1 index0 alt2"><code class="bash plain">proxy_set_header Host $host;</code></div> <div class="line number2 index1 alt1"><code class="bash plain">proxy_set_header X-real-ip $remote_addr;</code></div> <div class="line number3 index2 alt2"><code class="bash plain">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</code></div> </div> </td> </tr> </tbody> </table> </div> </div> </div> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8821c1eea51306b3f7c05dbdf7f1a653.jpg" alt="记一次线上websocket返回400问题排查"></p> <p>配置后的抓包如下</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/cbfb619e38bb9313ae223b9484d0f1f9.jpg" alt="记一次线上websocket返回400问题排查"></p> <p>请求正常</p> <h2 id="id-记一次线上websocket返回400问题排查-原因探讨">原因探讨</h2> <p>带有下划线的host，为何会被服务端返回400？从上述排查过程可知，应是tomcat返回的。<br />这一切要从一个RFC协议规范说起<br /><a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://tools.ietf.org/html/rfc1034"  rel="nofollow">RFC-1034</a>&nbsp;是一个关于DNS及域名基础的标准。在「3.5 Preferred name syntax」中，有提及主机名的格式规范：由字母开头，字母或数字结尾，中间包含字母、数字或横杆</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/86dbeaea15c9230415c08c1c88069a49.jpg" alt="记一次线上websocket返回400问题排查"></p> <p>可见，RFC-1034标准中下划线并不被允许。</p> <p>而Tomcat在一次8.x的升级中遵循该标准对host做了此校验，详见<a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/apache/tomcat/commit/3daee59d37376de2f1b62d906d69547a27bb1d81"  rel="nofollow">链接</a><br />org.apache.coyote.AbstractProcessor#parseHost<br />org.apache.tomcat.util.http.parser.Host#parse(<a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://java.io/"  rel="nofollow">java.io</a>.Reader)</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8e3bd7e1b46fb47db53044c30787bb16.jpg" alt="记一次线上websocket返回400问题排查"></p> <h2 id="id-记一次线上websocket返回400问题排查-总结">总结</h2> <p>在我们日常配置host参数时，都尽量避免使用下划线。包括在/etc/hosts下进行的配置，有时在集群环境中为了方便管理，会配置host，此时也应注意避免使用下划线。因为中间件可能也遵循了RTC规范。</p> <h2 id="id-记一次线上websocket返回400问题排查-延伸阅读">延伸阅读</h2> <p>如果大家阅读了上述规范，可能会有疑问:为何网易163可以是数字开头？大家可以先去了解下域名的解析过程。<br />此处科普几个基本概念。</p> <ul> <li><strong>domain name</strong>&nbsp;is the identifier of a resource in a DNS database</li> <li><strong>label</strong>&nbsp;is the part of a domain name in between dots</li> <li><strong>hostname</strong>&nbsp;is a special type of domain name which identifies Internet hosts</li> </ul> <p>域名是在dns库中的唯一标识，label是域名中以「.」分隔的单元，hostname是对于一个地址的特殊域名映射。</p> <p>在1989年的<a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://tools.ietf.org/html/rfc1101"  rel="nofollow">RFC-1101</a>中的「3.1 Network name syntax」定义了网络名词的DNS编码规范。允许数字开头，只要不与十进制八位字节形式的ip地址冲突。<br />在1997年的<a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://tools.ietf.org/html/rfc2181"  rel="nofollow">RFC-2181</a>中「11 Name syntax」对域名语法作了澄清，下划线不应被DNS服务所拒绝。<br />而在近年的一次CA/B论坛里，众多大厂发起<a class="external-link" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://cabforum.org/2018/11/12/ballot-sc-12-sunset-of-underscores-in-dnsnames/"  rel="nofollow">投票</a>，禁止在域名中使用下划线，否则SSL证书将不能正常申请使用。</p> <p>有兴趣的朋友可以尝试搭建一个网站并作域名映射。可以确定的是，做域名映射时，因为是hostname，A和MX记录是不能带下划线的。CNAME记录由于针对的是域名，是否支持则取决于你的DNS服务商了。</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1183.htm">多线程详解 创建多线程</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1185.htm">os模块，os.walk()方法解释与使用</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1261.htm" title="vue实现评论列表">vue实现评论列表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1271.htm" title="c++基于模板匹配的手写数字识别（超详细）">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

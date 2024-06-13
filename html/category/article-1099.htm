@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1099.htm" />
+    <title>C++ 标准输入、输出流 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>C++ 标准输入、输出流</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>1、流的概念</p> <p><img decoding="async" alt="" height="162" src="http://img.555519.xyz/uploads/20230110/6eaf17c0ca09b59aff75f09ff4cb7e45.jpg"></p> <p>C++ 的 I/O 发生在流中，流是由若干字节组成的字节序列</p> <p>输入流：从设备流向内存的字节流</p> <p>输出流：从内存流向设备的字节流</p> <p>标准输入流：从标准输入设备（键盘）流向内存的数据源</p> <p><img fetchpriority="high" decoding="async" alt="" height="238" src="http://img.555519.xyz/uploads/20230110/bfcd98b07853b00d6227637447d7a6ab.jpg"></p> <p><img decoding="async" alt="" height="200" src="http://img.555519.xyz/uploads/20230110/981c43551a5b85149d7370d9deac61a4.jpg"></p> <p>&nbsp;</p> <p>&gt;&gt;不接收空格、回车，以空格、回车做分隔符</p> <p>（一）字符串流：以内存中的string对象/字符数组（c风格字符串）为IO的对象——将数据输出到内存的字符串存储区/从字符串存储区读入数据</p> <p>字符串流类包括：</p> <p>①定义在头文件&lt;sstream&gt;中：istringstream、ostringstream、stringstream，以string对象作为字符串</p> <p>②定义在头文件&lt;strstream&gt;中：istrstream、ostrstream、strstream,以char数组作为字符串</p> <p>使用字符串流类（基于①类）</p> <p>（1）ostringstream类</p> <p>进行格式化输入输出，将各种类型转换为string类型，只支持<span style="color:#ff9900;"><strong>&lt;&lt;</strong></span>操作符</p> <p>流插入运算符&lt;&lt;与ostringstream对象匹配，输出到ostringstream流对象中</p> <pre><code class="language-cpp">#include&lt;sstream&gt; #include&lt;iostream&gt; using namespace std;  int main(){ 	ostringstream oss;//定义一个字符串输出流对象，未初始化 	oss&lt;&lt;1.234;//将1.234输出到oss对象中 ==将1.234.转换成一个字符串 	oss&lt;&lt;" ";//将空格字符串输出到oss对象中==将字符串常量转换为字符串“1.234 ” （1.234末尾加上空格）  	oss&lt;&lt;1234;//字符串：“1.234 1234”  	oss&lt;&lt;endl;// 字符串：“1.234 1234\n” 	cout&lt;&lt;oss.str();//返回oss中的字符串并输出  	oss.str(""); //清空为空字符串  	oss&lt;&lt;3.1415926; 	str2 = oss.str(); //str2复制为“3.1415926”  	return 0; }</code></pre> <p>（2）istringstream类</p> <p>把一个已定义字符串中的以空格隔开的内容提取出来，只支持<span style="color:#ff9900;"><strong>&gt;&gt;</strong></span>操作符</p> <p>流提取运算符&gt;&gt;与istringstream对象匹配，从ostringstream流对象中提取数据输入到内存中</p> <pre><code class="language-cpp">#include&lt;sstream&gt; #include&lt;iostream&gt; using namespace std;  int main(){ 	int a; 	string str1; 	string input = "abc 123 def 456 ghi 789"; 	istringstream iss(input);//通过构造函数对iss进行初始化==iss中存储字符串为input  	while(iss&gt;&gt;str1&gt;&gt;a)	//从iss中提取string类型数据str，提取int型数据a  		cout&lt;&lt;str1&lt;&lt;" "&lt;&lt;a&lt;&lt;endl; 	return 0; }</code></pre> <p>（3）stringstream类</p> <p>支持&lt;&lt;和&gt;&gt;操作符，是istringstream和ostringstream的综合</p> <pre><code class="language-cpp">#include&lt;sstream&gt; #include&lt;iostream&gt; using namespace std;  int main(){ 	int a; 	string input = "abc 123 def 456 ghi 789" ; 	stringstream ss; 	ss&lt;&lt;input; 	while(ss&gt;&gt;str1&gt;&gt;a) 		cout&lt;&lt;str1&lt;&lt;" "&lt;&lt;a&lt;&lt;endl; 	return 0; }</code></pre> <p>字符串流类的构造函数</p> <p>字符串流类常用的成员函数</p> <pre><code class="language-cpp">string str();//返回当前字符串流缓存区的字符串对象副本</code></pre> <pre><code class="language-cpp">void str(const string&amp; s);//复制字符串s内容到字符串流缓存区关联的字符串对象中</code></pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1098.htm">Java8中List转Map(Collectors.toMap())的使用</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1100.htm">python中Event实现线程间同步介绍_python_</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

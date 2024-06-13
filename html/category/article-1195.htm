@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1195.htm" />
+    <title>react-router@6 版本初体验 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>react-router@6 版本初体验</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<p>最近使用了一下<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://reactrouter.com/docs/en/v6/getting-started/installation"  target="_blank" rel="nofollow"><code>react-router@6</code></a> 版本感觉有很大的改动，记录一下。</p> <blockquote> <p>React Router v6 makes heavy use of React hooks, so you'll need to be on React 16.8 or greater before attempting the upgrade to React Router v6. The good news is that React Router v5 is compatible with React &gt;= 15, so if you're on v5 (or v4) you should be able to upgrade React without touching any of your router code.</p> </blockquote> <p>官网给出的原文上面说的很清楚了，在 6 版本上使用了<code>React Hooks</code>写法，说明不支持<code>class</code>类来写。并且要求<code>react</code>版本在<code>16.8</code>以上。如果想兼容<code>class</code>组件 以及<code>react@15</code>使用<code>只能用react-router@5版本</code>。</p> <h2 id="安装">安装</h2> <pre><code class="language-bash">D:\your_project&gt; npm i react-router-dom@6 # or D:\your_project&gt; yarn add react-router-dom@6 # or D:\your_project&gt; cnpm i react-router-dom@6</code></pre> <h2 id="变化">变化</h2> <h3 id="switch-与-routes"><code>Switch</code> 与<code>Routes</code></h3> <p>在 v5 版本中必须明确的说明嵌套的的路由和链接，那么就要获取父路由的属性等等。在 v6 版本则不需要，因为路径是<code>相对的</code>。案例如下：</p> <pre><code class="language-js">// react-router-dom v5.1 import {   BrowserRouter,   Switch,   Route,   Link,   useRouteMatch, } from "react-router-dom";  function App() {   return (     &lt;BrowserRouter&gt;       &lt;Switch&gt;         &lt;Route exact path="/" children={&lt;Home /&gt;} /&gt;         &lt;Route path="/users" children={&lt;Users /&gt;} /&gt;       &lt;/Switch&gt;     &lt;/BrowserRouter&gt;   ); }  function Users() {   // 获取当前 router 匹配信息  { path:string , url: string , }   const match = useRouteMatch();   return (     &lt;div&gt;       &lt;div className="link"&gt;         &lt;Link to={`${match.url}/me`}&gt;My Profile&lt;/Link&gt;       &lt;/div&gt;       &lt;Switch&gt;         {/*  path =  /users/me   */}         &lt;Route path={`${match.path}/me`}&gt;           &lt;OwnUserProfile /&gt;         &lt;/Route&gt;         {/*  path =  /users/:id   */}         &lt;Route path={`${match.path}/:id`}&gt;           &lt;UserProfile /&gt;         &lt;/Route&gt;       &lt;/Switch&gt;     &lt;/div&gt;   ); }</code></pre> <p>在 v6 版本后 再父组件里写的路径若无<code>/</code>开头 都是相对父组件。案例如下：</p> <pre><code class="language-js">// react-router-dom v6+ import {   BrowserRouter,   Routes,   Route,   Link, } from "react-router-dom";  function App() {   return (     &lt;BrowserRouter&gt;       &lt;Routes&gt;         &lt;Route path="/" element={&lt;Home /&gt;} /&gt;         {/* /users 下的所有路径 渲染 User组件 /user  /user/*  */}         &lt;Route path="/users/*" element={&lt;Users /&gt;} /&gt;       &lt;/Routes&gt;     &lt;/BrowserRouter&gt;   ); }  function Users() {   return (     &lt;div&gt;       &lt;nav&gt;         { /* to = /users/me  */ }         &lt;Link to="me"&gt;My Profile&lt;/Link&gt;       &lt;/nav&gt;       {/*  子组件 path 直接相对父组件 */}       &lt;Routes&gt;         {/*  /user/me  */}         &lt;Route path="me" element={&lt;OwnUserProfile /&gt;} /&gt;         {/*  /user/:id  */}         &lt;Route path=":id" element={&lt;UserProfile /&gt;} /&gt;       &lt;/Routes&gt;     &lt;/div&gt;   );</code></pre> <h3 id="route">Route</h3> <ul> <li>Route Props.path</li> </ul> <p>是相对的,它们会自动在父路由的路径和 URL 上构建。</p> <pre><code class="language-js">&lt;BrowserRouter&gt;   &lt;Routes&gt;     &lt;Route path="/" element={&lt;Home /&gt;} /&gt;     &lt;Route path="users" element={&lt;Users /&gt;}&gt;       {/* /user/me */}       &lt;Route path="me" element={&lt;OwnUserProfile /&gt;} /&gt;       {/* /user/:id */}       &lt;Route path=":id" element={&lt;UserProfile /&gt;} /&gt;     &lt;/Route&gt;   &lt;/Routes&gt; &lt;/BrowserRouter&gt;</code></pre> <ul> <li>Route (Props.<code>component</code> | Props.<code>render</code> | Props.<code>children</code>)<code>废弃</code> -&gt; 使用 Props.<code>element</code></li> </ul> <p>在 v5 版本 路由可以使用 三种属性来挂载组件，但是在 v6 版本 只有一种 就是<code>element</code>属性。</p> <pre><code class="language-js">// react-router-dom v5.x function Page() {   return &lt;div&gt; page 组件 &lt;/div&gt;; }  // 使用  component 挂载组件 &lt;Route path="/page" component={Page} /&gt;;  // 使用  render 挂载组件 &lt;Route   path="/page"   render={(routerProps) =&gt; &lt;Page routerProps={routerProps} /&gt;} /&gt;;  // 使用 children 挂载组件 &lt;Route path="/page" children={&lt;Page /&gt;} /&gt;;  &lt;Route path="/page"&gt;   &lt;Page /&gt; &lt;/Route&gt;;</code></pre> <h3 id="redirect-移除">Redirect (移除)</h3> <p>在 v5 版本中<code>&lt;Switch&gt;</code> 里 使用<code>&lt;Redirect&gt;</code> 组件进行路由重定向。</p> <pre><code class="language-js">// v5.x  // any code ... &lt;Switch&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;;  function User({ userInfo }) {   if (!userInfo) {     // 重定向 到 登录页     return &lt;Redirect to="/login" /&gt;;   }   return &lt;div&gt;User Page&lt;/div&gt;; }</code></pre> <p>在 v6 版本中 将使用<code>Navigation</code></p> <pre><code class="language-js">// v6.x  // any code ... &lt;Switch&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;;  function User({ userInfo }) {   if (!userInfo) {     // 重定向 到 登录页     return &lt;Navigation to="/login" /&gt;;   }   return &lt;div&gt;User Page&lt;/div&gt;; }</code></pre> <h3 id="switch-移除">Switch (移除)</h3> <p>在 v5 版本中 用<code>&lt;Switch&gt;</code>组件包裹<code>&lt;Route&gt;</code> 路由组件, 现在改用<code>&lt;Routes&gt;</code></p> <pre><code class="language-js">// v5.x &lt;Switch&gt;   &lt;Route path="/" children={&lt;Home /&gt;} /&gt;   &lt;Route path="/user" children={&lt;User /&gt;} /&gt; &lt;/Switch&gt;  // v6.x &lt;Routes&gt;   &lt;Route path="/" element={&lt;Home /&gt;} /&gt;   &lt;Route path="/user" element={&lt;User /&gt;} /&gt; &lt;/Routes&gt;</code></pre> <h3 id="link">Link</h3> <p>Link 组件主要用于路由跳转，在 v5 版本<code>Link</code> 的<code>to</code> 属性是根据当前<code>url</code>。举例：</p> <pre><code class="language-js">// 当前 路由路径 /user &lt;Link to="me" /&gt; // render &lt;a href="/me" &gt;...&lt;/a&gt;  // 当前 路由路径 /user/ &lt;Link to="me" /&gt; // render &lt;a href="/user/me" &gt;...&lt;/a&gt;</code></pre> <p>而在 v6 版本中 如果<code>Link</code> 在<code>Route</code>里渲染<code>to</code> 属性是根据当前<code>&lt;Route&gt;</code>路由的匹配的<code>url</code>；如果不在<code>Route</code>组件里挂载的，则是根据<code>BrowserRouter.basename</code> 渲染 跳转路径，默认<code>/</code>。</p> <pre><code class="language-js">// v6.x import { BrowserRouter, Link, Outlet, Route, Routes } from "react-router-dom"; &lt;BrowserRouter&gt;   &lt;Link to=""&gt; go Home&lt;/Link&gt; | &lt;Link to="user"&gt; go user&lt;/Link&gt;   &lt;Routes&gt;     &lt;Route path="/" element={&lt;Home /&gt;} /&gt;     &lt;Route path="/user" element={&lt;User /&gt;}&gt;       &lt;Route path=":id" element={&lt;Person /&gt;} /&gt;     &lt;/Route&gt;   &lt;/Routes&gt; &lt;/BrowserRouter&gt;;  function Home() {   return (     &lt;div&gt;       &lt;h1&gt;Home page&lt;/h1&gt;     &lt;/div&gt;   ); } function User() {   return (     &lt;div&gt;       &lt;h1&gt;User page&lt;/h1&gt;       &lt;Link to=".."&gt;go Home&lt;/Link&gt;       &lt;Link to="abc"&gt;go User abc&lt;/Link&gt;       &lt;hr /&gt;       &lt;Outlet /&gt;     &lt;/div&gt;   ); }  function Person() {   return (     &lt;div&gt;       &lt;h1&gt;User abc page&lt;/h1&gt;       &lt;Link to=".."&gt;go user&lt;/Link&gt;       &lt;Link to="../.."&gt;go Home&lt;/Link&gt;     &lt;/div&gt;   ); }</code></pre> <p>如果你把 url 看作文件路径，你发现<code>Link</code> 的<code>to</code> 相当于<code>cd</code> 跳转。</p> <pre><code class="language-js">&lt;Route path="app"&gt;   &lt;Route path="dashboard"&gt;     &lt;Route path="stats" /&gt;   &lt;/Route&gt; &lt;/Route&gt; &lt;Link to="stats"/&gt;             //  =&gt; &lt;a href="/app/dashboard/stats"&gt; &lt;Link to="../stats"/&gt;          //  =&gt; &lt;a href="/app/stats"&gt; &lt;Link to="../../stats"/&gt;       //  =&gt; &lt;a href="/stats"&gt; &lt;Link to="../../../stats"/&gt;    //  =&gt; &lt;a href="/stats"&gt;</code></pre> <p>假设当前的文件路径为 /app/dashboard</p> <pre><code class="language-bash">cd stats                        # pwd is /app/dashboard/stats cd ../stats                     # pwd is /app/stats cd ../../stats                  # pwd is /stats cd ../../../stats               # pwd is /stats</code></pre> <h3 id="navlink">NavLink</h3> <p><code>Props.exact</code> 命名为<code>Props.end</code>，删除<code>Props.activeClassName</code>,<code>Props.activeStyle</code> 使用函数返回<code>style,className</code>。</p> <pre><code class="language-js">// v5.x const style = { color : "red" } &lt;NavLink to="/user" exact /&gt; &lt;NavLink to="/user" activeClassName="active-link" /&gt; &lt;NavLink to="/user" activeStyle={style} /&gt;  // v6.x const getCls = ({ isActive  }) =&gt; isActive ? "link" : "ative link"; const getStyle = ({ isActive  }) =&gt; ({ color: isActive ?'red': 'blue' }) &lt;NavLink to="/user" end /&gt; // 精确匹配 &lt;NavLink to="/user" className={getCls} /&gt; &lt;NavLink to="/user" activeStyle={getStyle} /&gt;</code></pre> <h3 id="useroutematch-替换-usematch">useRouteMatch (替换) useMatch</h3> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://reactrouterdotcom.fly.dev/docs/en/v6/api#usematch"  target="_blank" rel="nofollow">useMatch api</a></p> <h2 id="新增">新增</h2> <h3 id="navigate-跳转路由组件">Navigate 跳转路由组件</h3> <p><code>&lt;Navigate&gt;</code> 组件和<code>useNavigate</code> hooks api 拥有一样的用法。在函数组件使用<code>useNavigate</code> api，而在 class 组件，可以使用<code>Navigate</code> 组件进行挂载跳转路由。</p> <pre><code class="language-ts">interface NavigateProps {   to: To;   replace?: boolean;   state?: any; }</code></pre> <pre><code class="language-js">class User extends React.Component {   render() {     const { userInfo } = this.props;     if (!userInfo) {       return &lt;Navigate to="/login" replace /&gt;;     }     return &lt;div&gt;User&lt;/div&gt;;   } }</code></pre> <h3 id="outlet-路由视图组件">Outlet 路由视图组件</h3> <p>当<code>Route</code> 下有子<code>Route</code> 的时候 需要使用<code>Outlet</code> 显示子路由内容。</p> <p><a href="#Link" rel="nofollow">案例</a></p> <h3 id="uselocation-hooks">useLocation hooks</h3> <p>获取当前路由<code>位置</code>对象。如果您想在当前位置更改时执行一些副作用，这可能很有用。</p> <pre><code class="language-js">import { useEffect } from "react" import { useLocation } from 'react-router-dom';  function App() {   let location = useLocation();    useEffect(() =&gt; {    // do  something   }, [location]);    return (     // ...   ); }</code></pre> <h3 id="usenavigate-hooks">useNavigate hooks</h3> <p>调用返回一个函数，该函数调用第一个参数为<code>string</code>类型 与<code>&lt;Link&gt;</code><code>to</code> 属性 效果一样，为<code>number</code>类型，在历史记录堆栈中传递要访问的增量。第二个参数 与<code>&lt;Link&gt;</code> 的<code>state,replace</code>类型相同。 替代了 v5 版本中的<code>history</code> 对象</p> <pre><code class="language-js">import { useNavigate } from "react-router-dom";  function App(){   const navigate = useNavigate();   const submit = (data)=&gt;{     api(data).then(res=&gt;{       navigate("/user")     })   }   const back = ()=&gt;{     navigate(-1) // 后退一页   }   return (     // ...   ) }</code></pre> <h3 id="useparams-hooks">useParams hooks</h3> <p>获取路由<code>:</code>匹配的信息,返回当前 URL 中与 匹配的动态参数的键/值对的对象。</p> <pre><code class="language-js">import { useParams } from "react-router-dom";  function Person(){   const { id } = useParams() //  path =  /user/:id  =&gt;  current url = /user/1    console.log(id) // 1   return (     // ....   ) }</code></pre> <h3 id="useroutes-hooks">useRoutes hooks</h3> <p>使用数组来定义路由。返回路由组件。</p> <pre><code class="language-js">import { useRoutes } from "react-router-dom";  const routes = [   {     path: "/",     element: &lt;Home /&gt;,     children: [       {         path: "/test",         element: &lt;Test /&gt;,       },     ],   },   {     path: "*",     element: &lt;NotFound /&gt;,   }, ];  function App() {   const router = useRoutes(routes);   return router; }</code></pre> <h3 id="usesearchparams-hooks">useSearchParams hooks</h3> <p>用于读取和设置 url 的<code>query</code>部分，返回和 react useState hooks 一样。每次<code>searchParams</code>修改相当于路由 push 一次。</p> <pre><code class="language-js">import { useSearchParams } from "react-router-dom";  // current url =&gt; / function App() {   const [searchParams, setSearchParams] = useSearchParams();   const setQueryId = () =&gt; {     // url change =&gt; /?id=2&amp;name=test     setSearchParams({       id: 2,       name: "test",     });   };   return (     &lt;div&gt;       &lt;h1&gt; current query id :{searchParams.get("id")}&lt;/h1&gt;       &lt;button onClick={setQueryId}&gt;set id&lt;/button&gt;     &lt;/div&gt;   ); }</code></pre> <ul> <li> <p>searchParams</p> <ul> <li> <p>searchParams.get(str) 返回 string | null</p> <p>获取 url 的 query 第一个匹配上的的<code>str</code>值.例如<code>/user?id=1</code>=&gt; searchParams.getAll('id') 返回值为为<code>'1'</code></p> </li> <li> <p>searchParams.getAll(str) 返回 string[]</p> <p>获取 url 的 query 所有的<code>str</code>值.例如<code>/user?id=1&amp;id=2</code>=&gt; searchParams.getAll('id') 返回值为<code>['1','2']</code></p> </li> </ul> </li> <li> <p>setSearchParams</p> <p>修改当前 url query 部分。相当于路由跳转了。你可以使用第二个参数，进行是否推入<code>history</code>栈。例如：<code>setSearchParams({ id : 2 },{ replace : true })</code>相当于<code>history.replace({currentUrl}/?id=2)</code></p> </li> </ul> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1194.htm">feign接口调用使用header</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1196.htm">如何过滤掉MySQL返回的结果集的行中的重复项？</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

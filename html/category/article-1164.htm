@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1164.htm" />
+    <title>Unity制作一个小星球 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Unity制作一个小星球</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<h1 id="制作过程">制作过程</h1> <p>在场景中新建一个球体(Planet)和一个胶囊(Player)，适当缩放并添加材质，这里胶囊会被视为玩家<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4cb44f5532c28f4bd4a391d34dac2688.jpg" alt="Unity制作一个小星球"></p> <p>然后将摄像机设为胶囊(Player)的子物体<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/1f0a5f2aa49f137be9caa9cc334c2b53.jpg" alt="Unity制作一个小星球"><br /> 自行调整合适的摄像机视角<br /> 新建脚本<code>GravityArrtacter</code>，添加到Planet上</p> <pre><code>public class GravityAttracter : MonoBehaviour {     public float gravity = -10;	//重力大小     public void Attract(GameObject obj)	//吸引物体的方法，传入需要吸引的物体     {         Transform body = obj.GetComponent&lt;Transform&gt;();         Vector3 gravityUp = (body.position - transform.position).normalized;	//星球到玩家的向量         Vector3 bodyUp = body.up;	//被吸引物体的正上方向          body.GetComponent&lt;Rigidbody&gt;().AddForce(gravityUp * gravity);//吸引物体，重力大小为负数，方向变为物体到星球方向          //让一个轴从参数一的方向旋转到参数二(世界空间)的方向，这里是让物体上方旋转到重力方向，         //但是一个轴无法决定物体的旋转状态，* body.rotation得到物体需要旋转的目标方向         Quaternion targetRotation = Quaternion.FromToRotation(bodyUp, gravityUp) * body.rotation;         //进行插值，旋转         body.rotation = Quaternion.Slerp(body.rotation, targetRotation, 50 * Time.deltaTime);     } }</code></pre> <p>自己设置重力大小，这里负数表示重力方向<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/dcceb88201084ef41653d51aeef3ff8b.jpg" alt="Unity制作一个小星球"></p> <p>新建脚本<code>Body</code>，添加到Player上</p> <pre><code>public class Body : MonoBehaviour {     public FauxGravityAttracter attracter;	//声明星球重力     private Rigidbody myRigidbody;          void Start()     {         myRigidbody = gameObject.GetComponent&lt;Rigidbody&gt;();	//获取物体刚体         myRigidbody.constraints = RigidbodyConstraints.FreezeRotation;//取消刚体碰撞旋转影响         myRigidbody.useGravity = false;		//取消世界空间重力影响     }      void Update()     {	         attracter.Attract(gameObject);//传入参数，该物体被吸引     } }</code></pre> <p>设置对应参数<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/a3a060846c8c9da3aab226e1ef0bbb93.jpg" alt="Unity制作一个小星球"></p> <p>新建<code>PlayerController</code>，添加到Player上</p> <pre><code>public class PlayerController : MonoBehaviour {     public float moveSpeed = 15f;     private Vector3 moveDir;     private Rigidbody myRigidbody;      void Start()     {         myRigidbody = gameObject.GetComponent&lt;Rigidbody&gt;();     }     private void FixedUpdate()     {         myRigidbody.MovePosition(myRigidbody.position + transform.TransformDirection(moveDir) * moveSpeed * Time.deltaTime);     }      void Update()     {         moveDir = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;     } }</code></pre> <p>设置移动速度<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f1452d856d507e749aea9c9a9745113d.jpg" alt="Unity制作一个小星球"></p> <p>这样就模拟出在星球表面行走<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/cc168a2394b25ac89a9fa8c72f56c2d9.jpg" alt="Unity制作一个小星球"></p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1163.htm">Java中时间类使用方法总结</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1165.htm">Python格式化输出的三种方式：%、string.format()、f-string</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

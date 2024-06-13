@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1185.htm" />
+    <title>os模块，os.walk()方法解释与使用 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>os模块，os.walk()方法解释与使用</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p><strong>os.walk方法，主要是用来遍历一个目录内各个子目录和子文件。</strong></p> <p>python的定义格式如下：</p> <pre><code class="prism language-python"><span class="token keyword">def</span> <span class="token function">walk</span><span class="token punctuation">(</span>top<span class="token punctuation">,</span> topdown<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> onerror<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">,</span> followlinks<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">:</span> </code></pre> <p>top参数，是要遍历的目录。<br /> topdown参数，为True的时候，优先遍历top目录。<br /><strong>剩下两个函数我也没搞懂。。。。</strong></p> <p>示例，目录结构如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/740cda448de60986ab315851e52c4ccf.jpg" alt="os模块，os.walk()方法解释与使用"><br /> 代码如下：</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os  path <span class="token operator">=</span> <span class="token string">'/cx/pyfolder/testfolder/'</span> file_loc <span class="token operator">=</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>path<span class="token punctuation">)</span> <span class="token keyword">for</span> path<span class="token punctuation">,</span> <span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span> <span class="token keyword">in</span> file_loc<span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"遍历一次：\n"</span><span class="token operator">+</span><span class="token string">"path是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"dir是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"file是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>运行之后，输出结果为：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/ea4f60db6c68e17f488285520175a534.jpg" alt="os模块，os.walk()方法解释与使用"><br /> 可以看到，第一次遍历的是传入的path路径，就是testfolder这个文件夹，并返回了testfolder路径、testfolder下的子文件夹列表、testfolder下的文件列表，第二次遍历的是“1”这个给文件夹，并返回了“1”下面的文件夹列表和文件列表，第第三遍遍历的是“2”这个文件夹，并返回了路径、子文件夹列表，因为没有所以返回为空，文件列表。</p> <p>下面把topdown这个参数传值为False:</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os  path <span class="token operator">=</span> <span class="token string">'/cx/pyfolder/testfolder/'</span> file_loc <span class="token operator">=</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>path<span class="token punctuation">,</span>topdown<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token keyword">for</span> path<span class="token punctuation">,</span> <span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span> <span class="token keyword">in</span> file_loc<span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"遍历一次：\n"</span><span class="token operator">+</span><span class="token string">"path是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"dir是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"file是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span> </code></pre> <p>打印结果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230108/ec68ca07c89019864f7143d0834e4c69.jpg" alt="os模块，os.walk()方法解释与使用"><br /> 可以发现，优先遍历的是“2”这个文件夹，最后才遍历“testfolder”这个文件夹。</p> <p>如果想获取各个文件夹下文件的路径，可以这样：</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os  path <span class="token operator">=</span> <span class="token string">'/cx/pyfolder/testfolder/'</span> file_loc <span class="token operator">=</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>path<span class="token punctuation">)</span> file_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> path<span class="token punctuation">,</span> <span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span> <span class="token keyword">in</span> file_loc<span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"遍历一次：\n"</span><span class="token operator">+</span><span class="token string">"path是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"dir是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"file是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token keyword">for</span> f <span class="token keyword">in</span> <span class="token builtin">file</span><span class="token punctuation">:</span>         file_path <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>path<span class="token punctuation">,</span> f<span class="token punctuation">)</span>  <span class="token comment">#  拼接路径和文件名称</span>          file_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>  <span class="token keyword">print</span><span class="token punctuation">(</span>file_list<span class="token punctuation">)</span> </code></pre> <p>要获取指定后缀名的文件：</p> <pre><code class="prism language-python"><span class="token keyword">import</span> os  path <span class="token operator">=</span> <span class="token string">'/cx/pyfolder/testfolder/'</span> file_loc <span class="token operator">=</span> os<span class="token punctuation">.</span>walk<span class="token punctuation">(</span>path<span class="token punctuation">)</span> file_list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token keyword">for</span> path<span class="token punctuation">,</span> <span class="token builtin">dir</span><span class="token punctuation">,</span> <span class="token builtin">file</span> <span class="token keyword">in</span> file_loc<span class="token punctuation">:</span>     <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"遍历一次：\n"</span><span class="token operator">+</span><span class="token string">"path是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"dir是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">dir</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"file是：{}"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span><span class="token builtin">file</span><span class="token punctuation">)</span><span class="token punctuation">)</span>     <span class="token keyword">for</span> f <span class="token keyword">in</span> <span class="token builtin">file</span><span class="token punctuation">:</span>         <span class="token keyword">if</span> f<span class="token punctuation">.</span>endswith<span class="token punctuation">(</span><span class="token string">".txt"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>  <span class="token comment"># 判断是否以.txt结尾</span>             file_list<span class="token punctuation">.</span>append<span class="token punctuation">(</span>f<span class="token punctuation">)</span>  <span class="token keyword">print</span><span class="token punctuation">(</span>file_list<span class="token punctuation">)</span> </code></pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1184.htm">记一次线上websocket返回400问题排查</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1186.htm">Error response from daemon: Get https://registry-1.docker.io/v2/ &#8230; read: connection refused</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

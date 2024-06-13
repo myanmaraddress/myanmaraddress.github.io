@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1222.htm" />
+    <title>Shell基础 — 6、Bash基本功能（输入输出重定向） - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Shell基础 — 6、Bash基本功能（输入输出重定向）</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1bash%E7%9A%84%E6%A0%87%E5%87%86%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA" rel="nofollow">1、Bash的标准输入输出</a></li> <li><a href="#2%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91" rel="nofollow">2、输出重定向</a> <ul> <li><a href="#1%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91" rel="nofollow">（1）标准输出重定向</a></li> <li><a href="#2%E6%A0%87%E5%87%86%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91" rel="nofollow">（2）标准错误输出重定向</a></li> <li><a href="#3%E6%AD%A3%E7%A1%AE%E8%BE%93%E5%87%BA%E5%92%8C%E9%94%99%E8%AF%AF%E8%BE%93%E5%87%BA%E5%90%8C%E6%97%B6%E4%BF%9D%E5%AD%98" rel="nofollow">（3）正确输出和错误输出同时保存</a></li> </ul> </li> <li><a href="#3%E8%BE%93%E5%85%A5%E9%87%8D%E5%AE%9A%E5%90%91" rel="nofollow">3、输入重定向</a></li> </ul> </div> <h2 id="1bash的标准输入输出">1、Bash的标准输入输出</h2> <p>我们前边一直在说，在Linux系统下，一切皆是文件，键盘和显示器等硬件都是文件，如下图：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/70eacc2dcce17fa839ecd6e147898b32.jpg" alt="Shell基础 — 6、Bash基本功能（输入输出重定向）"></p> <p>从上图中可以看出，键盘的设备文件名为<code>/dev/stdin</code>，显示器标准正确输入的设备文件名为<code>/dev/stdout</code>，显示器标准错误输入的设备文件名为<code>/dev/stderr</code>。</p> <p>这些设备文件名非常不好记忆，Shell允许我们用文件描述符来描述对应的设备，也就是用0、1、2，分别对应键盘、正确显示器，错误显示器。</p> <h2 id="2输出重定向">2、输出重定向</h2> <p>什么叫输出重定向？</p> <p>命令的输出，是输出给标准输出的，也就是输出到显示器上。而输出重定向就是命令的输出，不输出给标准输出，而是把输出的内容，输出到文件中。</p> <h3 id="1标准输出重定向">（1）标准输出重定向</h3> <ul> <li><code>命令  &gt;  文件</code>：以覆盖的方式，把命令的正确输出，输出到指定的文件或设备当中。</li> <li><code>命令  &gt;&gt;  文件</code>：以追加的方式，把命令的正确输出，输出到指定的文件或设备当中。</li> </ul> <p>示例如下：</p> <pre><code class="language-shell"># 覆盖的方式 [root@localhost ~]# pwd	&gt; abc [root@localhost ~]# cat abc /root  # 追加的方式 [root@localhost ~]# pwd	&gt;&gt; abc [root@localhost ~]# cat abc /root /root</code></pre> <p>只要该命令有结果，都能够输进行输出重定向。</p> <h3 id="2标准错误输出重定向">（2）标准错误输出重定向</h3> <p>如果执行的命令出现报错，用上边的方式是不能够进行输出内容重定向的，错误信息会直接输出到标准错误输出，如下：</p> <pre><code class="language-shell">[root@localhost ~]# lsdgagsa &gt;&gt; abc -bash: lsdgagsa: command not found</code></pre> <ul> <li><code>错误命令 2&gt;文件</code>：以覆盖的方式，把命令的错误输出，输出到指定的文件或设备当中。</li> <li><code>错误命令 2&gt;&gt;文件</code>：以追加的方式，把命令的错误输出，输出到指定的文件或设备当中。</li> </ul> <p>这个<code>2</code>是文件描述符，表示标准错误输出，看上表。</p> <p>示例如下：</p> <pre><code class="language-shell">[root@localhost ~]# lsdgagsa 2&gt;&gt; abc [root@localhost ~]# cat abc /root /root -bash: lsdgagsa: command not found</code></pre> <blockquote> <p>这里需要注意的是，上边的标准正确输出和标准错误输出的重定向有一些小问题，就是我要事先知道这条命令是否报错，才能选择是使用标准正确输出还是使用标准错误输出。</p> <p>这样十分不合理，我明知道命令会报错，那我直接写对不就完了。所以我们在工作中写脚本的时候，常用的输出重定向的方式是下面的方式。</p> </blockquote> <h3 id="3正确输出和错误输出同时保存">（3）正确输出和错误输出同时保存</h3> <p><strong>方式一</strong></p> <ul> <li><code>命令 &gt; 文件 2&gt;&amp;1</code>：以覆盖的方式，把正确输出和错误输出都保存到同一个文件当中。</li> <li><code>命令 &gt;&gt; 文件 2&gt;&amp;1</code>：以追加的方式，把正确输出和错误输出都保存到同一个文件当中。（常用）</li> </ul> <p>示例如下：</p> <pre><code class="language-shell"># 把ls命令的查询结果覆盖存储到abc文件中 [root@localhost ~]# ls &gt; abc  2&gt;&amp;1 [root@localhost ~]# cat abc anaconda-ks.cfg install.log install.log.syslog  # 把错误信息追加存储到abc文件中 [root@localhost ~]# lsadfgag &gt;&gt; abc  2&gt;&amp;1 [root@localhost ~]# cat abc anaconda-ks.cfg install.log install.log.syslog -bash: lsadfgag: command not found</code></pre> <blockquote> <p><code>命令 &gt;&gt; 文件 2&gt;&amp;1</code>的意思是，把命令的正确输出，输出到文件中，然后把命令的错误输出，输出到正确输出的文件中。</p> </blockquote> <p><strong>方式二</strong></p> <ul> <li><code>命令 &amp;&gt;文件</code>：以覆盖的方式，把正确输出和错误输出都保存到同一个文件当中。</li> <li><code>命令 &amp;&gt;&gt;文件</code>：以追加的方式，把正确输出和错误输出都保存到同一个文件当中。（常用）</li> </ul> <p>示例如下：</p> <pre><code class="language-shell"># 把pwd命令的结果覆盖存储到abc文件中 [root@localhost ~]# pwd &amp;&gt; abc [root@localhost ~]# cat abc /root  # 把错误信息追加存储到abc文件中 [root@localhost ~]# lsadfgag &amp;&gt;&gt; abc [root@localhost ~]# cat abc /root -bash: lsadfgag: command not found</code></pre> <p><strong>方式三</strong></p> <p><code>命令&gt;&gt;文件1  2&gt;&gt;文件2</code>：把正确的输出追加到文件1中，把错误的输出追加到文件2中。（常用）</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/001a28aebece8127330b2cb4834c6174.jpg" alt="Shell基础 — 6、Bash基本功能（输入输出重定向）"></p> <p>统一保存和分开保存看你习惯。</p> <blockquote> <p>注意，在正确输出的时候<code>&gt;</code>或者<code>&gt;&gt;</code>两边是可以有空格的，如果是错误输出的时候，2和<code>&gt;</code>或者<code>&gt;&gt;</code>之间是不能有空格的。</p> <p>如下，提示语法错误。</p> <pre><code class="language-shell">[root@localhost ~]# lsgdagasasd &gt;&gt; abc 2 &gt; &amp;1 -bash: syntax error near unexpected token `&amp;’</code></pre> </blockquote> <h2 id="3输入重定向">3、输入重定向</h2> <p>输入重定向就是<code>&lt;</code>。意思是命令的输入是由标准输入输入的，也就是由键盘输入的。输入重定向就是改变输入方向，不在由键盘作为输入，而拿文件作为命令的输入。（输入重定向比较少见）</p> <p>我们只在之前给源码包打补丁的<code>patch</code>命令（文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/liuyuelinfighting/p/15574188.html"  target="_blank" rel="nofollow">https://www.cnblogs.com/liuyuelinfighting/p/15574188.html</a>），和RPM源码包文件提取中的<code>cpio</code>命令用到过。</p> <p>双<code>&lt;&lt;</code>号用的就更少了，基本没有实际的应用。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5484c405e9ef0ac80022f610b37970f8.jpg" alt="Shell基础 — 6、Bash基本功能（输入输出重定向）"></p> <p><code>uio</code>就相当于一个分界符，在两个<code>uio</code>中间的内容，输入给<code>wc</code>命令，进行统计。</p> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1221.htm">自定义全局异常处理机制</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1223.htm">从多线程的基础，到JDK8的异步编程，再到异步框架的选择</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1266.htm" title="HTML URL 编码转换表">HTML URL 编码转换表</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

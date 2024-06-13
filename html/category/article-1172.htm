@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1172.htm" />
+    <title>JS的循环练习 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>JS的循环练习</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>1.实现100以内偶数和奇数的和分别是多少</p> <pre><code class="language-javascript">var b = 0 var sum = 0 for (var a = 0; a&lt;=100 ; a++) {     if ( a%2==0 ) {         b+=a     } else if ( a%2==1 ){         sum+=a     } } document.write("奇数之和为"+sum) document.write("偶数之和为"+b) </code></pre> <p>2.实现9*9乘法表</p> <pre><code class="language-javascript">var sum = 0; for (var j = 0; j &lt;10 ; j++) {     for (var i = 1; i &lt;j ; i++) {         sum = i*j         document.write(i+'*'+j+'='+sum + '&amp;nbsp;')     }     document.write('&lt;br&gt;') }</code></pre> <p>3.实现100以内能被3整除的数字的和</p> <pre><code class="language-javascript">var x=0; for(var a = 0;a&lt;100;a++ ){     if (a%3==0){         x+=a     } } document.write('100以内能被3整除的数字的和为'+x)</code></pre> <p>4.实现1-20数字的平均值</p> <pre><code class="language-javascript">var sum = 0 var avg = 0 for (var a=1 ; a&lt;=20 ;a++){     sum+=a     avg=sum/a     document.write('从1到'+a+'的和为'+sum+'&lt;br&gt;')     document.write('从1到'+a+'的和的平均值为'+avg+'&lt;br&gt;') }</code></pre> <p>5.甲乙丙丁加工零件，加工的总数是370， 如果甲加工的零件数多10，如果乙加工的零件数少20，如果丙加工的零件数乘以2，如果丁加工的零件数除以2，四个人的加工数量相等，求甲乙丙丁各自加工多少个零件</p> <pre><code class="language-javascript">            var a = 0; 			var b = 0; 			var c = 0; 			var d = 0; 			for(var i=0;i&lt;370;i++){ 				var sum=9*i+110; 				if(sum == 740){ 					a=i; 					b=i+30; 					c=(i+10)/2; 					d=2*i+20; 					document.write("a:"+ a +"&lt;br&gt;"+"b:"+ b +"&lt;br&gt;"+"c:"+ c +"&lt;br&gt;"+"d:"+d); 				}             }</code></pre> <p>6.鸡兔同笼 &nbsp;一共50只 ，脚160 ，求鸡多少只 ，兔子多少只</p> <pre><code class="language-javascript">for (var j=0;j&lt;50;j++){         var t = 50-j         if (2*j+4*t == 160) {             document.write('鸡有'+j+'只'+'兔子有'+t+'只')             }     }</code></pre> <p>7.输出100以内的素数，素数是只能被1和自身整除的数</p> <pre><code class="language-javascript">for (var i=2;i&lt;=100; i++){         for(var j=2;j&lt;=i;j++){             if(i % j === 0){                 break;             }         }         if(i === j){             document.write('这个数'+i+'是素数'+'&lt;br&gt;')         }     }  </code></pre> <p>8.输出20以内的偶数和奇数的个数</p> <pre><code class="language-javascript">var j=0; var o=0; for(var i=1;i&lt;20;i++){     if (i%2==0) {         o+=1     }else if (i%2==1) {         j+=1     } } document.write(o) document.write(j)</code></pre> <p>9.输出1000以内的水仙花数，例子：如果一个三位数 abc=a *a *a+b * b* b+c* c* c，则该数字是一个水仙花数。</p> <pre><code class="language-javascript">for (var i = 100; i &lt; 1000; i++) {     var c = i % 10,         b = (i % 100-c)/10,         a = (i-(b*10+c))/100;         if(i == a*a*a + b*b*b + c*c*c){             document.write(i+'&lt;br&gt;')         }      } </code></pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1171.htm">python读取文件夹的文件名</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1173.htm">JVM 垃圾回收详解</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1275.htm" title="feign实现远程调用">feign实现远程调用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1278.htm" title="ASP.NET WebAPI导出CSV_实用技巧">ASP.NET WebAPI导出CSV_实用技巧</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

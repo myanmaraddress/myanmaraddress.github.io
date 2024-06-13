@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1242.htm" />
+    <title>机器学习笔记：Python底层实现逻辑回归 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>机器学习笔记：Python底层实现逻辑回归</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p><strong><em>历史文章：</em></strong></p> <p><em>1、Python底层实现KNN:</em><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cccccyyyyy12345678/article/details/117911220"  rel="nofollow">https://blog.csdn.net/cccccyyyyy12345678/article/details/117911220</a></p> <p><em>2、Python底层实现决策树：</em><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cccccyyyyy12345678/article/details/118389088"  rel="nofollow">https://blog.csdn.net/cccccyyyyy12345678/article/details/118389088</a></p> <p>3、Python底层实现贝叶斯：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cccccyyyyy12345678/article/details/118411638"  rel="nofollow">https://blog.csdn.net/cccccyyyyy12345678/article/details/118411638</a></p> <p>4、Python线性回归：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/cccccyyyyy12345678/article/details/118486796"  rel="nofollow">https://blog.csdn.net/cccccyyyyy12345678/article/details/118486796</a></p> <hr/> <h1>前言</h1> <p>逻辑回归虽然叫回归，但是它是分类模型。将回归转化为分类的关键是sigmoid函数。</p> <hr/> <h1>1、导入数据</h1> <pre><code class="language-python">def read_xlsx(path):     data = pd.read_excel(path)     print(data)     return data</code></pre> <h2>2、归一化</h2> <p>因为逻辑回归也用到梯度下降，为了增加梯度下降速度，需要对数据进行消除量纲处理。</p> <pre><code class="language-python">def MinMaxScaler(data):     col = data.shape[1]     for i in range(0, col-1):         arr = data.iloc[:, i]         arr = np.array(arr)         min = np.min(arr)         max = np.max(arr)         arr = (arr-min)/(max-min)         data.iloc[:, i] = arr     return data</code></pre> <h1>3、划分训练集和测试集</h1> <pre><code class="language-python">def train_test_split(data, test_size=0.2, random_state=None):     col = data.shape[1]     x = data.iloc[:, 0:col-1]     y = data.iloc[:, -1]     x = np.array(x)     y = np.array(y)     # 设置随机种子，当随机种子非空时，将锁定随机数     if random_state:         np.random.seed(random_state)         # 将样本集的索引值进行随机打乱         # permutation随机生成0-len(data)随机序列     shuffle_indexs = np.random.permutation(len(x))     # 提取位于样本集中20%的那个索引值     test_size = int(len(x) * test_size)     # 将随机打乱的20%的索引值赋值给测试索引     test_indexs = shuffle_indexs[:test_size]     # 将随机打乱的80%的索引值赋值给训练索引     train_indexs = shuffle_indexs[test_size:]     # 根据索引提取训练集和测试集     x_train = x[train_indexs]     y_train = y[train_indexs]     x_test = x[test_indexs]     y_test = y[test_indexs]     # 将切分好的数据集返回出去     # print(y_train)     return x_train, x_test, y_train, y_test</code></pre> <h1>4、定义sigmoid函数</h1> <pre><code class="language-python">def sigmoid(x, theta):     # 线性回归模型，中间模型,np.dot为向量点积     z = np.dot(x, theta)     h = 1/(1 + np.exp(-z))     return h</code></pre> <h1>5、定义损失函数</h1> <p>这一步很巧妙的根据sigmoid函数特性定义出损失函数。</p> <pre><code class="language-python">def costFunction(h, y):     m = len(h)     J = -1/m * np.sum(y * np.log(h) + (1-y) * np.log(1-h))     return J</code></pre> <h1>6、梯度下降</h1> <pre><code class="language-python">def gradeDesc(x,y,alpha=0.01,iter_num=2000):     m = x.shape[0]     n = x.shape[1]     xMatrix = np.mat(x)     yMatrix = np.mat(y).transpose()     J_history = np.zeros(iter_num)   # 初始化J_history, np.zero生成1行iter_num列都是0的矩阵     theta = np.ones((n, 1))    # 初始化theta, np.zero生成n行1列都是0的矩阵     # 执行梯度下降     for i in range(iter_num):         h = sigmoid(xMatrix, theta)  # sigmoid 函数         J_history[i] = costFunction(h, y)         theta = theta + alpha * xMatrix.transpose() * (yMatrix - h)  # 梯度     return J_history, theta</code></pre> <h1>7、计算准确率</h1> <pre><code class="language-python">def score(h, y):     m = len(h)     # 定义计数变量     count = 0     for i in range(m):         if np.where(h[i] &gt;= 0.5, 1, 0) == y[i]:             count += 1     accuracy = count/m     print("Accuracy:", accuracy)     return accuracy</code></pre> <hr/> <h1>总结</h1> <p>线性回归的输出作为逻辑回归sigmoid函数的输入</p> <p>完整代码：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/chenyi369/LogisticRegression"  rel="nofollow">https://github.com/chenyi369/LogisticRegression</a></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1241.htm">Fork/Join分支合并框架</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1243.htm">详解Alibaba Java诊断工具Arthas查看Dubbo动态代理类_java</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1272.htm" title="FreeRTOS实时操作系统之可视化追踪调试_操作系统">FreeRTOS实时操作系统之可视化追踪调试_操作系统</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

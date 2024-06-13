@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1236.htm" />
+    <title>java项目在本地部署_jenkins部署java项目在本地（三） - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>java项目在本地部署_jenkins部署java项目在本地（三）</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>(1)新建maven构建的java项目</p> <p>pom.xml的配置</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230207/3bb04616fe2580e4614fbc2b5b327195.jpg" alt="java项目在本地部署_jenkins部署java项目在本地（三）"></p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230207/6213d48cbbe5bb915c2a628a6070edb4.jpg" alt="java项目在本地部署_jenkins部署java项目在本地（三）"></p> <p>4.0.0</p> <p>cn.demo</p> <p>jenkins_jar</p> <p>0.0.1-SNAPSHOT</p> <p>jar</p> <p>jenkins_jar</p> <p>http://maven.apache.org</p> <p>jenkins_jar</p> <p>true</p> <p>org.apache.maven.plugins</p> <p>maven-compiler-plugin</p> <p>3.1</p> <p>${compiler.source}</p> <p>${compiler.target}</p> <p>${project.build.sourceEncoding}</p> <p>org.apache.maven.plugins</p> <p>maven-shade-plugin</p> <p>2.4.1</p> <p>false</p> <p>package</p> <p>shade</p> <p>*:*</p> <p>META-INF/*.SF</p> <p>META-INF/*.DSA</p> <p>META-INF/*.RSA</p> <p>cn.demo.jenkins_jar.demo.Demo</p> <p>implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer"&gt;</p> <p>META-INF/spring.handlers</p> <p>implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer"&gt;</p> <p>META-INF/spring.schemas</p> <p>UTF-8</p> <p>1.7</p> <p>1.7</p> <p>4.12</p> <p>junit</p> <p>junit</p> <p>${junit.version}</p> <p>test</p> <p>View Code</p> <p>(2)新建jenkins项目，开始配置</p> <p>(3)前面就是配置项目的描述，以及源码关联 和以往的配置一样</p> <p>(4)在Pre-step这一栏配置中 选择 execute shell</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230207/3521f83219b53443255933b51a6095e0.jpg" alt="java项目在本地部署_jenkins部署java项目在本地（三）"></p> <p>(5)在execute shell 框框中填写脚本命令 (也可以把脚本命令写在本机某个位置，然后执行该脚本 比如 把命令都放到 /home/start.sh 文件中 ，然后再在脚本中就写 sh /home/start.sh)</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads/20230207/0f8e248639c8fe4f855101dab078325b.jpg" alt="java项目在本地部署_jenkins部署java项目在本地（三）"></p> <p>(6)脚本命令详解 (#代表注释内容，第一行不属于注释，不能省略)</p> <p>#!/bin/bash</p> <p>cd /usr/local/tool/jenkins_program/jenkins_jar #进入指定目录</p> <p>#得到进程ID pid，kill该进程</p> <p>pid=`cat /usr/local/tool/jenkins_program/jenkins_jar/pid` #得到/usr/local/tool/jenkins_program/jenkins_jar/目录下 pid文件中的内容</p> <p>if [ -n "$pid" ]</p> <p>then</p> <p>echo "kill -9 的pid:" $pid</p> <p>kill -9 $pid&nbsp;&nbsp;&nbsp;#kill进程ID为 pid 的进程</p> <p>fi</p> <p>#将要执行的jar 复制到指定目录下&nbsp; (这里可以不用写，如果写的话 &nbsp;&nbsp;/usr/lib/jenkins/workspace/jenkins_jar/target/jenkins_jar.jar 是你jenkins中工作区间中你的项目的jar包存放位置</p> <p>/usr/local/tool/jenkins_program/jenkins_jar 是你的目标执行该jar的位置，如果你打算直接在工作区间目录下执行，这个可以省略不写)</p> <p>cp /usr/lib/jenkins/workspace/jenkins_jar/target/jenkins_jar.jar&nbsp; /usr/local/tool/jenkins_program/jenkins_jar</p> <p>#执行jar，并将进程挂起，保存进程ID到 pid文件</p> <p>echo "Execute shell Finish"</p> <p>BUILD_ID=dontKillMe nohup java -jar /usr/lib/jenkins/workspace/jenkins_jar/target/jenkins_jar.jar&nbsp; &amp;</p> <p>echo "$!" &gt; pid #得到刚刚启动的进程id,写到/usr/local/tool/jenkins_program/jenkins_jar目录下的pid文件中，这就是上面cd语句的作用</p> <p>BUILD_ID=dontKillMe :防止杀死刚刚启动的进程</p> <p>nohup java -jar /usr/lib/jenkins/workspace/jenkins_jar/target/jenkins_jar.jar&nbsp; &amp;&nbsp;&nbsp; #执行项目jar包，将进程启动并且挂起</p> <p>(7)配置完后可以执行构建了，结果会直接在Console Output输出</p> </div></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1235.htm">Spring全家桶-Spring Security之自定义表单，认证，鉴权</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1237.htm">win11系统怎么查看硬盘型号</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1283.htm" title="Python 的math 模块">Python 的math 模块</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1280.htm" title="Arthas之实例操作">Arthas之实例操作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1129.htm" />
+    <title>HyBird App(混合应用)核心原理JSBridge - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>HyBird App(混合应用)核心原理JSBridge</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#app%E5%88%86%E7%B1%BB" rel="nofollow">app分类</a></li> <li><a href="#hybird-app%E6%B7%B7%E5%90%88%E5%BA%94%E7%94%A8" rel="nofollow">HyBird App(混合应用)</a></li> <li><a href="#jsbridge%E4%BB%8B%E7%BB%8D" rel="nofollow">JSBridge介绍</a></li> <li><a href="#%E4%BC%98%E5%8A%BF%E5%8F%8A%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" rel="nofollow">优势及应用场景</a></li> <li><a href="#jsbridge%E7%9A%84%E6%A0%B8%E5%BF%83" rel="nofollow">JsBridge的核心</a> <ul> <li><a href="#1web%E7%AB%AF%E8%B0%83%E7%94%A8native%E7%AB%AF%E4%BB%A3%E7%A0%81" rel="nofollow">1、Web端调用Native端代码</a> <ul> <li><a href="#11-%E6%8B%A6%E6%88%AAurl-schema" rel="nofollow">1.1 拦截URL Schema</a></li> <li><a href="#12-%E6%B3%A8%E5%85%A5api" rel="nofollow">1.2 注入api</a></li> </ul> </li> <li><a href="#2native%E7%AB%AF%E8%B0%83%E7%94%A8web%E7%AB%AF%E4%BB%A3%E7%A0%81" rel="nofollow">2、Native端调用Web端代码</a></li> </ul> </li> </ul> </div> <h2 id="app分类">app分类</h2> <ol> <li>Native App(原生应用)</li> <li>Web App(网页应用)</li> <li>HyBird App(混合应用)</li> </ol> <h2 id="hybird-app混合应用">HyBird App(混合应用)</h2> <p><strong>Hybrid利用JSBridge进行通信</strong><br /><strong>优点：</strong>随时发版，不受应用市场审核限制；拥有几乎和Native一样的能力，<strong>如</strong>：拍照、存储、加日历等等...</p> <p><strong>缺点：</strong>H5有的缺点他几乎都有，比如性能差、JS执行效率低等等。</p> <h2 id="jsbridge介绍">JSBridge介绍</h2> <p>给 JavaScript 提供调用 Native 功能的接口，让混合开发中的前端部分可以方便地使用 Native 的功能,(摄像头，地理定位...)。<br /> 让native可以调用web的js代码，让web可以调用原生的代码，实现<strong>双向的消息通信的通道</strong>，它在做native代码和js代码相互转换的事情。</p> <blockquote> <p><strong>双向通信的通道:</strong><br /> JS 向 Native 发送消息: 调用相关功能、通知 Native 当前 JS 的相关状态等。<br /> Native 向 JS 发送消息: 回溯调用结果、消息推送、通知 JS 当前 Native 的状态等。</p> </blockquote> <blockquote> <p><strong>数据间的通讯关键是以下两点：</strong><br /> 将Native端的接口封装成js接口<br /> 将Web端js接口封装成原生接口</p> </blockquote> <p><strong>总结</strong></p> <ul> <li>js调用原生代码</li> <li>原生调用js<br /><img decoding="async" src="https://img2022.cnblogs.com/blog/1731300/202203/1731300-20220329145547814-2070014380.jpg" alt="HyBird App(混合应用)核心原理JSBridge"></li> </ul> <h2 id="优势及应用场景">优势及应用场景</h2> <ul> <li>因为Web端支持JavaScript，而Native(iOS/Android)端的Webview控件对JavaScript也有所支持，页面加载完成后调用页面的JavaScript代码。</li> <li>通过Webview可以类似于iframe把我们的页面嵌入到原生Native中进行控制。</li> <li>由于Webview内嵌H5的性能/功能各种受限。于是有了各种的混合开发模式(Hybrid App)混合使用Native和Web技术解决方案，例如：Hybrid、RN、WEEX、Flutter、小程序、快应用等等。</li> </ul> <h2 id="jsbridge的核心">JsBridge的核心</h2> <h3 id="1web端调用native端代码">1、Web端调用Native端代码</h3> <ol> <li><strong>拦截Url</strong> <ul> <li>URL Schema， 客户端通过拦截webview请求来完成通讯</li> <li>URL Schema(类URL的请求格式，如：<code>&lt;protocol&gt;://&lt;host&gt;/&lt;path&gt;?&lt;query&gt;</code>)</li> </ul> </li> <li><strong>注入API</strong> <ul> <li>native向webview中的js执行环境, 注入API, 以此来完成通讯。</li> </ul> </li> </ol> <h4 id="11-拦截url-schema">1.1 拦截URL Schema</h4> <p>当Web端要请求Native端的方法时，我们首先要自定义一个URL Schema，向Native端发起一个请求，最后在Native端的WebView进行监听。<br /> 它类似于我们常见的url，区别在于protocol域名 和 host协议 一般是自定义的<br /><strong>自定义通信的URL schema</strong></p> <pre><code>jsbridge://&lt;method&gt;?&lt;params&gt; jsbridge://showToast?text=hello&amp;a=b</code></pre> <p><strong>流程：</strong>web端发送URL Schame请求如（jsonp）可以携带参数，native端进行相应处理</p> <p><strong>发送URL schema请求</strong><br /> 向Native端发起请求：</p> <pre><code>&lt;script&gt;     function showNativeDialog(text) {         window.alert('jsbridge://showToast?text=' + text);     } &lt;/script&gt;</code></pre> <p><strong>Native端实现监听</strong></p> <pre><code> webView.setWebChromeClient(new WebChromeClient() {         @Override         public boolean onJsAlert(WebView view, String url, String message, JsResult result) {             if (!message.startsWith("jsbridge://")) {                 return super.onJsAlert(view, url, message, result);             }              UrlSchema urlschema = new UrlSchema(message);             if ("showToast".equals(urlchema.getMethodName())) {                 String text = urlschema.getParams("text");                 Toast.makeText(mContext, text, Toast.LENGTH_LONG).show();             }              result.confirm();             return true;         }     }</code></pre> <h4 id="12-注入api">1.2 注入api</h4> <p>Native端通过 WebView 提供的接口，向 JavaScript 的 Context（window）中注入对象。<br /> 在Web中通过注入的对象调用Native方法。</p> <ol> <li><strong>向WebView注入JS对象</strong><br /> 创建一个JS对象，并实现监听的方法</li> </ol> <pre><code>class NativeBridge{     private Context context;      NativeBridge(Context context){         this.context = context;     }      @JavascriptInterface     public void showNativeDialog(String text){         Toast.makeText(context,text,Toast.LENGTH_LONG).show();     } }</code></pre> <p>Native端通过WebView的接口注入JS对象</p> <pre><code>webView.addJavascriptInterface(new NativeBridge(mContext),"NativeBridge");</code></pre> <ol start="2"> <li><strong>通过注入的JS对象调用Native代码</strong><br /> Web中获取JS对象，调用Native代码</li> </ol> <pre><code>&lt;script&gt;     function showNativeDialog(text) {         //window.alert('jsbridge://showToast?text=' + text);         window.NativeBridge.showNativeDialog(text);     } &lt;/script&gt;</code></pre> <h3 id="2native端调用web端代码">2、Native端调用Web端代码</h3> <blockquote> <p>WebView是Native中加载网页的一个控件，该组件提供一个evaluateJavascript()方法运行JS代码。我们要做的是在Native端执行一个js方法，在Web端进行监听</p> </blockquote> <p><strong>Native端</strong><br /> Android</p> <pre><code>mWebView.evaluateJavascript("window.showWebDialog('123')", new ValueCallback() {         @Override         public void onReceiveValue(String value) {             //这里的value即为对应JS方法的返回值         } });</code></pre> <p><strong>H5端</strong></p> <pre><code>&lt;script&gt;     window.showWebDialog = text =&gt; window.alert(text); &lt;/script&gt;</code></pre> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1128.htm">kafka启动后一段时间自动退出的解决方案</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1130.htm">tensorflow学习笔记（二）：tensor 变换</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1273.htm" title="OpenCV笔记 距离变换">OpenCV笔记 距离变换</a></li>
+                        <li class="py-2"><a href="/html/category/article-1268.htm" title="c++堆内存默认大小_线上内存暴涨问题定位和解决">c++堆内存默认大小_线上内存暴涨问题定位和解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1281.htm" title="使用EasyExcel实现自定义表头导出">使用EasyExcel实现自定义表头导出</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

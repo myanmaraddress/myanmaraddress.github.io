@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1297.htm" />
+    <title>vue2设置保存自动执行run lint配置步骤 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>vue2设置保存自动执行run lint配置步骤</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/xcblog/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>目录</h3> <ul> <li> <ul> <li><a href="#_ESlint_1" rel="nofollow">一. ESlint介绍</a></li> <li><a href="#_run_lint_9" rel="nofollow">二. 保存自动执行run lint</a></li> </ul> </li> </ul> </div> <h2><a id="_ESlint_1" rel="nofollow"></a>一. ESlint介绍</h2> <p>ESLint的用途主要是：</p> <ol> <li>审查代码是否符合编码规范以统一代码风格；</li> <li>审查代码是否存在语法错误；</li> </ol> <p>用法：<br />   通常在项目中安装了ESlint相关的包以后，可在.eslintrc.js文件的rule中手动添加代码校验规则，以保持一个项目的代码风格统一。eslint详细配置介绍见：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_46309087/article/details/113916747"  rel="nofollow">ESLint在Vue中的使用详解</a></p> <h2><a id="_run_lint_9" rel="nofollow"></a>二. 保存自动执行run lint</h2> <p>设置保存自动执行分为run lint分为三步</p> <ol> <li>安装eslint插件；</li> <li>手动添加eslint规则rule；</li> <li>编辑器setting配置；</li> </ol> <p>1、插件安装<br />   vscode插件扩展搜索里面安装eslint，如下图<img decoding="async" src="http://img.555519.xyz/uploads3/20220605/b7f3d0894d734ab7c7f1c124ce18b24d.jpg" alt="vue2设置保存自动执行run lint配置步骤"><br /> 在vue项目初始化时若选择安装eslint，则package.json的devDependencies中会出现以下配置：</p> <pre><code class="prism language-javascript"><span class="token string">"eslint"</span><span class="token punctuation">:</span><span class="token string">"^6.7.2"</span><span class="token punctuation">,</span><span class="token string">"eslint-plugin-prettier"</span><span class="token punctuation">:</span><span class="token string">"^3.1.3"</span><span class="token punctuation">,</span><span class="token string">"eslint-plugin-vue"</span><span class="token punctuation">:</span><span class="token string">"^6.2.2"</span><span class="token punctuation">,</span></code></pre> <p>若没有则手动安装以上安装包；</p> <p>2、手动添加eslint规则rule<br />   关于rule配置，主要配置的是eslint配置规则，通常在.eslintrc.js文件中配置，详细配置见文章<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_46309087/article/details/113916747"  rel="nofollow">ESLint在Vue中的使用详解</a>。</p> <p>3、编辑器setting配置；<br /> 打开setting设置，点击右上角打开setting（JSON)设置，<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/d9aa274daa1c5964efdd38b15e92cd52.jpg" alt="vue2设置保存自动执行run lint配置步骤"></p> <p>添加如下代码：</p> <pre><code class="prism language-json"><span class="token string">"editor.tabSize"</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">"eslint.autoFixOnSave"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">,</span><span class="token string">"eslint.validate"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">"javascript"</span><span class="token punctuation">,</span><span class="token comment">// 用eslint的规则检测js文件</span><span class="token punctuation">{<!-- --></span><span class="token string">"language"</span><span class="token punctuation">:</span><span class="token string">"js"</span><span class="token punctuation">,</span><span class="token string">"autoFix"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">{<!-- --></span><span class="token string">"language"</span><span class="token punctuation">:</span><span class="token string">"vue"</span><span class="token punctuation">,</span><span class="token string">"autoFix"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token string">"eslint.options"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"extensions"</span><span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token string">".js"</span><span class="token punctuation">,</span><span class="token string">".vue"</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">"editor.codeActionsOnSave"</span><span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token string">"source.fixAll.eslint"</span><span class="token punctuation">:</span><span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token string">"eslint.run"</span><span class="token punctuation">:</span><span class="token string">"onSave"</span><span class="token punctuation">,</span></code></pre> <p>配置完成后每次ctrl+s保存文件即可自动自行执行run lint。</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1296.htm">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1298.htm">利用Redis实现防止接口重复提交功能</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1314.htm" title="vue&#8211;vuex 中 Modules 详解">vue&#8211;vuex 中 Modules 详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
