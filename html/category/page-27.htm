@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1166.htm" />
-    <title>Java 9中Collectors.filtering()方法的重要性 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/page-27.htm" />
+    <title>文章分类 - Myanmar Address - 第26页</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,10 +56,9 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>Java 9中Collectors.filtering()方法的重要性</h1>
+                <h1>文章分类</h1>
                 <p>
-                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
-                </p>
+                    <a href="/">首页</a> / 文章分类                </p>
             </div>
         </div>
                 <nav id="menu-left">
@@ -92,15 +91,30 @@ var _hmt = _hmt || [];
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="news">
-                              				  				  				<p><strong>收集器</strong>类是<strong>Stream</strong><strong>API</strong>的重要组成部分。在Java 9中，新方法：<strong>filter()</strong>添加到了<strong>Collectors</strong>类。<strong>Collectors.filtering()</strong>方法可用于在一个流中过滤元件。它类似于流上的<strong>filter()</strong>方法。<strong>过滤器()</strong>之前，他们已经进行分组而进行处理的方法的值<strong>滤波()</strong>方法可很好地与使用<strong>Collectors.groupingBy()</strong>方法来分组滤波步骤之前的值进行。</p> <h2>语法</h2> <pre>public&nbsp;static&nbsp;&lt;T,&nbsp;A,&nbsp;R&gt;&nbsp;Collector&lt;T,&nbsp;?,&nbsp;R&gt;&nbsp;filtering(Predicate&lt;?&nbsp;super&nbsp;T&gt;&nbsp;predicate,&nbsp;Collector&lt;?&nbsp;super&nbsp;T,&nbsp;A,&nbsp;R&gt;&nbsp;downstream)</pre> <h2>示例</h2> <pre>import&nbsp;java.util.stream.*; import&nbsp;java.util.*;  public&nbsp;class&nbsp;FilteringMethodTest&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String&nbsp;args[])&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List&lt;String&gt;&nbsp;list&nbsp;=&nbsp;List.of("x",&nbsp;"yy",&nbsp;"zz",&nbsp;"www");  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map&lt;Integer,&nbsp;List&lt;String&gt;&gt;&nbsp;result&nbsp;=&nbsp;list.stream() &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.groupingBy(String::length, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collectors.filtering(s&nbsp;-&gt;&nbsp;!s.contains("z"), &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Collectors.toList())));  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(result); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>{1=[x],&nbsp;2=[yy],&nbsp;3=[www]}</pre> <div></div> 			                        </div>
-
-                        <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1165.htm">Python格式化输出的三种方式：%、string.format()、f-string</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1167.htm">SpringBoot 整合ActiveMQ</a></p>
-                                                    </div>
-
-                                            </div>
+                                                <div class="house">
+                            <div class="col-md-3 house-grid">
+                                <a href="/html/category/article-1062.htm"><img class="img-responsive h-grid " src="/uploads/20240413/05efc494a8cb78705ef39458ae1ae3e6.webp" alt="Django实现excel导入导出" /></a>
+                            </div>
+                            <div class=" col-md-9 house-grid-left">
+                                <h4><a href="/html/category/article-1062.htm">Django实现excel导入导出</a></h4>
+                                <small>2024-02-05 </small>
+                                <p>想必大家都困扰于大批量配置的繁琐和沉重的工作量，这个时候采用文件导入导出的方式能较大程度缓解配置带给系统使用人员的精神压力。基于这个目的，本文将详细介绍基于Django如何实现excel文件的导入导出</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                                                <div class="house">
+                            <div class="col-md-3 house-grid">
+                                <a href="/html/category/article-1061.htm"><img class="img-responsive h-grid " src="/uploads/20240413/a4b323dbaf5b9fdbfbee5ac77cdf5114.webp" alt="Python格式化字符串方法——以%占位操作符为例" /></a>
+                            </div>
+                            <div class=" col-md-9 house-grid-left">
+                                <h4><a href="/html/category/article-1061.htm">Python格式化字符串方法——以%占位操作符为例</a></h4>
+                                <small>2024-02-05 </small>
+                                <p>#Python格式化字符串方法——以%占位操作符为例  ''' 在python的使用过程中，有时需要将输出的字符串做统一规定，因此需要提前编写一个字符串的模板。 模板中有格式符，这些格式符为最后输的字</p>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        
+                        <ul class="pagination"><li><a href="/html/category/page-26.htm">&laquo;</a></li> <li><a href="/html/category/">1</a></li><li><a href="/html/category/page-2.htm">2</a></li><li class="disabled"><span>...</span></li><li><a href="/html/category/page-19.htm">19</a></li><li><a href="/html/category/page-20.htm">20</a></li><li><a href="/html/category/page-21.htm">21</a></li><li><a href="/html/category/page-22.htm">22</a></li><li><a href="/html/category/page-23.htm">23</a></li><li><a href="/html/category/page-24.htm">24</a></li><li><a href="/html/category/page-25.htm">25</a></li><li><a href="/html/category/page-26.htm">26</a></li><li class="active"><span>27</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                    </div>
                     <div class="col-md-3">
                     	<div class="panel panel-default">
     <div class="panel-heading">
@@ -108,16 +122,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
-                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
                         <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
-                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
-                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
                         <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1267.htm" title="docker-compose 配置kafka_Docker Compose 引用环境变量">docker-compose 配置kafka_Docker Compose 引用环境变量</a></li>
+                        <li class="py-2"><a href="/html/category/article-1329.htm" title="Visual Studio快捷键汇总_实用技巧_">Visual Studio快捷键汇总_实用技巧_</a></li>
                         <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-1290.htm" title="Jmeter监控平台搭建：JMeter+InfluxDB+Grafana">Jmeter监控平台搭建：JMeter+InfluxDB+Grafana</a></li>
-                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1265.htm" title="Linux网络服务之NFS共享服务">Linux网络服务之NFS共享服务</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
                     </ul>
     </div>
 </div>
@@ -163,17 +177,6 @@ var _hmt = _hmt || [];
             </p>
         </div>
     </div>
-    <script>
-    $(function() {
-        $('.js_to').click(function(){
-            var url = $(this).data('url');
-            var code = $(this).data('code');
-            url += code;
-
-            window.open(url);
-        })
-    });
-    </script>
 </body>
 
 </html>

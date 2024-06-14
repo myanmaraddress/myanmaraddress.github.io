@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1162.htm" />
-    <title>Python实用技法第11篇：找出序列中出现次数最多的元素 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1330.htm" />
+    <title>avframe转byte数组_Spring Boot图片文件转Base64 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>Python实用技法第11篇：找出序列中出现次数最多的元素</h1>
+                <h1>avframe转byte数组_Spring Boot图片文件转Base64</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,11 +93,10 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="htmledit_views"> <div class="article fmt article__content"> <blockquote><p>   上一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016683758"  rel="nofollow">Python实用技法第10篇：对切片命名</a><br />   <br />下一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016746124"  rel="nofollow">Python实用技法第12篇：通过公共键对字典列表排序：itemgetter</a>  </p></blockquote> <h1>1、需求?</h1> <blockquote><p>   我们有一个元素序列，想知道在序列中出现次数最多的元素是什么？  </p></blockquote> <h1>2、解决方案?</h1> <p>collections模块中国的Counter类正是为此类问题而设计的。它甚至有一个非常方便的most_common()方法可以告诉我们答案。可以给Counter对象提供任何可哈希的对象序列作为输入。</p> <ul> <li> <h5>实例：假设一个列表，其中有一些列的单词，我们想找出哪些单词出现的最为频繁：</h5> </li> </ul> <pre><code>from collections import Counter words=[ 'a','b','c','d','e','f', 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ] #利用Counter统计每个元素出现的个数 words_counts=Counter(words) #出现次数最多的3个元素 top_three=words_counts.most_common(3) #返回元素和出现次数 print(top_three)  #Counter底层是一个字典，可以在元素和他们出现的次数之间做映射，例如： #输出元素【f】出现的次数 print(words_counts['f'])  #如果想手动增加计数个数，只需要简单的自增 words_counts['f']+=1 print(words_counts['f'])  #如果想手动增加计数个数,还可以使用update()方法： #只针对元素【f】增加一次计数 words_counts.update('f') print(words_counts['f'])  #为所有计数增加一次 morewords=[ 'a','b','c','d','e','f' ] words_counts.update(morewords) print(words_counts['f'])</code></pre> <p>运行结果：</p> <pre><code>[('a', 5), ('b', 4), ('c', 3)] 2 3 4 5</code></pre> <ul> <li>Counter对象另一个不为人知的特性，那就是他们可以轻松地同各种数学运算操作结合起来使用。</li> </ul> <pre><code>from collections import Counter words1=[ 'a','b','c','d','e','f', 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ]  words2=[ 'a','b','c','d','e','f', 'a','b','c', 'a','b', 'a' ] one=Counter(words1) two=Counter(words2) print(one) print(two)  three=one+two print(three)  four=one-two print(four) </code></pre> <p>运行结果：</p> <pre><code>Counter({'a': 5, 'b': 4, 'c': 3, 'd': 2, 'e': 2, 'f': 2}) Counter({'a': 4, 'b': 3, 'c': 2, 'd': 1, 'e': 1, 'f': 1}) Counter({'a': 9, 'b': 7, 'c': 5, 'd': 3, 'e': 3, 'f': 3}) Counter({'a': 1, 'b': 1, 'c': 1, 'd': 1, 'e': 1, 'f': 1})</code></pre> <blockquote><p>   上一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016683758"  rel="nofollow">Python实用技法第10篇：对切片命名</a><br />   <br />下一篇文章：<br />   <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://segmentfault.com/a/1190000016746124"  rel="nofollow">Python实用技法第12篇：通过公共键对字典列表排序：itemgetter</a>  </p></blockquote> </div></div> 			                        </div>
+                              				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>我们公司用的云之家作为企业内容的IM通讯工具，那么就经常会涉及通过云之家进行消息推送，这个就有点类似微信了。那么我在推送图文消息的时候，云之家需要我把图片转Base64的格式传过去。</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/f62e5a6f8960ca9e832f9cfab64ef377.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>最开始我傻傻的用在线工具把图片转成Base64然后复制到程序里，当然这肯定是不好的，但是为了测试，就这样做了，然后占了70%的代码行数。正式的话，我们肯定是要借助代码来实现。那么我们需要先获取项目目录下的文件</p> <pre class="has"><code>File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "static/warnning.png");</code></pre> <p>然后借助sun.misc.BASE64Decoder把文件转Base64</p> <pre class="has"><code>public static String file2Base64(File file) {        InputStream in = null;        byte[] data = null;        // 读取文件字节数组        try {            in = new FileInputStream(file);            data = new byte[in.available()];            in.read(data);            in.close();        } catch (IOException e) {            e.printStackTrace();        } finally {            try {                in.close();            } catch (IOException e) {                e.printStackTrace();            }        }        // 对字节数组Base64编码        BASE64Encoder encoder = new BASE64Encoder();        // 返回 Base64 编码过的字节数组字符串        return encoder.encode(data);    }</code></pre> <p>在本地一切都没有问题，但是通过jenkins发布到K8S的时候老是出现找不到包的问题，我也就没去深究，后来就用Hutool,这里我引入了Hutool工具包</p> <pre class="has"><code>cn.hutool            hutool-core            5.4.3</code></pre> <p>Hutool的Base64.encode在core这个包里面，所以只需要引入hutool-core即可。 引用非常简单</p> <pre class="has"><code>File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "static/warnning.png");String picBase64= cn.hutool.core.codec.Base64.encode(file);</code></pre> <p>但是事情似乎也并没有那么顺利，在本地运行没有问题，项目也是在K8S上运行起来了，但是获取不到文件</p> <pre class="has"><code>java.io.FileNotFoundException: class path resource [static/warnning.png] cannot be resolved to absolute file path because it does not reside in the file system: jar:file:/home/app.jar!/BOOT-INF/classes!/static/warnning.png</code></pre> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/ce941acc1877e13a563274fa92aecfaa.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>因为打包之后是jar文件，ResourceUtils.getFile无法访问jar中的目录，所以后来采用获取文件流的方式</p> <pre class="has"><code> ClassPathResource resource = new ClassPathResource("static/warnning.png"); String picBase64= cn.hutool.core.codec.Base64.encode(resource.getInputStream());</code></pre> <p>Hutool这个工具包确实不错，提供很多丰富的工具类，我用得比较多是就是StringUtil和DateUtil等，确实非常方便，大家有兴趣的可以去了解一下</p> <div class="pgc-img"><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/143e0c272286aa5be3ed36c2e2ab2980.jpg" alt="avframe转byte数组_Spring Boot图片文件转Base64"></div> <p>现在各种工具类库以及Spring Boot的Starter，它们封装了许多实用的组件和工具类，为我们的开发提高了效率，这样有利有弊，当然，如果仅仅是为了解决工作中的问题，我可以借助更多简便的类库来完成，但是，我需要去了解其背后的原理和实现机制，不然，我们的能力仅仅停留在使用层面，这对我们来说是非常不利的。我们要知其然，更要知其所以然，开源的类库众多，我们需要花心思去学习它的源代码、学习大神们编程思想。</p> </div> </div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1161.htm">@DateTimeFormat与@JsonFormat和value-format</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1163.htm">Java中时间类使用方法总结</a></p>
+                                                        <p>上一个：<a href="/html/category/article-1329.htm">Visual Studio快捷键汇总_实用技巧_</a></p>
                                                     </div>
 
                                             </div>
@@ -108,16 +107,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
-                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1263.htm" title="chrome浏览器隐藏滚动条">chrome浏览器隐藏滚动条</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
                         <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
-                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
-                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
-                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
-                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
-                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
                         <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1285.htm" title="C语言栈与队列面试题详解_C 语言">C语言栈与队列面试题详解_C 语言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1264.htm" title="MacOs M1安装Homebrew 在国内最简单方法">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
                     </ul>
     </div>
 </div>
