@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1350.htm" />
+    <title>小程序怎么自定义导航栏，导航栏放图片、设置高度 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>小程序怎么自定义导航栏，导航栏放图片、设置高度</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>今天来说一下小程序的自定义导航栏。</p> <p>1、设置导航栏style为custom：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/1cbde565397cab2b675757d20d2e26d9.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"></p> <p>2、这是刷新页面，页面的内容就跑到了页面的顶端，不留丝毫间隙：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/83b351a94839cae76290e0f4af529198.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"></p> <p>3、然后定义一个components，就是我们自定义的导航栏组件：<br /> （1）先在项目根目录创建一个components文件夹，这个文件夹的名称是固定的，就是components：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/72be6f8dbb61a0d9d242d540735eb9ec.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"><br /> （2）文件夹内创建一个导航栏组件的文件夹：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/684f64e426ad3d0aed914c14e8b4a310.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"><br /> （3）右击创建的“nav”文件夹，点击“新建Component”，会自动在该文件夹下生成四个我们常用的文件：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/db36c2b409e912855762f0aabdef9f6c.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/1ca59f5b90c27a5e24cef8f05482f10d.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"><br /> （4）下面是代码时间（后端开发写的前端代码，将就看吧）：<br /> nav.js：</p> <pre><code class="prism language-json"># data中增加barHeight参数 <span class="token literal-property property">data</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">barHeight</span><span class="token operator">:</span> wx<span class="token punctuation">.</span><span class="token function">getSystemInfoSync</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>statusBarHeight <span class="token punctuation">}</span><span class="token punctuation">,</span> </code></pre> <p>nav.wxml：</p> <pre><code class="prism language-wxml">&lt;view style="padding-top:{<!-- -->{barHeight + 40}}rpx; padding-bottom: 50rpx;"&gt;     &lt;view class="topView" bindtap="jumpToAbout"&gt;         &lt;image class="topImage" src="/images/logo.png" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度" mode="aspectFill"&gt;&lt;/image&gt;         &lt;text class="topText"&gt;自定义导航栏&lt;/text&gt;         &lt;image class="topIcon" src="/images/right.png" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"&gt;&lt;/image&gt;     &lt;/view&gt;     &lt;text class="topSubText"&gt;副标题可以写在这里&lt;/text&gt; &lt;/view&gt; </code></pre> <p>nav.wxss：</p> <pre><code class="prism language-css"><span class="token selector">.topView</span> <span class="token punctuation">{<!-- --></span>     <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.topImage</span> <span class="token punctuation">{<!-- --></span>     <span class="token property">height</span><span class="token punctuation">:</span> 60rpx<span class="token punctuation">;</span>     <span class="token property">width</span><span class="token punctuation">:</span> 130rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.topText</span> <span class="token punctuation">{<!-- --></span>     <span class="token property">margin-left</span><span class="token punctuation">:</span> 12rpx<span class="token punctuation">;</span>     <span class="token property">font-size</span><span class="token punctuation">:</span> larger<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.topIcon</span> <span class="token punctuation">{<!-- --></span>     <span class="token property">height</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span>     <span class="token property">width</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span>     <span class="token property">margin-top</span><span class="token punctuation">:</span> 8rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.topSubText</span> <span class="token punctuation">{<!-- --></span>     <span class="token property">color</span><span class="token punctuation">:</span> #999<span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>4、导航栏组件就定义好了，然后把它引入页面：<br /> （1）要引入的页面json配置文件中引用：</p> <pre><code class="prism language-json"><span class="token punctuation">{<!-- --></span>   <span class="token string-property property">"usingComponents"</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>       <span class="token string-property property">"nav"</span><span class="token operator">:</span><span class="token string">"../../components/nav/nav"</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>必须用相对路径。<br /> （2）页面中引入组件：</p> <pre><code class="prism language-wxml">&lt;nav&gt;&lt;/nav&gt; &lt;text&gt;内容&lt;/text&gt; </code></pre> <p>5、最后看效果：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/950af8c7cbe478ff8eedd561c915fb3b.jpg" alt="小程序怎么自定义导航栏，导航栏放图片、设置高度"></p> <p>这样就搞定了，希望你们的logo比我的好看。</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1349.htm">父组件调用子组件的方法-子组件向父组件传值</a></p>
+                                                    </div>
+
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1277.htm" title="服务器安全加固 &#8211; Linux_在线工具">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1306.htm" title="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具">MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1339.htm" title="分享MySQL生产库内存异常增高的排查过程_Mysql_">分享MySQL生产库内存异常增高的排查过程_Mysql_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1274.htm" title="分享MongoDB修改oplog大小的4种方法_MongoDB_">分享MongoDB修改oplog大小的4种方法_MongoDB_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                        <li class="py-2"><a href="/html/category/article-1288.htm" title="【EF框架】DbContext的使用">【EF框架】DbContext的使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">32</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
