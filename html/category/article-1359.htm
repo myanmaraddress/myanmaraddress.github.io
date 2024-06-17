@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1219.htm" />
-    <title>springboot启动注解 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1359.htm" />
+    <title>python 数据加载工作 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>springboot启动注解</h1>
+                <h1>python 数据加载工作</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,11 +93,11 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>为什么springboot不需要配置文件就可以启动成功。</p> <p>springboot入口SpringBootApplication是一个启动类，主要的注解是以下的三个：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/3fface671e8fa43c73b98e3c3e8b006d.jpg" alt="springboot启动注解"></p> <p>1、SpringBootConfiguration是一个配置类，点进去里面是一个@Configration注解，表明该类是一个配置文件类，@Configration本身也是一个@Component</p> <p>2、@EnableAutoConfiguration，开启自动配置功能。</p> <p>@Import注解的作用，是为了自动导入相关的配置，比如redis、mq、aqs等配置信息。</p> <p>是如何进行导入的呢？AutoConfigurationImportSelector类中loadSpringFactories方法会进行资源的扫描，扫描的路径为Meta-Inf/spring.factories这个文件，这个文件在spring-boot-autoconfigure包下面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/e05723d33a059b2ec20f1c785bfc864d.jpg" alt="springboot启动注解"><img decoding="async" src="http://img.555519.xyz/uploads/20230203/904bf78063deaf65795542b266264976.jpg" alt="springboot启动注解"></p> <p>@AutoConfigurationPackage的注解见下图的注解，会扫描主类所在的包路径所有的configuration注解的类，配合import导入到spring容器中去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/9ba9d362829593de1752d270910c1073.jpg" alt="springboot启动注解"></p> <p>@ComponetScan注解的作用是为了进行组件的扫描，主要作用扫描当前包及其子包下被@Component，@Controller，@Service，@Repository注解标记的类并纳入到spring容器中进行管理。</p> </p></div> 			                        </div>
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>&nbsp; &nbsp; &nbsp; &nbsp; 最近参加了datawhale的组队学习活动，在组队学习动员下，开始通过强迫自己输出来实现更好的输入与处理，6-15开始自己的第一次文章发布，我会把自己这个真的很小白遇到的问题写出来，希望能给屏幕前小白的你带来帮助。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 工作中大量繁琐的自动化，把以前在学校摸过的python重新捡起来，不成体系的、拼图一样把需要的工作搭建起来，工作暂时是可用上了，每天节省了至少3个小时的数据处理工作，手里拿着python这个锤子，看什么都像钉子。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 首先，你要先学会安装软件，anaconda软件,安装成功后，你点击jupyter notebook打开代码框。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; 现在可以开始尝试做数据分析了。</p> <h2>1、数据加载</h2> <h3 id="1.1-载入数据">1.1 载入数据</h3> <p>数据集下载<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.kaggle.com/c/titanic/overview"  rel="nofollow">https://www.kaggle.com/c/titanic/overview</a></p> <p>1.1.1 导入包：导入numpy和pandas</p> <pre><code>import pandas as pd import numpy as np</code></pre> <p>&nbsp; &nbsp; &nbsp; &nbsp;如果出错了，需要注意大小写、有没有单词写错了</p> <p>1.1.2 载入数据</p> <p>(1) 使用相对路径载入数据<br /> (2) 使用绝对路径载入数据</p> <pre><code>df = pd.read_csv('train.csv') df.head(3)</code></pre> <pre><code>df = pd.read_csv('/Users/Documents/train.csv') df.head(3)</code></pre> <p>注意绝对路径的 “&nbsp; /&nbsp; ” 方向不要错。</p> <p>1.1.3 大文件时要分块读取：每1000行为一个数据模块，逐块读取</p> <pre><code>chunker = pd.read_csv('train.csv', chunksize=1000)</code></pre> <p>1.1.4 对着整个表修改列名：将表头改成中文，索引改为乘客ID ，要注意的是，要记得把名字跟列一一对上，数量对上、顺序对上</p> <p>PassengerId =&gt; 乘客ID<br /> Survived =&gt; 是否幸存<br /> Pclass =&gt; 乘客等级(1/2/3等舱位)<br /> Name =&gt; 乘客姓名<br /> Sex =&gt; 性别<br /> Age =&gt; 年龄<br /> SibSp =&gt; 堂兄弟/妹个数<br /> Parch =&gt; 父母与小孩个数<br /> Ticket =&gt; 船票信息<br /> Fare =&gt; 票价<br /> Cabin =&gt; 客舱<br /> Embarked =&gt; 登船港口</p> <pre><code>df = pd.read_csv('train.csv', names=['乘客ID','是否幸存','仓位等级','姓名','性别','年龄','兄弟姐妹个数','父母子女个数','船票信息','票价','客舱','登船港口'],index_col='乘客ID',header=0) df.head()</code></pre> <h3 id="1.2-初步观察">1.2 初步观察</h3> <p>导入数据后，我们可以对数据的整体结构和样例进行概览，比如说，数据大小、有多少列，各列都是什么格式的，是否包含null等。info 后面加（）跟不加（）会 有不同的内容。</p> <pre><code>print(df.info())</code></pre> <p>如想在python的查看数据，可以用head</p> <pre><code>df.head(10) df.tail(15)</code></pre> <p>判断数据是否为空，为空的地方返回True，其余地方返回False</p> <pre><code>df.isnull().head()</code></pre> <h3 id="1.3-保存数据">1.3 保存数据</h3> <p>1.3.1&nbsp; 在工作目录下保存为一个新文件train_chinese.csv，如不希望表格自带index，可以加入index=false</p> <pre><code>df.to_csv('train_chinese.csv',index=flase)</code></pre> </div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1218.htm">解决：is not eligible for getting processed by all BeanPostProcessors</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1220.htm">request和response——请求响应对象</a></p>
+                                                        <p>上一个：<a href="/html/category/article-1350.htm">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></p>
+                                                        <p>下一个：<a href="/html/category/article-1360.htm">Gin增删改查demo</a></p>
                                                     </div>
 
                                             </div>
@@ -108,16 +108,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1270.htm" title="C# 实现登录并跳转界面">C# 实现登录并跳转界面</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1350.htm" title="小程序怎么自定义导航栏，导航栏放图片、设置高度">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></li>
+                        <li class="py-2"><a href="/html/category/article-1349.htm" title="父组件调用子组件的方法-子组件向父组件传值">父组件调用子组件的方法-子组件向父组件传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-1359.htm" title="python 数据加载工作">python 数据加载工作</a></li>
+                        <li class="py-2"><a href="/html/category/article-1269.htm" title="ruby 版本管理RVM （ruby version manager）">ruby 版本管理RVM （ruby version manager）</a></li>
                         <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
-                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
-                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
-                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
-                        <li class="py-2"><a href="/html/category/article-1330.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
-                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
-                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
-                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
-                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
                     </ul>
     </div>
 </div>

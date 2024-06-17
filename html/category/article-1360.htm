@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1219.htm" />
-    <title>springboot启动注解 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1360.htm" />
+    <title>Gin增删改查demo - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>springboot启动注解</h1>
+                <h1>Gin增删改查demo</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,11 +93,10 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>为什么springboot不需要配置文件就可以启动成功。</p> <p>springboot入口SpringBootApplication是一个启动类，主要的注解是以下的三个：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/3fface671e8fa43c73b98e3c3e8b006d.jpg" alt="springboot启动注解"></p> <p>1、SpringBootConfiguration是一个配置类，点进去里面是一个@Configration注解，表明该类是一个配置文件类，@Configration本身也是一个@Component</p> <p>2、@EnableAutoConfiguration，开启自动配置功能。</p> <p>@Import注解的作用，是为了自动导入相关的配置，比如redis、mq、aqs等配置信息。</p> <p>是如何进行导入的呢？AutoConfigurationImportSelector类中loadSpringFactories方法会进行资源的扫描，扫描的路径为Meta-Inf/spring.factories这个文件，这个文件在spring-boot-autoconfigure包下面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/e05723d33a059b2ec20f1c785bfc864d.jpg" alt="springboot启动注解"><img decoding="async" src="http://img.555519.xyz/uploads/20230203/904bf78063deaf65795542b266264976.jpg" alt="springboot启动注解"></p> <p>@AutoConfigurationPackage的注解见下图的注解，会扫描主类所在的包路径所有的configuration注解的类，配合import导入到spring容器中去</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230203/9ba9d362829593de1752d270910c1073.jpg" alt="springboot启动注解"></p> <p>@ComponetScan注解的作用是为了进行组件的扫描，主要作用扫描当前包及其子包下被@Component，@Controller，@Service，@Repository注解标记的类并纳入到spring容器中进行管理。</p> </p></div> 			                        </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h1> <a id="Gindemo_0" rel="nofollow"></a>Gin增删改查demo</h1> <blockquote> <p>一个Gin框架的联手demo、包括增删改查等等。</p> </blockquote> <h2> <a id="1_3" rel="nofollow"></a>1.使用技术</h2> <ul> <li>Gin</li> <li>Gorm</li> <li>Mysql</li> <li>…</li> </ul> <h2> <a id="2_9" rel="nofollow"></a>2.项目结构目录</h2> <pre><code>│  postman_collection.json  // postman配置文件 │  db.sql  // 数据库表结构 │  config.yaml  // 配置文件 │  go.mod      // 包依赖配置 │  main.go    // 程序入口 ├─api │  └─v1     // api 方法 │          sys_user.go │           ├─config    // 配置文件结构体 │      config.go │       ├─core      │      config.go // 配置文件读取 │      server.go // 启动HTTP server服务 │       ├─global │  │  global.go  // 全局共享对象 │  │   │  └─response │          response.go // 公共返回结构体 │           ├─initialize │      db_table.go  // 注册数据库表 │      mysql.go  // 初始化mysql连接池 │      router.go // 初始化总路由 │       ├─middleware │      cors.go  // 跨域处理配置 │       ├─model │  │  sys_user.go  // 数据库映射结构体 │  │   │  ├─request │  │      common.go  // 公共请求参数 │  │      sys_user.go  //  用户请求参数 │  │       │  └─response │          common.go   // 公共相应参数 │          sys_user.go  //  用户相应参数 ├─router │      sys_user.go  // 用户业务路由 │       ├─service │      sys_user.go   // 用户业务处理层 │       └─utils         md5.go   // 工具类 </code></pre> <h2> <a id="3_60" rel="nofollow"></a>3.运行截图</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221230/94148806e4bc9604cc0c0aa7e833ef52.jpg" alt="Gin增删改查demo"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/74dc8c4d880043c7af3c505c928f31ed.jpg" alt="Gin增删改查demo"></p> <h2> <a id="4_63" rel="nofollow"></a>4.开源地址</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gitee.com/litong-zero/gin-user"  rel="nofollow">Gitee</a></p> </p></div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1218.htm">解决：is not eligible for getting processed by all BeanPostProcessors</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1220.htm">request和response——请求响应对象</a></p>
+                                                        <p>上一个：<a href="/html/category/article-1359.htm">python 数据加载工作</a></p>
                                                     </div>
 
                                             </div>
@@ -108,16 +107,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
                         <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
                         <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
-                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
-                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
-                        <li class="py-2"><a href="/html/category/article-1276.htm" title="maven项目打包成war包并部署到tomcat上">maven项目打包成war包并部署到tomcat上</a></li>
-                        <li class="py-2"><a href="/html/category/article-1330.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
-                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
-                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
-                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
-                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
                     </ul>
     </div>
 </div>
