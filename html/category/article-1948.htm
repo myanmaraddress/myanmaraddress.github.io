@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1948.htm" />
+    <title>前端之vue的vuex插件(多组件共享数据) - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>前端之vue的vuex插件(多组件共享数据)</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>vuex插件</h3> <ul> <li><a href="#vuex_3" rel="nofollow">vuex插件</a></li> <li> <ul> <li><a href="#_9" rel="nofollow">实现多组件共享数据的方法</a></li> <li> <ul> <li><a href="#_10" rel="nofollow">方法一:全局事件中线(乱)</a></li> <li><a href="#vuex_12" rel="nofollow">方法二:vuex实现多数组共享数据√</a></li> </ul> </li> </ul> </li> <li><a href="#vuex_18" rel="nofollow">vuex工作原理</a></li> <li><a href="#vue2vuex_27" rel="nofollow">vue2中使用vuex小结:</a></li> <li><a href="#vue3vuex_33" rel="nofollow">vue3搭建vuex环境</a></li> <li> <ul> <li><a href="#_34" rel="nofollow">步骤总览</a></li> <li><a href="#vuex_37" rel="nofollow">简单vuex实例</a></li> <li><a href="#getters_134" rel="nofollow">getters的使用</a></li> </ul> </li> </ul> </div> <h1><a id="vuex_3" rel="nofollow"></a>vuex插件</h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/6840d4c4f6fd200a4277ca627b5b3607.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <p><strong>使用条件</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/095a97647391928e29048b9be3c54e81.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h2><a id="_9" rel="nofollow"></a>实现多组件共享数据的方法</h2> <h3><a id="_10" rel="nofollow"></a>方法一:全局事件中线(乱)</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/fc5b311171463c298a4c08d1ed375a22.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h3><a id="vuex_12" rel="nofollow"></a>方法二:vuex实现多数组共享数据√</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/965ae5de38886a1f4bc16733a1d76e18.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h1><a id="vuex_18" rel="nofollow"></a>vuex工作原理</h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/aaff9cdbc7badf769be730fba755f49d.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 如下图, 如果知道自己要做什么, 也知道数据可以跳过上方API<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d55d57fc0d9a2a737a56b43d677ac028.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 如下图，dispatch、commit方法都是store的。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/c0534986b10666e1be02c162160b74ed.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h1><a id="vue2vuex_27" rel="nofollow"></a>vue2中使用vuex小结:</h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d3bea212206363f38f852e6c90e55ac4.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/51f9d5a53a0a60596236c0bd0f8aa9d9.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 基本使用<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/5a01e989c0dabb47f35fdf9a72dcf6a5.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/b6491d401a7553094a53ed5d00a82761.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h1><a id="vue3vuex_33" rel="nofollow"></a>vue3搭建vuex环境</h1> <h2><a id="_34" rel="nofollow"></a>步骤总览</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/e1d97e1d4b5b0cdc54968c4c4df9a31d.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h2><a id="vuex_37" rel="nofollow"></a>简单vuex实例</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d55d57fc0d9a2a737a56b43d677ac028.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> state用于存储数据<br /> getters 加工数据</p> <p>1.命令行安装vuex<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/3065d367fcf5128f0c4baf7c06a33904.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> npm i vuex@版本<br /> –save放入依赖</p> <pre><code>npm i vuex@4 --save</code></pre> <p>2.在<code>main.js</code>中引入并使用<code>vuex</code>创建一个<code>store</code>实例</p> <pre><code class="prism language-javascript"><span class="token comment">/**  * 本文件是整个项目的入口文件  */</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token comment">// 1.引入vuex</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createStore<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">"vuex"</span><span class="token punctuation">;</span><span class="token comment">// 2.创建一个新的store</span><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token comment">// 3.将store实例作为插件安装</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span>  app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <p>3.在模板中使用</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>当前求和为:{<!-- -->{ $store.state.sum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> <p>4.发送到actions进行处理</p> <pre><code class="prism language-javascript"><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">"increment"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>selectNum<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span></code></pre> <p>4.在<strong>actions</strong>阶段, 用<code>context</code>参数调用commit进入<code>mutations</code>阶段,注意第一参数全部大写.</p> <pre><code class="prism language-javascript"><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span>value</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'INCREMENT'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p><strong>如果跳过<code>actions</code>阶段,</strong><br /> 用<code>commit</code>直接进入<strong>mutations</strong>阶段<br /><strong><code>commit</code>的第一个参数要全大写</strong></p> <pre><code class="prism language-javascript"><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">"INCREMENT"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>selectNum<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>5.在<code>mutations</code>内编写对应函数</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 本次简单实例不用actions, 直接进行commit</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token constant">INCREMENT</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span>value</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       state<span class="token punctuation">.</span>sum<span class="token operator">+=</span>value<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <h2><a id="getters_134" rel="nofollow"></a>getters的使用</h2> <p>vuex实例中的getters用来对state内的数据进行<strong>加工使用</strong><br /> 可以类比data和computed<br /> 1.在<code>main.js</code>中的vuex实例(即store)配置</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">getters</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">bigSum</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> state<span class="token punctuation">.</span>sum<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p>2.在模板中使用<code>{<!-- -->{ $store.getters.bigSum }}</code></p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>当前求和为:{<!-- -->{ $store.state.sum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>当前求和扩大十倍后为:{<!-- -->{ $store.getters.bigSum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> <p>小结:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/f33bead8fe24e9b93b6dc41a4cab155f.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1947.htm">Vant组件样式没有生效</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1310.htm">TensorFlow 模型保存/载入的两种方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1294.htm">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1284.htm">Linux下 tomcat整体目录迁移</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1271.htm">c++基于模板匹配的手写数字识别（超详细）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1242.htm">机器学习笔记：Python底层实现逻辑回归</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1236.htm">java项目在本地部署_jenkins部署java项目在本地（三）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1180.htm">SpringCloud Sleuth分布式请求链路追踪</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1151.htm">基本数据类型和引用数据类型</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1133.htm">将eclipse里的springboot项目打包成jar包部署到服务器上</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1076.htm">Top 20 Docker 面试题（附答案）</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1287.htm" title="Spingboot Resttemplate连接池配置">Spingboot Resttemplate连接池配置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1350.htm" title="小程序怎么自定义导航栏，导航栏放图片、设置高度">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1933.htm" title="vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值">vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-1294.htm" title="OpenFeign、Feign以及Ribbon关系介绍">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
