@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1317.htm" />
-    <title>JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1962.htm" />
+    <title>记录detector2使用中的PyYAML报错 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</h1>
+                <h1>记录detector2使用中的PyYAML报错</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,13 +93,31 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h5><a id="1__0" rel="nofollow"></a>1. 问题：</h5> <ul> <li>在微服务项目时，通过 LoadBlance + restTemplate 完成 Consumer 与 Provider 交互时，发生 415 数据格式错误。但是，归根结底，其实就是MVC部分的问题。可能在Cloud使用时暴露出来了。</li> <li>Controller 发送 POST 数据时，虽然已经配置了<code>@RestController</code>注解以及，在返回方法的注解内部设置了返回数据接收类型<code>@PostMapping(value = "xxx", produces = {"application/json;charset=UTF-8"})</code>，页面依旧出现415错误。</li> </ul> <hr/> <h5><a id="2__4" rel="nofollow"></a>2. 解决</h5> <ul> <li>目前，本人没有找到什么太好的解决办法。但是，引入下方依赖，可以解决。</li> </ul> <pre><code class="prism language-pom">        &lt;dependency&gt;             &lt;groupId&gt;com.fasterxml.jackson.dataformat&lt;/groupId&gt;             &lt;artifactId&gt;jackson-dataformat-xml&lt;/artifactId&gt;             &lt;version&gt;2.10.1&lt;/version&gt;         &lt;/dependency&gt;</code></pre> </div> 			                        </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>记录detector2使用中的PyYAML报错</h3> </div> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a48e30832b010143c6e9ab1fee58ed8a.jpg" alt="记录detector2使用中的PyYAML报错"><br /> PyYAML报错说版本要大于5.1，用pip list命令查看PyYAML版本：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/1c42ffbbcef4a7779c97b226034991cc.jpg" alt="记录detector2使用中的PyYAML报错"><br /> pip list 看到PyYAML的版本是6.0应该大于5.1才对，怎么还是报错。<br /> 用 pip uninstall 命令卸载PyYAML，后还是有PyYAML这次显示其版本为3.13.<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/ad743c7398d324f6b55bbd082ac41727.jpg" alt="记录detector2使用中的PyYAML报错"><br /> 我在搭建环境时PyYAML安装不上查资料说用ignore命令安装<br /> 这样是有问题的。结果就是detectron2运行报错。<br /> 解决方案，尝试卸载当前已装PyYAML，使用 pip3 install --ignore-installed PyYAML<br /> 重新安装。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/76e1d85834c14356ff1accb4070e172d.jpg" alt="记录detector2使用中的PyYAML报错"></p> </p></div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1316.htm">vscode指定扩展安装位置</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1318.htm">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></p>
+                                                        <p>上一个：<a href="/html/category/article-1961.htm">python自动化测试工具selenium使用指南</a></p>
                                                     </div>
 
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1359.htm">python 数据加载工作</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1294.htm">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1277.htm">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1254.htm">字符串或数字中应该包含多少位数字，以便MySQL可以将其指定为日期值？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1193.htm">Vert.X CompositeFuture 用法_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1174.htm">PHP运算符优先级</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1173.htm">JVM 垃圾回收详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1157.htm">SpringBoot重点详解&#8211;使用JPA操作数据库</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1134.htm">RPC及Dubbo和ZooKeeper的安装</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1099.htm">C++ 标准输入、输出流</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
                                             </div>
                     <div class="col-md-3">
                     	<div class="panel panel-default">
@@ -108,16 +126,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-1948.htm" title="前端之vue的vuex插件(多组件共享数据)">前端之vue的vuex插件(多组件共享数据)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1330.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
+                        <li class="py-2"><a href="/html/category/article-1279.htm" title="Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-1962.htm" title="记录detector2使用中的PyYAML报错">记录detector2使用中的PyYAML报错</a></li>
                         <li class="py-2"><a href="/html/category/article-1360.htm" title="Gin增删改查demo">Gin增删改查demo</a></li>
-                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
-                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
-                        <li class="py-2"><a href="/html/category/article-1637.htm" title="Java基础之浅谈异常与了解断言">Java基础之浅谈异常与了解断言</a></li>
-                        <li class="py-2"><a href="/html/category/article-1284.htm" title="Linux下 tomcat整体目录迁移">Linux下 tomcat整体目录迁移</a></li>
-                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-1349.htm" title="父组件调用子组件的方法-子组件向父组件传值">父组件调用子组件的方法-子组件向父组件传值</a></li>
-                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
-                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
-                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
                     </ul>
     </div>
 </div>
