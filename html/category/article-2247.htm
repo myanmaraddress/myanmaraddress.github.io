@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-2247.htm" />
+    <title>Vue刷新当前页面几种方式 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Vue刷新当前页面几种方式</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>问题</p> <blockquote> <p>最近些日子项目中突然碰到了一个需求，再完成编辑操作之后需要进行页面刷新，通过实验有如下几种姿势可以解决需求中的问题，下面进行简单总结如下。</p> </blockquote> <p>姿势一：<code>this.$router.go(0)</code></p> <blockquote> <p>这个姿势是利用了 history 中前进和后退的功能，传入 0 刷新当前页面。但是有一个问题就是页面整个刷新过程中会白屏，严重影响用户的体验感，效果不好。</p> <pre><code>this.$router.go(0) </code></pre> </blockquote> <p>姿势二：<code>location.reload()</code></p> <blockquote> <p>这个姿势是利用了直接使用刷新当前页面的方法。但是同样存在有一个问题就是页面整个刷新过程中会白屏，严重影响用户的体验感，效果也是不好，和姿势一的现象一直，也不推荐使用。</p> <pre><code class="language-javascript">location.reload() </code></pre> </blockquote> <p>姿势三：<code>provide / inject组合</code></p> <blockquote> <p>允许一个祖先组件向其所有子孙后代注入一个依赖，不论组件层次有多深，并在起上下游关系成立的时间里始终生效。<br /><code>provide：</code>选项应该是一个对象或返回一个对象的函数。该对象包含可注入其子孙的属性。<br /><code>inject：</code>一个字符串数组，或一个对象，对象的 key 是本地的绑定名。<br /> 注意：provide和inject绑定并不是可响应的。这是刻意为之的。如果你传入了一个可监听的对象，那么其对象的属性还是可响应的。<br /> 基本使用步骤如下：</p> <ul> <li>步骤一：（App.vue）<br /> 通过 $nextTick()，协助实现。先把 &lt;router-view /&gt; 移除，移除后再重新添加，达到刷新当前页面的功能。是目前最合适的实现方式。</li> </ul> <pre><code class="language-html">&lt;template&gt;  &lt;div id="app"&gt;    &lt;router-view v-if="isRouterAlive"/&gt;  &lt;/div&gt; &lt;/template&gt;  &lt;script&gt; export default {  name: 'App',  provide () {    return{      reload: this.reload    }  },  data() {    return {        isRouterAlive: true    }  },  methods:{    reload(){      this.isRouterAlive = false      this.$nextTick(function(){        this.isRouterAlive = true      })    }  } } &lt;/script&gt; </code></pre> <ul> <li>步骤二：（chapter.vue）</li> </ul> <pre><code class="language-javascript">inject: ['reload'], </code></pre> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221207/9e04569a7a40d74dee684995a7928153.jpg"></p> <p>代码结构</p> <ul> <li>步骤三：（chapter.vue）<br /> 直接this.reload()调用，即可刷新当前页面。</li> </ul> <pre><code>this.reload()// 需要刷新页面 </code></pre> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221207/ae1e36da94ff82f940849d40ec73d5f9.jpg"></p> <p>代码结构</p> </blockquote> <p> &nbsp;</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-1962.htm">记录detector2使用中的PyYAML报错</a></p>
+                                                        <p>下一个：<a href="/html/category/article-2248.htm">vue 详情页返回列表，过滤查询条件保留</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1933.htm">vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1350.htm">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1310.htm">TensorFlow 模型保存/载入的两种方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1259.htm">记一次MySQL数据迁移到SQLServer全过程</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1233.htm">简洁配置打印feign日志</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1230.htm">CommonsCollection4反序列化链学习</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1191.htm">c# 一些警告的处理方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1138.htm">VUE元素的隐藏和显示（v-show指令)</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1114.htm">SpringBoot中Starter的作用是什么</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1078.htm">vue动态设置样式</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1329.htm" title="Visual Studio快捷键汇总_实用技巧_">Visual Studio快捷键汇总_实用技巧_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1330.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
+                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1315.htm" title="关于对称算法中数据的填充模式">关于对称算法中数据的填充模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1339.htm" title="分享MySQL生产库内存异常增高的排查过程_Mysql_">分享MySQL生产库内存异常增高的排查过程_Mysql_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1286.htm" title="优雅处理API统一返回">优雅处理API统一返回</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">46</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

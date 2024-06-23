@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-2248.htm" />
+    <title>vue 详情页返回列表，过滤查询条件保留 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>vue 详情页返回列表，过滤查询条件保留</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h1><a id="_0" rel="nofollow"></a>项目场景：</h1> <h2><a id="_1" rel="nofollow"></a><code>在列表页进行的条件查询出来的数据，点击查看详情之后，再返回，之前的查询条件会清空，如何不清空？</code></h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/0b266af80f95ca519c71c4097241a5b6.jpg" alt="vue 详情页返回列表，过滤查询条件保留"></p> <h1><a id="_5" rel="nofollow"></a>思路</h1> <p><code>在点击查看的时候，保留查询的条件，等返回的时候，把条件给查询框中的值。这个地方多出用到，所有需要采用vuex，这样更方便。。。每个页面在离开之前，保留查询条件在vuex中，从详情页回来的时候，再把查询条件给赋值到input中</code></p> <p>vuex中的写法：这个项目中的vuex是一个modules，在modules中新建文件。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/f6047e0ccdafecfedf10c0f3557de73b.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 引入到index中注册全局的store<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/857496cd827c0c6d98868c6230e0516d.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 列表中这样写：<br /> 1.点击查询的时候，设置isFilters为ture，<br /> 2.根据查询的条件，点击查看的时候，触发vuex的存储事件，存查询的参数到vuex。<br /> 3.从详情返回列表的时候，把vuex中的参数给赋值到列表上的查询条件框中。<br /> 4.在列表页上，加上一个混入的方法。<br /> 5.点击重置的时候，清空vuex中的值。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/bd0bf81df4541b4590fe5dadf7edcf41.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/e28e4828e4a0df8502e0e8823957d44e.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 混入的代码如下：（单独的文件）</p> <pre><code>// 用来判断是否是从详细页过来的路径 const filterParamsMixin = {   beforeRouteEnter(to, from, next) {     //在路由加载进入之间，如果不是从当前详情页返回进入列表页的话，则将缓存中的pageNum和pageSize清除     const toFullPath = to.fullPath       .split('/')       .filter((v, i) =&gt; i &lt; 3)       .join('')     const fromFullPath = from.fullPath       .split('/')       .filter((v, i) =&gt; i &lt; 3)       .join('')     console.log(toFullPath)     console.log(fromFullPath)     if (toFullPath !== fromFullPath) {       // sessionStorage.pageNum = ''       // sessionStorage.pageSize = ''       store.dispatch('setChangeFilter', {})     }     next()   }, }</code></pre> <p>列表页代码：</p> <pre><code class="prism language-c"><span class="token comment">// 当路由离开列表页之前</span><span class="token function">beforeRouteLeave</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 当to的路由为详情页面时且isFilters为true（列表页面进行了筛选）时触发</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>to<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token operator">=</span><span class="token char">'inputDetail'</span><span class="token operator">||</span> to<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token operator">=</span><span class="token char">'input'</span><span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> this<span class="token punctuation">.</span>isFilters<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将筛选项赋值给changeFilter</span>       this<span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token char">'setChangeFilter'</span><span class="token punctuation">,</span> this<span class="token punctuation">.</span>form<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token comment">// 当路由进入列表页之前</span><span class="token function">beforeRouteEnter</span><span class="token punctuation">(</span>to<span class="token punctuation">,</span> from<span class="token punctuation">,</span> next<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">//当from的路由为详情页面时触发</span><span class="token keyword">if</span><span class="token punctuation">(</span>from<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token operator">=</span><span class="token char">'inputDetail'</span><span class="token operator">||</span> from<span class="token punctuation">.</span>name<span class="token operator">==</span><span class="token operator">=</span><span class="token char">'input'</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token keyword">if</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$store<span class="token punctuation">.</span>_modules<span class="token punctuation">.</span>root<span class="token punctuation">.</span>state<span class="token punctuation">.</span>filterParams<span class="token punctuation">.</span>changeFilter<span class="token operator">!=</span><span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 把changeFilter值赋给当前筛选项的对象</span><span class="token comment">// vm.form = vm.$store.state.changeFilter</span>           vm<span class="token punctuation">.</span>form<span class="token operator">=</span> vm<span class="token punctuation">.</span>$store<span class="token punctuation">.</span>_modules<span class="token punctuation">.</span>root<span class="token punctuation">.</span>state<span class="token punctuation">.</span>filterParams<span class="token punctuation">.</span>changeFilter<span class="token comment">// created会在next之前执行。所以获取到筛选数据，可以在这里进行数据的初始化操作</span>           vm<span class="token punctuation">.</span><span class="token function">initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 如果不是从详情页来的，就直接初始化</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span>         vm<span class="token punctuation">.</span><span class="token function">initData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token comment">// beforeRouteEnter中不能直接获得this，需要 next ((vm) =&gt;{ vm.$stroe.state.changeFilter })这样获取，</span><span class="token comment">// 而且next里的方法要在create之后执行</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>点击重置，清空vuex中的过滤条件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/caf97f820de0ef8d71fb505295029bcf.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 注意点：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/93d034bbf898519f9e37512b78308680.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 这个地方要注意的点：<br /> 1.vuex中的changeFilter的值，我的项目中隐藏的很深。不太好找，需要在调试的时候细心查找。<br /> 2. created会在next（）之前执行。所以要想获取到筛选数据，必须得在这里进行数据的初始化操作。不然在created中初始化，此时的查询条件的筛选数据还没获取到。</p> <p>原来的代码中，详情页面还是要写一下。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220708/76abb6ffd0db55a11ad1f031a46d9c20.jpg" alt="vue 详情页返回列表，过滤查询条件保留"><br /> 但是太麻烦了，于是同事提供了mixins的方式，就方便了很多。</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2247.htm">Vue刷新当前页面几种方式</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1249.htm">Java修饰符abstract与static及final的精华总结_java</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1245.htm">Git的下载与安装详细步骤</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1239.htm">IntelliJ IDEA 使用Tomcat配置和项目部署详细教程</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1237.htm">win11系统怎么查看硬盘型号</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1233.htm">简洁配置打印feign日志</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1217.htm">go微服务框架Kratos简单使用总结</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1181.htm">Spring Cloud之负载均衡组件Ribbon原理分析</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1126.htm">Ubuntu安装开发者平台Backstage</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1099.htm">C++ 标准输入、输出流</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1098.htm">Java8中List转Map(Collectors.toMap())的使用</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1360.htm" title="Gin增删改查demo">Gin增删改查demo</a></li>
+                        <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-1350.htm" title="小程序怎么自定义导航栏，导航栏放图片、设置高度">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1308.htm" title="HTML 5验证有用吗">HTML 5验证有用吗</a></li>
+                        <li class="py-2"><a href="/html/category/article-1282.htm" title="Azure DevOps通过Azure Devops部署一个.NET Core WebAPI">Azure DevOps通过Azure Devops部署一个.NET Core WebAPI</a></li>
+                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">46</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
