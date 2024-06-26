@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-3129.htm" />
+    <title>Vue结合ElementUI上传Base64编码后的图片实例_vue.js - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>Vue结合ElementUI上传Base64编码后的图片实例_vue.js</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">ElementUI上传Base64编码后的图片</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">安装ElementUI</a></li> <li><a href="#_lab2_0_1" rel="nofollow">按需引入(当然如果需要你也可以全部引入)</a></li> <li><a href="#_lab2_0_2" rel="nofollow">上传实现 </a></li> </ul> <li><a href="#_label1" rel="nofollow">ElementUI把上传的图片转为Base64</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>ElementUI上传Base64编码后的图片</h2> <p>自我认为ElementUI还是一个很不错的写手机端的组件，所以这次做小项目的时候就用了ElementUI的Upload组件来实现图片的上传，不过ElementUI组件的上传图片更易于实现图片以File文件的形式实现，但是这次我需要把图片转换为base64编码来实现图片的上传。</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>安装ElementUI</h3> <div class="ay1code"> <pre class="brush:js;">npm i element-ui -S</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>按需引入(当然如果需要你也可以全部引入)</h3> <div class="ay1code"> <pre class="brush:js;">import { Upload } from 'element-ui'  import 'element-ui/lib/theme-chalk/index.css'  Vue.use(Upload);</pre> </div> <p class="maodian"><a name="_lab2_0_2" rel="nofollow"></a></p> <h3>上传实现 </h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;template&gt;      &lt;div&gt;         &lt;el-upload            class="avatar-uploader"            :action="actionUrl"            :show-file-list="false"            :on-change="getFile"&gt;            &lt;img v-if="imageUrl" ref="phoUrl" :src="imageUrl" class="avatar"&gt;            &lt;i v-else class="el-icon-plus avatar-uploader-icon"&gt;&lt;/i&gt;          &lt;/el-upload&gt;      &lt;/div&gt;  &lt;/template&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">&lt;script&gt;  import {Toast} from "mint-ui";  export default {     data() {        return {         actionUrl:'',         imageUrl:'', //上传图片        };      },      methods: {       getBase64(file){  //把图片转成base64编码           return new Promise(function(resolve,reject){               let reader=new FileReader();               let imgResult="";               reader.readAsDataURL(file);               reader.onload=function(){                   imgResult=reader.result;               };               reader.onerror=function(error){                   reject(error);               };               reader.onloadend=function(){                   resolve(imgResult);               }           })       },       getFile(file,fileList){  //上传头像         this.getBase64(file.raw).then(res=&gt;{             this.$http.post('home/ImgUpload',{"img":res}).then(result=&gt;{                 if(result.body.status===200){                     this.imageUrl=result.body.data;                 }else{                     Toast('图片上传失败');                 }             })         })       }      }  }  &lt;/script&gt;</pre> </div> <div class="ay1code"> <pre class="brush:css;">&lt;style&gt;    .avatar-uploader .el-upload {      border: 1px dashed #d9d9d9;      border-radius: 6px;      cursor: pointer;      position: relative;      overflow: hidden;      width:101px;      height:101px;    }    .avatar-uploader .el-upload:hover {      border-color: #409EFF;    }    .avatar-uploader .el-upload .el-upload__input{        display: none;    }    .avatar-uploader-icon {      font-size: 28px;      color: #8c939d;      width: 100px;      height: 100px;      line-height: 100px;      text-align: center;    }    .avatar {      width: 100px;      height: 100px;      display: block;    }  &lt;/style&gt;</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>ElementUI把上传的图片转为Base64</h2> <p>使用组件，然后on-change绑定一个方法来获取文件信息，auto-upload设置为false即可 </p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;el-upload action='' :on-change="getFile" :limit="1" list-type="picture" :auto-upload="false"&gt;              &lt;el-button size="small" type="primary"&gt;选择图片上传,最多上传一张图片&lt;/el-button&gt;            &lt;/el-upload&gt;</pre> </div> <p>定义methods方法,当上传文件就会触发绑定的函数，然后文件的内容就会绑定到函数的参数里面，这样用file.raw就可以获取文件的内容了。</p> <div class="ay1code"> <pre class="brush:js;">  getFile(file, fileList) {       console.log(file.raw)      },</pre> </div> <p>然后自定义一个方法，用来把图片内容转为base64格式，imgResult就是base64格式的内容了。转为base64字符串要调用h5特性中的FileReader这个api,但是这个api不能return，所以用promise封装一下。</p> <div class="ay1code"> <pre class="brush:js;"> getBase64(file) {        return new Promise(function(resolve, reject) {          let reader = new FileReader();          let imgResult = "";          reader.readAsDataURL(file);          reader.onload = function() {            imgResult = reader.result;          };          reader.onerror = function(error) {            reject(error);          };          reader.onloadend = function() {            resolve(imgResult);          };        });      },</pre> </div> <p>最后调用一下</p> <div class="ay1code"> <pre class="brush:js;"> getFile(file, fileList) {            this.getBase64(file.raw).then(res =&gt; {        console.log(res)        });      },</pre> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-2832.htm">pytorch 自动构建任意层的深度神经网络(DNN)</a></p>
+                                                        <p>下一个：<a href="/html/category/article-3130.htm">python和hive结合使用</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1303.htm">通过make生成执行文件的过程详解_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1284.htm">Linux下 tomcat整体目录迁移</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1261.htm">vue实现评论列表</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1254.htm">字符串或数字中应该包含多少位数字，以便MySQL可以将其指定为日期值？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1244.htm">如果我们将包含NULL值的列名作为CONCAT()函数的参数之一传递，MySQL将返回什么？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1191.htm">c# 一些警告的处理方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1172.htm">JS的循环练习</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1099.htm">C++ 标准输入、输出流</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1091.htm">java8 List&lt;Object&gt;去掉重复对象的几种方法_java</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1090.htm">Hbase基础（特点、架构、应用场景、集群搭建、HA设计）这一篇就够了</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-3130.htm" title="python和hive结合使用">python和hive结合使用</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-1961.htm" title="python自动化测试工具selenium使用指南">python自动化测试工具selenium使用指南</a></li>
+                        <li class="py-2"><a href="/html/category/article-1329.htm" title="Visual Studio快捷键汇总_实用技巧_">Visual Studio快捷键汇总_实用技巧_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
+                        <li class="py-2"><a href="/html/category/article-1919.htm" title="React Ant Design Pro + .Net5 WebApi：后端环境搭建-IdentityServer4（二）授权模式">React Ant Design Pro + .Net5 WebApi：后端环境搭建-IdentityServer4（二）授权模式</a></li>
+                        <li class="py-2"><a href="/html/category/article-2831.htm" title="kerberos kafka 问题解决">kerberos kafka 问题解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-2538.htm" title="LSH-局部敏感哈希">LSH-局部敏感哈希</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">52</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
