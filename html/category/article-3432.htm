@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1196.htm" />
-    <title>如何过滤掉MySQL返回的结果集的行中的重复项？ - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-3432.htm" />
+    <title>layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>如何过滤掉MySQL返回的结果集的行中的重复项？</h1>
+                <h1>layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,13 +93,31 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<p>通过在SELECT子句中使用DISTINCT关键字，这是可能的。DISTINCT适用于SELECT子句中指定的所有数据字段的组合。</p> <h2>示例</h2> <p>我们在表'Student'上应用了DISTINCT关键字，如下所示：</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;student;  +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;17&nbsp;&nbsp;&nbsp;|&nbsp;Raman&nbsp;&nbsp;&nbsp;|&nbsp;Shimla&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+  5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;Address&nbsp;from&nbsp;student;  +---------+ |&nbsp;Address&nbsp;| +---------+ |&nbsp;Delhi&nbsp;&nbsp;&nbsp;| |&nbsp;Mumbai&nbsp;&nbsp;| |&nbsp;Shimla&nbsp;&nbsp;| |&nbsp;Jaipur&nbsp;&nbsp;| +---------+  4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;*&nbsp;from&nbsp;student;  +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;17&nbsp;&nbsp;&nbsp;|&nbsp;Raman&nbsp;&nbsp;&nbsp;|&nbsp;Shimla&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+  5&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;DISTINCT&nbsp;name&nbsp;from&nbsp;student;  +---------+ |&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| +---------+ |&nbsp;Gaurav&nbsp;&nbsp;| |&nbsp;Aarav&nbsp;&nbsp;&nbsp;| |&nbsp;Harshit&nbsp;| |&nbsp;Raman&nbsp;&nbsp;&nbsp;| +---------+  4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                        </div>
+                              				  				  				<div id="content_views" class="htmledit_views"> <pre class="has"><code>&lt;div class="layui-form" lay-filter="test1"&gt;   … &lt;/div&gt;   &lt;div class="layui-form" lay-filter="test2"&gt;   … &lt;/div&gt;        【JavaScript】 form.render(null, 'test1'); //更新 lay-filter="test1" 所在容器内的全部表单状态 form.render('select', 'test2'); //更新 lay-filter="test2" 所在容器内的全部 select 状态 //……</code></pre> <p>重点：</p> <p>&lt;div class="<span style="color:#f33b45;">layui-form</span>" lay-filter="<span style="color:#f33b45;">test2</span>"&gt;</p> <p>1、要加这个样式：class="layui-form"</p> <p>2、要加这个属性：lay-filter="test2"</p> <p>3、样式和属性不能加到本身控件中,就像下面的错误做法</p> <p>例子：下拉框</p> <p><span style="color:#f33b45;">错误用法：</span></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&lt;div class="layui-col-md6" &gt;<br /> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;select name="hm2" id="hm2" lay-verify="required"<span style="color:#f33b45;">class="layui-form" lay-filter="hm2"</span>&gt;<br /> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value=""&gt;办理细类&lt;/option&gt;<br /> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/select&gt;<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&lt;/div&gt;</p> <p><span style="color:#f33b45;">正确用法：</span></p> <p><span style="color:#f33b45;">&lt;div</span> class="<span style="color:#f33b45;">layui-form</span> layui-col-md6"<span style="color:#f33b45;">lay-filter="hm2"</span>&gt;<br /><span style="color:#f33b45;">&nbsp;&lt;select</span>name="hm2" id="hm2" lay-verify="required" &gt;<br /> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;option value=""&gt;办理细类&lt;/option&gt;<br /> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&lt;/select&gt;<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&lt;/div&gt;</p> <p>官方文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.layui.com/doc/modules/form.html#render"  rel="nofollow">https://www.layui.com/doc/modules/form.html#render</a></p> </div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1195.htm">react-router@6 版本初体验</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1197.htm">Prometheus TSDB存储原理</a></p>
+                                                        <p>上一个：<a href="/html/category/article-3431.htm">Jackson 枚举序列化/反序列化</a></p>
                                                     </div>
 
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1294.htm">OpenFeign、Feign以及Ribbon关系介绍</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1277.htm">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1260.htm">HCNP Routing&amp;Switching之组播技术PIM-SM RP</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1257.htm">如何快速实现一个颜色选择器_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1218.htm">解决：is not eligible for getting processed by all BeanPostProcessors</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1196.htm">如何过滤掉MySQL返回的结果集的行中的重复项？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1115.htm">数据库事务的四大特性和四个隔离级别</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1093.htm">C++数据结构之堆详解_C 语言_</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1091.htm">java8 List&lt;Object&gt;去掉重复对象的几种方法_java</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1089.htm">6个pandas初学者容易犯的错误</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
                                             </div>
                     <div class="col-md-3">
                     	<div class="panel panel-default">
@@ -108,16 +126,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-2831.htm" title="kerberos kafka 问题解决">kerberos kafka 问题解决</a></li>
-                        <li class="py-2"><a href="/html/category/article-1306.htm" title="MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具">MeteoInfo-Java解析与绘图教程_java解析卫星FY-4A一级产品文件(HDF举例)_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-1934.htm" title="朴素贝叶斯算法详解">朴素贝叶斯算法详解</a></li>
                         <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
-                        <li class="py-2"><a href="/html/category/article-1293.htm" title="基于Spring接口，集成Caffeine+Redis两级缓存">基于Spring接口，集成Caffeine+Redis两级缓存</a></li>
-                        <li class="py-2"><a href="/html/category/article-1947.htm" title="Vant组件样式没有生效">Vant组件样式没有生效</a></li>
+                        <li class="py-2"><a href="/html/category/article-1961.htm" title="python自动化测试工具selenium使用指南">python自动化测试工具selenium使用指南</a></li>
                         <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
-                        <li class="py-2"><a href="/html/category/article-2248.htm" title="vue 详情页返回列表，过滤查询条件保留">vue 详情页返回列表，过滤查询条件保留</a></li>
                         <li class="py-2"><a href="/html/category/article-1919.htm" title="React Ant Design Pro + .Net5 WebApi：后端环境搭建-IdentityServer4（二）授权模式">React Ant Design Pro + .Net5 WebApi：后端环境搭建-IdentityServer4（二）授权模式</a></li>
-                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1947.htm" title="Vant组件样式没有生效">Vant组件样式没有生效</a></li>
+                        <li class="py-2"><a href="/html/category/article-1934.htm" title="朴素贝叶斯算法详解">朴素贝叶斯算法详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1962.htm" title="记录detector2使用中的PyYAML报错">记录detector2使用中的PyYAML报错</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
                     </ul>
     </div>
 </div>

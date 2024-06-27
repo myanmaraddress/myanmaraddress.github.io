@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1947.htm" />
-    <title>Vant组件样式没有生效 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-3431.htm" />
+    <title>Jackson 枚举序列化/反序列化 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>Vant组件样式没有生效</h1>
+                <h1>Jackson 枚举序列化/反序列化</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,11 +93,11 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="htmledit_views"> <p>昨天在学习Vant组件库的时候遇到一个问题；</p> <p>我在main.js中引入了vant，也注册到了Vue中；</p> <p><img fetchpriority="high" decoding="async" alt="" height="128" src="http://img.555519.xyz/uploads3/20220610/a3f716179622f0ca6cface181dd512ca.jpg"></p> <p>&nbsp;因为我使用的是自动按需导入, 那么就要配置babel.config.js, 如图;</p> <p><img decoding="async" alt="" height="292" src="http://img.555519.xyz/uploads3/20220610/cf34c22255c4bfdaf5c5fbc2defa0a6b.jpg"></p> <p>但是在运行的时候vant的样式却没有生效, 相当于写了HTML+CSS, 但是CSS却没生效；</p> <p>在网上查阅了相关资料，有人说要在main.js写上import 'vant/lib/index.css', 但是我写上之后还是没有生效，于是在vant的文档里看了下，这是另一种导入的方法，而且也确实没有生效，那么与这行代码应该无关。</p> <p>后来我想起来，在修改了配置文件后需要重启服务器，然后我重启了一次服务器，vant组件的样式就可以了。</p> <p>这篇文章主要是为了提醒自己以后在开发过程中，修改了配置文件，如果有问题，重启一下服务器试试。</p> </div> 			                        </div>
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>枚举类：</p> <pre><code class="language-java">import com.fasterxml.jackson.annotation.JsonCreator; import com.fasterxml.jackson.annotation.JsonValue;  /**  * Created by Administrator on 2017/1/9.  */ public enum TestEnum {      A(1,"1"),     B(2,"2");      private int code;     private String description;      private TestEnum(int code, String description){         this.code = code;         this.description = description;     }      @JsonCreator     public static TestEnum getItem(int code){         for(TestEnum item : values()){             if(item.getCode() == code){                 return item;             }         }         return null;     }      @JsonValue     public int getCode() {         return code;     }      public void setCode(int code) {         this.code = code;     }      public String getDescription() {         return description;     }      public void setDescription(String description) {         this.description = description;     } } </code></pre> <p></p> <p> 实例类： </p> <pre><code class="language-java">public static class TestEnums{         int code =1;         TestEnum testEnum = TestEnum.B;          public int getCode() {             return code;         }          public void setCode(int code) {             this.code = code;         }          public TestEnum getTestEnum() {             return testEnum;         }          public void setTestEnum(TestEnum testEnum) {             this.testEnum = testEnum;         }     }</code></pre> <p> 方案：</p> <p>利用&nbsp;@JsonCreator 与&nbsp;&nbsp;@JsonValue 注解：</p> <p>JsonCreator ：反序列化时的 初始化函数，入参为 对应该枚举的 json值</p> <p>JsonVale：序列化时 枚举对应生成的值</p> <p></p> <p>测试类：</p> <pre><code class="language-java">@org.junit.Test     public void enumJsonTest(){         TestEnums testEnums = new TestEnums();         String json = JsonUtil.toJson(testEnums);          System.out.println(json);          TestEnums target = JsonUtil.toObject(json,TestEnums.class);         System.out.println("");     }</code></pre> <p> 输出：</p> <p>{"code":1,"testEnum":2}</p> </p></div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1934.htm">朴素贝叶斯算法详解</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1948.htm">前端之vue的vuex插件(多组件共享数据)</a></p>
+                                                        <p>上一个：<a href="/html/category/article-3130.htm">python和hive结合使用</a></p>
+                                                        <p>下一个：<a href="/html/category/article-3432.htm">layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</a></p>
                                                     </div>
 
                                                 <div class="panel panel-default mt-5">
@@ -106,16 +106,16 @@ var _hmt = _hmt || [];
                             </div>
                             <div class="panel-body">
                                 <ul class="p-0 x-0">
-                                                                        <li class="py-2"><a href="/html/category/article-1297.htm">vue2设置保存自动执行run lint配置步骤</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1257.htm">如何快速实现一个颜色选择器_在线工具</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1255.htm">将HTML5 SVG对准屏幕中心</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1209.htm">VUE v-for 遍历数组/对象</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1192.htm">AJAX原理以及axios、fetch区别实例详解_AJAX相关</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1171.htm">python读取文件夹的文件名</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1157.htm">SpringBoot重点详解&#8211;使用JPA操作数据库</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1147.htm">spring schedule 动态配置执行时间</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1144.htm">python初始化方法</a></li>
-                                                                        <li class="py-2"><a href="/html/category/article-1075.htm">【硬刚ES】ES基础（三十五）分页与遍历 &#8211; From, Size, Search_after &amp; Scroll API</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1319.htm">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1279.htm">Django的原生ORM框架如何支持MongoDB，同时应对客户使用时随时变动字段</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1277.htm">服务器安全加固 &#8211; Linux_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1242.htm">机器学习笔记：Python底层实现逻辑回归</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1208.htm">Python数据可视化-Matplotlib线性图(折线图等) 代码教学 Part 1</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1177.htm">如何在vue3中实现自动注入路由</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1127.htm">MySQL 事务和锁_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1108.htm">k8s入门之Deployment</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1080.htm">Redis：内存淘汰机制</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1063.htm">vue3 setup ref中响应式数据</a></li>
                                                                     </ul>
                             </div>
                         </div>
@@ -127,16 +127,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-1291.htm" title="Springcloud通过maven打包包含公共common模块的项目">Springcloud通过maven打包包含公共common模块的项目</a></li>
-                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
-                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
-                        <li class="py-2"><a href="/html/category/article-1962.htm" title="记录detector2使用中的PyYAML报错">记录detector2使用中的PyYAML报错</a></li>
-                        <li class="py-2"><a href="/html/category/article-1339.htm" title="分享MySQL生产库内存异常增高的排查过程_Mysql_">分享MySQL生产库内存异常增高的排查过程_Mysql_</a></li>
-                        <li class="py-2"><a href="/html/category/article-1304.htm" title="网络协议之:socket协议详解之Socket和Stream Socket">网络协议之:socket协议详解之Socket和Stream Socket</a></li>
+                        <li class="py-2"><a href="/html/category/article-1359.htm" title="python 数据加载工作">python 数据加载工作</a></li>
                         <li class="py-2"><a href="/html/category/article-1292.htm" title="Flutter实现心动的动画特效_Android">Flutter实现心动的动画特效_Android</a></li>
+                        <li class="py-2"><a href="/html/category/article-1933.htm" title="vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值">vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1309.htm" title="sqlserver 中使用sqlcmd 执行几百M的.sql文件">sqlserver 中使用sqlcmd 执行几百M的.sql文件</a></li>
+                        <li class="py-2"><a href="/html/category/article-1637.htm" title="Java基础之浅谈异常与了解断言">Java基础之浅谈异常与了解断言</a></li>
+                        <li class="py-2"><a href="/html/category/article-1289.htm" title="关于MySQL支持的所有字符集的查询是什么？">关于MySQL支持的所有字符集的查询是什么？</a></li>
                         <li class="py-2"><a href="/html/category/article-2538.htm" title="LSH-局部敏感哈希">LSH-局部敏感哈希</a></li>
-                        <li class="py-2"><a href="/html/category/article-1638.htm" title="python之33个关键字详解_Python之33个关键字是哪些">python之33个关键字详解_Python之33个关键字是哪些</a></li>
-                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
+                        <li class="py-2"><a href="/html/category/article-1920.htm" title="我们如何在Java中实现自定义HashSet">我们如何在Java中实现自定义HashSet</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
                     </ul>
     </div>
 </div>
