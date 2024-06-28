@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-3737.htm" />
+    <title>2.使用httpclient发起post请求 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>2.使用httpclient发起post请求</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <ol> <li>post接口</li> </ol> <pre><code class="prism language-java"><span class="token comment">//接口全路径：http://localhost:18081/hp</span>     <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"hp"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hp</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token string">"ss"</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></pre> <ol start="2"> <li>httpclient请求：</li> </ol> <pre><code class="prism language-java"><span class="token annotation punctuation">@Test</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHttpPost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">try</span> <span class="token punctuation">{<!-- --></span>             <span class="token comment">//1.构建http对象(相当于浏览器)</span>             <span class="token class-name">CloseableHttpClient</span> httpClient <span class="token operator">=</span> <span class="token class-name">HttpClients</span><span class="token punctuation">.</span><span class="token function">createDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">//3.创建http post请求对象</span>             <span class="token class-name">HttpPost</span> post <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpPost</span><span class="token punctuation">(</span><span class="token string">"http://localhost:18081/hp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">//4.创建响应对象</span>             <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> httpClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">/**              * 由于响应接口返回的是一个字符串,因此需要转换              * 响应体数据封装在HttpEntity对象中              */</span>             <span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">EntityUtils</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">//5.释放资源</span>             response<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             httpClient<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span> </code></pre> <p>响应结果:</p> <pre><code class="prism language-java"><span class="token number">23</span><span class="token operator">:</span><span class="token number">21</span><span class="token operator">:</span><span class="token number">00.390</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>DefaultManagedHttpClientConnection</span> <span class="token operator">-</span> http<span class="token operator">-</span>outgoing<span class="token operator">-</span><span class="token number">0</span><span class="token operator">:</span> set socket timeout <span class="token keyword">to</span> <span class="token number">0</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">21</span><span class="token operator">:</span><span class="token number">00.390</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>PoolingHttpClientConnectionManager</span> <span class="token operator">-</span> <span class="token class-name">Connection</span> released<span class="token operator">:</span> <span class="token punctuation">[</span>id<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>route<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token operator">-&gt;</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">18081</span><span class="token punctuation">]</span><span class="token punctuation">[</span>total kept alive<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span> route allocated<span class="token operator">:</span> <span class="token number">1</span> of <span class="token number">2</span><span class="token punctuation">;</span> total allocated<span class="token operator">:</span> <span class="token number">1</span> of <span class="token number">20</span><span class="token punctuation">]</span> ss <span class="token number">23</span><span class="token operator">:</span><span class="token number">21</span><span class="token operator">:</span><span class="token number">00.390</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>PoolingHttpClientConnectionManager</span> <span class="token operator">-</span> <span class="token class-name">Connection</span> manager is shutting down <span class="token number">23</span><span class="token operator">:</span><span class="token number">21</span><span class="token operator">:</span><span class="token number">00.390</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>DefaultManagedHttpClientConnection</span> <span class="token operator">-</span> http<span class="token operator">-</span>outgoing<span class="token operator">-</span><span class="token number">0</span><span class="token operator">:</span> <span class="token class-name">Close</span> connection  </code></pre> <ol start="3"> <li>post请求添加参数:</li> </ol> <pre><code class="prism language-java"><span class="token annotation punctuation">@Test</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testHttpPost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">try</span> <span class="token punctuation">{<!-- --></span>             <span class="token comment">//1.构建http对象(相当于浏览器)</span>             <span class="token class-name">CloseableHttpClient</span> httpClient <span class="token operator">=</span> <span class="token class-name">HttpClients</span><span class="token punctuation">.</span><span class="token function">createDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">//3.创建http post请求对象</span>             <span class="token class-name">HttpPost</span> post <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpPost</span><span class="token punctuation">(</span><span class="token string">"http://localhost:18081/hp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">/**              * 3.1添加请求参数,post请求参数是在body中              * NameValuePair:封装参数的接口              * BasicNameValuePair: 接口实现类              */</span>             <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">NameValuePair</span><span class="token punctuation">&gt;</span></span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             params<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">BasicNameValuePair</span><span class="token punctuation">(</span><span class="token string">"key"</span><span class="token punctuation">,</span><span class="token string">"wjh"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">/**              * 创建httpentity接口的文本实现类对象              * 封装参数并设置编码              */</span>             <span class="token class-name">HttpEntity</span> httpEntity <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">UrlEncodedFormEntity</span><span class="token punctuation">(</span>params<span class="token punctuation">,</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             post<span class="token punctuation">.</span><span class="token function">setEntity</span><span class="token punctuation">(</span>httpEntity<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//设置参数体</span>              <span class="token comment">//4.创建响应对象</span>             <span class="token class-name">CloseableHttpResponse</span> response <span class="token operator">=</span> httpClient<span class="token punctuation">.</span><span class="token function">execute</span><span class="token punctuation">(</span>post<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">/**              * 由于响应接口返回的是一个字符串,因此需要转换              * 响应体数据封装在HttpEntity对象中              */</span>             <span class="token class-name">String</span> s <span class="token operator">=</span> <span class="token class-name">EntityUtils</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span><span class="token function">getEntity</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">//5.释放资源</span>             response<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             httpClient<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>     <span class="token punctuation">}</span> </code></pre> <p>响应接口:</p> <pre><code class="prism language-java"><span class="token comment">//接口全路径：http://localhost:18081/hp</span>     <span class="token annotation punctuation">@PostMapping</span><span class="token punctuation">(</span><span class="token string">"hp"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">String</span> <span class="token function">hp</span><span class="token punctuation">(</span><span class="token class-name">String</span> key<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token string">"ss"</span> <span class="token operator">+</span> key<span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></pre> <p>post请求结果:</p> <pre><code class="prism language-java"><span class="token number">23</span><span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">18.230</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>DefaultManagedHttpClientConnection</span> <span class="token operator">-</span> http<span class="token operator">-</span>outgoing<span class="token operator">-</span><span class="token number">0</span><span class="token operator">:</span> set socket timeout <span class="token keyword">to</span> <span class="token number">0</span> <span class="token number">23</span><span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">18.230</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>PoolingHttpClientConnectionManager</span> <span class="token operator">-</span> <span class="token class-name">Connection</span> released<span class="token operator">:</span> <span class="token punctuation">[</span>id<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>route<span class="token operator">:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token operator">-&gt;</span>http<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token operator">:</span><span class="token number">18081</span><span class="token punctuation">]</span><span class="token punctuation">[</span>total kept alive<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span> route allocated<span class="token operator">:</span> <span class="token number">1</span> of <span class="token number">2</span><span class="token punctuation">;</span> total allocated<span class="token operator">:</span> <span class="token number">1</span> of <span class="token number">20</span><span class="token punctuation">]</span> sswjh <span class="token number">23</span><span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">18.230</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>PoolingHttpClientConnectionManager</span> <span class="token operator">-</span> <span class="token class-name">Connection</span> manager is shutting down <span class="token number">23</span><span class="token operator">:</span><span class="token number">29</span><span class="token operator">:</span><span class="token number">18.230</span> <span class="token punctuation">[</span>main<span class="token punctuation">]</span> DEBUG <span class="token class-name"><span class="token namespace">org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>http<span class="token punctuation">.</span>impl<span class="token punctuation">.</span>conn<span class="token punctuation">.</span></span>DefaultManagedHttpClientConnection</span> <span class="token operator">-</span> http<span class="token operator">-</span>outgoing<span class="token operator">-</span><span class="token number">0</span><span class="token operator">:</span> <span class="token class-name">Close</span> connection  </code></pre> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-3432.htm">layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</a></p>
+                                                        <p>下一个：<a href="/html/category/article-3738.htm">水平无限循环弹幕的实现</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1320.htm">46.java编程思想——传递和返回对象 只读类</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1289.htm">关于MySQL支持的所有字符集的查询是什么？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1230.htm">CommonsCollection4反序列化链学习</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1159.htm">vue父组件向子组件传值与传递方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1153.htm">使用Typora + 阿里云OSS + PicGo 打造个人图床_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1139.htm">如何将Python词典保存为CSV文件</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1132.htm">win11系统没有记事本如何解决</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1093.htm">C++数据结构之堆详解_C 语言_</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1087.htm">企业实战之阿里druid统一监控方案，你了解吗？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1073.htm">node.js &#8211; 路由、中间件、mysql</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1330.htm" title="avframe转byte数组_Spring Boot图片文件转Base64">avframe转byte数组_Spring Boot图片文件转Base64</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1295.htm" title="带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!">带你快速认识NamenodeHA和Yarn HA,为搭建HadoopHA集群打下基础!</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1638.htm" title="python之33个关键字详解_Python之33个关键字是哪些">python之33个关键字详解_Python之33个关键字是哪些</a></li>
+                        <li class="py-2"><a href="/html/category/article-1947.htm" title="Vant组件样式没有生效">Vant组件样式没有生效</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-3431.htm" title="Jackson 枚举序列化/反序列化">Jackson 枚举序列化/反序列化</a></li>
+                        <li class="py-2"><a href="/html/category/article-3737.htm" title="2.使用httpclient发起post请求">2.使用httpclient发起post请求</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">56</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
