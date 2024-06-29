@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-3763.htm" />
+    <title>idea配置tomcat启动web项目 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>idea配置tomcat启动web项目</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="tomcat_0" rel="nofollow"></a>配置tomcat</h2> <p>1.点击run configuration</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/9f59b07d3493c6f74a88de20c79fe7c4.jpg" alt="idea配置tomcat启动web项目"></p> <h2><a id="2tomcat_local_6" rel="nofollow"></a>2.选择tomcat local</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d77da86b884db067686d6f061ab6ab0c.jpg" alt="idea配置tomcat启动web项目"></p> <h2><a id="3tomcat_9" rel="nofollow"></a>3.配置tomcat</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/f6f61f0acd73254363216ed9993e5bca.jpg" alt="idea配置tomcat启动web项目"></p> <h2><a id="4web_12" rel="nofollow"></a>4.部署web项目</h2> <p>部署有2种方式<br /> war包：打成war置于服务器运行，这种方式我们比较常见。<br /> war exploded：将web工程以当前文件夹的位置关系上传到服务器。就是直接把文件夹、jsp页面 、classes等移到Tomcat 部署文件夹里面，进行加载部署。因此这种方式支持热部署，一般在开发的时候也是用这种方式。</p> <p><strong>中方式获取上下文绝对路径不一样：<br /> String contextPath = request.getSession().getServletContext().getRealPath("/");</strong><br /> 我们这里是使用war exploded 演示。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/443f61946578ab0799dd81c9c8f0ee54.jpg" alt="idea配置tomcat启动web项目"><br /> 我们这里已经生成了，如果没有生成，可以手动生成下，<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/685fd774528e1e09460dff2c21d3287c.jpg" alt="idea配置tomcat启动web项目"><br /> 选择部署<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/afe8a86350590c8c17014f96d8050186.jpg" alt="idea配置tomcat启动web项目"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/3e61fe06ab373545fa98fb9bd9d6a8eb.jpg" alt="idea配置tomcat启动web项目"><br /> application context 和url的后缀要相同，要不会出现404<br /> 启动tomcat即可</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-3738.htm">水平无限循环弹幕的实现</a></p>
+                                                        <p>下一个：<a href="/html/category/article-3764.htm">一文讲透大数据列存标准格式：Parquet</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1310.htm">TensorFlow 模型保存/载入的两种方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1298.htm">利用Redis实现防止接口重复提交功能</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1264.htm">MacOs M1安装Homebrew 在国内最简单方法</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1240.htm">Vue3.0入门 + Vant3.0移动端实践（二）轮播图模块封装及首页完善</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1228.htm">什么是TypeScript，为什么我会用它代替JavaScript？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1207.htm">JAVA8 | 日期时间API（LocalDate、LocalDateTime、LocalTime）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1190.htm">Python使用pandas读取hdfs文件</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1145.htm">【LINT】cpplint修改版：自定义编码风格检查工具lint_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1103.htm">Envoy熔断限流实践基于Rainbond插件实现熔断</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1071.htm">前端发送复杂JSON数据，后端使用@RequestBody接收</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-3431.htm" title="Jackson 枚举序列化/反序列化">Jackson 枚举序列化/反序列化</a></li>
+                        <li class="py-2"><a href="/html/category/article-3764.htm" title="一文讲透大数据列存标准格式：Parquet">一文讲透大数据列存标准格式：Parquet</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-1298.htm" title="利用Redis实现防止接口重复提交功能">利用Redis实现防止接口重复提交功能</a></li>
+                        <li class="py-2"><a href="/html/category/article-1339.htm" title="分享MySQL生产库内存异常增高的排查过程_Mysql_">分享MySQL生产库内存异常增高的排查过程_Mysql_</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                        <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
+                        <li class="py-2"><a href="/html/category/article-1934.htm" title="朴素贝叶斯算法详解">朴素贝叶斯算法详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1349.htm" title="父组件调用子组件的方法-子组件向父组件传值">父组件调用子组件的方法-子组件向父组件传值</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">58</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
