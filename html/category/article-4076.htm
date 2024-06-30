@@ -2,8 +2,8 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-1239.htm" />
-    <title>IntelliJ IDEA 使用Tomcat配置和项目部署详细教程 - Myanmar Address</title>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-4076.htm" />
+    <title>mysql将一张表的数据批量插入到另外一张表 - Myanmar Address</title>
         <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
     <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
     <!--theme-style-->
@@ -56,7 +56,7 @@ var _hmt = _hmt || [];
         <a class="navicon" href="#menu-left"> </a>
         <div class="container">
             <div class="header-matter">
-                <h1>IntelliJ IDEA 使用Tomcat配置和项目部署详细教程</h1>
+                <h1>mysql将一张表的数据批量插入到另外一张表</h1>
                 <p>
                     <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
                 </p>
@@ -93,13 +93,31 @@ var _hmt = _hmt || [];
                 <div class="row">
                     <div class="col-md-9">
                         <div class="news">
-                              				  				  				<div id="content_views" class="htmledit_views"> <p>1.点击Run-Edit Configurations...</p> <p>2.点击左侧“+”，选择Tomcat Server--Local，</p> <p>3.点击local 选择 Server项目下，点击 Configuration ，找到本地 Tomcat 服务器，再点击 OK，IntelliJ IDEA配置Tomcat完成。</p> <p><img decoding="async" alt="3.png" src="http://img.555519.xyz/uploads3/20220609/14fcc5d4786baec349074e24404099a5.jpg"></p> <p>4.在本地进行编译打包部署（需先创建一个maven的java web项目）。直接在idea左下的Terminal终端输入mvn install，编译打包成功，显示BUILD SUCCESS字样。重新查看项目的目录，项目根目录下面多了target目录，该目录下也打出了war包。</p> <p><img decoding="async" alt="8.png" src="http://img.555519.xyz/uploads3/20220609/61e5d16e95bb43c32db90c3924cbe3ad.jpg"></p> <p>5.进入部署界面 。</p> <p>6.在 Deployment 中 点击 + ，选择要部署的工程 。</p> <p>此处选择TestDemo.war作为部署包。</p> <p>7.填写访问路径（一般为项目名，输入后会同步到server标签页的localhost处），点击 OK。</p> <p>8.在主界面中 Application Servers 中就可以看到部署的工程，点击运行 Tomcat 服务器。</p> <p><img decoding="async" alt="12.png" src="http://img.555519.xyz/uploads3/20220609/f96a13f9b3dd3bfe666fc4cf70bb469d.jpg"></p> <p>9.运行成功。</p> <p><img decoding="async" alt="13.png" src="http://img.555519.xyz/uploads3/20220609/64eee2d4df0cd4e20086d50795b7e960.jpg"></p> </div> 			                        </div>
+                              				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>mysql如何将一张表的查询结果插入到另外一张表；</p> <ol> <li><strong>目标表与数据表，表结构一致</strong></li> </ol> <pre><code class="prism language-sql"><span class="token comment">-- 复制并创建表</span><span class="token keyword">create</span><span class="token keyword">table</span> table_B<span class="token keyword">select</span><span class="token operator">*</span><span class="token keyword">from</span> talbe_A<span class="token punctuation">;</span></code></pre> <p>或</p> <pre><code class="prism language-sql"><span class="token keyword">INSERT</span><span class="token keyword">INTO</span> table_B<span class="token keyword">SELECT</span><span class="token operator">*</span><span class="token keyword">FROM</span> table_A<span class="token punctuation">;</span></code></pre> <ol start="2"> <li><strong>表结构不一致或从目标表获取部分字段</strong></li> </ol> <pre><code class="prism language-sql"><span class="token keyword">INSERT</span><span class="token keyword">INTO</span> table_B b<span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token keyword">SELECT</span> name<span class="token punctuation">,</span>age<span class="token keyword">FROM</span> table_A a<span class="token keyword">where</span> a<span class="token punctuation">.</span>id<span class="token operator">=</span> b<span class="token punctuation">.</span>id<span class="token punctuation">;</span></code></pre> </div> 			                        </div>
 
                         <div class="col-md-12 mt-5">
-                                                        <p>上一个：<a href="/html/category/article-1238.htm">一个好玩的代码</a></p>
-                                                        <p>下一个：<a href="/html/category/article-1240.htm">Vue3.0入门 + Vant3.0移动端实践（二）轮播图模块封装及首页完善</a></p>
+                                                        <p>上一个：<a href="/html/category/article-4075.htm">Java中的公平锁和非公平锁实现详解</a></p>
                                                     </div>
 
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-3432.htm">layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-3431.htm">Jackson 枚举序列化/反序列化</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1316.htm">vscode指定扩展安装位置</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1281.htm">使用EasyExcel实现自定义表头导出</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1248.htm">PHP对象继承</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1226.htm">Git基础配置Git用户签名的方式详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1223.htm">从多线程的基础，到JDK8的异步编程，再到异步框架的选择</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1142.htm">Spring Cache缓存框架详解</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1132.htm">win11系统没有记事本如何解决</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1076.htm">Top 20 Docker 面试题（附答案）</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
                                             </div>
                     <div class="col-md-3">
                     	<div class="panel panel-default">
@@ -108,16 +126,16 @@ var _hmt = _hmt || [];
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/html/category/article-3738.htm" title="水平无限循环弹幕的实现">水平无限循环弹幕的实现</a></li>
-                        <li class="py-2"><a href="/html/category/article-1312.htm" title="有关动态规划的相关优化思想_在线工具">有关动态规划的相关优化思想_在线工具</a></li>
-                        <li class="py-2"><a href="/html/category/article-3129.htm" title="Vue结合ElementUI上传Base64编码后的图片实例_vue.js">Vue结合ElementUI上传Base64编码后的图片实例_vue.js</a></li>
-                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
-                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1310.htm" title="TensorFlow 模型保存/载入的两种方法">TensorFlow 模型保存/载入的两种方法</a></li>
                         <li class="py-2"><a href="/html/category/article-1300.htm" title="Git基础Git对象的总结">Git基础Git对象的总结</a></li>
-                        <li class="py-2"><a href="/html/category/article-1304.htm" title="网络协议之:socket协议详解之Socket和Stream Socket">网络协议之:socket协议详解之Socket和Stream Socket</a></li>
-                        <li class="py-2"><a href="/html/category/article-1934.htm" title="朴素贝叶斯算法详解">朴素贝叶斯算法详解</a></li>
-                        <li class="py-2"><a href="/html/category/article-1301.htm" title="Uniapp-远离回调callback请使用await、async">Uniapp-远离回调callback请使用await、async</a></li>
-                        <li class="py-2"><a href="/html/category/article-1318.htm" title="vue项目中,如何实现excel的导入导出excel导入功能-组件封装">vue项目中,如何实现excel的导入导出excel导入功能-组件封装</a></li>
+                        <li class="py-2"><a href="/html/category/article-1933.htm" title="vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值">vue组件间的传值，父传子，子传父，兄弟之间传值，跨级传值</a></li>
+                        <li class="py-2"><a href="/html/category/article-3738.htm" title="水平无限循环弹幕的实现">水平无限循环弹幕的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-1296.htm" title="Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）">Android 12(S) 图像显示系统 &#8211; SurfaceFlinger 之 VSync &#8211; 中篇（十七）</a></li>
+                        <li class="py-2"><a href="/html/category/article-1317.htm" title="JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported">JSON  传输数据出现415错误 Content type &#8216;application/xml;charset=UTF-8&#8217; not supported</a></li>
+                        <li class="py-2"><a href="/html/category/article-1311.htm" title="vue+Echarts绘制动态折线图">vue+Echarts绘制动态折线图</a></li>
+                        <li class="py-2"><a href="/html/category/article-3432.htm" title="layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染">layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</a></li>
+                        <li class="py-2"><a href="/html/category/article-2538.htm" title="LSH-局部敏感哈希">LSH-局部敏感哈希</a></li>
+                        <li class="py-2"><a href="/html/category/article-1313.htm" title="二叉树与堆">二叉树与堆</a></li>
                     </ul>
     </div>
 </div>
