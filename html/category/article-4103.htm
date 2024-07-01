@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-4103.htm" />
+    <title>在Vue项目里使用element ui在input框上使用v-model.trim导致输入空格失效 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>在Vue项目里使用element ui在input框上使用v-model.trim导致输入空格失效</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>在vue项目里使用element ui组件库，你会发现使用element的input框，如果在v-model上加.trim修饰符，得到的内容是去除了前后空白的，但是在输入数据的时候没法按空格键输入空格，这让录数据的人非常难受。分析不能输入空格的原因就是，element的input框不支持v-model.trim的写法，如图：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221207/c9e23a66865b0a065e07ef02b44ad430.jpg"></p> <p>了解原因以后，想解决去除输入值前后空白又能输入空格的问题就清楚很多了，我现在的写法是这样的，不用修饰符.trim，使用js的trim方法，在el-input的@blur事件中去除首尾空格：</p> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20221207/ce340d5562f8b12fa72ed6175852a410.jpg">&nbsp;</p> <p>代码：</p> <pre><code>&lt;el-form-item label="名称：" class="postInfo-container-item"&gt;    &lt;el-input      placeholder="请输入内容"      v-model="searchData.name"      @blur="searchData.name=$event.target.value.trim()"      clearable      maxlength="50"      show-word-limit     &gt;     &lt;/el-input&gt; &lt;/el-form-item&gt;</code></pre> <p>&nbsp;</p> </p></div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-4076.htm">mysql将一张表的数据批量插入到另外一张表</a></p>
+                                                        <p>下一个：<a href="/html/category/article-4104.htm">vue路由守卫，限制前端页面访问权限</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1948.htm">前端之vue的vuex插件(多组件共享数据)</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1308.htm">HTML 5验证有用吗</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1288.htm">【EF框架】DbContext的使用</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1240.htm">Vue3.0入门 + Vant3.0移动端实践（二）轮播图模块封装及首页完善</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1215.htm">Java String.equals()与==。</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1208.htm">Python数据可视化-Matplotlib线性图(折线图等) 代码教学 Part 1</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1158.htm">「BUAA OO Unit 2 HW8」第二单元总结_在线工具</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1122.htm">MySQL如何使用YEAR数据类型在表中存储年值？</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1099.htm">C++ 标准输入、输出流</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1074.htm">json字符串转java实体类及属性对应中的猫腻详解</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1316.htm" title="vscode指定扩展安装位置">vscode指定扩展安装位置</a></li>
+                        <li class="py-2"><a href="/html/category/article-1948.htm" title="前端之vue的vuex插件(多组件共享数据)">前端之vue的vuex插件(多组件共享数据)</a></li>
+                        <li class="py-2"><a href="/html/category/article-3763.htm" title="idea配置tomcat启动web项目">idea配置tomcat启动web项目</a></li>
+                        <li class="py-2"><a href="/html/category/article-1340.htm" title="请说一下你对分布式锁的理解，以及分布式锁的实现">请说一下你对分布式锁的理解，以及分布式锁的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-1319.htm" title="Web前端：Ruby On Rails与JavaScript的主要差异">Web前端：Ruby On Rails与JavaScript的主要差异</a></li>
+                        <li class="py-2"><a href="/html/category/article-1934.htm" title="朴素贝叶斯算法详解">朴素贝叶斯算法详解</a></li>
+                        <li class="py-2"><a href="/html/category/article-1320.htm" title="46.java编程思想——传递和返回对象 只读类">46.java编程思想——传递和返回对象 只读类</a></li>
+                        <li class="py-2"><a href="/html/category/article-1305.htm" title="Kafka delivery保证(kafka消息投递保证)">Kafka delivery保证(kafka消息投递保证)</a></li>
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1350.htm" title="小程序怎么自定义导航栏，导航栏放图片、设置高度">小程序怎么自定义导航栏，导航栏放图片、设置高度</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>

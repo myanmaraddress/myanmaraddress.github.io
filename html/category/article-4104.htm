@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://myanmaraddress.github.io/html/category/article-4104.htm" />
+    <title>vue路由守卫，限制前端页面访问权限 - Myanmar Address</title>
+        <link rel="icon" href="/assets/addons/xcblog/img/myanmaraddress/favicon.ico" type="image/x-icon"/>
+    <link href="/assets/addons/xcblog/css/myanmaraddress/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <!--theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/style.css" rel="stylesheet" type="text/css" media="all">
+    <!--//theme-style-->
+    <link href="/assets/addons/xcblog/css/myanmaraddress/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- script -->
+    <script src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/move-top.js"></script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/easing.js"></script>
+    <link type="text/css" rel="stylesheet" href="/assets/addons/xcblog/css/myanmaraddress/jquery.mmenu.all.css" />
+    <script type="text/javascript">
+    $(window).load(function() {
+        $('div.description').each(function() {
+            $(this).css('display', 'block');
+        });
+
+        $('div.content-top-grid').hover(function() {
+            $(this).children('.description').stop().fadeTo(500, 1);
+        }, function() {
+            $(this).children('.description').stop().fadeTo(500, 0);
+        });
+
+    });
+    </script>
+    <script type="text/javascript" src="/assets/addons/xcblog/js/frontend/myanmaraddress/jquery.mmenu.js"></script>
+    <script type="text/javascript">
+    //	The menu on the left
+    $(function() {
+        $('nav#menu-left').mmenu();
+    });
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e4890e777e20237a4f5a0c3a6a01049c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--header-->
+    <div class="header">
+        <a class="navicon" href="#menu-left"> </a>
+        <div class="container">
+            <div class="header-matter">
+                <h1>vue路由守卫，限制前端页面访问权限</h1>
+                <p>
+                    <a href="/">首页</a> / <a href="/html/category/">文章分类</a> / 正文
+                </p>
+            </div>
+        </div>
+                <nav id="menu-left">
+            <ul>
+                                <li><a href="/">首页</a></li>
+                                <li><a href="/html/category/">文章分类</a></li>
+                                <li>
+                    <a href="#">关于</a>
+                </li>
+                <li>
+                    <a href="#">联系</a>
+                </li>
+            </ul>
+        </nav>
+        <script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
+                event.preventDefault();
+                $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 1000);
+            });
+        });
+        </script>
+    </div>
+    <div class="clearfix"> </div>
+    <!--//header-->
+    <!--content-->
+    <div class="content">
+        <!--our-news-->
+        <div class="our-news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="news">
+                              				  				  				<div id="content_views" class="htmledit_views"> <p>今天给大家写一篇关于vue校验登录状态，如果是非法登录就跳转到登录页面的效果</p> <p>它的具体实现是一个router.beforeEach的钩子，每次路由切换时触发，写法如下</p> <pre class="has"><code class="language-javascript">router.beforeEach((to, from, next) =&gt; {     next() })</code></pre> <h3>beforeEach函数有三个参数：</h3> <ul> <li>to:即将进入的路由对象</li> <li>from:当前导航即将离开的路由</li> <li>next,进行管道中的一个钩子，如果执行完了，则导航的状态就是 confirmed （确认的）；否则为false，终止导航。</li> </ul> <h3>使用案例Demo</h3> <p>限制登陆功能，具体实现思路：每次跳转路由是判断本地 localStorage.getItem('token') 状态</p> <p>路径：找到router-&gt;index.js如下</p> <pre class="has"><code class="language-javascript">import Vue from 'vue' import Router from 'vue-router' Vue.use(Router)  const router = new Router({   routes: [{       path: '/',       name: 'HelloWorld',       component: HelloWorld     },     {       path: '/login',       name: 'login',       component: login     }   ] }) //下面是重点  router.beforeEach((to, from, next) =&gt; {   let token = localStorage.getItem('token')    if (to.path == '/login') {     next()   } else {     if (token == '' || token == null) {       next('/login');     } else {       next()     }   }  })  export default router;</code></pre> <p>解释：index.js写成如上形式，用const router 接受 new Router对象，最后export暴露出去</p> <p>router.beforeEach 在每次路由跳转出发</p> <p>let token = localStorage.getItem('token')&nbsp; 获取本地没有没token 如果没有就跳到login页面 很简单的逻辑</p> </div> 			                        </div>
+
+                        <div class="col-md-12 mt-5">
+                                                        <p>上一个：<a href="/html/category/article-4103.htm">在Vue项目里使用element ui在input框上使用v-model.trim导致输入空格失效</a></p>
+                                                    </div>
+
+                                                <div class="panel panel-default mt-5">
+                            <div class="panel-heading">
+                                <h3 class="m-0">推荐文章</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="p-0 x-0">
+                                                                        <li class="py-2"><a href="/html/category/article-1308.htm">HTML 5验证有用吗</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1242.htm">机器学习笔记：Python底层实现逻辑回归</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1238.htm">一个好玩的代码</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1222.htm">Shell基础 — 6、Bash基本功能（输入输出重定向）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1199.htm">vue3新增特性setup()用法＜与vue2对比＞</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1180.htm">SpringCloud Sleuth分布式请求链路追踪</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1178.htm">springboot中swagger的使用以及404的情况处理</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1167.htm">SpringBoot 整合ActiveMQ</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1117.htm">MySQL高级 之 explain执行计划详解（*）</a></li>
+                                                                        <li class="py-2"><a href="/html/category/article-1065.htm">0基础学MySQL数据库—从小白到大牛（1）初识数据库</a></li>
+                                                                    </ul>
+                            </div>
+                        </div>
+                                            </div>
+                    <div class="col-md-3">
+                    	<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/html/category/article-1303.htm" title="通过make生成执行文件的过程详解_在线工具">通过make生成执行文件的过程详解_在线工具</a></li>
+                        <li class="py-2"><a href="/html/category/article-1299.htm" title="linux信号量semaphore">linux信号量semaphore</a></li>
+                        <li class="py-2"><a href="/html/category/article-3738.htm" title="水平无限循环弹幕的实现">水平无限循环弹幕的实现</a></li>
+                        <li class="py-2"><a href="/html/category/article-3737.htm" title="2.使用httpclient发起post请求">2.使用httpclient发起post请求</a></li>
+                        <li class="py-2"><a href="/html/category/article-1307.htm" title="在JavaScript中实现优先级排序">在JavaScript中实现优先级排序</a></li>
+                        <li class="py-2"><a href="/html/category/article-3432.htm" title="layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染">layui form.render(&#8216;select&#8217;, &#8216;test2&#8217;) 更新渲染</a></li>
+                        <li class="py-2"><a href="/html/category/article-1302.htm" title="java高级用法之:在JNA中使用类型映射">java高级用法之:在JNA中使用类型映射</a></li>
+                        <li class="py-2"><a href="/html/category/article-1920.htm" title="我们如何在Java中实现自定义HashSet">我们如何在Java中实现自定义HashSet</a></li>
+                        <li class="py-2"><a href="/html/category/article-2831.htm" title="kerberos kafka 问题解决">kerberos kafka 问题解决</a></li>
+                        <li class="py-2"><a href="/html/category/article-1297.htm" title="vue2设置保存自动执行run lint配置步骤">vue2设置保存自动执行run lint配置步骤</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">2</span> <a href="/html/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-05/" title="2024-05 归档">2024-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/html/date/2024-04/" title="2024-04 归档">2024-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">62</span> <a href="/html/date/2024-03/" title="2024-03 归档">2024-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">50</span> <a href="/html/date/2024-02/" title="2024-02 归档">2024-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//content-->
+        <!--footer-->
+    <div class="footer">
+        <div class="container">
+            <p>
+                Myanmar Address 版权所有
+                <br />
+                Powered by WordPress
+            </p>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $('.js_to').click(function(){
+            var url = $(this).data('url');
+            var code = $(this).data('code');
+            url += code;
+
+            window.open(url);
+        })
+    });
+    </script>
+</body>
+
+</html>
